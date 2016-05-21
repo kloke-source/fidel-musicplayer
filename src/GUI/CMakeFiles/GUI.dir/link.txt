@@ -1,0 +1,2 @@
+/usr/bin/ar qc libGUI.a  CMakeFiles/GUI.dir/gui.cpp.o CMakeFiles/GUI.dir/fidel-resources.c.o
+/usr/bin/ranlib libGUI.a

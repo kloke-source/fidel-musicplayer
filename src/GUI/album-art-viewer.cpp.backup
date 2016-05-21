@@ -1,0 +1,102 @@
+#include <gtkmm.h>
+#include <iostream>
+#include <GUI/album-art.h>
+#include <Utilities/util.h>
+#include <Utilities/btree.h>
+#include <GUI/album-art-viewer.h>
+#include <Audio-Info/audioinfo.h>
+#include <Audio-Library/audio-library.h>
+
+using namespace std;
+
+enum album_fields
+{
+  ID,
+  ALBUM_NAME,
+  ALBUM_ART_LOCATION,
+  SONGS_IN_ALBUM = 2,
+  FILE_LOCATION = 3
+};
+
+AlbumArtViewer::AlbumArtViewer()
+{
+  //this->viewer_frame = new Gtk::Box();
+  this->album_grid = new Gtk::Grid();
+  this->viewer_scrolled_window = new Gtk::ScrolledWindow();
+  AlbumArtViewer::init(); // seg fault
+}
+
+AlbumArtViewer::AlbumArtViewer(Gtk::Widget *parent)
+{
+  this->parent = parent;
+  this->album_grid = new Gtk::Grid();
+  //this->viewer_frame = new Gtk::Box();
+  this->viewer_scrolled_window = new Gtk::ScrolledWindow();
+  AlbumArtViewer::init();
+}
+
+AlbumArtViewer::~AlbumArtViewer()
+{}
+
+void AlbumArtViewer::init(Gtk::Widget *parent)
+{
+  this->parent = parent;
+  AlbumArtViewer::init();
+}
+
+void AlbumArtViewer::init()
+{
+  //vector<Gtk::Image*> full_album_art = audioinfo::get_all_album_art(200, 200);
+  //this->viewer_frame = new Gtk::Box();
+  vector<vector<Glib::ustring>> album_info = audio_library::batch_collect_info("album_information");
+  vector<vector<Glib::ustring>> album_summ = audio_library::batch_collect_info("album_summary");
+  vector<AlbumArt*> full_album_art;
+
+  for (size_t album_art_iter = 0; album_art_iter < album_info.size(); album_art_iter++){
+    AlbumArt *album_art = new AlbumArt();
+    album_art->set_album_data(album_info[album_art_iter]);
+    Glib::ustring album_name = album_info[album_art_iter][ALBUM_NAME];
+    vector<vector<Glib::ustring>> songs_and_file_locs;
+    for (size_t album_summ_iter = 0; album_summ_iter < album_summ.size(); album_summ_iter++){
+      if (album_summ[album_summ_iter][ALBUM_NAME] == album_name)
+      {
+        vector<Glib::ustring> songs_and_file_loc;
+        songs_and_file_loc.push_back(album_summ[album_summ_iter][SONGS_IN_ALBUM]);
+        songs_and_file_loc.push_back(album_summ[album_summ_iter][FILE_LOCATION]);
+        songs_and_file_locs.push_back(songs_and_file_loc);
+      }
+    }
+    album_art->set_songs_and_file_locs(songs_and_file_locs);
+    full_album_art.push_back(album_art);
+  }
+
+  double needed_rows = (double)full_album_art.size()/8; //8 images per row
+  cout << "NEEDED ROWS " << util::round_up(needed_rows) << endl;
+  size_t image_iter=0;
+  for (int rows = 0; rows < util::round_up(needed_rows); rows++){
+    for (int columns = 0; columns < 8; columns++){
+      if (image_iter == full_album_art.size()){
+        break;
+      }
+      album_grid->attach(*full_album_art[image_iter], columns, rows, 1, 1);
+      full_album_art[image_iter]->show();
+      image_iter++;
+    }
+  }
+
+  album_grid->set_row_spacing(25);
+  album_grid->set_column_spacing(25);
+  viewer_scrolled_window->add(*album_grid);
+  album_grid->override_background_color(Gdk::RGBA("#2D2D2D"));
+  viewer_frame.pack_start(*viewer_scrolled_window, Gtk::PACK_EXPAND_WIDGET);
+  viewer_frame.show();
+  album_grid->show();
+  viewer_scrolled_window->show();
+}
+
+void AlbumArtViewer::show()
+{
+  album_grid->show();
+  viewer_frame.show();
+  viewer_scrolled_window->show();
+}

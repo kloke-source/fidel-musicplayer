@@ -1,0 +1,25 @@
+#ifndef ALBUM_ART_VIEWER
+#define ALBUM_ART_VIEWER
+#include <gtkmm.h>
+#include <iostream>
+#include <Utilities/util.h>
+#include <Utilities/btree.h>
+#include <Audio-Library/audio-library.h>
+
+using namespace std;
+class AlbumArtViewer : public Gtk::Box {
+public:
+  AlbumArtViewer();
+  AlbumArtViewer(Gtk::Widget *parent);
+  ~AlbumArtViewer();
+  void init();
+  void init(Gtk::Widget *parent);
+  AlbumArtViewer get_viewer();
+  void show();
+  AlbumArtViewer viewer_frame;
+private:
+  Gtk::Widget *parent;
+  Gtk::Grid *album_grid;
+  Gtk::ScrolledWindow *viewer_scrolled_window;
+};
+#endif

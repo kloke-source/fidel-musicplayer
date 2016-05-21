@@ -1,0 +1,9 @@
+#!/bin/bash
+
+RESULT=`make | grep "Error"`
+
+if [ '$RESULT' == "" ]; then 
+ echo "Successful"
+else
+ echo "Unsuccessful"
+fi

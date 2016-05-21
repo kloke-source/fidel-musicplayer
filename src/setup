@@ -1,0 +1,24 @@
+#!/bin/bash
+clear
+mkdir -pv ~/fidel/Resources/UI
+mkdir -pv ~/fidel/Resources/Icons
+mkdir -pv ~/fidel/Resources/Icons/ui-icons/
+mkdir -pv ~/fidel/Resources/Icons/library-icons/
+mkdir -pv ~/fidel/temp/
+mkdir -pv ~/fidel/Album-Info/Album-Art/
+mkdir -pv ~/fidel/Album-Info/Album-Art/*
+rm -rf ~/fidel/Album-Info/Album-Art/*
+
+cp -rv src/GUI/fidel.ui ~/fidel/Resources/UI
+cp -rv src/GUI/seeker.ui ~/fidel/Resources/UI
+cp -rv Resources/playback-icons ~/fidel/Resources/Icons
+cp -rv Resources/ui-icons ~/fidel/Resources/Icons/
+cp -rv Resources/library-icons ~/fidel/Resources/Icons/
+cp -rv Resources/Databases ~/fidel/Resources
+
+g++ -o fidel-notify src/Utilities/notify.cpp
+./fidel-notify font-install-notify
+sudo cp -rv Resources/Fonts/digital_font/* /usr/share/fonts/TTF
+./fidel-notify font-cache-update
+sudo fc-cache -fv
+./fidel-notify about-creator

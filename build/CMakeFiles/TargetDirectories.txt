@@ -1,0 +1,8 @@
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles/edit_cache.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles/rebuild_cache.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/CMakeFiles/edit_cache.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/CMakeFiles/rebuild_cache.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/CMakeFiles/fidel.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/rebuild_cache.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/edit_cache.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir

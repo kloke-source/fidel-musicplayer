@@ -1,0 +1,14 @@
+#!/bin/bash
+
+NC='\033[0m'
+RED='\033[0;31m'
+DGRAY='\033[1;30m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;34m'
+
+CODELINES=$(git ls-files | find . -type f \( -name "*cpp" -o -name "*h" -o -name "configure.ac" -o -name "Makefile.am" -o -name "ui" -o -name "setup" \) -exec cat {} \; | wc -l)
+
+printf ${YELLOW}'%*s\n'${NC} "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+printf "${DGRAY}Lines of Code: \n${YELLOW}$CODELINES\n${NC}"
+printf ${YELLOW}'%*s\n'${NC} "${COLUMNS:-$(tput cols)}" '' | tr ' ' -

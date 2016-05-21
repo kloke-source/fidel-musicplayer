@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/anorak/fidel">
+    <file preprocess="xml-stripblanks">fidel.ui</file>
+  </gresource>
+</gresources>
