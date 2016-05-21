@@ -1,0 +1,2 @@
+/usr/bin/ar qc libGUILIB.a  CMakeFiles/GUILIB.dir/GUI/gui.cpp.o
+/usr/bin/ranlib libGUILIB.a

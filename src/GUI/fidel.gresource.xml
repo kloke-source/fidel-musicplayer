@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/anorak/fidel">
-    <file preprocess="xml-stripblanks">fidel.ui</file>
+  <gresource prefix="/fidel">
+    <file preprocess="xml-stripblanks">Resources/fidel.ui</file>
+    <file>Resources/playback-next.svg</file>
+    <file>Resources/playback-pause.svg</file>
+    <file>Resources/playback-play.svg</file>
+    <file>Resources/playback-previous.svg</file>
+    <file>Resources/playback-stop.svg</file>
+    <file>Resources/repeat.svg</file>
+    <file>Resources/seeker.ui</file>
+    <file>Resources/shuffle.svg</file>
   </gresource>
 </gresources>
