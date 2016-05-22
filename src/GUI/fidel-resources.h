@@ -5,6 +5,6 @@
 
 class Resource{
 public: 
-  static GResource *fidel_get_resource (void); 
+  static G_GNUC_INTERNAL GResource *fidel_get_resource (void); 
 };
 #endif

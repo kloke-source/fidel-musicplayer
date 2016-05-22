@@ -37,12 +37,17 @@ public:
 		Gtk::TreeModelColumn<Glib::ustring> col_file_location;
   };
 
+	*/
 private:
+	Glib::RefPtr<Gtk::Builder> builder;
+Gtk::Button *play_button;
+	void init_connections();
+	bool on_window_closed(GdkEventAny* event);
+	/*
 	void init_playlist();
 	void init_album_view();
 	void populate_playlist();
 	virtual bool keyboard_shortcuts(GdkEventKey* event);
-	void init_connections();
 	void split_view_resize_handler(Gtk::Allocation &allocation);
 	void playlist_resize_handler(Gtk::Allocation &allocation);
 	void on_search_entry_kp_event(const Glib::ustring& text,int* character_num);
@@ -54,7 +59,6 @@ private:
 	void on_play_button_clicked();
 	void pb_slider_val_changed();
 	void test();
-	bool on_window_closed(GdkEventAny* event);
 	void kill();
 	*/
 };

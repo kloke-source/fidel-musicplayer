@@ -19,7 +19,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Release
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -61,6 +61,9 @@ CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 
 //Flags used by the compiler during release builds with debug info.
 CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+//Set Debug library postfix
+CMAKE_DEBUG_POSTFIX:STRING=_debug
 
 //Flags used by the linker.
 CMAKE_EXE_LINKER_FLAGS:STRING=
@@ -119,6 +122,9 @@ CMAKE_PROJECT_NAME:STATIC=fidel
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
 
+//Set Release library postfix
+CMAKE_RELEASE_POSTFIX:STRING=
+
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
 
@@ -170,6 +176,9 @@ GUI_LIB_DEPENDS:STATIC=
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+//Set Debug library postfix
+fidel:STRING=CMAKE_DEBUG_POSTFIX;d
 
 //Value Computed by CMake
 fidel_BINARY_DIR:STATIC=/home/tashrif/Dev/fidel-musicplayer-cmake/build

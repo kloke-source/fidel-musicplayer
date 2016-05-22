@@ -2,14 +2,14 @@
 
 cd ../src/GUI/
 
-glib-compile-resources --target=fidel-resources.cpp --generate-source fidel.gresource.xml
-glib-compile-resources --target=fidel-resources.h --generate-header fidel.gresource.xml
+glib-compile-resources --target=fidel-resources.cpp --generate-source --internal fidel.gresource.xml
+glib-compile-resources --target=fidel-resources.h --generate-header --internal fidel.gresource.xml
 
-HEADER="class Resource{\npublic: \n  static GResource *fidel_get_resource (void); \n};"
+HEADER="class Resource{\npublic: \n  static G_GNUC_INTERNAL GResource *fidel_get_resource (void); \n};"
 CPP_HEADER_REPLACE="#include <gio\/gio.h> \n#include <GUI\/fidel-resources.h>"
 CPP_FUNC_REPLACE="GResource *Resource::fidel\_get\_resource (void)"
 
-sed -i "s/extern GResource \*fidel\_get\_resource (void);/$HEADER/g" fidel-resources.h
+sed -i "s/G_GNUC_INTERNAL GResource \*fidel\_get\_resource (void);/$HEADER/g" fidel-resources.h
 sed -i "s/#include <gio\/gio.h>/$CPP_HEADER_REPLACE/g" fidel-resources.cpp
-sed -i "s/extern GResource \*fidel\_get\_resource (void);//g" fidel-resources.cpp
+sed -i "s/G_GNUC_INTERNAL GResource \*fidel\_get\_resource (void);//g" fidel-resources.cpp
 sed -i "s/GResource \*fidel\_get\_resource (void)/$CPP_FUNC_REPLACE/g" fidel-resources.cpp

@@ -1,4 +1,5 @@
 #include "gui.h"
+#include <vector>
 #include <gtkmm.h>
 #include <iostream>
 #include <gio/gio.h>
@@ -15,51 +16,63 @@
 gui::gui(){}
 gui::~gui(){}
 
-Glib::RefPtr<Gtk::Builder> builder;
-Gtk::Window *window;
-
-Gtk::Button *play_button;
-Gtk::Image *play_icon;
 
 
+//Gtk::Image *play_icon;
+
+GResource *fidel_resources;
 void gui::initialize(int argc, char **argv)
 {
   Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "anorak.fidel");
+
+  Gtk::ApplicationWindow *window;
+  Gtk::Box *main_layout;
+
   builder = Gtk::Builder::create();
-  g_resources_register(Resource::fidel_get_resource());
-
+  fidel_resources = Resource::fidel_get_resource();
+  g_resources_register(fidel_resources);
   gui::init_builder();
+
   builder->get_widget("window", window);
-
-  builder->get_widget("play_button", play_button);
-  play_icon = new Gtk::Image();
-  play_icon->set_from_resource("/fidel/Resources/playback-play.svg");
-  play_button->add(*play_icon);
-
-  play_icon->show();
-  play_button->show();
+  builder->get_widget("main_layout", main_layout);
 
   window->maximize();
+
   app->run(*window);
+  g_resources_unregister(fidel_resources);
+  //g_resource_unref(fidel_resources);
+  //delete button;
+  //delete window;
+}
+
+void gui::init_connections()
+{
+	//window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
+}
+
+bool gui::on_window_closed(GdkEventAny* event)
+{
+  //free(window);
+  delete fidel_ui::Instance();
+	return true;
 }
 
 void gui::init_builder()
 {
   try
   {
-    //g_resources_register(Resource::fidel_get_resource());
     builder->add_from_resource("/fidel/Resources/fidel.ui");
   }
-  catch(const Glib::FileError& ex)
+  catch(const Glib::FileError& error)
   {
-    std::cerr << "FileError: " << ex.what() << std::endl;
+    std::cerr << "FileError: " << error.what() << std::endl;
   }
-  catch(const Glib::MarkupError& ex)
+  catch(const Glib::MarkupError& error)
   {
-    std::cerr << "MarkupError: " << ex.what() << std::endl;
+    std::cerr << "MarkupError: " << error.what() << std::endl;
   }
-  catch(const Gtk::BuilderError& ex)
+  catch(const Gtk::BuilderError& error)
   {
-    std::cerr << "BuilderError: " << ex.what() << std::endl;
+    std::cerr << "BuilderError: " << error.what() << std::endl;
   }
 }

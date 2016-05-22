@@ -25,6 +25,8 @@ GUI/fidel-resources.h
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp
 gui.h
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
+vector
+-
 gtkmm.h
 -
 iostream
