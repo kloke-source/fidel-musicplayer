@@ -19,46 +19,115 @@ gui::~gui(){}
 
 
 //Gtk::Image *play_icon;
-
 GResource *fidel_resources;
+
+Builder builder;
+ApplicationWindow *window;
+
+Toolbar *toolbar;
+ImageMenuItem *open_action;
+Notebook *view_switcher;
+Entry *playlist_search_entry;
+
+Label *split_view_label;
+Label *playlist_view_label;
+Label *library_view_label;
+Label *spectrum_view_label;
+Label *idle_status_label;
+Label *playback_timer;
+Label *playback_endtime;
+Label *sidebar_name_label;
+Label *sidebar_artist_label;
+Label *sidebar_album_label;
+Label *sidebar_song_name;
+Label *sidebar_song_artist;
+Label *sidebar_song_album;
+
+Box *split_view_layout;
+Box *split_view_spectrum;
+Box *split_view_playlist;
+Box *library_view_frame;
+Box *playback_frame;
+Box *playlist_view;
+Box *playback_slider_frame;
+Box *sidebar_layout;
+Box *sidebar_albumart;
+Box *spectrum_view_layout;
+
+Grid *sidebar_audioinfo_layout;
+Scale *playback_slider;
+
+Button *previous_button;
+Button *play_button;
+Button *next_button;
+Button *sidebar_hider;
+
 void gui::initialize(int argc, char **argv)
 {
   Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "anorak.fidel");
-
-  Gtk::ApplicationWindow *window;
-  Gtk::Box *main_layout;
-
-  builder = Gtk::Builder::create();
-  fidel_resources = Resource::fidel_get_resource();
-  g_resources_register(fidel_resources);
   gui::init_builder();
-
-  builder->get_widget("window", window);
-  builder->get_widget("main_layout", main_layout);
-
+  gui::get_widgets();
   window->maximize();
 
   app->run(*window);
   g_resources_unregister(fidel_resources);
-  //g_resource_unref(fidel_resources);
-  //delete button;
-  //delete window;
+}
+
+void gui::get_widgets()
+{
+  builder->get_widget("window", window);
+  builder->get_widget("toolbar", toolbar);
+  builder->get_widget("open_action", open_action);
+  builder->get_widget("view_switcher", view_switcher);
+  builder->get_widget("playlist_search_entry", playlist_search_entry);
+
+  builder->get_widget("split_view_label", split_view_label);
+  builder->get_widget("playlist_view_label", playlist_view_label);
+  builder->get_widget("library_view_label", library_view_label);
+  builder->get_widget("spectrum_view_label", spectrum_view_label);
+  builder->get_widget("idle_status_label", idle_status_label);
+  builder->get_widget("sidebar_name_label", sidebar_name_label);
+  builder->get_widget("sidebar_artist_label", sidebar_artist_label);
+  builder->get_widget("sidebar_album_label", sidebar_album_label);
+  builder->get_widget("playback_timer", playback_timer);
+  builder->get_widget("playback_endtime", playback_endtime);
+  builder->get_widget("sidebar_song_name", sidebar_song_name);
+  builder->get_widget("sidebar_song_artist", sidebar_song_artist);
+  builder->get_widget("sidebar_song_album", sidebar_song_album);
+
+  builder->get_widget("split_view_layout", split_view_layout);
+  builder->get_widget("split_view_spectrum", split_view_spectrum);
+  builder->get_widget("split_view_playlist", split_view_playlist);
+  builder->get_widget("library_view_frame", library_view_frame);
+  builder->get_widget("playback_frame", playback_frame);
+  builder->get_widget("playlist_view", playlist_view);
+  builder->get_widget("playback_slider_frame", playback_slider_frame);
+  builder->get_widget("sidebar_layout", sidebar_layout);
+  builder->get_widget("sidebar_albumart", sidebar_albumart);
+  builder->get_widget("spectrum_view_layout", spectrum_view_layout);
+
+  builder->get_widget("sidebar_audioinfo_layout", sidebar_audioinfo_layout);
+  builder->get_widget("previous_button", previous_button);
+  builder->get_widget("play_button", play_button);
+  builder->get_widget("next_button", next_button);
+  builder->get_widget("sidebar_hider", sidebar_hider);
 }
 
 void gui::init_connections()
 {
-	//window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
+  window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
 }
 
 bool gui::on_window_closed(GdkEventAny* event)
 {
-  //free(window);
-  delete fidel_ui::Instance();
-	return true;
+  return false;
 }
 
 void gui::init_builder()
 {
+  builder = Gtk::Builder::create();
+  fidel_resources = Resource::fidel_get_resource();
+  g_resources_register(fidel_resources);
   try
   {
     builder->add_from_resource("/fidel/Resources/fidel.ui");

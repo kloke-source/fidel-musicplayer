@@ -90,7 +90,7 @@ fidel_EXTERNAL_OBJECTS =
 
 fidel: src/CMakeFiles/fidel.dir/main.cpp.o
 fidel: src/CMakeFiles/fidel.dir/build.make
-fidel: /home/tashrif/Dev/build/libGUI.a
+fidel: src/GUI/libGUI.a
 fidel: src/CMakeFiles/fidel.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../fidel"
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fidel.dir/link.txt --verbose=$(VERBOSE)

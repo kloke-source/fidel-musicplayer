@@ -6,12 +6,22 @@
 
 #IncludeRegexTransform: 
 
+/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp
+gio/gio.h
+-
+GUI/fidel-resources.h
+-
+
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp
 gui.h
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
+vector
+-
 gtkmm.h
 -
 iostream
+-
+gio/gio.h
 -
 GUI/fidel-resources.h
 -
@@ -24,6 +34,16 @@ gtkmm.h
 iostream
 -
 GUI/singleton.h
+-
+
+/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/ui-widgets.cpp
+GUI/ui-widgets.h
+-
+GUI/fidel-resources.h
+-
+gtkmm.h
+-
+iostream
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
@@ -11414,5 +11434,11 @@ src/GUI/singleton.h
 assert.h
 -
 cstddef
+-
+
+src/GUI/ui-widgets.h
+gtkmm.h
+-
+vector
 -
 

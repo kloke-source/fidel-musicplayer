@@ -7,6 +7,18 @@
 
 using namespace std;
 
+typedef Glib::RefPtr<Gtk::Builder> Builder;
+typedef Gtk::ApplicationWindow ApplicationWindow;
+typedef Gtk::Toolbar Toolbar;
+typedef Gtk::ImageMenuItem ImageMenuItem;
+typedef Gtk::Notebook Notebook;
+typedef Gtk::Entry Entry;
+typedef Gtk::Label Label;
+typedef Gtk::Box Box;
+typedef Gtk::Grid Grid;
+typedef Gtk::Scale Scale;
+typedef Gtk::Button Button;
+
 class gui{
 public:
 	gui();
@@ -39,10 +51,9 @@ public:
 
 	*/
 private:
-	Glib::RefPtr<Gtk::Builder> builder;
-Gtk::Button *play_button;
 	void init_connections();
 	bool on_window_closed(GdkEventAny* event);
+	void get_widgets();
 	/*
 	void init_playlist();
 	void init_album_view();

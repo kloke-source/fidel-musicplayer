@@ -125,32 +125,32 @@ GUI/fast:
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
 .PHONY : GUI/fast
 
-fidel-resources.o: fidel-resources.c.o
+fidel-resources.o: fidel-resources.cpp.o
 
 .PHONY : fidel-resources.o
 
 # target to build an object file
-fidel-resources.c.o:
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o
-.PHONY : fidel-resources.c.o
+fidel-resources.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o
+.PHONY : fidel-resources.cpp.o
 
-fidel-resources.i: fidel-resources.c.i
+fidel-resources.i: fidel-resources.cpp.i
 
 .PHONY : fidel-resources.i
 
 # target to preprocess a source file
-fidel-resources.c.i:
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.i
-.PHONY : fidel-resources.c.i
+fidel-resources.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.i
+.PHONY : fidel-resources.cpp.i
 
-fidel-resources.s: fidel-resources.c.s
+fidel-resources.s: fidel-resources.cpp.s
 
 .PHONY : fidel-resources.s
 
 # target to generate assembly for a file
-fidel-resources.c.s:
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.s
-.PHONY : fidel-resources.c.s
+fidel-resources.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.s
+.PHONY : fidel-resources.cpp.s
 
 gui.o: gui.cpp.o
 
@@ -179,6 +179,33 @@ gui.cpp.s:
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.s
 .PHONY : gui.cpp.s
 
+ui-widgets.o: ui-widgets.cpp.o
+
+.PHONY : ui-widgets.o
+
+# target to build an object file
+ui-widgets.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/ui-widgets.cpp.o
+.PHONY : ui-widgets.cpp.o
+
+ui-widgets.i: ui-widgets.cpp.i
+
+.PHONY : ui-widgets.i
+
+# target to preprocess a source file
+ui-widgets.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/ui-widgets.cpp.i
+.PHONY : ui-widgets.cpp.i
+
+ui-widgets.s: ui-widgets.cpp.s
+
+.PHONY : ui-widgets.s
+
+# target to generate assembly for a file
+ui-widgets.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/ui-widgets.cpp.s
+.PHONY : ui-widgets.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -194,6 +221,9 @@ help:
 	@echo "... gui.o"
 	@echo "... gui.i"
 	@echo "... gui.s"
+	@echo "... ui-widgets.o"
+	@echo "... ui-widgets.i"
+	@echo "... ui-widgets.s"
 .PHONY : help
 
 
