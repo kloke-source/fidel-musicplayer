@@ -16,69 +16,65 @@
 gui::gui(){}
 gui::~gui(){}
 
-
-
-//Gtk::Image *play_icon;
 GResource *fidel_resources;
 Builder builder;
 ApplicationWindow *window;
 
-//Toolbar *toolbar;
-//ImageMenuItem *open_action;
-//Notebook *view_switcher;
-//Entry *playlist_search_entry;
-//
-//Label *split_view_label;
-//Label *playlist_view_label;
-//Label *library_view_label;
-//Label *spectrum_view_label;
-//Label *idle_status_label;
-//Label *playback_timer;
-//Label *playback_endtime;
-//Label *sidebar_name_label;
-//Label *sidebar_artist_label;
-//Label *sidebar_album_label;
-//Label *sidebar_song_name;
-//Label *sidebar_song_artist;
-//Label *sidebar_song_album;
-//
-//Box *split_view_layout;
-//Box *split_view_spectrum;
-//Box *split_view_playlist;
-//Box *library_view_frame;
-//Box *playback_frame;
-//Box *playlist_view;
-//Box *playback_slider_frame;
-//Box *sidebar_layout;
-//Box *sidebar_albumart;
-//Box *spectrum_view_layout;
-//
-//Grid *sidebar_audioinfo_layout;
-//Scale *playback_slider;
-//
-//Button *previous_button;
-//Button *play_button;
-//Button *next_button;
-//Button *sidebar_hider;
-//
+Toolbar *toolbar;
+ImageMenuItem *open_action;
+Notebook *view_switcher;
+Entry *playlist_search_entry;
+
+Label *split_view_label;
+Label *playlist_view_label;
+Label *library_view_label;
+Label *spectrum_view_label;
+Label *idle_status_label;
+Label *playback_timer;
+Label *playback_endtime;
+Label *sidebar_name_label;
+Label *sidebar_artist_label;
+Label *sidebar_album_label;
+Label *sidebar_song_name;
+Label *sidebar_song_artist;
+Label *sidebar_song_album;
+
+Box *split_view_layout;
+Box *split_view_spectrum;
+Box *split_view_playlist;
+Box *library_view_frame;
+Box *playback_frame;
+Box *playlist_view;
+Box *playback_slider_frame;
+Box *sidebar_layout;
+Box *sidebar_albumart;
+Box *spectrum_view_layout;
+
+Grid *sidebar_audioinfo_layout;
+Scale *playback_slider;
+
+Button *previous_button;
+Button *play_button;
+Button *next_button;
+Button *sidebar_hider;
+
 bool audio_file_chosen = false;
 
 void gui::initialize(int argc, char **argv)
 {
   Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "anorak.fidel");
   gui::init_builder();
-  builder->get_widget("window", window);
-  //gui::get_widgets();
-  //gui::init_connections();
+  gui::get_widgets();
+  gui::init_connections();
   window->maximize();
 
   app->run(*window);
   //delete window;
   //std::cout << window << std::endl;
   //g_resources_unregister(fidel_resources);
-  //g_resource_unref(fidel_resources);
+  g_resource_unref(fidel_resources);
 }
-/*
+
 void gui::get_widgets()
 {
   builder->get_widget("window", window);
@@ -118,7 +114,7 @@ void gui::get_widgets()
   builder->get_widget("next_button", next_button);
   builder->get_widget("sidebar_hider", sidebar_hider);
 }
-*/
+
 void gui::init_connections()
 {
   window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
