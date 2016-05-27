@@ -118,7 +118,7 @@ void gui::get_widgets()
 void gui::init_connections()
 {
   window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
-  //open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
+  open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
 }
 
 bool gui::on_window_closed(GdkEventAny* event)
@@ -168,6 +168,7 @@ void gui::on_file_open_triggered()
         fileOpenDialog.~FileChooserDialog();
         //playback::audio_file(audio_file_src);
       }
+      delete audio_file_src;
       break;
     }
     case(Gtk::RESPONSE_CANCEL):

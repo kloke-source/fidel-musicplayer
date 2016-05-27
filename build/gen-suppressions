@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Author: Tashrif Sanil
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NC='\033[0m'
+RED='\033[0;31m'
+DGRAY='\033[1;30m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;34m'
+
+SUPPRESSION_FILE_DIR="suppressions"
+VALGRIND_SUPPRESSION_FILES=""
+for SUPPRESSION_FILE in $SUPPRESSION_FILE_DIR/*supp; do
+  VALGRIND_SUPPRESSION_FILES+=" --suppressions=$SUPPRESSION_FILE"
+done
+
+VALGRIND_EXTRA_OPTIONS="--leak-check=full --show-reachable=yes --error-limit=no --gen-suppressions=all --log-file=fidel_raw.log"
+
+printf ${RED}'%*s\n'${NC} "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+printf "${YELLOW}Are you sure you want to proceed (y/N)${NC}\n"
+printf ${RED}'%*s\n'${NC} "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+read PROCEED
+
+if [ "$PROCEED" = "y" ]; then
+  printf "${DGRAY}Proceeding ...${NC}\n"
+  printf "${BLUE}Enter name of suppression file you wish to generate${NC}\n"
+  read CUSTOM_SUPP_FILE_NAME
+  CUSTOM_SUPP_FILE_LOC=$(echo "$SUPPRESSION_FILE_DIR/$CUSTOM_SUPP_FILE_NAME.supp")
+  valgrind  $VALGRIND_EXTRA_OPTIONS $VALGRIND_SUPPRESSION_FILES .././fidel_debug
+  cat fidel_raw.log | ./parse_valgrind_suppressions.sh > $CUSTOM_SUPP_FILE_LOC
+  rm -rf fidel_raw.log
+  printf "${GREEN} Suppression file has been created at $CUSTOM_SUPP_FILE_LOC${NC}\n"
+else if [ -z "$PROCEED" ]; then
+  printf "${GREEN}Haulted${NC}"
+fi
+fi

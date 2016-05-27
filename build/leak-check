@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Author: Tashrif Sanil
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 SUPPRESSION_FILE_DIR="suppressions"
 VALGRIND_SUPPRESSION_FILES=""
 for SUPPRESSION_FILE in $SUPPRESSION_FILE_DIR/*supp; do
@@ -7,5 +11,5 @@ for SUPPRESSION_FILE in $SUPPRESSION_FILE_DIR/*supp; do
 done
 
 #VALGRIND_EXTRA_OPTIONS="--leak-check=full --show-reachable=yes --error-limit=no"
-VALGRIND_EXTRA_OPTIONS=""
+VALGRIND_EXTRA_OPTIONS="--track-origins=yes"
 ./setup-resources; make -j 9; valgrind  $VALGRIND_EXTRA_OPTIONS $VALGRIND_SUPPRESSION_FILES .././fidel_debug
