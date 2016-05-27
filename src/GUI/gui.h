@@ -5,9 +5,9 @@
 #include <iostream>
 #include <GUI/singleton.h>
 
-using namespace std;
-
 typedef Glib::RefPtr<Gtk::Builder> Builder;
+typedef Glib::RefPtr<Gtk::FileFilter> FileFilter;
+
 typedef Gtk::ApplicationWindow ApplicationWindow;
 typedef Gtk::Toolbar Toolbar;
 typedef Gtk::ImageMenuItem ImageMenuItem;
@@ -54,6 +54,7 @@ private:
 	void init_connections();
 	bool on_window_closed(GdkEventAny* event);
 	void get_widgets();
+	void on_file_open_triggered();
 	/*
 	void init_playlist();
 	void init_album_view();
@@ -65,7 +66,6 @@ private:
 	void search_playlist(Glib::ustring search_term);
 	void on_double_click_handler(const Gtk::TreeModel::Path& path, Gtk::TreeViewColumn *column);
 	void on_view_switched(Gtk::Widget *page, guint page_number);
-	void on_file_open_triggered();
 	void on_sidebar_hider_clicked();
 	void on_play_button_clicked();
 	void pb_slider_val_changed();

@@ -65,17 +65,20 @@ CMAKE_BINARY_DIR = /home/tashrif/Dev/fidel-musicplayer-cmake/build
 # Convenience name for "all" pass in the directory.
 src/all: src/CMakeFiles/fidel.dir/all
 src/all: src/GUI/all
+src/all: src/Utilities/all
 
 .PHONY : src/all
 
 # Convenience name for "clean" pass in the directory.
 src/clean: src/CMakeFiles/fidel.dir/clean
 src/clean: src/GUI/clean
+src/clean: src/Utilities/clean
 
 .PHONY : src/clean
 
 # Convenience name for "preinstall" pass in the directory.
 src/preinstall: src/GUI/preinstall
+src/preinstall: src/Utilities/preinstall
 
 .PHONY : src/preinstall
 
@@ -84,9 +87,10 @@ src/preinstall: src/GUI/preinstall
 
 # All Build rule for target.
 src/CMakeFiles/fidel.dir/all: src/GUI/CMakeFiles/GUI.dir/all
+src/CMakeFiles/fidel.dir/all: src/Utilities/CMakeFiles/Utilities.dir/all
 	$(MAKE) -f src/CMakeFiles/fidel.dir/build.make src/CMakeFiles/fidel.dir/depend
 	$(MAKE) -f src/CMakeFiles/fidel.dir/build.make src/CMakeFiles/fidel.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=4,5 "Built target fidel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=6,7 "Built target fidel"
 .PHONY : src/CMakeFiles/fidel.dir/all
 
 # Include target in all.
@@ -96,7 +100,7 @@ all: src/CMakeFiles/fidel.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/fidel.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/fidel.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/fidel.dir/rule
@@ -168,6 +172,61 @@ src/GUI/CMakeFiles/GUI.dir/clean:
 
 # clean rule for target.
 clean: src/GUI/CMakeFiles/GUI.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/Utilities
+
+# Convenience name for "all" pass in the directory.
+src/Utilities/all: src/Utilities/CMakeFiles/Utilities.dir/all
+
+.PHONY : src/Utilities/all
+
+# Convenience name for "clean" pass in the directory.
+src/Utilities/clean: src/Utilities/CMakeFiles/Utilities.dir/clean
+
+.PHONY : src/Utilities/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/Utilities/preinstall:
+
+.PHONY : src/Utilities/preinstall
+
+#=============================================================================
+# Target rules for target src/Utilities/CMakeFiles/Utilities.dir
+
+# All Build rule for target.
+src/Utilities/CMakeFiles/Utilities.dir/all:
+	$(MAKE) -f src/Utilities/CMakeFiles/Utilities.dir/build.make src/Utilities/CMakeFiles/Utilities.dir/depend
+	$(MAKE) -f src/Utilities/CMakeFiles/Utilities.dir/build.make src/Utilities/CMakeFiles/Utilities.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=4,5 "Built target Utilities"
+.PHONY : src/Utilities/CMakeFiles/Utilities.dir/all
+
+# Include target in all.
+all: src/Utilities/CMakeFiles/Utilities.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/Utilities/CMakeFiles/Utilities.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 src/Utilities/CMakeFiles/Utilities.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles 0
+.PHONY : src/Utilities/CMakeFiles/Utilities.dir/rule
+
+# Convenience name for target.
+Utilities: src/Utilities/CMakeFiles/Utilities.dir/rule
+
+.PHONY : Utilities
+
+# clean rule for target.
+src/Utilities/CMakeFiles/Utilities.dir/clean:
+	$(MAKE) -f src/Utilities/CMakeFiles/Utilities.dir/build.make src/Utilities/CMakeFiles/Utilities.dir/clean
+.PHONY : src/Utilities/CMakeFiles/Utilities.dir/clean
+
+# clean rule for target.
+clean: src/Utilities/CMakeFiles/Utilities.dir/clean
 
 .PHONY : clean
 

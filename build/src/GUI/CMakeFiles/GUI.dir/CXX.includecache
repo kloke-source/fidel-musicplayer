@@ -16,6 +16,14 @@ assert.h
 cstddef
 -
 
+../src/Utilities/util.h
+gtkmm.h
+-
+iostream
+-
+vector
+-
+
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp
 gio/gio.h
 -
@@ -34,6 +42,8 @@ iostream
 gio/gio.h
 -
 GUI/fidel-resources.h
+-
+Utilities/util.h
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h

@@ -249,6 +249,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o: /usr/lib/glib-2.0/include/glib
 
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/fidel-resources.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/singleton.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/Utilities/util.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/gui.cpp
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h

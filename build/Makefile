@@ -136,6 +136,19 @@ GUI/fast:
 	$(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
 .PHONY : GUI/fast
 
+#=============================================================================
+# Target rules for targets named Utilities
+
+# Build rule for target.
+Utilities: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Utilities
+.PHONY : Utilities
+
+# fast build rule for target.
+Utilities/fast:
+	$(MAKE) -f src/Utilities/CMakeFiles/Utilities.dir/build.make src/Utilities/CMakeFiles/Utilities.dir/build
+.PHONY : Utilities/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -146,6 +159,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... fidel"
 	@echo "... GUI"
+	@echo "... Utilities"
 .PHONY : help
 
 

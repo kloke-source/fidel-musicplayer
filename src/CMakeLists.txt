@@ -8,6 +8,7 @@ link_directories(${GTK3_LIBRARY_DIRS} ${GTKMM3_LIBRARY_DIRS})
 add_definitions(${GTK3_CFLAGS_OTHER} ${GTKMM3_CFLAGS_OTHER})
 
 add_subdirectory(GUI)
-add_executable(fidel main.cpp GUI) #more headers and cpp files can be added
+add_subdirectory(Utilities)
+add_executable(fidel main.cpp Utilities GUI) #more headers and cpp files can be added
 
-target_link_libraries(fidel ${GTK3_LIBRARIES} ${GTKMM3_LIBRARIES} GUI)
+target_link_libraries(fidel ${GTK3_LIBRARIES} ${GTKMM3_LIBRARIES} GUI Utilities)

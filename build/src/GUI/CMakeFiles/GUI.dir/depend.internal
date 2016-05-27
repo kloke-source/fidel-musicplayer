@@ -250,6 +250,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o
  ../src/GUI/fidel-resources.h
  ../src/GUI/singleton.h
+ ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
  /usr/include/atk-1.0/atk/atk-enum-types.h

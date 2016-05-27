@@ -1,0 +1,2 @@
+/usr/bin/ar qc libUtilities_debug.a  CMakeFiles/Utilities.dir/util.cpp.o
+/usr/bin/ranlib libUtilities_debug.a

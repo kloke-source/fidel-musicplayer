@@ -5,7 +5,7 @@
 #include <gio/gio.h>
 #include <GUI/fidel-resources.h>
 //#include <GUI/seeker.h>
-//#include <Utilities/util.h>
+#include <Utilities/util.h>
 //#include <Utilities/btree.h>
 //#include <Audio/playback.h>
 //#include <Spectrum/spectrum.h>
@@ -20,59 +20,65 @@ gui::~gui(){}
 
 //Gtk::Image *play_icon;
 GResource *fidel_resources;
-
 Builder builder;
 ApplicationWindow *window;
 
-Toolbar *toolbar;
-ImageMenuItem *open_action;
-Notebook *view_switcher;
-Entry *playlist_search_entry;
-
-Label *split_view_label;
-Label *playlist_view_label;
-Label *library_view_label;
-Label *spectrum_view_label;
-Label *idle_status_label;
-Label *playback_timer;
-Label *playback_endtime;
-Label *sidebar_name_label;
-Label *sidebar_artist_label;
-Label *sidebar_album_label;
-Label *sidebar_song_name;
-Label *sidebar_song_artist;
-Label *sidebar_song_album;
-
-Box *split_view_layout;
-Box *split_view_spectrum;
-Box *split_view_playlist;
-Box *library_view_frame;
-Box *playback_frame;
-Box *playlist_view;
-Box *playback_slider_frame;
-Box *sidebar_layout;
-Box *sidebar_albumart;
-Box *spectrum_view_layout;
-
-Grid *sidebar_audioinfo_layout;
-Scale *playback_slider;
-
-Button *previous_button;
-Button *play_button;
-Button *next_button;
-Button *sidebar_hider;
+//Toolbar *toolbar;
+//ImageMenuItem *open_action;
+//Notebook *view_switcher;
+//Entry *playlist_search_entry;
+//
+//Label *split_view_label;
+//Label *playlist_view_label;
+//Label *library_view_label;
+//Label *spectrum_view_label;
+//Label *idle_status_label;
+//Label *playback_timer;
+//Label *playback_endtime;
+//Label *sidebar_name_label;
+//Label *sidebar_artist_label;
+//Label *sidebar_album_label;
+//Label *sidebar_song_name;
+//Label *sidebar_song_artist;
+//Label *sidebar_song_album;
+//
+//Box *split_view_layout;
+//Box *split_view_spectrum;
+//Box *split_view_playlist;
+//Box *library_view_frame;
+//Box *playback_frame;
+//Box *playlist_view;
+//Box *playback_slider_frame;
+//Box *sidebar_layout;
+//Box *sidebar_albumart;
+//Box *spectrum_view_layout;
+//
+//Grid *sidebar_audioinfo_layout;
+//Scale *playback_slider;
+//
+//Button *previous_button;
+//Button *play_button;
+//Button *next_button;
+//Button *sidebar_hider;
+//
+bool audio_file_chosen = false;
 
 void gui::initialize(int argc, char **argv)
 {
   Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "anorak.fidel");
   gui::init_builder();
-  gui::get_widgets();
+  builder->get_widget("window", window);
+  //gui::get_widgets();
+  //gui::init_connections();
   window->maximize();
 
   app->run(*window);
-  g_resources_unregister(fidel_resources);
+  //delete window;
+  //std::cout << window << std::endl;
+  //g_resources_unregister(fidel_resources);
+  //g_resource_unref(fidel_resources);
 }
-
+/*
 void gui::get_widgets()
 {
   builder->get_widget("window", window);
@@ -112,15 +118,73 @@ void gui::get_widgets()
   builder->get_widget("next_button", next_button);
   builder->get_widget("sidebar_hider", sidebar_hider);
 }
-
+*/
 void gui::init_connections()
 {
   window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
+  //open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
 }
 
 bool gui::on_window_closed(GdkEventAny* event)
 {
   return false;
+}
+
+void gui::on_file_open_triggered()
+{
+  Gtk::FileChooserDialog fileOpenDialog("Please choose a file",
+  Gtk::FILE_CHOOSER_ACTION_OPEN);
+  fileOpenDialog.set_transient_for(*window);
+  fileOpenDialog.set_position(Gtk::WIN_POS_CENTER);
+  fileOpenDialog.add_button("_Cancel", Gtk::RESPONSE_CANCEL);
+  fileOpenDialog.add_button("_Open", Gtk::RESPONSE_OK);
+
+  FileFilter audio_file_filter = Gtk::FileFilter::create();
+  audio_file_filter->set_name("Audio Files");
+  audio_file_filter->add_pattern("*.flac");
+  audio_file_filter->add_pattern("*.mp3");
+  audio_file_filter->add_pattern("*.wav");
+  audio_file_filter->add_pattern("*.ogg");
+  audio_file_filter->add_pattern("*.m4a");
+  audio_file_filter->add_pattern("*.m4p");
+  fileOpenDialog.add_filter(audio_file_filter);
+
+  int result = fileOpenDialog.run();
+
+  switch(result)
+  {
+    case(Gtk::RESPONSE_OK):
+    {
+      std::cout << "Open clicked." << std::endl;
+      std::string filesrc = fileOpenDialog.get_filename();
+      std::cout << "filesrc: " << filesrc << std::endl;
+      char *audio_file_src = util::to_char(filesrc);
+
+      if (audio_file_chosen == false)
+      {
+        audio_file_chosen = true;
+        fileOpenDialog.~FileChooserDialog();
+        //playback::audio_file(audio_file_src);
+      }
+      else{
+        //playback::kill_curr_stream();
+        audio_file_chosen = true;
+        fileOpenDialog.~FileChooserDialog();
+        //playback::audio_file(audio_file_src);
+      }
+      break;
+    }
+    case(Gtk::RESPONSE_CANCEL):
+    {
+      std::cout << "Cancel clicked." << std::endl;
+      break;
+    }
+    default:
+    {
+      std::cout << "Unexpected button clicked." << std::endl;
+      break;
+    }
+  }
 }
 
 void gui::init_builder()
