@@ -193,114 +193,130 @@ void playback::audio_file(char *filesrc)
     //std::cout << "Test tag dur -> " << audioinfo::tag_duration() << std::endl;
     /*
     if ((int)duration == audioinfo::tag_duration()){
-      audioinfo::set_duration(duration);
-      // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(duration);
-    }
-    if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
-    {
-      std::cout << "Duration > tag" << std::endl;
-      audioinfo::set_duration_from_tag();
-      // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(//audioinfo::duration());
-    }
-    if (//audioinfo::tag_duration() > (int)duration && //audioinfo::tag_duration() >=3600)
-    {
-      std::cout << "tag > duration" << std::endl;
-      audioinfo::set_duration(duration);
-      // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(duration);
-    }
-    if ((int)duration == 0 || (int)duration < 0)
-    {
-      std::cout << "Duration == 0 || < 0" << std::endl;
-      audioinfo::set_duration_from_tag();
-      // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(//audioinfo::duration());
-    }
+    audioinfo::set_duration(duration);
+    // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(duration);
+  }
+  if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
+  {
+  std::cout << "Duration > tag" << std::endl;
+  audioinfo::set_duration_from_tag();
+  // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(//audioinfo::duration());
+}
+if (//audioinfo::tag_duration() > (int)duration && //audioinfo::tag_duration() >=3600)
+{
+std::cout << "tag > duration" << std::endl;
+audioinfo::set_duration(duration);
+// --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(duration);
+}
+if ((int)duration == 0 || (int)duration < 0)
+{
+std::cout << "Duration == 0 || < 0" << std::endl;
+audioinfo::set_duration_from_tag();
+// --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(//audioinfo::duration());
+}
+*/
+}
+
+void playback::kill_curr_stream()
+{
+  if (idle==false){
+    stream_killed = true;
+    //idle=true;
+    /*
+    g_main_loop_quit(loop);
+    gst_element_set_state (pipeline, GST_STATE_NULL);
     */
+    // --(deprecated)-- fidel_ui::Instance()->delete_sidebar_data();
+    //idle=true;
+    g_main_loop_quit(loop);
+    gst_element_set_state (pipeline, GST_STATE_NULL);
+    gst_object_unref (GST_OBJECT(pipeline));
+    gst_object_unref(GST_OBJECT(audio));
+    //gst_object_unref (GST_OBJECT (audio));
+    subCaps = NULL;
+    duration_obtained = false;
+
+    //gst_object_unref (GST_OBJECT (subCaps));
+
+
+    //playback::kill_audio();
+  }
+}
+
+void playback::kill_audio()
+{
+  if (idle==false){
+    idle=true;
+    g_main_loop_quit(loop);
+    gst_element_set_state (pipeline, GST_STATE_NULL);
+    gst_object_unref (GST_OBJECT (pipeline));
+    g_main_loop_unref(loop);
+  }
+}
+
+bool playback::idle_status()
+{
+  return idle;
+}
+
+bool playback::is_playing()
+{
+  return playing;
+}
+
+void playback::pause()
+{
+  if (idle == false){
+    playing = false;
+    std::cout << "called " << std::endl;
+    // --(deprecated)-- fidel_ui::Instance()->set_paused_icon();
+    gst_element_set_state(pipeline, GST_STATE_PAUSED);
+  }
+}
+
+void playback::play()
+{
+  if (idle == false){
+    playing = true;
+
+    // --(deprecated)-- fidel_ui::Instance()->set_playing_icon();
+    gst_element_set_state(pipeline, GST_STATE_PLAYING);
+  }
+}
+
+void playback::seek(double time, std::string sender)
+{
+  double seekvalue = time * 1000000000;
+  if (sender == "seeker"){
+    // --(deprecated)-- fidel_ui::Instance()->update_pb_slider_pos(&time);
+  }
+  gst_element_seek (pipeline, 1.0, GST_FORMAT_TIME, GST_SEEK_FLAG_FLUSH,
+    GST_SEEK_TYPE_SET, seekvalue,
+    GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
   }
 
-  void playback::kill_curr_stream()
+  //--- start of signal functions ---
+  //start of playback status signal functions
+  playback::type_signal_status_changed playback::signal_status_changed()
   {
-    if (idle==false){
-      stream_killed = true;
-      //idle=true;
-      /*
-      g_main_loop_quit(loop);
-      gst_element_set_state (pipeline, GST_STATE_NULL);
-      */
-      // --(deprecated)-- fidel_ui::Instance()->delete_sidebar_data();
-      //idle=true;
-      g_main_loop_quit(loop);
-      gst_element_set_state (pipeline, GST_STATE_NULL);
-      gst_object_unref (GST_OBJECT(pipeline));
-      gst_object_unref(GST_OBJECT(audio));
-      //gst_object_unref (GST_OBJECT (audio));
-      subCaps = NULL;
-      duration_obtained = false;
-
-      //gst_object_unref (GST_OBJECT (subCaps));
-
-
-      //playback::kill_audio();
-    }
+    return m_signal_status_changed;
   }
 
-  void playback::kill_audio()
+  void playback::change_playback_status(bool is_playing)
   {
-    if (idle==false){
-      idle=true;
-      g_main_loop_quit(loop);
-      gst_element_set_state (pipeline, GST_STATE_NULL);
-      gst_object_unref (GST_OBJECT (pipeline));
-      g_main_loop_unref(loop);
-    }
+    playback::m_signal_status_changed(is_playing);
+  }
+  //end of playback status signal functions
+
+  //spectrum signal functions
+  playback::type_signal_spectrum_changed playback::signal_spectrum_changed()
+  {
+    return playback::m_signal_spectrum_changed;
   }
 
-  bool playback::idle_status()
+  void playback::change_spectrum_bands(guint band, gfloat magnitude, gfloat phase_shift)
   {
-    return idle;
+    playback::m_signal_spectrum_changed.emit(band, magnitude, phase_shift);
   }
-
-  bool playback::is_playing()
-  {
-    return playing;
-  }
-
-  void playback::pause()
-  {
-    if (idle == false){
-      playing = false;
-      std::cout << "called " << std::endl;
-      // --(deprecated)-- fidel_ui::Instance()->set_paused_icon();
-      gst_element_set_state(pipeline, GST_STATE_PAUSED);
-    }
-  }
-
-  void playback::play()
-  {
-    if (idle == false){
-      playing = true;
-
-      // --(deprecated)-- fidel_ui::Instance()->set_playing_icon();
-      gst_element_set_state(pipeline, GST_STATE_PLAYING);
-    }
-  }
-
-  void playback::seek(double time, std::string sender)
-  {
-    double seekvalue = time * 1000000000;
-    if (sender == "seeker"){
-      // --(deprecated)-- fidel_ui::Instance()->update_pb_slider_pos(&time);
-    }
-    gst_element_seek (pipeline, 1.0, GST_FORMAT_TIME, GST_SEEK_FLAG_FLUSH,
-      GST_SEEK_TYPE_SET, seekvalue,
-      GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
-    }
-
-    playback::type_signal_spectrum_changed playback::signal_spectrum_changed()
-    {
-      return playback::m_signal_spectrum_changed;
-    }
-
-    void playback::change_spectrum_bands(guint band, gfloat magnitude, gfloat phase_shift)
-    {
-      playback::m_signal_spectrum_changed.emit(band, magnitude, phase_shift);
-    }
+  //end of spectrum signal functions
+  //--- end of signal functions ---

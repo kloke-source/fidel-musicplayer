@@ -119,12 +119,6 @@ void gui::init_connections()
 {
   window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
-  audio_playback::Instance()->signal_spectrum_changed().connect(sigc::mem_fun(this, &gui::testhandler));
-}
-
-void gui::testhandler(guint band, gfloat magnitude, gfloat phase_shift)
-{
-  std::cout << "Band -> " << band << " Magn dB -> " << magnitude << " phase -> " << phase_shift << std::endl;
 }
 
 bool gui::on_window_closed(GdkEventAny* event)
