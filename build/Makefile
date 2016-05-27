@@ -137,6 +137,19 @@ GUI/fast:
 .PHONY : GUI/fast
 
 #=============================================================================
+# Target rules for targets named Audio
+
+# Build rule for target.
+Audio: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Audio
+.PHONY : Audio
+
+# fast build rule for target.
+Audio/fast:
+	$(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/build
+.PHONY : Audio/fast
+
+#=============================================================================
 # Target rules for targets named Utilities
 
 # Build rule for target.
@@ -159,6 +172,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... fidel"
 	@echo "... GUI"
+	@echo "... Audio"
 	@echo "... Utilities"
 .PHONY : help
 

@@ -7,7 +7,7 @@
 //#include <GUI/seeker.h>
 #include <Utilities/util.h>
 //#include <Utilities/btree.h>
-//#include <Audio/playback.h>
+#include <Audio/playback.h>
 //#include <Spectrum/spectrum.h>
 //#include <Audio-Info/audioinfo.h>
 //#include <GUI/album-art-viewer.h>
@@ -119,6 +119,12 @@ void gui::init_connections()
 {
   window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
+  audio_playback::Instance()->signal_spectrum_changed().connect(sigc::mem_fun(this, &gui::testhandler));
+}
+
+void gui::testhandler(guint band, gfloat magnitude, gfloat phase_shift)
+{
+  std::cout << "Band -> " << band << " Magn dB -> " << magnitude << " phase -> " << phase_shift << std::endl;
 }
 
 bool gui::on_window_closed(GdkEventAny* event)
@@ -160,13 +166,13 @@ void gui::on_file_open_triggered()
       {
         audio_file_chosen = true;
         fileOpenDialog.~FileChooserDialog();
-        //playback::audio_file(audio_file_src);
+        audio_playback::Instance()->audio_file(audio_file_src);
       }
       else{
-        //playback::kill_curr_stream();
+        audio_playback::Instance()->kill_curr_stream();
         audio_file_chosen = true;
         fileOpenDialog.~FileChooserDialog();
-        //playback::audio_file(audio_file_src);
+        audio_playback::Instance()->audio_file(audio_file_src);
       }
       delete audio_file_src;
       break;

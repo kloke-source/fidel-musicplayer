@@ -55,6 +55,7 @@ private:
 	bool on_window_closed(GdkEventAny* event);
 	void get_widgets();
 	void on_file_open_triggered();
+	void testhandler(guint band, gfloat magnitude, gfloat phase_shift);
 	/*
 	void init_playlist();
 	void init_album_view();

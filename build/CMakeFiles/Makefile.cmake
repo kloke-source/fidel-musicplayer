@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.2/CMakeSystem.cmake"
+  "../src/Audio/CMakeLists.txt"
   "../src/CMakeLists.txt"
   "../src/GUI/CMakeLists.txt"
   "../src/Utilities/CMakeLists.txt"
@@ -46,6 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/GUI/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/Audio/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/Utilities/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -53,5 +55,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/fidel.dir/DependInfo.cmake"
   "src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake"
+  "src/Audio/CMakeFiles/Audio.dir/DependInfo.cmake"
   "src/Utilities/CMakeFiles/Utilities.dir/DependInfo.cmake"
   )

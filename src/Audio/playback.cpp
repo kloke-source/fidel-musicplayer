@@ -1,14 +1,13 @@
-#include "playback.h"
+#include <Audio/playback.h>
 #include <string.h>
 #include <iostream>
 #include <gst/gst.h>
 #include <GUI/gui.h>
-#include <Spectrum/spectrum.h>
-#include <Audio-Info/audioinfo.h>
+//#include <Spectrum/spectrum.h>
+//#include <Audio-Info///audioinfo.h>
 
 #define AUDIOFREQ 44100
 
-using namespace std;
 static guint spect_bands = 35;
 bool idle=true;
 bool stream_killed = true;
@@ -70,8 +69,11 @@ gpointer    data __attribute__((unused)))
 
         if (mag != NULL && phase != NULL) {
           gfloat magnitude = g_value_get_float(mag);
+          gfloat phase_shift = g_value_get_float(phase);
 
-          Spectrum::Instance()->setBandMagn(&iter, &magnitude);
+          audio_playback::Instance()->change_spectrum_bands(iter, magnitude, phase_shift);
+          //Spectrum::Instance()->setBandMagn(&iter, &magnitude);
+
           /*
           g_print ("band %d (freq %g): magnitude %f dB phase %f\n", i, freq,
           g_value_get_float (mag), g_value_get_float (phase));
@@ -122,7 +124,7 @@ gpointer    data __attribute__((unused)))
 
 void playback::audio_file(char *filesrc)
 {
-  cout << "Inputted filesrc: "  << filesrc << endl;
+  std::cout << "Inputted filesrc: "  << filesrc << std::endl;
   if (playback::is_playing() == true || stream_killed == false){
     playback::kill_curr_stream();
   }
@@ -132,12 +134,12 @@ void playback::audio_file(char *filesrc)
   GstBus *bus;
 
   duration_obtained=false;
-  audioinfo::init(filesrc);
-  vector<Glib::ustring> song_data;
-  song_data.push_back(audioinfo::get_info("song_name"));
-  song_data.push_back(audioinfo::get_info("artist"));
-  song_data.push_back(audioinfo::get_info("album"));
-  // --(deprecated)-- fidel_ui::Instance()->set_sidebar_data(audioinfo::get_album_art(filesrc, 200, 200), song_data);
+  //audioinfo::init(filesrc);
+  std::vector<Glib::ustring> song_data;
+  //song_data.push_back(audioinfo::get_info("song_name"));
+  //song_data.push_back(audioinfo::get_info("artist"));
+  //song_data.push_back(audioinfo::get_info("album"));
+  // --(deprecated)-- fidel_ui::Instance()->set_sidebar_data(//audioinfo::get_album_art(filesrc, 200, 200), song_data);
 
   gst_init (NULL, NULL);
   loop = g_main_loop_new (NULL, FALSE);
@@ -187,31 +189,32 @@ void playback::audio_file(char *filesrc)
     gst_element_query_duration (pipeline, GST_FORMAT_TIME, &duration_nanoseconds);
     double duration = ((double)duration_nanoseconds)/1000000000;
 
-    cout << "Duration -> " << duration << endl;
-    cout << "Test tag dur -> " << audioinfo::tag_duration() << endl;
-
+    std::cout << "Duration -> " << duration << std::endl;
+    //std::cout << "Test tag dur -> " << audioinfo::tag_duration() << std::endl;
+    /*
     if ((int)duration == audioinfo::tag_duration()){
       audioinfo::set_duration(duration);
       // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(duration);
     }
     if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
     {
-      cout << "Duration > tag" << endl;
+      std::cout << "Duration > tag" << std::endl;
       audioinfo::set_duration_from_tag();
-      // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(audioinfo::duration());
+      // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(//audioinfo::duration());
     }
-    if (audioinfo::tag_duration() > (int)duration && audioinfo::tag_duration() >=3600)
+    if (//audioinfo::tag_duration() > (int)duration && //audioinfo::tag_duration() >=3600)
     {
-      cout << "tag > duration" << endl;
+      std::cout << "tag > duration" << std::endl;
       audioinfo::set_duration(duration);
       // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(duration);
     }
     if ((int)duration == 0 || (int)duration < 0)
     {
-      cout << "Duration == 0 || < 0" << endl;
+      std::cout << "Duration == 0 || < 0" << std::endl;
       audioinfo::set_duration_from_tag();
-      // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(audioinfo::duration());
+      // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(//audioinfo::duration());
     }
+    */
   }
 
   void playback::kill_curr_stream()
@@ -265,7 +268,7 @@ void playback::audio_file(char *filesrc)
   {
     if (idle == false){
       playing = false;
-      cout << "called " << endl;
+      std::cout << "called " << std::endl;
       // --(deprecated)-- fidel_ui::Instance()->set_paused_icon();
       gst_element_set_state(pipeline, GST_STATE_PAUSED);
     }
@@ -281,7 +284,7 @@ void playback::audio_file(char *filesrc)
     }
   }
 
-  void playback::seek(double time, string sender)
+  void playback::seek(double time, std::string sender)
   {
     double seekvalue = time * 1000000000;
     if (sender == "seeker"){
@@ -290,4 +293,14 @@ void playback::audio_file(char *filesrc)
     gst_element_seek (pipeline, 1.0, GST_FORMAT_TIME, GST_SEEK_FLAG_FLUSH,
       GST_SEEK_TYPE_SET, seekvalue,
       GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
+    }
+
+    playback::type_signal_spectrum_changed playback::signal_spectrum_changed()
+    {
+      return playback::m_signal_spectrum_changed;
+    }
+
+    void playback::change_spectrum_bands(guint band, gfloat magnitude, gfloat phase_shift)
+    {
+      playback::m_signal_spectrum_changed.emit(band, magnitude, phase_shift);
     }

@@ -44,6 +44,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/lib/cairomm-1.0/include"
   "/usr/include/sigc++-2.0"
   "/usr/lib/sigc++-2.0/include"
+  "/usr/include/gstreamer-1.0"
+  "/usr/lib/gstreamer-1.0/include"
+  "/usr/include/taglib"
   "../src"
   )
 

@@ -43,12 +43,16 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/lib/cairomm-1.0/include"
   "/usr/include/sigc++-2.0"
   "/usr/lib/sigc++-2.0/include"
+  "/usr/include/gstreamer-1.0"
+  "/usr/lib/gstreamer-1.0/include"
+  "/usr/include/taglib"
   "../src"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio/CMakeFiles/Audio.dir/DependInfo.cmake"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Utilities/CMakeFiles/Utilities.dir/DependInfo.cmake"
   )
 
