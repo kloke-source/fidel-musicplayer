@@ -12,4 +12,4 @@ done
 
 #VALGRIND_EXTRA_OPTIONS="--leak-check=full --show-reachable=yes --error-limit=no"
 VALGRIND_EXTRA_OPTIONS="--track-origins=yes"
-./setup-resources; make -j 9; valgrind  $VALGRIND_EXTRA_OPTIONS $VALGRIND_SUPPRESSION_FILES .././fidel_debug
+./setup-resources; make -j 9; valgrind  $VALGRIND_EXTRA_OPTIONS $VALGRIND_SUPPRESSION_FILES .././fidel

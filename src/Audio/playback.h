@@ -23,7 +23,7 @@ public:
 
 	//signal accessors
 	typedef sigc::signal<void, bool> type_signal_status_changed;
-	type_signal_status_changed signal_status_changed;
+	type_signal_status_changed signal_status_changed();
 
 	typedef sigc::signal<void, guint, gfloat, gfloat> type_signal_spectrum_changed;
 	type_signal_spectrum_changed signal_spectrum_changed();
