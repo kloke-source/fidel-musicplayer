@@ -4,6 +4,13 @@
 spectrum::spectrum(){}
 spectrum::~spectrum() {}
 
+double smoothDef[64] = {0.8, 0.8, 1, 1, 0.8, 0.8, 1, 0.8, 0.8, 1, 1, 0.8,
+    1, 1, 0.8, 0.6, 0.6, 0.7, 0.8, 0.8, 0.8, 0.8, 0.8,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8,
+    0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8,
+    0.7, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6};
+    double sum = 48.4;
+
 void spectrum::init()
 {
   spectrumFrame = new Gtk::Box(Gtk::ORIENTATION_VERTICAL);
@@ -23,12 +30,12 @@ void spectrum::init()
   spectrumContainer->set_resize_mode(Gtk::RESIZE_QUEUE);
   spectrumFrame->set_resize_mode(Gtk::RESIZE_QUEUE);
   spectrumContainer->show();
-  Spectrum::Instance()->spectrumContainer->signal_size_allocate().connect(sigc::mem_fun(*Spectrum::Instance(),&spectrum::on_size_allocate));
+  spectrum::spectrumContainer->signal_size_allocate().connect(sigc::mem_fun(this, &spectrum::on_size_allocate));
 }
 
 void spectrum::kill()
 {
-  delete Spectrum::Instance();
+  delete this;
 }
 
 void spectrum::on_size_allocate(Gtk::Allocation allocation)
@@ -37,11 +44,11 @@ void spectrum::on_size_allocate(Gtk::Allocation allocation)
   spectrum_vert_scale   = (double) max_magnitude/(spectrum_frame_height);
 }
 
-void spectrum::setBandMagn(guint *band, gfloat *magnitude)
+void spectrum::setBandMagn(guint band, gfloat magnitude, gfloat phase_shift)
 {
   if (hault == false){
-    spectrumBandMagn[*band]=(double)(*magnitude);
-    Spectrum::Instance()->paint(band);
+    spectrumBandMagn[band]=(double)(magnitude);
+    spectrum::paint(band);
   }
 }
 
@@ -71,9 +78,9 @@ void spectrum::reset()
   }
 }
 
-void spectrum::paint(guint *band)
+void spectrum::paint(guint band)
 {
-  double magnitude    = spectrumBandMagn[*band];
+  double magnitude    = spectrumBandMagn[band];
   double paint_amount = spectrum_frame_height - (((-1) * magnitude)/spectrum_vert_scale);
-  spectrumBand[*band]->set_size_request(0, paint_amount);
+  spectrumBand[band]->set_size_request(0, paint_amount);
 }

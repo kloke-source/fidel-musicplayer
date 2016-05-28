@@ -180,6 +180,7 @@ void playback::audio_file(char *filesrc)
     idle=false;
     playback::play();
     g_main_loop_run (loop);
+    playback::kill_audio();
   }
 
   void query_duration()

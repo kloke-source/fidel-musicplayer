@@ -7,10 +7,10 @@
 
 typedef Glib::RefPtr<Gtk::Builder> Builder;
 typedef Glib::RefPtr<Gtk::FileFilter> FileFilter;
-
 typedef Gtk::ApplicationWindow ApplicationWindow;
 typedef Gtk::Toolbar Toolbar;
 typedef Gtk::ImageMenuItem ImageMenuItem;
+typedef Gtk::Image Image;
 typedef Gtk::Notebook Notebook;
 typedef Gtk::Entry Entry;
 typedef Gtk::Label Label;
@@ -52,6 +52,10 @@ public:
 	*/
 private:
 	void init_connections();
+	void init_widget_vectors();
+	void init_icons();
+	void init_spectrum();
+	void set_styles();
 	bool on_window_closed(GdkEventAny* event);
 	void get_widgets();
 	void on_file_open_triggered();

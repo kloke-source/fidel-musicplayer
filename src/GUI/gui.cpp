@@ -8,7 +8,7 @@
 #include <Utilities/util.h>
 //#include <Utilities/btree.h>
 #include <Audio/playback.h>
-//#include <Spectrum/spectrum.h>
+#include <Spectrum/spectrum.h>
 //#include <Audio-Info/audioinfo.h>
 //#include <GUI/album-art-viewer.h>
 //#include <Audio-Library/audio-library.h>
@@ -24,6 +24,8 @@ Toolbar *toolbar;
 ImageMenuItem *open_action;
 Notebook *view_switcher;
 Entry *playlist_search_entry;
+
+Image *previous_icon, *play_icon, *pause_icon, *next_icon;
 
 Label *split_view_label;
 Label *playlist_view_label;
@@ -58,6 +60,8 @@ Button *play_button;
 Button *next_button;
 Button *sidebar_hider;
 
+std::vector<Button*> all_buttons;
+
 bool audio_file_chosen = false;
 
 void gui::initialize(int argc, char **argv)
@@ -66,6 +70,10 @@ void gui::initialize(int argc, char **argv)
   gui::init_builder();
   gui::get_widgets();
   gui::init_connections();
+  gui::init_widget_vectors();
+  gui::init_icons();
+  gui::init_spectrum();
+  gui::set_styles();
   window->maximize();
 
   app->run(*window);
@@ -121,8 +129,65 @@ void gui::init_connections()
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
 }
 
+void gui::init_widget_vectors()
+{
+  all_buttons.push_back(previous_button);
+  all_buttons.push_back(play_button);
+  all_buttons.push_back(next_button);
+  all_buttons.push_back(sidebar_hider);
+}
+
+void gui::init_spectrum()
+{
+  spectrum_visualizer::Instance()->init();
+  audio_playback::Instance()->signal_spectrum_changed().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::setBandMagn));
+  spectrum_view_layout->pack_start(*spectrum_visualizer::Instance()->spectrumFrame, Gtk::PACK_EXPAND_WIDGET);
+  spectrum_view_layout->show_all();
+}
+
+void gui::init_icons()
+{
+  previous_icon = new Image();
+  play_icon = new Image();
+  pause_icon = new Image();
+  next_icon = new Image();
+
+  previous_icon->set_from_resource("/fidel/Resources/playback-previous.svg");
+  play_icon->set_from_resource("/fidel/Resources/playback-play.svg");
+  next_icon->set_from_resource("/fidel/Resources/playback-next.svg");
+
+  previous_button->add(*previous_icon);
+  play_button->add(*play_icon);
+  next_button->add(*next_icon);
+
+  previous_icon->show();
+  play_icon->show();
+  next_icon->show();
+}
+
+void gui::set_styles()
+{
+  /*
+  std::string style_sheet = "GtkButton {background-color: #db1582;}\n";
+
+  Glib::RefPtr<Gtk::StyleContext> stylecontext = play_button->get_style_context();
+  Glib::RefPtr<Gtk::CssProvider> cssprov = Gtk::CssProvider::create();
+  cssprov->load_from_data(style_sheet);
+  stylecontext->add_provider(cssprov, GTK_STYLE_PROVIDER_PRIORITY_USER);
+  stylecontext->context_save();
+  play_button->reset_style();
+  */
+  for (size_t button_iter = 0; button_iter < all_buttons.size(); button_iter++) {
+    all_buttons[button_iter]->set_relief(Gtk::RELIEF_NONE);
+    all_buttons[button_iter]->show();
+  }
+
+  view_switcher->override_background_color(Gdk::RGBA("#d1841f"), Gtk::STATE_FLAG_SELECTED);
+}
+
 bool gui::on_window_closed(GdkEventAny* event)
 {
+  audio_playback::Instance()->kill_audio();
   return false;
 }
 
@@ -168,7 +233,6 @@ void gui::on_file_open_triggered()
         fileOpenDialog.~FileChooserDialog();
         audio_playback::Instance()->audio_file(audio_file_src);
       }
-      delete audio_file_src;
       break;
     }
     case(Gtk::RESPONSE_CANCEL):

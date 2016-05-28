@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum/CMakeFiles/progress.marks
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f CMakeFiles/Makefile2 src/Spectrum/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f CMakeFiles/Makefile2 src/Spectrum/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,83 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f CMakeFiles/Makefile2 src/Spectrum/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f CMakeFiles/Makefile2 src/Spectrum/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named fidel
+# Convenience name for target.
+src/Spectrum/CMakeFiles/Spectrum.dir/rule:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f CMakeFiles/Makefile2 src/Spectrum/CMakeFiles/Spectrum.dir/rule
+.PHONY : src/Spectrum/CMakeFiles/Spectrum.dir/rule
 
-# Build rule for target.
-fidel: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fidel
-.PHONY : fidel
+# Convenience name for target.
+Spectrum: src/Spectrum/CMakeFiles/Spectrum.dir/rule
 
-# fast build rule for target.
-fidel/fast:
-	$(MAKE) -f src/CMakeFiles/fidel.dir/build.make src/CMakeFiles/fidel.dir/build
-.PHONY : fidel/fast
-
-#=============================================================================
-# Target rules for targets named GUI
-
-# Build rule for target.
-GUI: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GUI
-.PHONY : GUI
-
-# fast build rule for target.
-GUI/fast:
-	$(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
-.PHONY : GUI/fast
-
-#=============================================================================
-# Target rules for targets named Audio
-
-# Build rule for target.
-Audio: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Audio
-.PHONY : Audio
-
-# fast build rule for target.
-Audio/fast:
-	$(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/build
-.PHONY : Audio/fast
-
-#=============================================================================
-# Target rules for targets named Utilities
-
-# Build rule for target.
-Utilities: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Utilities
-.PHONY : Utilities
-
-# fast build rule for target.
-Utilities/fast:
-	$(MAKE) -f src/Utilities/CMakeFiles/Utilities.dir/build.make src/Utilities/CMakeFiles/Utilities.dir/build
-.PHONY : Utilities/fast
-
-#=============================================================================
-# Target rules for targets named Spectrum
-
-# Build rule for target.
-Spectrum: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Spectrum
 .PHONY : Spectrum
 
 # fast build rule for target.
 Spectrum/fast:
-	$(MAKE) -f src/Spectrum/CMakeFiles/Spectrum.dir/build.make src/Spectrum/CMakeFiles/Spectrum.dir/build
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Spectrum/CMakeFiles/Spectrum.dir/build.make src/Spectrum/CMakeFiles/Spectrum.dir/build
 .PHONY : Spectrum/fast
+
+spectrum.o: spectrum.cpp.o
+
+.PHONY : spectrum.o
+
+# target to build an object file
+spectrum.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Spectrum/CMakeFiles/Spectrum.dir/build.make src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
+.PHONY : spectrum.cpp.o
+
+spectrum.i: spectrum.cpp.i
+
+.PHONY : spectrum.i
+
+# target to preprocess a source file
+spectrum.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Spectrum/CMakeFiles/Spectrum.dir/build.make src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.i
+.PHONY : spectrum.cpp.i
+
+spectrum.s: spectrum.cpp.s
+
+.PHONY : spectrum.s
+
+# target to generate assembly for a file
+spectrum.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Spectrum/CMakeFiles/Spectrum.dir/build.make src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.s
+.PHONY : spectrum.cpp.s
 
 # Help Target
 help:
@@ -183,11 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... fidel"
-	@echo "... GUI"
-	@echo "... Audio"
-	@echo "... Utilities"
 	@echo "... Spectrum"
+	@echo "... spectrum.o"
+	@echo "... spectrum.i"
+	@echo "... spectrum.s"
 .PHONY : help
 
 
@@ -199,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

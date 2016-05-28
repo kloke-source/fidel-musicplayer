@@ -12,13 +12,13 @@ public:
   void init();
   void kill();
   void on_size_allocate(Gtk::Allocation allocation);
-  void setBandMagn(guint *band, gfloat *magnitude);
+  void setBandMagn(guint band, gfloat magnitude, gfloat phase_shift);
   void shrink(double percentage);
   void reset();
   void pause();
   void play();
 private:
-  void paint(guint *band);
+  void paint(guint band);
 
 
   //spectrum features
@@ -36,5 +36,5 @@ private:
   // end of spectrum settings;
 
 };
-typedef Singleton<spectrum> Spectrum;
+typedef Singleton<spectrum> spectrum_visualizer;
 #endif

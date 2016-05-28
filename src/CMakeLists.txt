@@ -12,6 +12,7 @@ add_definitions(${GTK3_CFLAGS_OTHER} ${GTKMM3_CFLAGS_OTHER})
 add_subdirectory(GUI)
 add_subdirectory(Audio)
 add_subdirectory(Utilities)
-add_executable(fidel main.cpp GUI Audio Utilities) #more headers and cpp files can be added
+add_subdirectory(Spectrum)
+add_executable(fidel main.cpp GUI Audio Spectrum Utilities) #more headers and cpp files can be added
 
-target_link_libraries(fidel ${GTK3_LIBRARIES} ${GTKMM3_LIBRARIES} ${TAGLIB_LIBRARIES} ${GST_LIBRARIES} GUI Audio Utilities)
+target_link_libraries(fidel ${GTK3_LIBRARIES} ${GTKMM3_LIBRARIES} ${TAGLIB_LIBRARIES} ${GST_LIBRARIES} GUI Audio Spectrum Utilities)

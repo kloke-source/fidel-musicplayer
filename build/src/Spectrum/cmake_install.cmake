@@ -1,4 +1,4 @@
-# Install script for directory: /home/tashrif/Dev/fidel-musicplayer-cmake/src
+# Install script for directory: /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -30,14 +30,5 @@ endif()
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "0")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/cmake_install.cmake")
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio/cmake_install.cmake")
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Utilities/cmake_install.cmake")
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum/cmake_install.cmake")
-
 endif()
 
