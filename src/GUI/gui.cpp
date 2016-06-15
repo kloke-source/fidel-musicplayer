@@ -141,7 +141,7 @@ void gui::init_spectrum()
 {
   spectrum_visualizer::Instance()->init();
   audio_playback::Instance()->signal_spectrum_changed().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::setBandMagn));
-  spectrum_view_layout->pack_start(*spectrum_visualizer::Instance()->spectrumFrame, Gtk::PACK_EXPAND_WIDGET);
+  spectrum_view_layout->pack_start(*spectrum_visualizer::Instance(), Gtk::PACK_EXPAND_WIDGET);
   spectrum_view_layout->show_all();
 }
 

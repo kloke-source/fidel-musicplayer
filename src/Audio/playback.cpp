@@ -3,6 +3,7 @@
 #include <iostream>
 #include <gst/gst.h>
 #include <GUI/gui.h>
+#include <vector>
 //#include <Spectrum/spectrum.h>
 //#include <Audio-Info///audioinfo.h>
 
@@ -19,6 +20,9 @@ playback::playback(){}
 
 GstFormat fmt = GST_FORMAT_TIME;
 gint64 duration;
+
+std::vector<double> band_magnitudes;
+std::vector<double> phase_shifts;
 
 //prototypes
 void query_duration();
@@ -71,15 +75,11 @@ gpointer    data __attribute__((unused)))
           gfloat magnitude = g_value_get_float(mag);
           gfloat phase_shift = g_value_get_float(phase);
 
-          audio_playback::Instance()->change_spectrum_bands(iter, magnitude, phase_shift);
-          //Spectrum::Instance()->setBandMagn(&iter, &magnitude);
-
-          /*
-          g_print ("band %d (freq %g): magnitude %f dB phase %f\n", i, freq,
-          g_value_get_float (mag), g_value_get_float (phase));
-          */
+          band_magnitudes[iter] = (double)magnitude;
+          phase_shifts[iter] = (double)phase_shift;
         }
       }
+      audio_playback::Instance()->change_spectrum_bands();
       g_print ("\n");
     }
   }
@@ -122,12 +122,27 @@ gpointer    data __attribute__((unused)))
   g_object_unref (audiopad);
 }
 
+bool vectors_initialized = false;
+void playback::init_vectors()
+{
+  if (vectors_initialized == false){
+    vectors_initialized = true;
+    for (size_t iter = 0; iter < spect_bands; iter++) {
+      band_magnitudes.push_back(-80);
+      phase_shifts.push_back(0);
+    }
+  }
+}
+
 void playback::audio_file(char *filesrc)
 {
   std::cout << "Inputted filesrc: "  << filesrc << std::endl;
   if (playback::is_playing() == true || stream_killed == false){
     playback::kill_curr_stream();
   }
+
+  playback::init_vectors();
+
   stream_killed = false;
   GstElement *src, *dec, *conv, *spectrum, *sink;
   GstPad *audiopad;
@@ -307,17 +322,13 @@ void playback::seek(double time, std::string sender)
   {
     playback::m_signal_status_changed(is_playing);
   }
-  //end of playback status signal functions
 
-  //spectrum signal functions
   playback::type_signal_spectrum_changed playback::signal_spectrum_changed()
   {
-    return playback::m_signal_spectrum_changed;
+    return m_signal_spectrum_changed;
   }
 
-  void playback::change_spectrum_bands(guint band, gfloat magnitude, gfloat phase_shift)
+  void playback::change_spectrum_bands()
   {
-    playback::m_signal_spectrum_changed.emit(band, magnitude, phase_shift);
+    playback::m_signal_spectrum_changed.emit();
   }
-  //end of spectrum signal functions
-  //--- end of signal functions ---
