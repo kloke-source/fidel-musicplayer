@@ -139,8 +139,8 @@ void gui::init_widget_vectors()
 
 void gui::init_spectrum()
 {
-  spectrum_visualizer::Instance()->init();
-  audio_playback::Instance()->signal_spectrum_changed().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::setBandMagn));
+  //spectrum_visualizer::Instance()->init();
+  audio_playback::Instance()->signal_spectrum_changed().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::set_band_magn));
   spectrum_view_layout->pack_start(*spectrum_visualizer::Instance(), Gtk::PACK_EXPAND_WIDGET);
   spectrum_view_layout->show_all();
 }

@@ -1,109 +1,158 @@
 #include <Spectrum/spectrum.h>
 #include <gtkmm.h>
 #include <iostream>
+#include <math.h>
+#include <Audio/playback.h>
+#define PI 3.14159265
 
-spectrum::spectrum(){}
-spectrum::~spectrum() {}
+extern std::vector<double> band_magnitudes;
+extern std::vector<double> phase_shifts;
 
-double smoothDef[64] = {0.8, 0.8, 1, 1, 0.8, 0.8, 1, 0.8, 0.8, 1, 1, 0.8,
-  1, 1, 0.8, 0.6, 0.6, 0.7, 0.8, 0.8, 0.8, 0.8, 0.8,
-  0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8,
-  0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8,
-  0.7, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6};
-  double sum = 48.4;
-
-  extern std::vector<double> band_magnitudes;
-  extern std::vector<double> phase_shifts;
-
-  void spectrum::init()
-  {
-
-  }
-
-  void spectrum::kill()
-  {
-    delete this;
-  }
-
-  void spectrum::on_size_allocate(Gtk::Allocation allocation)
-  {
-    spectrum_frame_height = allocation.get_height();
-    spectrum_vert_scale   = (double) max_magnitude/(spectrum_frame_height);
-  }
-
+int spect_bands=35;
+int spect_padding=5;
 Cairo::RefPtr<Cairo::Context> paintCairo;
 
-  void spectrum::setBandMagn()
-  {
-    if (hault == false){
-      spectrum::on_draw(paintCairo);
-    }
+spectrum::spectrum()
+{
+  Glib::signal_timeout().connect(sigc::mem_fun(*this, &spectrum::on_timeout), 1);
+}
+
+spectrum::~spectrum() {}
+
+
+double spectrum::to_degree(double radian_val)
+{
+  return (radian_val * 180/PI);
+}
+
+double spectrum::to_radian(double degree_val)
+{
+  return (degree_val * PI/180);
+}
+
+double spectrum::sin_func(double value)
+{
+  //bool radian = false;
+
+  //std::cout << "Fmod " << fmod(value, PI) << std::endl;
+  //if (fmod(value, PI) == 0){
+  //  radian = true;
+  //  std::cout << "Value is in radians" << std::endl;
+  //}
+
+  //if (radian == false) {
+  //  std::cout << "Value is in degrees" << std::endl;
+  //  value = spectrum::to_radian(value);
+  //}
+  double sin_val =  sin(value);
+  sin_val = roundf(sin_val * 100) / 100;
+
+  return sin_val;
+}
+
+void spectrum::set_band_magn()
+{
+  std::cout << "Set band magn called " << std::endl;
+}
+
+void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
+{
+  Gtk::Allocation allocation = get_allocation();
+  const double width = (double)allocation.get_width();
+  const double height = (double)allocation.get_height();
+
+  cr->set_source_rgb(0, 0, 0);
+  cr->rectangle(0, 0, width, height);
+  cr->fill();
+}
+
+double bar_heights[35];
+double max_magnitude = 80;
+
+//motion interpolation
+//y=k*sin((1/k)*x - PI/2) + k Delta easing expression
+//--> 0<=x<=(k*PI)
+//--> y => (current position/target position) & y>=0
+//--> k -> y/2 (scale factor)
+
+//--> subdivision position = (n*k*PI)/s
+//--> subdivision spacing = (k*PI)/s
+//--> s = subdivisions/speed
+
+int paint_iter=0;
+bool paint_decrement=false;
+int speed=26;
+int subdivisions=speed;
+
+bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
+{
+  paintCairo = this->get_window()->create_cairo_context();
+  if (band_magnitudes.size() != spect_bands)
+  audio_playback::Instance()->init_vectors();
+
+  Gtk::Allocation allocation = get_allocation();
+
+  double frame_width = allocation.get_width();
+  double frame_height = allocation.get_height();
+
+  double spectrum_vert_scale = max_magnitude/frame_height;
+  double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
+
+  if (paint_iter==0 && paint_decrement==true)
+    paint_decrement = false;
+
+  if (paint_iter == subdivisions){
+    std::cout << "Decrement called" << std::endl;
+    paint_decrement = true;
   }
 
-  void spectrum::pause()
-  {
-    hault = true;
+  std::cout << "Frame height " << frame_height << std::endl;
+  spectrum::clear_context(cr);
+  cr->set_source_rgb(0.21176, 0.8431, 0.7176);
+
+  for (int band = 0; band < band_magnitudes.size(); band++) {
+    double magnitude = band_magnitudes[band];
+    std::cout << "magnitude (band " << band << ") " << magnitude << std::endl;
+    std::cout << "Spectrum vert scale " << spectrum_vert_scale << std::endl;
+    double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
+    double height_required = frame_height - ( ((-1) * magnitude)/spectrum_vert_scale);
+    std::cout << "Paint Required (band " << band << ") " << height_required << std::endl;
+
+    double scale_factor=height_required/2;
+    std::cout << "--> Scale factor " << scale_factor << std::endl;
+
+    double interp_x_pos = (paint_iter*scale_factor*PI)/speed; //interpolation variables (the x position on the interpolation curve)
+    std::cout << "--> interp_x_pos " << interp_x_pos << std::endl;
+
+    double bar_height;
+    if(scale_factor != 0)
+    bar_height = scale_factor * spectrum::sin_func((1/scale_factor)*interp_x_pos - PI/2) + scale_factor; //interpolation variables
+
+    bar_heights[band]=bar_height;//smooth_def[paint_iter]*smooth_paint_scale;
+    //std::cout << "bar_height (band " << band << ") " << " --> " << bar_heights[band] << std::endl;
+    //std::cout << "Paint iter " << paint_iter << std::endl;
+    std::cout << "Rect Y1 (band " << band << ") pos --> " << (frame_height - bar_heights[band]) << " bar height --> " << bar_height << " paint_iter " << paint_iter << std::endl;
+    std::cout << "bar_x_pos " << bar_x_pos << " (band " << band << ")" << std::endl;
+    cr->rectangle(bar_x_pos, (frame_height - bar_heights[band]), spec_bar_width, frame_height);
   }
+  cr->fill();
+  if (paint_decrement == false)
+  paint_iter++;
+  else if (paint_iter != 0)
+  paint_iter--;
 
-  void spectrum::play()
+  return true;
+}
+
+bool spectrum::on_timeout()
+{
+  //std::cout << "Bar height[0] " << bar_heights[0] << std::endl;
+  auto win = get_window();
+  if (win)
   {
-    hault = false;
+    Gdk::Rectangle r(0, 0, get_allocation().get_width(),
+    get_allocation().get_height());
+    win->invalidate_rect(r, false);
   }
-
-  void spectrum::shrink(double percentage)
-  {
-    for (int iter=0; iter < 35; iter++){
-      double magnitude    = spectrumBandMagn[iter];
-      double paint_amount = spectrum_frame_height - (((-1) * magnitude)/spectrum_vert_scale);
-      spectrumBand[iter]->set_size_request(0, (paint_amount * percentage));
-    }
-  }
-
-  void spectrum::reset()
-  {
-    for (int iter=0; iter < 35; iter++){
-      spectrumBand[iter]->set_size_request(0, 0);
-    }
-  }
-
-  void spectrum::clear(const Cairo::RefPtr<Cairo::Context>& cr)
-  {
-    Gtk::Allocation allocation = get_allocation();
-    const double width = (double)allocation.get_width();
-    const double height = (double)allocation.get_height();
-
-      cr->set_source_rgb(0, 0, 0);
-      cr->rectangle(0, 0, width, height);
-      cr->fill();
-  }
-
-  bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
-  {
-    paintCairo = this->get_window()->create_cairo_context();
-    Gtk::Allocation allocation = get_allocation();
-    const double width = (double)allocation.get_width();
-    const double height = (double)allocation.get_height();
-
-    double spectrum_vert_scale = max_magnitude/height;
-    double spec_bar_width = (width - ((spec_bands+1) * padding))/spec_bands;
-
-    spectrum::clear(cr);
-    std::this_thread()
-    for (size_t iter = 0; iter < band_magnitudes.size(); iter++) {
-      double magnitude = band_magnitudes[iter];
-      double bar_x_pos = padding + (iter * (spec_bar_width + padding));
-      double bar_height = ((-1) * magnitude)/spectrum_vert_scale;
-      std::cout << "Bar height " << bar_height << " band -> " << iter << std::endl;
-      cr->set_source_rgb(0.21176, 0.8431, 0.7176);
-      cr->rectangle(bar_x_pos, bar_height, spec_bar_width, height);
-      cr->fill();
-    }
-    return true;
-  }
-
-  void spectrum::paint(guint band)
-  {
-    double magnitude    = spectrumBandMagn[band];
-    double paint_amount = spectrum_frame_height - (((-1) * magnitude)/spectrum_vert_scale);
-    spectrumBand[band]->set_size_request(0, paint_amount);
-  }
+  return true;
+}

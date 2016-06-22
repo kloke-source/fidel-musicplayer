@@ -29,9 +29,9 @@ cstddef
 -
 
 ../src/Spectrum/spectrum.h
-GUI/singleton.h
--
 gtkmm.h
+-
+GUI/singleton.h
 -
 
 ../src/Utilities/util.h
