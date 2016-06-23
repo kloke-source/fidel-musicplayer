@@ -74,8 +74,9 @@ void gui::initialize(int argc, char **argv)
   gui::init_icons();
   gui::init_spectrum();
   gui::set_styles();
-  window->maximize();
 
+  window->set_size_request(800, 450);
+  window->maximize();
   app->run(*window);
   //delete window;
   //std::cout << window << std::endl;
