@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/GUI.dir/gui.cpp.o"
-  "CMakeFiles/GUI.dir/ui-widgets.cpp.o"
   "CMakeFiles/GUI.dir/fidel-resources.cpp.o"
   "libGUI.pdb"
   "libGUI.a"

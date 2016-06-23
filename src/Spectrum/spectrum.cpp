@@ -140,7 +140,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     {
       shaders[band]++;
     }
-    else if (shaders[band] >= 0)
+    else if (shaders[band] > 0)
     shaders[band]--;
 
     std::cout << "Rect Y1 (band " << band << ") pos --> " << (frame_height - bar_heights[band]) << " bar height --> " << bar_height << " Shaders " << shaders[band] << std::endl;

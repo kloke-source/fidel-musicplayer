@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/ui-widgets.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/ui-widgets.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -45,6 +44,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/lib/cairomm-1.0/include"
   "/usr/include/sigc++-2.0"
   "/usr/lib/sigc++-2.0/include"
+  "/usr/include/gstreamer-1.0"
+  "/usr/lib/gstreamer-1.0/include"
+  "/usr/include/taglib"
   "src"
   )
 

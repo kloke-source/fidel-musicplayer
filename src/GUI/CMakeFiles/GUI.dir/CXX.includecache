@@ -36,16 +36,6 @@ iostream
 GUI/singleton.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/ui-widgets.cpp
-GUI/ui-widgets.h
--
-GUI/fidel-resources.h
--
-gtkmm.h
--
-iostream
--
-
 /usr/include/atk-1.0/atk/atk-enum-types.h
 atk/atkversion.h
 -
@@ -11434,11 +11424,5 @@ src/GUI/singleton.h
 assert.h
 -
 cstddef
--
-
-src/GUI/ui-widgets.h
-gtkmm.h
--
-vector
 -
 
