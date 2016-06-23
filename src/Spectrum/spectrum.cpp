@@ -123,13 +123,14 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   spectrum::clear_context(cr);
   cr->set_source_rgb(0.21176, 0.8431, 0.7176);
 
+  #pragma omp parallel for
   for (int band = 0; band < band_magnitudes.size(); band++) {
     double magnitude = band_magnitudes[band];
-    std::cout << "magnitude (band " << band << ") " << magnitude << std::endl;
-    std::cout << "Spectrum vert scale " << spectrum_vert_scale << std::endl;
+    //std::cout << "magnitude (band " << band << ") " << magnitude << std::endl;
+    //std::cout << "Spectrum vert scale " << spectrum_vert_scale << std::endl;
     double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
     double height_required = frame_height - ( ((-1) * magnitude)/spectrum_vert_scale);
-    std::cout << "Paint Required (band " << band << ") " << height_required << std::endl;
+    //std::cout << "Paint Required (band " << band << ") " << height_required << std::endl;
 
     double interp_x_pos = (shaders[band]*scale_factor*PI)/speed; //interpolation variables (the x position on the interpolation curve)
     //std::cout << "--> interp_x_pos " << interp_x_pos << std::endl;
@@ -152,10 +153,10 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     else if (shaders[band] > 0)
     shaders[band]--;
 
-    std::cout << "Rect Y1 (band " << band << ") pos --> " << (frame_height - bar_heights[band]) << " bar height --> " << bar_height << " Shaders " << shaders[band] << std::endl;
+    //std::cout << "Rect Y1 (band " << band << ") pos --> " << (frame_height - bar_heights[band]) << " bar height --> " << bar_height << " Shaders " << shaders[band] << std::endl;
     //std::cout << "bar_x_pos " << bar_x_pos << " (band " << band << ")" << std::endl;
     cr->rectangle(bar_x_pos, (frame_height - bar_heights[band]), spec_bar_width, frame_height);
-      previously_painted[band]=bar_height;
+    previously_painted[band]=bar_height;
   }
   cr->fill();
   return true;

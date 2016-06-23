@@ -136,6 +136,45 @@ GUI/fast:
 	$(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
 .PHONY : GUI/fast
 
+#=============================================================================
+# Target rules for targets named Audio
+
+# Build rule for target.
+Audio: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Audio
+.PHONY : Audio
+
+# fast build rule for target.
+Audio/fast:
+	$(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/build
+.PHONY : Audio/fast
+
+#=============================================================================
+# Target rules for targets named Utilities
+
+# Build rule for target.
+Utilities: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Utilities
+.PHONY : Utilities
+
+# fast build rule for target.
+Utilities/fast:
+	$(MAKE) -f src/Utilities/CMakeFiles/Utilities.dir/build.make src/Utilities/CMakeFiles/Utilities.dir/build
+.PHONY : Utilities/fast
+
+#=============================================================================
+# Target rules for targets named Spectrum
+
+# Build rule for target.
+Spectrum: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Spectrum
+.PHONY : Spectrum
+
+# fast build rule for target.
+Spectrum/fast:
+	$(MAKE) -f src/Spectrum/CMakeFiles/Spectrum.dir/build.make src/Spectrum/CMakeFiles/Spectrum.dir/build
+.PHONY : Spectrum/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -146,6 +185,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... fidel"
 	@echo "... GUI"
+	@echo "... Audio"
+	@echo "... Utilities"
+	@echo "... Spectrum"
 .PHONY : help
 
 
