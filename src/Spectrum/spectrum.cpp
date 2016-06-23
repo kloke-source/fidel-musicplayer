@@ -81,8 +81,11 @@ double max_magnitude = 80;
 
 int paint_iter=0;
 bool paint_decrement=false;
-int speed=26;
+int speed=128;
 int subdivisions=speed;
+
+int shaders[35];
+double previously_painted[35];
 
 bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
@@ -99,12 +102,15 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
 
   if (paint_iter==0 && paint_decrement==true)
-    paint_decrement = false;
+  paint_decrement = false;
 
   if (paint_iter == subdivisions){
     std::cout << "Decrement called" << std::endl;
     paint_decrement = true;
   }
+
+  double scale_factor=frame_height/2;
+  std::cout << "--> Scale factor " << scale_factor << std::endl;
 
   std::cout << "Frame height " << frame_height << std::endl;
   spectrum::clear_context(cr);
@@ -118,10 +124,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     double height_required = frame_height - ( ((-1) * magnitude)/spectrum_vert_scale);
     std::cout << "Paint Required (band " << band << ") " << height_required << std::endl;
 
-    double scale_factor=height_required/2;
-    std::cout << "--> Scale factor " << scale_factor << std::endl;
-
-    double interp_x_pos = (paint_iter*scale_factor*PI)/speed; //interpolation variables (the x position on the interpolation curve)
+    double interp_x_pos = (shaders[band]*scale_factor*PI)/speed; //interpolation variables (the x position on the interpolation curve)
     std::cout << "--> interp_x_pos " << interp_x_pos << std::endl;
 
     double bar_height;
@@ -131,16 +134,21 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     bar_heights[band]=bar_height;//smooth_def[paint_iter]*smooth_paint_scale;
     //std::cout << "bar_height (band " << band << ") " << " --> " << bar_heights[band] << std::endl;
     //std::cout << "Paint iter " << paint_iter << std::endl;
-    std::cout << "Rect Y1 (band " << band << ") pos --> " << (frame_height - bar_heights[band]) << " bar height --> " << bar_height << " paint_iter " << paint_iter << std::endl;
+
+    std::cout << "Previously painted " << previously_painted[band] << " height_required " << height_required << " (band " << band << ") " << std::endl;
+    if (previously_painted[band] < height_required && shaders[band] <= subdivisions)
+    {
+      shaders[band]++;
+    }
+    else if (shaders[band] >= 0)
+    shaders[band]--;
+
+    std::cout << "Rect Y1 (band " << band << ") pos --> " << (frame_height - bar_heights[band]) << " bar height --> " << bar_height << " Shaders " << shaders[band] << std::endl;
     std::cout << "bar_x_pos " << bar_x_pos << " (band " << band << ")" << std::endl;
     cr->rectangle(bar_x_pos, (frame_height - bar_heights[band]), spec_bar_width, frame_height);
+    previously_painted[band]=bar_height;
   }
   cr->fill();
-  if (paint_decrement == false)
-  paint_iter++;
-  else if (paint_iter != 0)
-  paint_iter--;
-
   return true;
 }
 
