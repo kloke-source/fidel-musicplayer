@@ -15,4 +15,4 @@ add_subdirectory(Utilities)
 add_subdirectory(Spectrum)
 add_executable(fidel main.cpp GUI Audio Spectrum Utilities) #more headers and cpp files can be added
 
-target_link_libraries(fidel ${GTK3_LIBRARIES} ${GTKMM3_LIBRARIES} ${TAGLIB_LIBRARIES} ${GST_LIBRARIES} GUI Audio Spectrum Utilities)
+target_link_libraries(fidel ${GTK3_LIBRARIES} ${GTKMM3_LIBRARIES} ${TAGLIB_LIBRARIES} ${GST_LIBRARIES} GUI Audio Spectrum Utilities -fopenmp)

@@ -68,11 +68,19 @@ void spectrum::set_band_magn()
 void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
 {
   Gtk::Allocation allocation = get_allocation();
-  const double width = (double)allocation.get_width();
-  const double height = (double)allocation.get_height();
+  const double frame_width = (double)allocation.get_width();
+  const double frame_height = (double)allocation.get_height();
 
   cr->set_source_rgb(0.2, 0.2, 0.2);
-  cr->rectangle(0, 0, width, height);
+  cr->rectangle(0, 0, frame_width, frame_height);
+  cr->fill();
+  double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
+  cr->set_source_rgb(0.21176, 0.8431, 0.7176);
+
+  for (int band = 0; band < spect_bands; band++) {
+    double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
+    cr->rectangle(bar_x_pos, (frame_height/2 - 1), spec_bar_width, 1);
+  }
   cr->fill();
 }
 
@@ -155,7 +163,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 
     //std::cout << "Rect Y1 (band " << band << ") pos --> " << (frame_height - bar_heights[band]) << " bar height --> " << bar_height << " Shaders " << shaders[band] << std::endl;
     //std::cout << "bar_x_pos " << bar_x_pos << " (band " << band << ")" << std::endl;
-    cr->rectangle(bar_x_pos, (frame_height - bar_heights[band]), spec_bar_width, frame_height);
+    cr->rectangle(bar_x_pos, (frame_height/2 - bar_heights[band]/2), spec_bar_width, bar_heights[band]);
     previously_painted[band]=bar_height;
   }
   cr->fill();
