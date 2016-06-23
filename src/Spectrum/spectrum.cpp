@@ -8,12 +8,22 @@
 extern std::vector<double> band_magnitudes;
 extern std::vector<double> phase_shifts;
 
-int spect_bands=35;
+int spect_bands=250;
 int spect_padding=5;
 Cairo::RefPtr<Cairo::Context> paintCairo;
 
+std::vector<int> shaders;
+std::vector<double> previously_painted;
+
+std::vector<double> bar_heights;
+
 spectrum::spectrum()
 {
+  for (size_t band = 0; band < spect_bands; band++) {
+    shaders.push_back(0);
+    previously_painted.push_back(0);
+    bar_heights.push_back(0);
+  }
   Glib::signal_timeout().connect(sigc::mem_fun(*this, &spectrum::on_timeout), 1);
 }
 
@@ -61,12 +71,11 @@ void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
   const double width = (double)allocation.get_width();
   const double height = (double)allocation.get_height();
 
-  cr->set_source_rgb(0, 0, 0);
+  cr->set_source_rgb(0.2, 0.2, 0.2);
   cr->rectangle(0, 0, width, height);
   cr->fill();
 }
 
-double bar_heights[35];
 double max_magnitude = 80;
 
 //motion interpolation
@@ -81,11 +90,9 @@ double max_magnitude = 80;
 
 int paint_iter=0;
 bool paint_decrement=false;
+
 int speed=150;
 int subdivisions=speed;
-
-int shaders[35];
-double previously_painted[35];
 
 bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
@@ -110,9 +117,9 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   }
 
   double scale_factor=frame_height/2;
-  std::cout << "--> Scale factor " << scale_factor << std::endl;
+  //std::cout << "--> Scale factor " << scale_factor << std::endl;
 
-  std::cout << "Frame height " << frame_height << std::endl;
+  //std::cout << "Frame height " << frame_height << std::endl;
   spectrum::clear_context(cr);
   cr->set_source_rgb(0.21176, 0.8431, 0.7176);
 
@@ -125,7 +132,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     std::cout << "Paint Required (band " << band << ") " << height_required << std::endl;
 
     double interp_x_pos = (shaders[band]*scale_factor*PI)/speed; //interpolation variables (the x position on the interpolation curve)
-    std::cout << "--> interp_x_pos " << interp_x_pos << std::endl;
+    //std::cout << "--> interp_x_pos " << interp_x_pos << std::endl;
 
     double bar_height;
     if(scale_factor != 0)
@@ -135,18 +142,20 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     //std::cout << "bar_height (band " << band << ") " << " --> " << bar_heights[band] << std::endl;
     //std::cout << "Paint iter " << paint_iter << std::endl;
 
-    std::cout << "Previously painted " << previously_painted[band] << " height_required " << height_required << " (band " << band << ") " << std::endl;
+    //std::cout << "Previously painted " << previously_painted[band] << " height_required " << height_required << " (band " << band << ") " << std::endl;
     if (previously_painted[band] < height_required && shaders[band] <= subdivisions)
     {
       shaders[band]++;
     }
+    else if (shaders[band] == 0)
+    shaders[band]++;
     else if (shaders[band] > 0)
     shaders[band]--;
 
     std::cout << "Rect Y1 (band " << band << ") pos --> " << (frame_height - bar_heights[band]) << " bar height --> " << bar_height << " Shaders " << shaders[band] << std::endl;
-    std::cout << "bar_x_pos " << bar_x_pos << " (band " << band << ")" << std::endl;
+    //std::cout << "bar_x_pos " << bar_x_pos << " (band " << band << ")" << std::endl;
     cr->rectangle(bar_x_pos, (frame_height - bar_heights[band]), spec_bar_width, frame_height);
-    previously_painted[band]=bar_height;
+      previously_painted[band]=bar_height;
   }
   cr->fill();
   return true;

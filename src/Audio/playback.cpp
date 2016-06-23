@@ -9,7 +9,7 @@
 
 #define AUDIOFREQ 44100
 
-static guint spect_bands = 35;
+extern int spect_bands;
 bool idle=true;
 bool stream_killed = true;
 bool playing=false;
@@ -68,6 +68,7 @@ gpointer    data __attribute__((unused)))
 
       for (iter = 0; iter < spect_bands; iter++) {
         freq = (gdouble) ((AUDIOFREQ / 2) * iter + AUDIOFREQ / 4) / spect_bands;
+        std::cout << "Frequency (band " << iter << ")" << freq << std::endl;
         mag = gst_value_list_get_value (magnitudes, iter);
         phase = gst_value_list_get_value (phases, iter);
 

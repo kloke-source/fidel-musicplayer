@@ -12121,12 +12121,8 @@ cstddef
 -
 
 src/Spectrum/spectrum.h
-GUI/singleton.h
--
 gtkmm.h
 -
-thread
--
-vector
+GUI/singleton.h
 -
 
