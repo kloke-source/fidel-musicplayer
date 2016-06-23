@@ -81,7 +81,7 @@ double max_magnitude = 80;
 
 int paint_iter=0;
 bool paint_decrement=false;
-int speed=128;
+int speed=150;
 int subdivisions=speed;
 
 int shaders[35];
