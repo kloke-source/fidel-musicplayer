@@ -10,7 +10,6 @@
 class playback{
 public:
 	playback();
-	void init_vectors();
 	void audio_file(char *filesrc);
 	void kill_curr_stream();
 	void kill_audio();

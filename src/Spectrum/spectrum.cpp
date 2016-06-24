@@ -105,9 +105,6 @@ int subdivisions=speed;
 bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
   paintCairo = this->get_window()->create_cairo_context();
-  if (band_magnitudes.size() != spect_bands)
-  audio_playback::Instance()->init_vectors();
-
   Gtk::Allocation allocation = get_allocation();
 
   double frame_width = allocation.get_width();

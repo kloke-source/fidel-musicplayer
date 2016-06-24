@@ -16,7 +16,6 @@ bool playing=false;
 bool duration_obtained;
 
 GMainLoop *loop;
-playback::playback(){}
 
 GstFormat fmt = GST_FORMAT_TIME;
 gint64 duration;
@@ -27,6 +26,14 @@ std::vector<double> phase_shifts;
 //prototypes
 void query_duration();
 //end
+
+playback::playback()
+{
+  for (size_t iter = 0; iter < spect_bands; iter++) {
+    band_magnitudes.push_back(-80);
+    phase_shifts.push_back(0);
+  }
+}
 
 static gboolean
 bus_cb (GstBus     *bus __attribute__((unused)),
@@ -123,26 +130,12 @@ gpointer    data __attribute__((unused)))
   g_object_unref (audiopad);
 }
 
-bool vectors_initialized = false;
-void playback::init_vectors()
-{
-  if (vectors_initialized == false){
-    vectors_initialized = true;
-    for (size_t iter = 0; iter < spect_bands; iter++) {
-      band_magnitudes.push_back(-80);
-      phase_shifts.push_back(0);
-    }
-  }
-}
-
 void playback::audio_file(char *filesrc)
 {
   std::cout << "Inputted filesrc: "  << filesrc << std::endl;
   if (playback::is_playing() == true || stream_killed == false){
     playback::kill_curr_stream();
   }
-
-  playback::init_vectors();
 
   stream_killed = false;
   GstElement *src, *dec, *conv, *spectrum, *sink;
