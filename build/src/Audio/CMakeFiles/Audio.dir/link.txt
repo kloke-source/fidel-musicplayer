@@ -1,2 +1,2 @@
-/usr/bin/ar qc libAudio_debug.a  CMakeFiles/Audio.dir/playback.cpp.o
-/usr/bin/ranlib libAudio_debug.a
+/usr/bin/ar qc libAudio.a  CMakeFiles/Audio.dir/playback.cpp.o
+/usr/bin/ranlib libAudio.a

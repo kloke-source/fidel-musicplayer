@@ -22,8 +22,6 @@ void util::set_source_rgb(const Cairo::RefPtr<Cairo::Context>& cr, std::string h
   for (size_t iter = 0; iter < rgb_vect.size(); iter++) {
     double primary_color = (double) 1/(255/rgb_vect[iter]);
     cairo_rgb_vect.push_back(primary_color);
-    std::cout << "RGB vect " << rgb_vect[iter] << std::endl;
-    std::cout << "Cairo RGB vect " << cairo_rgb_vect[iter] << std::endl;
   }
   cr->set_source_rgb(cairo_rgb_vect[RED], cairo_rgb_vect[GREEN], cairo_rgb_vect[BLUE]);
 }

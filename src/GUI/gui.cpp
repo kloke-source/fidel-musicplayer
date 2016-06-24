@@ -78,8 +78,6 @@ void gui::initialize(int argc, char **argv)
   window->set_size_request(800, 450);
   window->maximize();
 
-
-  std::cout << "Hex to rgb" << std::endl;
   app->run(*window);
   //delete window;
   //std::cout << window << std::endl;
