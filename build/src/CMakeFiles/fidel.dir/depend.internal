@@ -3,6 +3,7 @@
 
 src/CMakeFiles/fidel.dir/main.cpp.o
  ../src/GUI/singleton.h
+ ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h

@@ -2,6 +2,7 @@
 #define SPECTRUM
 #include <gtkmm.h>
 #include <GUI/singleton.h>
+#include <Utilities/util.h>
 
 class spectrum : public Gtk::DrawingArea{
 public:

@@ -10,6 +10,9 @@
 
 class util{
 public:
+  static void set_source_rgb(const Cairo::RefPtr<Cairo::Context>& cr, std::string hex_color);
+  static std::vector<double> hex_to_rgb(std::string hex_val);
+  static double hex_to_dec(std::string hex_val);
   static char *to_char(std::string string_value);
   static int to_int (std::string text);
   static std::string to_string(int value);

@@ -29,6 +29,16 @@ gtkmm.h
 -
 GUI/singleton.h
 -
+Utilities/util.h
+-
+
+../src/Utilities/util.h
+gtkmm.h
+-
+iostream
+-
+vector
+-
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp
 Spectrum/spectrum.h
@@ -40,6 +50,8 @@ iostream
 math.h
 -
 Audio/playback.h
+-
+Utilities/util.h
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h

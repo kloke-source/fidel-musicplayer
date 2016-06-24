@@ -3,6 +3,7 @@
 #include <iostream>
 #include <math.h>
 #include <Audio/playback.h>
+#include <Utilities/util.h>
 #define PI 3.14159265
 
 extern std::vector<double> band_magnitudes;
@@ -71,11 +72,11 @@ void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
   const double frame_width = (double)allocation.get_width();
   const double frame_height = (double)allocation.get_height();
 
-  cr->set_source_rgb(0.2, 0.2, 0.2);
+  util::set_source_rgb(cr, "#333333");
   cr->rectangle(0, 0, frame_width, frame_height);
   cr->fill();
   double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
-  cr->set_source_rgb(0.21176, 0.8431, 0.7176);
+  util::set_source_rgb(cr, "#36D7B7");
 
   for (int band = 0; band < spect_bands; band++) {
     double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
@@ -126,8 +127,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 
   //std::cout << "Frame height " << frame_height << std::endl;
   spectrum::clear_context(cr);
-  cr->set_source_rgb(0.21176, 0.8431, 0.7176);
-
+  util::set_source_rgb(cr, "#36D7B7");
   #pragma omp parallel for
   for (int band = 0; band < band_magnitudes.size(); band++) {
     double magnitude = band_magnitudes[band];

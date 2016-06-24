@@ -15,9 +15,6 @@
 ########################
 
 //Dependencies for target
-Audio-Library_LIB_DEPENDS:STATIC=
-
-//Dependencies for target
 Audio_LIB_DEPENDS:STATIC=
 
 //Path to a program.
@@ -25,13 +22,13 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_COMPILER:FILEPATH=/usr/lib/hardening-wrapper/bin/c++
 
 //Flags used by the compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
@@ -50,7 +47,7 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+CMAKE_C_COMPILER:FILEPATH=/usr/lib/hardening-wrapper/bin/cc
 
 //Flags used by the compiler during all build types.
 CMAKE_C_FLAGS:STRING=
@@ -93,7 +90,7 @@ CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=/usr/bin/ld
+CMAKE_LINKER:FILEPATH=/usr/lib/hardening-wrapper/bin/ld
 
 //Path to a program.
 CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make
@@ -127,9 +124,6 @@ CMAKE_PROJECT_NAME:STATIC=fidel
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
-
-//Set Release library postfix
-CMAKE_RELEASE_POSTFIX:STRING=
 
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
@@ -187,13 +181,7 @@ PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 Spectrum_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
-UTIL_LIB_DEPENDS:STATIC=
-
-//Dependencies for target
 Utilities_LIB_DEPENDS:STATIC=
-
-//Set Debug library postfix
-fidel:STRING=CMAKE_DEBUG_POSTFIX;d
 
 //Value Computed by CMake
 fidel_BINARY_DIR:STATIC=/home/tashrif/Dev/fidel-musicplayer-cmake/build
@@ -364,7 +352,7 @@ GST_STATIC_LIBS:INTERNAL=
 GST_STATIC_LIBS_L:INTERNAL=
 GST_STATIC_LIBS_OTHER:INTERNAL=
 GST_STATIC_LIBS_PATHS:INTERNAL=
-GST_VERSION:INTERNAL=1.8.1
+GST_VERSION:INTERNAL=1.8.2
 GST_gstreamer-1.0_INCLUDEDIR:INTERNAL=
 GST_gstreamer-1.0_LIBDIR:INTERNAL=
 GST_gstreamer-1.0_PREFIX:INTERNAL=
@@ -398,7 +386,7 @@ GTK3_STATIC_LIBS:INTERNAL=
 GTK3_STATIC_LIBS_L:INTERNAL=
 GTK3_STATIC_LIBS_OTHER:INTERNAL=
 GTK3_STATIC_LIBS_PATHS:INTERNAL=
-GTK3_VERSION:INTERNAL=3.20.4
+GTK3_VERSION:INTERNAL=3.20.6
 GTK3_gtk+-3.0_INCLUDEDIR:INTERNAL=
 GTK3_gtk+-3.0_LIBDIR:INTERNAL=
 GTK3_gtk+-3.0_PREFIX:INTERNAL=

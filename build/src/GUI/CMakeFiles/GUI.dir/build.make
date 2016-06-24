@@ -60,15 +60,15 @@ include src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/gui.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/gui.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/lib/hardening-wrapper/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/gui.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp
 
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/gui.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp > CMakeFiles/GUI.dir/gui.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp > CMakeFiles/GUI.dir/gui.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/gui.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp -o CMakeFiles/GUI.dir/gui.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp -o CMakeFiles/GUI.dir/gui.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o.requires:
 
@@ -84,15 +84,15 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o.provides.build: src/GUI/CMakeFiles/GUI.dir/
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o: ../src/GUI/fidel-resources.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/fidel-resources.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/lib/hardening-wrapper/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/fidel-resources.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp
 
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/fidel-resources.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp > CMakeFiles/GUI.dir/fidel-resources.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp > CMakeFiles/GUI.dir/fidel-resources.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/fidel-resources.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp -o CMakeFiles/GUI.dir/fidel-resources.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp -o CMakeFiles/GUI.dir/fidel-resources.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o.requires:
 
@@ -113,16 +113,16 @@ GUI_OBJECTS = \
 # External object files for target GUI
 GUI_EXTERNAL_OBJECTS =
 
-src/GUI/libGUI.a: src/GUI/CMakeFiles/GUI.dir/gui.cpp.o
-src/GUI/libGUI.a: src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o
-src/GUI/libGUI.a: src/GUI/CMakeFiles/GUI.dir/build.make
-src/GUI/libGUI.a: src/GUI/CMakeFiles/GUI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libGUI.a"
+src/GUI/libGUI_debug.a: src/GUI/CMakeFiles/GUI.dir/gui.cpp.o
+src/GUI/libGUI_debug.a: src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o
+src/GUI/libGUI_debug.a: src/GUI/CMakeFiles/GUI.dir/build.make
+src/GUI/libGUI_debug.a: src/GUI/CMakeFiles/GUI.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libGUI_debug.a"
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && $(CMAKE_COMMAND) -P CMakeFiles/GUI.dir/cmake_clean_target.cmake
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GUI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-src/GUI/CMakeFiles/GUI.dir/build: src/GUI/libGUI.a
+src/GUI/CMakeFiles/GUI.dir/build: src/GUI/libGUI_debug.a
 
 .PHONY : src/GUI/CMakeFiles/GUI.dir/build
 

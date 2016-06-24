@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Utilities.dir/util.cpp.o"
-  "libUtilities.pdb"
-  "libUtilities.a"
+  "libUtilities_debug.pdb"
+  "libUtilities_debug.a"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -33,6 +33,8 @@ gtkmm.h
 -
 GUI/singleton.h
 -
+Utilities/util.h
+-
 
 ../src/Utilities/util.h
 gtkmm.h

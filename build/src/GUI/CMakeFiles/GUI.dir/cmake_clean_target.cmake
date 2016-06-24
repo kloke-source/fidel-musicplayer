@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libGUI.a"
+  "libGUI_debug.a"
 )

@@ -12,6 +12,14 @@ assert.h
 cstddef
 -
 
+../src/Utilities/util.h
+gtkmm.h
+-
+iostream
+-
+vector
+-
+
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
 vector
 -
@@ -26,6 +34,8 @@ GUI/singleton.h
 GUI/gui.h
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
 gtkmm.h
+-
+Utilities/util.h
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h

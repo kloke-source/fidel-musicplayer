@@ -9,6 +9,52 @@
 
 const char *BACK_SLASH_ESC  = "\\";
 
+enum {
+  RED,
+  GREEN,
+  BLUE
+};
+
+void util::set_source_rgb(const Cairo::RefPtr<Cairo::Context>& cr, std::string hex_color)
+{
+  std::vector<double> rgb_vect = util::hex_to_rgb(hex_color);
+  std::vector<double> cairo_rgb_vect;
+  for (size_t iter = 0; iter < rgb_vect.size(); iter++) {
+    double primary_color = (double) 1/(255/rgb_vect[iter]);
+    cairo_rgb_vect.push_back(primary_color);
+    std::cout << "RGB vect " << rgb_vect[iter] << std::endl;
+    std::cout << "Cairo RGB vect " << cairo_rgb_vect[iter] << std::endl;
+  }
+  cr->set_source_rgb(cairo_rgb_vect[RED], cairo_rgb_vect[GREEN], cairo_rgb_vect[BLUE]);
+}
+
+std::vector<double> util::hex_to_rgb(std::string hex_val)
+{
+  std::vector<double> rgb_vect;
+  hex_val = hex_val.substr(1, hex_val.length()); //remove # from hexadecimal code
+    for (size_t iter = 0; iter < hex_val.size(); iter+=2) {
+      if (iter != hex_val.size() - 1){
+        std::string hex_sub_sec;// = (std::string) hex_val[iter];// + hex_val[iter+1];
+        std::stringstream char_conv;
+        char_conv << hex_val[iter];
+        char_conv << hex_val[iter+1];
+        char_conv >> hex_sub_sec;
+        rgb_vect.push_back(util::hex_to_dec(hex_sub_sec));
+      }
+    }
+  return rgb_vect;
+}
+
+double util::hex_to_dec(std::string hex_val)
+{
+  unsigned int dec_val;
+  std::stringstream ss;
+  ss << std::hex << hex_val;
+  ss >> dec_val;
+  //std::cout << static_cast<double>(dec_val) << std::endl; // output it as a signed type
+  return static_cast<double>(dec_val);
+}
+
 char* util::to_char(std::string string_value)
 {
   std::string conv_string_value = (std::string) string_value;
