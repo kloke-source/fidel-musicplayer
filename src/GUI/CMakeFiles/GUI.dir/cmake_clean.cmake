@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/GUI.dir/gui.cpp.o"
   "CMakeFiles/GUI.dir/fidel-resources.cpp.o"
-  "libGUI_debug.pdb"
-  "libGUI_debug.a"
+  "libGUI.pdb"
+  "libGUI.a"
 )
 
 # Per-language clean rules from dependency scanning.

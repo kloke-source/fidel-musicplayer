@@ -72,12 +72,12 @@ void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
   const double frame_width = (double)allocation.get_width();
   const double frame_height = (double)allocation.get_height();
 
-  util::set_source_rgb(cr, "#333333");
+  util::set_source_rgb(cr, "#dfdfdf");//2d2d2d
   cr->rectangle(0, 0, frame_width, frame_height);
   cr->fill();
   double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
-  util::set_source_rgb(cr, "#36D7B7");
-
+  util::set_source_rgb(cr, "#2d2d2d");//dfdfdf
+  //#36D7B7
   for (int band = 0; band < spect_bands; band++) {
     double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
     cr->rectangle(bar_x_pos, (frame_height/2 - 1), spec_bar_width, 1);
@@ -127,7 +127,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 
   //std::cout << "Frame height " << frame_height << std::endl;
   spectrum::clear_context(cr);
-  util::set_source_rgb(cr, "#36D7B7");
+  util::set_source_rgb(cr, "#2d2d2d");
   #pragma omp parallel for
   for (int band = 0; band < band_magnitudes.size(); band++) {
     double magnitude = band_magnitudes[band];

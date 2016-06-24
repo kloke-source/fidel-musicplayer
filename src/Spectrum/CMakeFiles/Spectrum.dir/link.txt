@@ -1,2 +1,2 @@
-/usr/bin/ar qc libSpectrum_debug.a  CMakeFiles/Spectrum.dir/spectrum.cpp.o
-/usr/bin/ranlib libSpectrum_debug.a
+/usr/bin/ar qc libSpectrum.a  CMakeFiles/Spectrum.dir/spectrum.cpp.o
+/usr/bin/ranlib libSpectrum.a
