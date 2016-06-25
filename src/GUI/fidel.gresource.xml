@@ -10,5 +10,7 @@
     <file>Resources/repeat.svg</file>
     <file>Resources/seeker.ui</file>
     <file>Resources/shuffle.svg</file>
+    <file>Resources/theme.css</file>
+    <file>Resources/DS-DIGITAL.TTF</file>
   </gresource>
 </gresources>

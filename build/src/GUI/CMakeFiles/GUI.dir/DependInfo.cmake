@@ -6,6 +6,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/themer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

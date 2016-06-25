@@ -1,0 +1,2 @@
+/usr/bin/ar qc libAudio-Info.a  CMakeFiles/Audio-Info.dir/audioinfo.cpp.o
+/usr/bin/ranlib libAudio-Info.a

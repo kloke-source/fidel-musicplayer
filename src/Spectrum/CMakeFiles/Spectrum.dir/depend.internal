@@ -1235,3 +1235,4 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
  src/Audio/playback.h
  src/GUI/singleton.h
  src/Spectrum/spectrum.h
+ src/Utilities/util.h

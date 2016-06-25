@@ -17,6 +17,8 @@ math.h
 -
 Audio/playback.h
 -
+Utilities/util.h
+-
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
 atk/atkversion.h
@@ -12124,5 +12126,15 @@ src/Spectrum/spectrum.h
 gtkmm.h
 -
 GUI/singleton.h
+-
+Utilities/util.h
+-
+
+src/Utilities/util.h
+gtkmm.h
+-
+iostream
+-
+vector
 -
 

@@ -53,6 +53,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio/CMakeFiles/Audio.dir/DependInfo.cmake"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info/CMakeFiles/Audio-Info.dir/DependInfo.cmake"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum/CMakeFiles/Spectrum.dir/DependInfo.cmake"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Utilities/CMakeFiles/Utilities.dir/DependInfo.cmake"
   )

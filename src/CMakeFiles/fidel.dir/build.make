@@ -92,6 +92,7 @@ fidel: src/CMakeFiles/fidel.dir/main.cpp.o
 fidel: src/CMakeFiles/fidel.dir/build.make
 fidel: src/GUI/libGUI.a
 fidel: src/Audio/libAudio.a
+fidel: src/Audio-Info/libAudio-Info.a
 fidel: src/Spectrum/libSpectrum.a
 fidel: src/Utilities/libUtilities.a
 fidel: src/CMakeFiles/fidel.dir/link.txt

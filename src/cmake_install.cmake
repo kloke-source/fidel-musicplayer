@@ -38,6 +38,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio/cmake_install.cmake")
   include("/home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/cmake_install.cmake")
   include("/home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/cmake_install.cmake")
+  include("/home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/cmake_install.cmake")
 
 endif()
 

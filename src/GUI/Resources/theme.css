@@ -1,0 +1,76 @@
+
+@define-color selected_tab_bg_color #e8e8e8;
+@define-color selected_tab_font_bg_color #2d2d2d;
+@define-color selected_tab_top_border_bg_color #cccccc;
+@define-color selected_tab_bottom_border_bg_color transparent;
+
+@define-color notebook_unselected_bottom_border_bg_color transparent;
+
+@define-color notebook_tab_bg_color #e0e0e0;
+@define-color notebook_tab_hover_bg_color #f0f0f0;
+@define-color notebook_tab_hover_bottom_border_bg_color #a1a1a1;
+
+@define-color notebook_bottom_border_color #cccccc;
+
+* { border-top-width: 0; } /* Removes top border from notebook */
+
+/* Applies  to the notebook as a whole but not the current selected tab*/
+notebook > header {
+  padding: 0;
+  margin: 0;
+  border-bottom-width: 1px; /*notebook bottom border width */
+  border-bottom-color: @notebook_bottom_border_color;
+  background-image: none;
+  background-color: @notebook_tab_bg_color;
+}
+
+/*Applies to non-selected notebook tabs */
+notebook > header tab {
+  padding: 0;
+  margin: 0;
+  border-color: *@notebook_unselected_bottom_border_bg_color;
+  background-image: none;
+  box-shadow: none;}
+
+notebook > header.top tab {
+  padding: 6px 0 0;
+  border-style: solid;
+  border-width: 0;
+  border-bottom-width: 2px;
+  transition: border-bottom-color .3s ease-out; }
+
+    /* Applies to selected notebook tab */
+notebook > header tab:checked {
+  background-color: @selected_tab_bg_color;
+  border-top-width: 0px; /*Sets the width of the selected notebook tab's top border */
+  border-bottom-width: 1px; /*Sets the width of the selected notebook tab's bottom border */
+  border-top-color: @selected_tab_top_border_bg_color;
+  border-bottom-color: @selected_tab_bottom_border_bg_color;
+  outline: none; }
+
+notebook > header tab:checked label {
+  color: @selected_tab_font_bg_color; }
+
+notebook > header tab > box, notebook > header tab > label {
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  transition: border-color .3s ease-out; }
+
+/* gets rid of blue tab bottom border color that you typically see in the Adwaita theme */
+notebook > header tab:checked:not(:first-child):not(:only-child) {
+  box-shadow: -1px 0 1px 0 rgba(0, 0, 0, 0.1); }
+notebook > header tab:checked:not(:last-child):not(:only-child) {
+  box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.1); }
+
+notebook > header.top tab > box, notebook > header.top tab > label {
+  padding: 0 15px 6px; }
+notebook > header.top tab:hover {
+  outline: none; }
+
+/*Applies when hovering over non-selected notebook tabs */
+notebook > header tab:hover {
+  border-width: .5px;
+  background-color: @notebook_tab_hover_bg_color;
+  border-bottom-color: @notebook_tab_hover_bottom_border_bg_color;
+  outline: none; }

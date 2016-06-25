@@ -1234,4 +1234,5 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/sigc++-2.0/include
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: src/Audio/playback.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: src/GUI/singleton.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: src/Spectrum/spectrum.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: src/Utilities/util.h
 

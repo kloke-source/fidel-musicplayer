@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.2/CMakeSystem.cmake"
   "CMakeLists.txt"
+  "src/Audio-Info/CMakeLists.txt"
   "src/Audio/CMakeLists.txt"
   "src/CMakeLists.txt"
   "src/GUI/CMakeLists.txt"
@@ -51,6 +52,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/Audio/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/Utilities/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/Spectrum/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/Audio-Info/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -60,4 +62,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/Audio/CMakeFiles/Audio.dir/DependInfo.cmake"
   "src/Utilities/CMakeFiles/Utilities.dir/DependInfo.cmake"
   "src/Spectrum/CMakeFiles/Spectrum.dir/DependInfo.cmake"
+  "src/Audio-Info/CMakeFiles/Audio-Info.dir/DependInfo.cmake"
   )

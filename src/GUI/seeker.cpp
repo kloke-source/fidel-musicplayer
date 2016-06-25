@@ -8,7 +8,7 @@
 seeker::seeker(){}
 seeker::~seeker(){}
 
-using namespace std;
+//using namespace std;
 
 Glib::RefPtr<Gtk::Builder> seeker_builder;
 Gtk::Dialog *seeker_dialog;
@@ -77,7 +77,7 @@ void seeker::seek()
 
   if (seek_value <= audioinfo::duration()){
     seeker::kill();
-    playback::seek(seek_value, "seeker");
+    audio_playback::Instance()->seek(seek_value, "seeker");
   }
   if (seek_value > audioinfo::duration()) {
     cout << "called this fkjafeal" << endl;

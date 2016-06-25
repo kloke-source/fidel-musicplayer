@@ -179,6 +179,60 @@ gui.cpp.s:
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.s
 .PHONY : gui.cpp.s
 
+seeker.o: seeker.cpp.o
+
+.PHONY : seeker.o
+
+# target to build an object file
+seeker.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
+.PHONY : seeker.cpp.o
+
+seeker.i: seeker.cpp.i
+
+.PHONY : seeker.i
+
+# target to preprocess a source file
+seeker.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.i
+.PHONY : seeker.cpp.i
+
+seeker.s: seeker.cpp.s
+
+.PHONY : seeker.s
+
+# target to generate assembly for a file
+seeker.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.s
+.PHONY : seeker.cpp.s
+
+themer.o: themer.cpp.o
+
+.PHONY : themer.o
+
+# target to build an object file
+themer.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.o
+.PHONY : themer.cpp.o
+
+themer.i: themer.cpp.i
+
+.PHONY : themer.i
+
+# target to preprocess a source file
+themer.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.i
+.PHONY : themer.cpp.i
+
+themer.s: themer.cpp.s
+
+.PHONY : themer.s
+
+# target to generate assembly for a file
+themer.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.s
+.PHONY : themer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -194,6 +248,12 @@ help:
 	@echo "... gui.o"
 	@echo "... gui.i"
 	@echo "... gui.s"
+	@echo "... seeker.o"
+	@echo "... seeker.i"
+	@echo "... seeker.s"
+	@echo "... themer.o"
+	@echo "... themer.i"
+	@echo "... themer.s"
 .PHONY : help
 
 

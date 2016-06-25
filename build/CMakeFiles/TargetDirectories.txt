@@ -15,3 +15,6 @@
 /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum/CMakeFiles/edit_cache.dir
 /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum/CMakeFiles/rebuild_cache.dir
 /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum/CMakeFiles/Spectrum.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info/CMakeFiles/edit_cache.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info/CMakeFiles/rebuild_cache.dir
+/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info/CMakeFiles/Audio-Info.dir

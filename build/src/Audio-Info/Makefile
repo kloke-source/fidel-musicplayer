@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/tashrif/Dev/fidel-musicplayer-cmake/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,19 +111,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/Audio-Info/CMakeFiles/Audio-Library.dir/rule:
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio-Info/CMakeFiles/Audio-Library.dir/rule
-.PHONY : src/Audio-Info/CMakeFiles/Audio-Library.dir/rule
+src/Audio-Info/CMakeFiles/Audio-Info.dir/rule:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio-Info/CMakeFiles/Audio-Info.dir/rule
+.PHONY : src/Audio-Info/CMakeFiles/Audio-Info.dir/rule
 
 # Convenience name for target.
-Audio-Library: src/Audio-Info/CMakeFiles/Audio-Library.dir/rule
+Audio-Info: src/Audio-Info/CMakeFiles/Audio-Info.dir/rule
 
-.PHONY : Audio-Library
+.PHONY : Audio-Info
 
 # fast build rule for target.
-Audio-Library/fast:
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Audio-Info/CMakeFiles/Audio-Library.dir/build.make src/Audio-Info/CMakeFiles/Audio-Library.dir/build
-.PHONY : Audio-Library/fast
+Audio-Info/fast:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Audio-Info/CMakeFiles/Audio-Info.dir/build.make src/Audio-Info/CMakeFiles/Audio-Info.dir/build
+.PHONY : Audio-Info/fast
+
+audioinfo.o: audioinfo.cpp.o
+
+.PHONY : audioinfo.o
+
+# target to build an object file
+audioinfo.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Audio-Info/CMakeFiles/Audio-Info.dir/build.make src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o
+.PHONY : audioinfo.cpp.o
+
+audioinfo.i: audioinfo.cpp.i
+
+.PHONY : audioinfo.i
+
+# target to preprocess a source file
+audioinfo.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Audio-Info/CMakeFiles/Audio-Info.dir/build.make src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.i
+.PHONY : audioinfo.cpp.i
+
+audioinfo.s: audioinfo.cpp.s
+
+.PHONY : audioinfo.s
+
+# target to generate assembly for a file
+audioinfo.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/Audio-Info/CMakeFiles/Audio-Info.dir/build.make src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.s
+.PHONY : audioinfo.cpp.s
 
 # Help Target
 help:
@@ -131,9 +158,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Audio-Library"
+	@echo "... rebuild_cache"
+	@echo "... Audio-Info"
+	@echo "... audioinfo.o"
+	@echo "... audioinfo.i"
+	@echo "... audioinfo.s"
 .PHONY : help
 
 

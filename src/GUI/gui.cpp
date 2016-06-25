@@ -4,7 +4,8 @@
 #include <iostream>
 #include <gio/gio.h>
 #include <GUI/fidel-resources.h>
-//#include <GUI/seeker.h>
+#include <GUI/seeker.h>
+#include <GUI/themer.h>
 #include <Utilities/util.h>
 //#include <Utilities/btree.h>
 #include <Audio/playback.h>
@@ -170,22 +171,7 @@ void gui::init_icons()
 
 void gui::set_styles()
 {
-  /*
-  std::string style_sheet = "GtkButton {background-color: #db1582;}\n";
-
-  Glib::RefPtr<Gtk::StyleContext> stylecontext = play_button->get_style_context();
-  Glib::RefPtr<Gtk::CssProvider> cssprov = Gtk::CssProvider::create();
-  cssprov->load_from_data(style_sheet);
-  stylecontext->add_provider(cssprov, GTK_STYLE_PROVIDER_PRIORITY_USER);
-  stylecontext->context_save();
-  play_button->reset_style();
-  */
-  for (size_t button_iter = 0; button_iter < all_buttons.size(); button_iter++) {
-    all_buttons[button_iter]->set_relief(Gtk::RELIEF_NONE);
-    all_buttons[button_iter]->show();
-  }
-
-  view_switcher->override_background_color(Gdk::RGBA("#d1841f"), Gtk::STATE_FLAG_SELECTED);
+  themer::set_styles();
 }
 
 bool gui::on_window_closed(GdkEventAny* event)
