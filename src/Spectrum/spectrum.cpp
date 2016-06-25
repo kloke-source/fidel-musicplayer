@@ -25,7 +25,6 @@ spectrum::spectrum()
     previously_painted.push_back(0);
     bar_heights.push_back(0);
   }
-  Glib::signal_timeout().connect(sigc::mem_fun(*this, &spectrum::on_timeout), 1);
 }
 
 spectrum::~spectrum() {}
@@ -61,9 +60,14 @@ double spectrum::sin_func(double value)
   return sin_val;
 }
 
-void spectrum::set_band_magn()
+void spectrum::start_visualization()
 {
-  std::cout << "Set band magn called " << std::endl;
+  Glib::signal_timeout().connect(sigc::mem_fun(*this, &spectrum::on_timeout), 1);
+}
+
+void spectrum::stop_visualization()
+{
+
 }
 
 void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
@@ -169,7 +173,6 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 
 bool spectrum::on_timeout()
 {
-  //std::cout << "Bar height[0] " << bar_heights[0] << std::endl;
   auto win = get_window();
   if (win)
   {

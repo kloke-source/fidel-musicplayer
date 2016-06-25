@@ -27,6 +27,8 @@ GUI/fidel-resources.h
 -
 GUI/seeker.h
 -
+GUI/themer.h
+-
 Utilities/util.h
 -
 Audio/playback.h
@@ -62,6 +64,16 @@ Audio-Info/audioinfo.h
 GUI/singleton.h
 -
 gtkmm.h
+-
+
+/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp
+iostream
+-
+gtkmm.h
+-
+GUI/gui.h
+-
+GUI/themer.h
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
@@ -12400,6 +12412,16 @@ src/GUI/fidel-resources.h
 gio/gio.h
 -
 
+src/GUI/gui.h
+vector
+-
+gtkmm.h
+-
+iostream
+-
+GUI/singleton.h
+-
+
 src/GUI/seeker.h
 GUI/singleton.h
 -
@@ -12410,6 +12432,14 @@ src/GUI/singleton.h
 assert.h
 -
 cstddef
+-
+
+src/GUI/themer.h
+iostream
+-
+gtkmm.h
+-
+GUI/gui.h
 -
 
 src/Spectrum/spectrum.h

@@ -1162,4 +1162,5 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
 src/CMakeFiles/fidel.dir/main.cpp.o: src/GUI/singleton.h
+src/CMakeFiles/fidel.dir/main.cpp.o: src/Utilities/util.h
 

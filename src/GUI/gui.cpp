@@ -55,6 +55,8 @@ Box *spectrum_view_layout;
 
 Grid *sidebar_audioinfo_layout;
 Scale *playback_slider;
+Glib::RefPtr<Gtk::Adjustment> playback_slider_adjustment;
+bool pb_slider_usr_moved = false;
 
 Button *previous_button;
 Button *play_button;
@@ -73,6 +75,7 @@ void gui::initialize(int argc, char **argv)
   gui::init_connections();
   gui::init_widget_vectors();
   gui::init_icons();
+  gui::init_playback_functions();
   gui::init_spectrum();
   gui::set_styles();
 
@@ -130,6 +133,7 @@ void gui::init_connections()
 {
   window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
+  audio_playback::Instance()->signal_update_pb_timer().connect(sigc::mem_fun(this, &gui::update_pb_timer));
 }
 
 void gui::init_widget_vectors()
@@ -142,11 +146,10 @@ void gui::init_widget_vectors()
 
 void gui::init_spectrum()
 {
-  //spectrum_visualizer::Instance()->init();
-  audio_playback::Instance()->signal_spectrum_changed().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::set_band_magn));
+  audio_playback::Instance()->signal_spectrum_start().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::start_visualization));
   spectrum_view_layout->pack_start(*spectrum_visualizer::Instance(), Gtk::PACK_EXPAND_WIDGET);
   spectrum_visualizer::Instance()->set_double_buffered(true);
-  spectrum_view_layout->show_all();
+  window->show_all();
 }
 
 void gui::init_icons()
@@ -167,6 +170,52 @@ void gui::init_icons()
   previous_icon->show();
   play_icon->show();
   next_icon->show();
+}
+
+void gui::init_playback_functions()
+{
+  idle_status_label->set_text("Idle");
+  playback_slider_adjustment = Gtk::Adjustment::create(0.0, 0.0, 1, 0.1, 1.0, 1.0);
+  //Note: This adjustment is used when the player is in idle. It doesn't really matter as a new one is created depending on the length of the audio track
+  playback_slider = new Gtk::Scale(playback_slider_adjustment, Gtk::ORIENTATION_HORIZONTAL);
+  playback_slider->set_draw_value(false);
+  playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_SHRINK);
+  playback_slider->show();
+}
+
+void gui::pb_slider_val_changed()
+{
+  if (pb_slider_usr_moved == true)
+  {
+    audio_playback::Instance()->seek(playback_slider->get_value(), "fidel_ui");
+  }
+}
+
+void gui::update_pb_timer(double time)
+{
+  //Also updates playback timer label
+  pb_slider_usr_moved = false;
+  playback_slider->set_value(time);
+  playback_timer->set_text(util::time_format(time));
+  pb_slider_usr_moved = true;
+}
+
+void gui::set_pb_endtime(int endtime)
+{
+  delete playback_slider;
+  idle_status_label->set_text("");
+  playback_endtime->set_text(util::time_format(endtime));
+  playback_slider_adjustment = Gtk::Adjustment::create(0.0, 0.0, (endtime + 1), 0.1, 1.0, 1.0);
+  //parameters for Gtk::Adjustment::create inorder
+  // Value, lower, upper, step_increment, page_increment, page_size:
+  // Note that the page_size value only makes a difference for
+  // scrollbar widgets, and the highest value you'll get is actually
+  // (upper - page_size).
+  playback_slider = new Gtk::Scale(playback_slider_adjustment, Gtk::ORIENTATION_HORIZONTAL);
+  playback_slider->signal_value_changed().connect(sigc::mem_fun(this, &gui::pb_slider_val_changed));
+  playback_slider->set_draw_value(false);
+  playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_EXPAND_WIDGET);
+  playback_slider->show();
 }
 
 void gui::set_styles()

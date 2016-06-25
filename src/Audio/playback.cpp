@@ -5,7 +5,7 @@
 #include <GUI/gui.h>
 #include <vector>
 //#include <Spectrum/spectrum.h>
-//#include <Audio-Info///audioinfo.h>
+#include <Audio-Info/audioinfo.h>
 
 #define AUDIOFREQ 44100
 
@@ -67,8 +67,8 @@ gpointer    data __attribute__((unused)))
       GST_TIME_ARGS (endtime));
       */
 
-      double seekvalue = (double)endtime/1000000000;
-      // --(deprecated)-- fidel_ui::Instance()->update_pb_slider_pos(&seekvalue);
+      double seek_value = (double)endtime/1000000000;
+      audio_playback::Instance()->update_pb_timer(seek_value);
 
       magnitudes = gst_structure_get_value (s, "magnitude");
       phases = gst_structure_get_value (s, "phase");
@@ -87,7 +87,6 @@ gpointer    data __attribute__((unused)))
           phase_shifts[iter] = (double)phase_shift;
         }
       }
-      audio_playback::Instance()->change_spectrum_bands();
       g_print ("\n");
     }
   }
@@ -143,12 +142,15 @@ void playback::audio_file(char *filesrc)
   GstBus *bus;
 
   duration_obtained=false;
-  //audioinfo::init(filesrc);
+  audioinfo::init(filesrc);
   std::vector<Glib::ustring> song_data;
   //song_data.push_back(audioinfo::get_info("song_name"));
   //song_data.push_back(audioinfo::get_info("artist"));
   //song_data.push_back(audioinfo::get_info("album"));
   // --(deprecated)-- fidel_ui::Instance()->set_sidebar_data(//audioinfo::get_album_art(filesrc, 200, 200), song_data);
+
+  //start spectrum visualization
+  audio_playback::Instance()->start_spectrum_visualization();
 
   gst_init (NULL, NULL);
   loop = g_main_loop_new (NULL, FALSE);
@@ -201,128 +203,139 @@ void playback::audio_file(char *filesrc)
 
     std::cout << "Duration -> " << duration << std::endl;
     //std::cout << "Test tag dur -> " << audioinfo::tag_duration() << std::endl;
-    /*
+
     if ((int)duration == audioinfo::tag_duration()){
-    audioinfo::set_duration(duration);
-    // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(duration);
+      audioinfo::set_duration(duration);
+      fidel_ui::Instance()->set_pb_endtime(duration);
+    }
+    if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
+    {
+      std::cout << "Duration > tag" << std::endl;
+      audioinfo::set_duration_from_tag();
+      fidel_ui::Instance()->set_pb_endtime(audioinfo::duration());
+    }
+    if (audioinfo::tag_duration() > (int)duration && audioinfo::tag_duration() >=3600)
+    {
+      std::cout << "tag > duration" << std::endl;
+      audioinfo::set_duration(duration);
+      fidel_ui::Instance()->set_pb_endtime(duration);
+    }
+    if ((int)duration == 0 || (int)duration < 0)
+    {
+      std::cout << "Duration == 0 || < 0" << std::endl;
+      audioinfo::set_duration_from_tag();
+      fidel_ui::Instance()->set_pb_endtime(audioinfo::duration());
+    }
   }
-  if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
+
+  void playback::kill_curr_stream()
   {
-  std::cout << "Duration > tag" << std::endl;
-  audioinfo::set_duration_from_tag();
-  // --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(//audioinfo::duration());
-}
-if (//audioinfo::tag_duration() > (int)duration && //audioinfo::tag_duration() >=3600)
-{
-std::cout << "tag > duration" << std::endl;
-audioinfo::set_duration(duration);
-// --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(duration);
-}
-if ((int)duration == 0 || (int)duration < 0)
-{
-std::cout << "Duration == 0 || < 0" << std::endl;
-audioinfo::set_duration_from_tag();
-// --(deprecated)-- fidel_ui::Instance()->set_pb_slider_endtime(//audioinfo::duration());
-}
-*/
-}
+    if (idle==false){
+      stream_killed = true;
+      //idle=true;
+      /*
+      g_main_loop_quit(loop);
+      gst_element_set_state (pipeline, GST_STATE_NULL);
+      */
+      // --(deprecated)-- fidel_ui::Instance()->delete_sidebar_data();
+      //idle=true;
+      g_main_loop_quit(loop);
+      gst_element_set_state (pipeline, GST_STATE_NULL);
+      gst_object_unref (GST_OBJECT(pipeline));
+      gst_object_unref(GST_OBJECT(audio));
+      //gst_object_unref (GST_OBJECT (audio));
+      subCaps = NULL;
+      duration_obtained = false;
 
-void playback::kill_curr_stream()
-{
-  if (idle==false){
-    stream_killed = true;
-    //idle=true;
-    /*
-    g_main_loop_quit(loop);
-    gst_element_set_state (pipeline, GST_STATE_NULL);
-    */
-    // --(deprecated)-- fidel_ui::Instance()->delete_sidebar_data();
-    //idle=true;
-    g_main_loop_quit(loop);
-    gst_element_set_state (pipeline, GST_STATE_NULL);
-    gst_object_unref (GST_OBJECT(pipeline));
-    gst_object_unref(GST_OBJECT(audio));
-    //gst_object_unref (GST_OBJECT (audio));
-    subCaps = NULL;
-    duration_obtained = false;
-
-    //gst_object_unref (GST_OBJECT (subCaps));
+      //gst_object_unref (GST_OBJECT (subCaps));
 
 
-    //playback::kill_audio();
-  }
-}
-
-void playback::kill_audio()
-{
-  if (idle==false){
-    idle=true;
-    g_main_loop_quit(loop);
-    gst_element_set_state (pipeline, GST_STATE_NULL);
-    gst_object_unref (GST_OBJECT (pipeline));
-    g_main_loop_unref(loop);
-  }
-}
-
-bool playback::idle_status()
-{
-  return idle;
-}
-
-bool playback::is_playing()
-{
-  return playing;
-}
-
-void playback::pause()
-{
-  if (idle == false){
-    playing = false;
-    std::cout << "called " << std::endl;
-    // --(deprecated)-- fidel_ui::Instance()->set_paused_icon();
-    gst_element_set_state(pipeline, GST_STATE_PAUSED);
-  }
-}
-
-void playback::play()
-{
-  if (idle == false){
-    playing = true;
-
-    // --(deprecated)-- fidel_ui::Instance()->set_playing_icon();
-    gst_element_set_state(pipeline, GST_STATE_PLAYING);
-  }
-}
-
-void playback::seek(double time, std::string sender)
-{
-  double seekvalue = time * 1000000000;
-  if (sender == "seeker"){
-    // --(deprecated)-- fidel_ui::Instance()->update_pb_slider_pos(&time);
-  }
-  gst_element_seek (pipeline, 1.0, GST_FORMAT_TIME, GST_SEEK_FLAG_FLUSH,
-    GST_SEEK_TYPE_SET, seekvalue,
-    GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
+      //playback::kill_audio();
+    }
   }
 
-  //--- start of signal functions ---
-  //start of playback status signal functions
-  playback::type_signal_status_changed playback::signal_status_changed()
+  void playback::kill_audio()
   {
-    return m_signal_status_changed;
+    if (idle==false){
+      idle=true;
+      g_main_loop_quit(loop);
+      gst_element_set_state (pipeline, GST_STATE_NULL);
+      gst_object_unref (GST_OBJECT (pipeline));
+      g_main_loop_unref(loop);
+    }
   }
 
-  void playback::change_playback_status(bool is_playing)
+  bool playback::idle_status()
   {
-    playback::m_signal_status_changed(is_playing);
+    return idle;
   }
 
-  playback::type_signal_spectrum_changed playback::signal_spectrum_changed()
+  bool playback::is_playing()
   {
-    return m_signal_spectrum_changed;
+    return playing;
   }
 
-  void playback::change_spectrum_bands()
+  void playback::pause()
   {
-    playback::m_signal_spectrum_changed.emit();
+    if (idle == false){
+      playing = false;
+      std::cout << "called " << std::endl;
+      // --(deprecated)-- fidel_ui::Instance()->set_paused_icon();
+      gst_element_set_state(pipeline, GST_STATE_PAUSED);
+    }
   }
+
+  void playback::play()
+  {
+    if (idle == false){
+      playing = true;
+
+      // --(deprecated)-- fidel_ui::Instance()->set_playing_icon();
+      gst_element_set_state(pipeline, GST_STATE_PLAYING);
+    }
+  }
+
+  void playback::seek(double time, std::string sender)
+  {
+    double seekvalue = time * 1000000000;
+    if (sender == "seeker"){
+      // --(deprecated)-- fidel_ui::Instance()->update_pb_timer(&time);
+    }
+    gst_element_seek (pipeline, 1.0, GST_FORMAT_TIME, GST_SEEK_FLAG_FLUSH,
+      GST_SEEK_TYPE_SET, seekvalue,
+      GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
+    }
+
+    //--- start of signal functions ---
+    /* start of playback status signal functions */
+    playback::type_signal_status_changed playback::signal_status_changed()
+    {
+      return m_signal_status_changed;
+    }
+
+    void playback::change_playback_status(bool is_playing)
+    {
+      playback::m_signal_status_changed.emit(is_playing);
+    }
+
+    /* start of spectrum start visualization signal functions */
+    playback::type_signal_start_spectrum playback::signal_spectrum_start()
+    {
+      return m_signal_spectrum_start;
+    }
+
+    void playback::start_spectrum_visualization()
+    {
+      playback::m_signal_spectrum_start.emit();
+    }
+
+    /* start of update playback slider position signal functions */
+    playback::type_signal_pb_timer_changed playback::signal_update_pb_timer()
+    {
+      return m_signal_update_pb_timer;
+    }
+
+    void playback::update_pb_timer(double seek_value)
+    {
+      playback::m_signal_update_pb_timer.emit(seek_value);
+    }

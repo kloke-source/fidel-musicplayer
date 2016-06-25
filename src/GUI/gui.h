@@ -25,6 +25,9 @@ public:
 	virtual ~gui();
 	void initialize(int argc, char **argv);
 	void init_builder();
+
+	void update_pb_timer(double time);
+	void set_pb_endtime(int endtime);
 	/*
 	void add_list_store_row(vector<Glib::ustring> row_data);
 	void initializeCloseEventHandler();
@@ -35,31 +38,35 @@ public:
 	void set_sidebar_data(Gtk::Image *album_art, vector<Glib::ustring> song_data);
 	void delete_sidebar_data();
 	class Playlist_Columns : public Gtk::TreeModel::ColumnRecord
-  {
-  public:
+	{
+public:
 
-    Playlist_Columns()
-    {add(col_name); add(col_artist); add(col_album); add(col_time); add(col_color);  add (col_file_location);}
+Playlist_Columns()
+{add(col_name); add(col_artist); add(col_album); add(col_time); add(col_color);  add (col_file_location);}
 
-    Gtk::TreeModelColumn<Glib::ustring> col_name;
-    Gtk::TreeModelColumn<Glib::ustring> col_artist;
-    Gtk::TreeModelColumn<Glib::ustring> col_album;
-    Gtk::TreeModelColumn<Glib::ustring> col_time;
-		Gtk::TreeModelColumn<Glib::ustring> col_color;
-		Gtk::TreeModelColumn<Glib::ustring> col_file_location;
-  };
+Gtk::TreeModelColumn<Glib::ustring> col_name;
+Gtk::TreeModelColumn<Glib::ustring> col_artist;
+Gtk::TreeModelColumn<Glib::ustring> col_album;
+Gtk::TreeModelColumn<Glib::ustring> col_time;
+Gtk::TreeModelColumn<Glib::ustring> col_color;
+Gtk::TreeModelColumn<Glib::ustring> col_file_location;
+};
 
-	*/
+*/
 private:
 	void init_connections();
 	void init_widget_vectors();
 	void init_icons();
 	void init_spectrum();
+
+	void init_playback_functions();
+	void pb_slider_val_changed();
+
 	void set_styles();
 	bool on_window_closed(GdkEventAny* event);
 	void get_widgets();
 	void on_file_open_triggered();
-	void testhandler(guint band, gfloat magnitude, gfloat phase_shift);
+
 	/*
 	void init_playlist();
 	void init_album_view();

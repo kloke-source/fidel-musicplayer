@@ -8,7 +8,8 @@ class spectrum : public Gtk::DrawingArea{
 public:
   spectrum();
   ~spectrum();
-  void set_band_magn();
+  void start_visualization();
+  void stop_visualization();
 private:
   void clear_context(const Cairo::RefPtr<Cairo::Context>& cr);
   //Utility functions
