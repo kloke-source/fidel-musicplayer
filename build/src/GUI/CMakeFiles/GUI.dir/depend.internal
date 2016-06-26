@@ -1490,6 +1490,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio/playback.h
+ ../src/GUI/gui.h
  ../src/GUI/singleton.h
  ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp
@@ -2753,6 +2754,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o
  ../src/GUI/gui.h
  ../src/GUI/singleton.h
  ../src/GUI/themer.h
+ ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h
  /usr/include/atk-1.0/atk/atk.h

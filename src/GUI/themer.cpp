@@ -2,8 +2,12 @@
 #include <gtkmm.h>
 #include <GUI/gui.h>
 #include <GUI/themer.h>
+#include <Utilities/util.h>
+
+bool themer_initialized = false;
 
 themer::themer(){}
+
 themer::~themer(){}
 
 extern GResource *fidel_resources;
@@ -50,10 +54,54 @@ extern Button *play_button;
 extern Button *next_button;
 extern Button *sidebar_hider;
 
-extern std::vector<Button*> all_buttons;
+/* widget vector enums */
+
+enum{
+  NOTEBOOKS,
+  ENTRIES,
+  IMAGES,
+  LABELS,
+  BOXES,
+  GRIDS,
+  SCALES,
+  BUTTONS
+};
+
+/* type definitions */
+typedef Glib::RefPtr<Gtk::StyleContext> StyleContext;
+
+/* style context vector */
+std::vector<std::vector<StyleContext>> all_style_ctx_vect;
+std::vector<StyleContext> notebook_style_ctx_vect;
+std::vector<StyleContext> entry_style_ctx_vect;
+std::vector<StyleContext> image_style_ctx_vect;
+std::vector<StyleContext> label_style_ctx_vect;
+std::vector<StyleContext> box_style_ctx_vect;
+std::vector<StyleContext> grid_style_ctx_vect;
+std::vector<StyleContext> scale_style_ctx_vect;
+std::vector<StyleContext> button_style_ctx_vect;
+
+/* widget vectors */
+std::vector<Notebook*> notebook_vect;
+std::vector<Entry*> entry_vect;
+std::vector<Image*> image_vect;
+std::vector<Label*> label_vect;
+std::vector<Box*> box_vect;
+std::vector<Grid*> grid_vect;
+std::vector<Scale*> scale_vect;
+std::vector<Button*> button_vect;
+
+/* stylesheet enums */
+enum{
+  NOTEBOOK_STYLESHEET,
+  SLIDER_STYLESHEET
+};
 
 /* stylesheets */
 std::stringstream notebook_stylesheet;
+std::stringstream slider_stylesheet;
+
+std::vector<std::string> stylesheet_vect; // stylesheet vector
 /* notebook colors */
 std::string selected_tab_bg_color = "#e8e8e8";
 std::string selected_tab_font_bg_color = "#2d2d2d";
@@ -64,9 +112,137 @@ std::string notebook_tab_bg_color = "#e0e0e0";
 std::string notebook_tab_hover_bg_color = "#f0f0f0";
 std::string notebook_tab_hover_bottom_border_bg_color = "#a1a1a1";
 std::string notebook_bottom_border_color = "#cccccc";
+
 /* notebook settings */
 int notebook_bottom_border_width = 1; //px
+
 void themer::set_styles()
+{
+  if (themer_initialized == false)
+  themer::init_stylesheets();
+  themer::init_vectors();
+
+  themer_initialized = true;
+
+  for (size_t iter = 0; iter < stylesheet_vect.size(); iter++) {
+    Glib::RefPtr<Gtk::CssProvider> cssprov = Gtk::CssProvider::create();
+    cssprov->load_from_data(stylesheet_vect[iter]);
+    switch (iter) {
+      case NOTEBOOK_STYLESHEET:
+      for (size_t notebook_iter = 0; notebook_iter < all_style_ctx_vect[NOTEBOOKS].size(); notebook_iter++) {
+        all_style_ctx_vect[NOTEBOOKS][notebook_iter]->add_provider(cssprov, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        all_style_ctx_vect[NOTEBOOKS][notebook_iter]->context_save();
+      }
+      break;
+      case SLIDER_STYLESHEET:
+      for (size_t slider_iter = 0; slider_iter < all_style_ctx_vect[SCALES].size(); slider_iter++) {
+        all_style_ctx_vect[SCALES][slider_iter]->add_provider(cssprov, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+        all_style_ctx_vect[SCALES][slider_iter]->context_save();
+      }
+      break;
+    }
+  }
+
+  /* Set button reliefs (Makes them flat) */
+  for (size_t button_iter = 0; button_iter < button_vect.size(); button_iter++) {
+    button_vect[button_iter]->set_relief(Gtk::RELIEF_NONE);
+    button_vect[button_iter]->show();
+  }
+}
+
+void themer::init_vectors()
+{
+  if (themer_initialized == true)
+  {
+    notebook_vect.clear();
+    label_vect.clear();
+    box_vect.clear();
+    grid_vect.clear();
+    scale_vect.clear();
+    button_vect.clear();
+
+    all_style_ctx_vect.clear();
+  }
+  notebook_vect.push_back(view_switcher);
+
+  label_vect.push_back(split_view_label);
+  label_vect.push_back(playlist_view_label);
+  label_vect.push_back(library_view_label);
+  label_vect.push_back(spectrum_view_label);
+  label_vect.push_back(idle_status_label);
+  label_vect.push_back(playback_timer);
+  label_vect.push_back(playback_endtime);
+  label_vect.push_back(sidebar_name_label);
+  label_vect.push_back(sidebar_artist_label);
+  label_vect.push_back(sidebar_album_label);
+  label_vect.push_back(sidebar_song_name);
+  label_vect.push_back(sidebar_song_artist);
+  label_vect.push_back(sidebar_song_album);
+
+  box_vect.push_back(split_view_layout);
+  box_vect.push_back(split_view_spectrum);
+  box_vect.push_back(split_view_playlist);
+  box_vect.push_back(library_view_frame);
+  box_vect.push_back(playback_frame);
+  box_vect.push_back(playlist_view);
+  box_vect.push_back(playback_slider_frame);
+  box_vect.push_back(sidebar_layout);
+  box_vect.push_back(sidebar_albumart);
+  box_vect.push_back(spectrum_view_layout);
+
+  grid_vect.push_back(sidebar_audioinfo_layout);
+
+  scale_vect.push_back(playback_slider);
+
+  button_vect.push_back(previous_button);
+  button_vect.push_back(play_button);
+  button_vect.push_back(next_button);
+  button_vect.push_back(sidebar_hider);
+
+  /* Initialize style sheet vect */
+  if (themer_initialized == false){
+    stylesheet_vect.push_back(notebook_stylesheet.str());
+    stylesheet_vect.push_back(slider_stylesheet.str());
+  }
+
+  /* Initialize style context vectors */
+  for (size_t iter = 0; iter < notebook_vect.size(); iter++) {
+    notebook_style_ctx_vect.push_back(notebook_vect[iter]->get_style_context());
+  }
+  for (size_t iter = 0; iter < entry_vect.size(); iter++) {
+    entry_style_ctx_vect.push_back(entry_vect[iter]->get_style_context());
+  }
+  for (size_t iter = 0; iter < image_vect.size(); iter++) {
+    image_style_ctx_vect.push_back(image_vect[iter]->get_style_context());
+  }
+  for (size_t iter = 0; iter < label_vect.size(); iter++) {
+    label_style_ctx_vect.push_back(label_vect[iter]->get_style_context());
+  }
+  for (size_t iter = 0; iter < box_vect.size(); iter++) {
+    box_style_ctx_vect.push_back(box_vect[iter]->get_style_context());
+  }
+  for (size_t iter = 0; iter < grid_vect.size(); iter++) {
+    grid_style_ctx_vect.push_back(grid_vect[iter]->get_style_context());
+  }
+  for (size_t iter = 0; iter < scale_vect.size(); iter++) {
+    scale_style_ctx_vect.push_back(scale_vect[iter]->get_style_context());
+  }
+  for (size_t iter = 0; iter < button_vect.size(); iter++) {
+    button_style_ctx_vect.push_back(button_vect[iter]->get_style_context());
+  }
+
+  /* Initialize full style context vector */
+  all_style_ctx_vect.push_back(notebook_style_ctx_vect);
+  all_style_ctx_vect.push_back(entry_style_ctx_vect);
+  all_style_ctx_vect.push_back(image_style_ctx_vect);
+  all_style_ctx_vect.push_back(label_style_ctx_vect);
+  all_style_ctx_vect.push_back(box_style_ctx_vect);
+  all_style_ctx_vect.push_back(grid_style_ctx_vect);
+  all_style_ctx_vect.push_back(scale_style_ctx_vect);
+  all_style_ctx_vect.push_back(button_style_ctx_vect);
+}
+
+void themer::init_stylesheets()
 {
   notebook_stylesheet << "\
   @define-color selected_tab_bg_color " << selected_tab_bg_color << ";\n\
@@ -146,15 +322,32 @@ void themer::set_styles()
     outline: none; }\n\
   ";
 
-  //std::cout << notebook_stylesheet.str() << std::endl;
-  Glib::RefPtr<Gtk::StyleContext> stylecontext = view_switcher->get_style_context();
-  Glib::RefPtr<Gtk::CssProvider> cssprov = Gtk::CssProvider::create();
-  cssprov->load_from_data(notebook_stylesheet.str());
-  stylecontext->add_provider(cssprov, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-  stylecontext->context_save();
-
-    for (size_t button_iter = 0; button_iter < all_buttons.size(); button_iter++) {
-      all_buttons[button_iter]->set_relief(Gtk::RELIEF_NONE);
-      all_buttons[button_iter]->show();
-    }
+  slider_stylesheet << "\
+  @define-color slider_trough_bg_color #a1a1a1;\n\
+  @define-color slider_trough_border_color transparent;\n\
+  @define-color slider_highlight_color #4d4d4d;\n\
+  @define-color slider_handle_bg_color #cccccc;\n\
+\n\
+  scale{\n\
+  min-height: 5px;\n\
+}\n\
+\n\
+  scale trough{\n\
+  background-color: @slider_trough_bg_color;\n\
+  border-color: @slider_trough_border_color;\n\
+  border-width: 0px;\n\
+}\n\
+\n\
+    scale highlight {\n\
+      border-width: 0px;\n\
+      background-color: @slider_highlight_color;\n\
+  }\n\
+\n\
+  scale slider {\n\
+  border-radius: 100%;\n\
+  border-width: 1px;\n\
+  border-color: @slider_handle_bg_color;\n\
+  box-shadow: none;\n\
+}\n\
+  ";
 }

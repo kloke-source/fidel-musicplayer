@@ -18,6 +18,16 @@ GUI/singleton.h
 vector
 -
 
+../src/GUI/gui.h
+vector
+-
+gtkmm.h
+-
+iostream
+-
+GUI/singleton.h
+-
+
 ../src/GUI/singleton.h
 assert.h
 -
@@ -34,6 +44,8 @@ Utilities/util.h
 
 ../src/Utilities/util.h
 gtkmm.h
+-
+GUI/gui.h
 -
 iostream
 -

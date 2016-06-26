@@ -1489,6 +1489,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
 
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/singleton.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/Utilities/util.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/seeker.cpp
@@ -2752,6 +2753,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/sigc++-2.0/include/sigc++confi
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/singleton.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/themer.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/Utilities/util.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/themer.cpp
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/atk-1.0/atk/atk.h

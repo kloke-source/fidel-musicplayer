@@ -3,6 +3,8 @@
 
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o
  ../src/Audio-Library/audio-library.h
+ ../src/GUI/gui.h
+ ../src/GUI/singleton.h
  ../src/Utilities/btree.h
  ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp

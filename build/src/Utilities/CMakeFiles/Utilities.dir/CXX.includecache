@@ -6,8 +6,26 @@
 
 #IncludeRegexTransform: 
 
+../src/GUI/gui.h
+vector
+-
+gtkmm.h
+-
+iostream
+-
+GUI/singleton.h
+-
+
+../src/GUI/singleton.h
+assert.h
+-
+cstddef
+-
+
 ../src/Utilities/util.h
 gtkmm.h
+-
+GUI/gui.h
 -
 iostream
 -

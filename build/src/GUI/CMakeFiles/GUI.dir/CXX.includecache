@@ -89,6 +89,8 @@ Utilities/util.h
 ../src/Utilities/util.h
 gtkmm.h
 -
+GUI/gui.h
+-
 iostream
 -
 vector
@@ -162,6 +164,8 @@ gtkmm.h
 GUI/gui.h
 -
 GUI/themer.h
+-
+Utilities/util.h
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h

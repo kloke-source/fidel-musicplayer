@@ -73,7 +73,7 @@ void gui::initialize(int argc, char **argv)
   gui::init_builder();
   gui::get_widgets();
   gui::init_connections();
-  gui::init_widget_vectors();
+  //gui::init_widget_vectors();
   gui::init_icons();
   gui::init_playback_functions();
   gui::init_spectrum();
@@ -135,15 +135,12 @@ void gui::init_connections()
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
   audio_playback::Instance()->signal_update_pb_timer().connect(sigc::mem_fun(this, &gui::update_pb_timer));
 }
-
+/*
 void gui::init_widget_vectors()
 {
-  all_buttons.push_back(previous_button);
-  all_buttons.push_back(play_button);
-  all_buttons.push_back(next_button);
-  all_buttons.push_back(sidebar_hider);
-}
 
+}
+*/
 void gui::init_spectrum()
 {
   audio_playback::Instance()->signal_spectrum_start().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::start_visualization));
@@ -215,6 +212,7 @@ void gui::set_pb_endtime(int endtime)
   playback_slider->signal_value_changed().connect(sigc::mem_fun(this, &gui::pb_slider_val_changed));
   playback_slider->set_draw_value(false);
   playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_EXPAND_WIDGET);
+  themer::set_styles();
   playback_slider->show();
 }
 
