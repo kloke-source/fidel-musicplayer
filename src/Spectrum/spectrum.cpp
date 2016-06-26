@@ -11,6 +11,9 @@ extern std::vector<double> phase_shifts;
 
 int spect_bands=250;
 int spect_padding=5;
+
+double spect_padding_top=.02; // 2% this padding is only applied if a spectrum bar reaches the height of the spectrum frame
+
 Cairo::RefPtr<Cairo::Context> paintCairo;
 
 std::vector<int> shaders;
@@ -104,7 +107,7 @@ double max_magnitude = 80;
 int paint_iter=0;
 bool paint_decrement=false;
 
-int speed=150;
+int speed=100;
 int subdivisions=speed;
 
 bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
@@ -148,7 +151,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     if(scale_factor != 0)
     bar_height = scale_factor * spectrum::sin_func((1/scale_factor)*interp_x_pos - PI/2) + scale_factor; //interpolation variables
 
-    bar_heights[band]=bar_height;//smooth_def[paint_iter]*smooth_paint_scale;
+    bar_heights[band]=bar_height;
     //std::cout << "bar_height (band " << band << ") " << " --> " << bar_heights[band] << std::endl;
     //std::cout << "Paint iter " << paint_iter << std::endl;
 

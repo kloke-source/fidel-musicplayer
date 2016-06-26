@@ -7,7 +7,7 @@
 //#include <Spectrum/spectrum.h>
 #include <Audio-Info/audioinfo.h>
 
-#define AUDIOFREQ 44100
+#define AUDIOFREQ 44800
 
 extern int spect_bands;
 bool idle=true;
