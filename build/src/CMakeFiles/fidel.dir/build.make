@@ -93,6 +93,7 @@ fidel_EXTERNAL_OBJECTS =
 ../fidel: src/GUI/libGUI.a
 ../fidel: src/Audio/libAudio.a
 ../fidel: src/Audio-Info/libAudio-Info.a
+../fidel: src/Audio-Library/libAudio-Library.a
 ../fidel: src/Spectrum/libSpectrum.a
 ../fidel: src/Utilities/libUtilities.a
 ../fidel: src/CMakeFiles/fidel.dir/link.txt

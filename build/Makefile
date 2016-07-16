@@ -188,6 +188,19 @@ Audio-Info/fast:
 	$(MAKE) -f src/Audio-Info/CMakeFiles/Audio-Info.dir/build.make src/Audio-Info/CMakeFiles/Audio-Info.dir/build
 .PHONY : Audio-Info/fast
 
+#=============================================================================
+# Target rules for targets named Audio-Library
+
+# Build rule for target.
+Audio-Library: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Audio-Library
+.PHONY : Audio-Library
+
+# fast build rule for target.
+Audio-Library/fast:
+	$(MAKE) -f src/Audio-Library/CMakeFiles/Audio-Library.dir/build.make src/Audio-Library/CMakeFiles/Audio-Library.dir/build
+.PHONY : Audio-Library/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -202,6 +215,7 @@ help:
 	@echo "... Utilities"
 	@echo "... Spectrum"
 	@echo "... Audio-Info"
+	@echo "... Audio-Library"
 .PHONY : help
 
 

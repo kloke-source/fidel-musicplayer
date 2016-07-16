@@ -32,11 +32,13 @@ add_subdirectory(Audio)
 add_subdirectory(Utilities)
 add_subdirectory(Spectrum)
 add_subdirectory(Audio-Info)
+add_subdirectory(Audio-Library)
 
 add_executable(fidel
   main.cpp
   GUI
   Audio
+  Audio-Library
   Audio-Info
   Spectrum
   Utilities
@@ -52,6 +54,7 @@ target_link_libraries(fidel
   GUI
   Audio
   Audio-Info
+  Audio-Library
   Spectrum
   Utilities
   -fopenmp
