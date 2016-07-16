@@ -211,13 +211,13 @@ void gui::set_pb_endtime(int endtime)
   playback_slider->signal_value_changed().connect(sigc::mem_fun(this, &gui::pb_slider_val_changed));
   playback_slider->set_draw_value(false);
   playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_EXPAND_WIDGET);
-  //themer::set_styles();
+  themer::set_styles();
   playback_slider->show();
 }
 
 void gui::set_styles()
 {
-  //themer::set_styles();
+  themer::set_styles();
 }
 
 bool gui::on_window_closed(GdkEventAny* event)
