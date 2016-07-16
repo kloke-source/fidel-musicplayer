@@ -10,7 +10,9 @@ extern std::vector<double> band_magnitudes;
 extern std::vector<double> phase_shifts;
 
 int spect_bands=250;
-int spect_padding=5;
+double spect_padding;
+
+bool auto_padding = true;
 
 double spect_padding_top=.02; // 2% this padding is only applied if a spectrum bar reaches the height of the spectrum frame
 
@@ -45,18 +47,6 @@ double spectrum::to_radian(double degree_val)
 
 double spectrum::sin_func(double value)
 {
-  //bool radian = false;
-
-  //std::cout << "Fmod " << fmod(value, PI) << std::endl;
-  //if (fmod(value, PI) == 0){
-  //  radian = true;
-  //  std::cout << "Value is in radians" << std::endl;
-  //}
-
-  //if (radian == false) {
-  //  std::cout << "Value is in degrees" << std::endl;
-  //  value = spectrum::to_radian(value);
-  //}
   double sin_val =  sin(value);
   sin_val = roundf(sin_val * 100) / 100;
 
@@ -78,6 +68,9 @@ void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
   Gtk::Allocation allocation = get_allocation();
   const double frame_width = (double)allocation.get_width();
   const double frame_height = (double)allocation.get_height();
+
+  if (auto_padding == true)
+    spect_padding = (double) (.65 * frame_width) / (spect_bands + 1); // .65 is ideal padding ratio
 
   util::set_source_rgb(cr, "#dfdfdf");//2d2d2d
   cr->rectangle(0, 0, frame_width, frame_height);
@@ -118,6 +111,9 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   double frame_width = allocation.get_width();
   double frame_height = allocation.get_height();
 
+  if (auto_padding == true)
+    spect_padding = (double) (.65 * frame_width) / (spect_bands + 1); // .65 is ideal padding ratio
+  
   double spectrum_vert_scale = max_magnitude/frame_height;
   double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
 
@@ -135,7 +131,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   //std::cout << "Frame height " << frame_height << std::endl;
   spectrum::clear_context(cr);
   util::set_source_rgb(cr, "#2d2d2d");
-  #pragma omp parallel for
+  //#pragma omp parallel for
   for (int band = 0; band < band_magnitudes.size(); band++) {
     double magnitude = band_magnitudes[band];
     //std::cout << "magnitude (band " << band << ") " << magnitude << std::endl;
