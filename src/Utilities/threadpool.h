@@ -32,7 +32,13 @@ class ThreadPool {
   std::condition_variable condition;
   bool stop;
 };
- 
+
+inline ThreadPool::ThreadPool()
+{
+  this->max_workers = std::thread::hardware_concurrency();
+  ThreadPool::initialize();
+}
+
 // the constructor just launches some amount of workers
 inline ThreadPool::ThreadPool(size_t max_workers)
 {

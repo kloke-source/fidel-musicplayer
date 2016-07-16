@@ -5,6 +5,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Audio/playback.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/gui.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/singleton.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Spectrum/spectrum.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Utilities/threadpool.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Utilities/util.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Spectrum/spectrum.cpp
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h

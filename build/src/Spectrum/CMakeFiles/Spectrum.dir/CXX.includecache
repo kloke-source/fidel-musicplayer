@@ -42,6 +42,26 @@ GUI/singleton.h
 Utilities/util.h
 -
 
+../src/Utilities/threadpool.h
+vector
+-
+queue
+-
+memory
+-
+thread
+-
+mutex
+-
+condition_variable
+-
+future
+-
+functional
+-
+stdexcept
+-
+
 ../src/Utilities/util.h
 gtkmm.h
 -
@@ -64,6 +84,8 @@ math.h
 Audio/playback.h
 -
 Utilities/util.h
+-
+Utilities/threadpool.h
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
