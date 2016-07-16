@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "/usr/lib/hardening-wrapper/bin/c++")
+set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "6.1.1")
@@ -15,7 +15,7 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 set(CMAKE_AR "/usr/bin/ar")
 set(CMAKE_RANLIB "/usr/bin/ranlib")
-set(CMAKE_LINKER "/usr/lib/hardening-wrapper/bin/ld")
+set(CMAKE_LINKER "/usr/bin/ld")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
 set(CMAKE_CXX_COMPILER_LOADED 1)
 set(CMAKE_CXX_COMPILER_WORKS TRUE)
@@ -64,5 +64,5 @@ endif()
 
 
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;c")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/lib/hardening-wrapper/bin;/usr/lib/gcc/x86_64-pc-linux-gnu/6.1.1;/usr/lib;/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/x86_64-pc-linux-gnu/6.1.1;/usr/lib;/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

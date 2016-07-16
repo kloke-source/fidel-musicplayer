@@ -60,15 +60,15 @@ include src/Spectrum/CMakeFiles/Spectrum.dir/flags.make
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: src/Spectrum/CMakeFiles/Spectrum.dir/flags.make
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Spectrum/spectrum.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum && /usr/lib/hardening-wrapper/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Spectrum.dir/spectrum.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum && /usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Spectrum.dir/spectrum.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp
 
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Spectrum.dir/spectrum.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp > CMakeFiles/Spectrum.dir/spectrum.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp > CMakeFiles/Spectrum.dir/spectrum.cpp.i
 
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Spectrum.dir/spectrum.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp -o CMakeFiles/Spectrum.dir/spectrum.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp -o CMakeFiles/Spectrum.dir/spectrum.cpp.s
 
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o.requires:
 

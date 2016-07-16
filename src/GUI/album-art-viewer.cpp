@@ -51,8 +51,8 @@ AlbumArtViewer::~AlbumArtViewer()
   {
     //vector<Gtk::Image*> full_album_art = audioinfo::get_all_album_art(200, 200);
     viewer_frame = new Gtk::Box();
-    vector<vector<Glib::ustring>> album_info = AudioLibrary::batch_collect_info("album_information");
-    vector<vector<Glib::ustring>> album_summ = AudioLibrary::batch_collect_info("album_summary");
+    vector<vector<Glib::ustring> > album_info = AudioLibrary::batch_collect_info("album_information");
+    vector<vector<Glib::ustring> > album_summ = AudioLibrary::batch_collect_info("album_summary");
 
     cout << "No. of available album art covers " << album_info.size() << endl;
 

@@ -2747,6 +2747,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
  /usr/lib/sigc++-2.0/include/sigc++config.h
  src/Audio-Info/audioinfo.h
  src/Audio/playback.h
+ src/GUI/gui.h
  src/GUI/singleton.h
  src/Utilities/util.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o
@@ -3912,3 +3913,4 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o
  src/GUI/gui.h
  src/GUI/singleton.h
  src/GUI/themer.h
+ src/Utilities/util.h

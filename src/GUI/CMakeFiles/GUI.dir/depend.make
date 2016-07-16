@@ -2746,6 +2746,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/pangomm-1.4/include/pangommcon
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: src/GUI/singleton.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: src/Utilities/util.h
 
@@ -3911,4 +3912,5 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/sigc++-2.0/include/sigc++confi
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: src/GUI/singleton.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: src/GUI/themer.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: src/Utilities/util.h
 

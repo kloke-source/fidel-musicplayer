@@ -71,7 +71,7 @@ enum{
 typedef Glib::RefPtr<Gtk::StyleContext> StyleContext;
 
 /* style context vector */
-std::vector<std::vector<StyleContext>> all_style_ctx_vect;
+std::vector<std::vector<StyleContext> > all_style_ctx_vect;
 std::vector<StyleContext> notebook_style_ctx_vect;
 std::vector<StyleContext> entry_style_ctx_vect;
 std::vector<StyleContext> image_style_ctx_vect;

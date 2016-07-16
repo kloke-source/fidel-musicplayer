@@ -29,8 +29,8 @@ public:
   static Glib::ustring get_db_field_data(string table_name, Glib::ustring field, Glib::ustring where_id, bool definite);
   static Glib::ustring get_db_field_data(string table_name, Glib::ustring field, Glib::ustring where_field, Glib::ustring where_id, bool definite);
   static void populate_playlist();
-  static vector<vector<Glib::ustring>> batch_collect_info(string table_name);
-  static vector<btree<Glib::ustring>> batch_collect_btree(string table_name);
+  static vector<vector<Glib::ustring> > batch_collect_info(string table_name);
+  static vector<btree<Glib::ustring> > batch_collect_btree(string table_name);
   static vector<Glib::ustring> get_db_row(Glib::ustring field, Glib::ustring where_id);
   static void write_lib_info();
   static void add_lib_data(Glib::ustring ins_stmt);

@@ -75,6 +75,8 @@ GUI/gui.h
 -
 GUI/themer.h
 -
+Utilities/util.h
+-
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
 atk/atkversion.h
@@ -12452,6 +12454,8 @@ Utilities/util.h
 
 src/Utilities/util.h
 gtkmm.h
+-
+GUI/gui.h
 -
 iostream
 -

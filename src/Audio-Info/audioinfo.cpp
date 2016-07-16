@@ -382,7 +382,7 @@ Gtk::Image* audioinfo::get_extracted_album_art(char *file_location, int width, i
 vector<Gtk::Image*> audioinfo::get_all_album_art(int width, int height)
 {
 vector<Gtk::Image*> all_album_art;
-vector<vector<Glib::ustring>> album_information = AudioLibrary::batch_collect_info("album_information");
+vector<vector<Glib::ustring> > album_information = AudioLibrary::batch_collect_info("album_information");
 
 for (size_t iter = 0; iter < album_information.size(); iter++){
 Gtk::Image *album_art = new Gtk::Image();

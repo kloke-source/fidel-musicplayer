@@ -60,15 +60,15 @@ include src/CMakeFiles/fidel.dir/flags.make
 src/CMakeFiles/fidel.dir/main.cpp.o: src/CMakeFiles/fidel.dir/flags.make
 src/CMakeFiles/fidel.dir/main.cpp.o: src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/fidel.dir/main.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src && /usr/lib/hardening-wrapper/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fidel.dir/main.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fidel.dir/main.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp
 
 src/CMakeFiles/fidel.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fidel.dir/main.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp > CMakeFiles/fidel.dir/main.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp > CMakeFiles/fidel.dir/main.cpp.i
 
 src/CMakeFiles/fidel.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fidel.dir/main.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp -o CMakeFiles/fidel.dir/main.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp -o CMakeFiles/fidel.dir/main.cpp.s
 
 src/CMakeFiles/fidel.dir/main.cpp.o.requires:
 

@@ -29,24 +29,24 @@ vector<char*> file_locations;
 vector<char*> subdir_locations;
 vector<char*> omitted_locations;
 
-vector<vector<Glib::ustring>> batch_collected_info;
-vector<btree<Glib::ustring>> batch_collected_btree;
+vector<vector<Glib::ustring> > batch_collected_info;
+vector<btree<Glib::ustring> > batch_collected_btree;
 
-vector<btree<Glib::ustring>> existing_lib_data;
-vector<btree<Glib::ustring>> existing_lib_info_data;
-vector<btree<Glib::ustring>> existing_album_info_data;
-vector<btree<Glib::ustring>> existing_album_summ_data;
+vector<btree<Glib::ustring> > existing_lib_data;
+vector<btree<Glib::ustring> > existing_lib_info_data;
+vector<btree<Glib::ustring> > existing_album_info_data;
+vector<btree<Glib::ustring> > existing_album_summ_data;
 btree<Glib::ustring> existing_artist_info_data;
-vector<btree<Glib::ustring>> existing_artist_summ_data;
+vector<btree<Glib::ustring> > existing_artist_summ_data;
 
 vector<bool> existing_data_pulled;
 
 vector<Glib::ustring> indexed_lib_data;
-vector<vector<Glib::ustring>> indexed_lib_info_data;
-vector<vector<Glib::ustring>> indexed_album_info_data;
-vector<vector<Glib::ustring>> indexed_album_summ_data;
-vector<vector<Glib::ustring>> indexed_artist_info_data;
-vector<vector<Glib::ustring>> indexed_artist_summ_data;
+vector<vector<Glib::ustring> > indexed_lib_info_data;
+vector<vector<Glib::ustring> > indexed_album_info_data;
+vector<vector<Glib::ustring> > indexed_album_summ_data;
+vector<vector<Glib::ustring> > indexed_artist_info_data;
+vector<vector<Glib::ustring> > indexed_artist_summ_data;
 
 //vector<Glib::ustring> indexed_ins_stmts;
 btree<string> valid_file_formats;
@@ -487,7 +487,7 @@ int AudioLibrary::populate_playlist_cb(void *data, int total_col_num, char **val
   return 0;
 }
 
-vector<vector<Glib::ustring>> AudioLibrary::batch_collect_info(string table_name)
+vector<vector<Glib::ustring> > AudioLibrary::batch_collect_info(string table_name)
 {
   if (db_opened == false){
     AudioLibrary::open_db();
@@ -528,7 +528,7 @@ int AudioLibrary::batch_collect_info_cb(void *data, int total_col_num, char **va
   return 0;
 }
 
-vector<btree<Glib::ustring>> AudioLibrary::batch_collect_btree(string table_name)
+vector<btree<Glib::ustring> > AudioLibrary::batch_collect_btree(string table_name)
 {
   if (db_opened == false){
     AudioLibrary::open_db();
@@ -623,7 +623,7 @@ void AudioLibrary::write_album_summ()
   album_summ_fields.push_back("songs_in_album");
   album_summ_fields.push_back("file_location");
 
-  vector<vector<Glib::ustring>> full_album_data;
+  vector<vector<Glib::ustring> > full_album_data;
   cout << "WRITING ALBUM SUMMARY " << endl;
   for (size_t album_iter = 0; album_iter < full_album_summary.size(); album_iter++){
     Glib::ustring album_name = full_album_summary[album_iter].album_name;

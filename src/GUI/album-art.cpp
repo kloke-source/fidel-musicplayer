@@ -45,7 +45,7 @@ void AlbumArt::set_album_data(vector<Glib::ustring> album_data)
   //album_art->show();
 }
 /*
-void AlbumArt::set_songs_and_file_locs(vector<vector<Glib::ustring>> songs_and_file_locs)
+void AlbumArt::set_songs_and_file_locs(vector<vector<Glib::ustring> > songs_and_file_locs)
 {
 this->songs_and_file_locs = songs_and_file_locs;
 songs_in_album = songs_and_file_locs[0];
@@ -88,7 +88,7 @@ vector<Glib::ustring> AlbumArt::get_song_file_locs()
   return song_file_locs;
 }
 
-vector<vector<Glib::ustring>> AlbumArt::get_songs_and_file_locs()
+vector<vector<Glib::ustring> > AlbumArt::get_songs_and_file_locs()
 {
   return songs_and_file_locs;
 }

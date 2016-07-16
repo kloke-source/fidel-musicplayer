@@ -60,15 +60,15 @@ include src/Utilities/CMakeFiles/Utilities.dir/flags.make
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: src/Utilities/CMakeFiles/Utilities.dir/flags.make
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: src/Utilities/util.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities && /usr/lib/hardening-wrapper/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Utilities.dir/util.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/util.cpp
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Utilities.dir/util.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/util.cpp
 
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Utilities.dir/util.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/util.cpp > CMakeFiles/Utilities.dir/util.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/util.cpp > CMakeFiles/Utilities.dir/util.cpp.i
 
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Utilities.dir/util.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/util.cpp -o CMakeFiles/Utilities.dir/util.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/util.cpp -o CMakeFiles/Utilities.dir/util.cpp.s
 
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o.requires:
 

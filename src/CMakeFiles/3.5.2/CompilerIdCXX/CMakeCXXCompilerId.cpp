@@ -48,14 +48,14 @@
 
 #elif defined(__BORLANDC__) && defined(__CODEGEARC_VERSION__)
 # define COMPILER_ID "Embarcadero"
-# define COMPILER_VERSION_MAJOR HEX(__CODEGEARC_VERSION__>>24 & 0x00FF)
-# define COMPILER_VERSION_MINOR HEX(__CODEGEARC_VERSION__>>16 & 0x00FF)
+# define COMPILER_VERSION_MAJOR HEX(__CODEGEARC_VERSION__> >24 & 0x00FF)
+# define COMPILER_VERSION_MINOR HEX(__CODEGEARC_VERSION__> >16 & 0x00FF)
 # define COMPILER_VERSION_PATCH DEC(__CODEGEARC_VERSION__     & 0xFFFF)
 
 #elif defined(__BORLANDC__)
 # define COMPILER_ID "Borland"
   /* __BORLANDC__ = 0xVRR */
-# define COMPILER_VERSION_MAJOR HEX(__BORLANDC__>>8)
+# define COMPILER_VERSION_MAJOR HEX(__BORLANDC__> >8)
 # define COMPILER_VERSION_MINOR HEX(__BORLANDC__ & 0xFF)
 
 #elif defined(__WATCOMC__) && __WATCOMC__ < 1200
@@ -80,13 +80,13 @@
 # define COMPILER_ID "SunPro"
 # if __SUNPRO_CC >= 0x5100
    /* __SUNPRO_CC = 0xVRRP */
-#  define COMPILER_VERSION_MAJOR HEX(__SUNPRO_CC>>12)
-#  define COMPILER_VERSION_MINOR HEX(__SUNPRO_CC>>4 & 0xFF)
+#  define COMPILER_VERSION_MAJOR HEX(__SUNPRO_CC> >12)
+#  define COMPILER_VERSION_MINOR HEX(__SUNPRO_CC> >4 & 0xFF)
 #  define COMPILER_VERSION_PATCH HEX(__SUNPRO_CC    & 0xF)
 # else
    /* __SUNPRO_CC = 0xVRP */
-#  define COMPILER_VERSION_MAJOR HEX(__SUNPRO_CC>>8)
-#  define COMPILER_VERSION_MINOR HEX(__SUNPRO_CC>>4 & 0xF)
+#  define COMPILER_VERSION_MAJOR HEX(__SUNPRO_CC> >8)
+#  define COMPILER_VERSION_MINOR HEX(__SUNPRO_CC> >4 & 0xF)
 #  define COMPILER_VERSION_PATCH HEX(__SUNPRO_CC    & 0xF)
 # endif
 
@@ -212,9 +212,9 @@
 # define COMPILER_ID "ADSP"
 #if defined(__VISUALDSPVERSION__)
   /* __VISUALDSPVERSION__ = 0xVVRRPP00 */
-# define COMPILER_VERSION_MAJOR HEX(__VISUALDSPVERSION__>>24)
-# define COMPILER_VERSION_MINOR HEX(__VISUALDSPVERSION__>>16 & 0xFF)
-# define COMPILER_VERSION_PATCH HEX(__VISUALDSPVERSION__>>8  & 0xFF)
+# define COMPILER_VERSION_MAJOR HEX(__VISUALDSPVERSION__> >24)
+# define COMPILER_VERSION_MINOR HEX(__VISUALDSPVERSION__> >16 & 0xFF)
+# define COMPILER_VERSION_PATCH HEX(__VISUALDSPVERSION__> >8  & 0xFF)
 #endif
 
 #elif defined(__IAR_SYSTEMS_ICC__ ) || defined(__IAR_SYSTEMS_ICC)
@@ -443,13 +443,13 @@ char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";
 
 /* Convert integer to hex digit literals.  */
 #define HEX(n)             \
-  ('0' + ((n)>>28 & 0xF)), \
-  ('0' + ((n)>>24 & 0xF)), \
-  ('0' + ((n)>>20 & 0xF)), \
-  ('0' + ((n)>>16 & 0xF)), \
-  ('0' + ((n)>>12 & 0xF)), \
-  ('0' + ((n)>>8  & 0xF)), \
-  ('0' + ((n)>>4  & 0xF)), \
+  ('0' + ((n)> >28 & 0xF)), \
+  ('0' + ((n)> >24 & 0xF)), \
+  ('0' + ((n)> >20 & 0xF)), \
+  ('0' + ((n)> >16 & 0xF)), \
+  ('0' + ((n)> >12 & 0xF)), \
+  ('0' + ((n)> >8  & 0xF)), \
+  ('0' + ((n)> >4  & 0xF)), \
   ('0' + ((n)     & 0xF))
 
 /* Construct a string literal encoding the version number components. */

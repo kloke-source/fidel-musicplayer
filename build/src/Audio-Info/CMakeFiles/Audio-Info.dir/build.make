@@ -60,15 +60,15 @@ include src/Audio-Info/CMakeFiles/Audio-Info.dir/flags.make
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: src/Audio-Info/CMakeFiles/Audio-Info.dir/flags.make
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Audio-Info/audioinfo.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info && /usr/lib/hardening-wrapper/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Audio-Info.dir/audioinfo.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info && /usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Audio-Info.dir/audioinfo.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp
 
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Audio-Info.dir/audioinfo.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp > CMakeFiles/Audio-Info.dir/audioinfo.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp > CMakeFiles/Audio-Info.dir/audioinfo.cpp.i
 
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Audio-Info.dir/audioinfo.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info && /usr/lib/hardening-wrapper/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp -o CMakeFiles/Audio-Info.dir/audioinfo.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp -o CMakeFiles/Audio-Info.dir/audioinfo.cpp.s
 
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o.requires:
 
