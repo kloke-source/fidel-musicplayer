@@ -79,37 +79,19 @@ vector
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp
-algorithm
--
 gtkmm.h
 -
 GUI/gui.h
 -
 iostream
 -
-dirent.h
--
-fstream
--
-Utilities/btree.h
--
-string
--
 sqlite3.h
 -
 Utilities/util.h
 -
-taglib/taglib.h
--
 Audio-Info/audioinfo.h
 -
 Audio-Library/audio-library.h
--
-ctime
--
-future
--
-thread
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
