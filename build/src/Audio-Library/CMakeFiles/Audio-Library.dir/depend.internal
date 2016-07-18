@@ -7,6 +7,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  ../src/GUI/gui.h
  ../src/GUI/singleton.h
  ../src/Utilities/btree.h
+ ../src/Utilities/threadpool.h
  ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h

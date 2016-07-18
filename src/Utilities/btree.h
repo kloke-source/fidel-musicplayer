@@ -82,7 +82,6 @@ typename btree<T>::BstNode* btree<T>::new_node(T data, int id) {
 template <class T>
 typename btree<T>::BstNode* btree<T>::insert_backend(btree<T>::BstNode* root,  T data) {
   if(root == NULL) { // empty tree
-    cout << "Insert : " << data << endl;
     root = btree<T>::new_node(data);
     node_num++;
   }
@@ -100,7 +99,6 @@ typename btree<T>::BstNode* btree<T>::insert_backend(btree<T>::BstNode* root,  T
 template <class T>
 typename btree<T>::BstNode* btree<T>::insert_backend(btree<T>::BstNode* root,  T data, int id) {
   if(root == NULL) { // empty tree
-    cout << "Insert : " << data  << "ID : " << id << endl;
     root = btree<T>::new_node(data, id);
     node_num++;
   }
@@ -134,7 +132,6 @@ bool btree<T>::search_backend(btree<T>::BstNode* root, T search_term)
     return false;
   }
   else if(root->data == search_term) {
-    cout << "Found : " << root->data << endl;
     search_result = root->data;
     search_id = root->id;
     return true;
@@ -190,8 +187,6 @@ bool btree<T>::rec_search_backend(btree<T>::BstNode* root, string search_term) {
     return false;
   }
   else if(btree<T>::rec_comp((root->data).substr(0, search_term.length()), search_term ) == true) {
-    cout << "Comparison : " << (root->data).substr(0, search_term.length()) << endl;
-    cout << "Found : " << root->data << endl;
     search_results.push_back(root->data);
     search_ids.push_back(root->id);
     found_node = root;
@@ -221,10 +216,8 @@ bool btree<T>::check(T search_term)
 {
   bool check_value =  btree<T>::search_backend(root_node, search_term);
   if (check_value == false){
-    cout << "Btree not found" << endl;
   }
   else {
-    cout << "Btree found" << endl;
   }
   return check_value;
 }
@@ -272,7 +265,6 @@ void btree<T>::inorder_trav_backend(btree<T>::BstNode *node)
 {
   if (node == NULL) return;
   btree<T>::inorder_trav_backend(node->left);
-  cout << "inorder_traversal: " << node->data << endl;
   ordered_list.push_back(node->data);
   iterated_ids.push_back(node->id);
   btree<T>::inorder_trav_backend(node->right);

@@ -43,6 +43,8 @@ iostream
 -
 sqlite3.h
 -
+Audio-Info/audioinfo.h
+-
 Utilities/btree.h
 -
 
@@ -66,6 +68,26 @@ cstddef
 iostream
 -
 vector
+-
+
+../src/Utilities/threadpool.h
+vector
+-
+queue
+-
+memory
+-
+thread
+-
+mutex
+-
+condition_variable
+-
+future
+-
+functional
+-
+stdexcept
 -
 
 ../src/Utilities/util.h
@@ -92,6 +114,12 @@ Utilities/util.h
 Audio-Info/audioinfo.h
 -
 Audio-Library/audio-library.h
+-
+Utilities/threadpool.h
+-
+mutex
+-
+thread
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h

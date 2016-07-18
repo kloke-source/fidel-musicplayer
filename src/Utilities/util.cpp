@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iostream>
 #include <string.h>
+#include <vector>
 //#include <taglib/taglib.h>
 #include <Utilities/util.h>
 //#include <Utilities/btree.h>
@@ -14,6 +15,20 @@ enum {
   GREEN,
   BLUE
 };
+
+std::string util::get_home_dir()
+{
+  return Glib::get_home_dir();
+}
+
+void util::create_folder(std::string location)
+{
+#if defined(_WIN32)
+  _mkdir(location.c_str());
+#else
+  mkdir(location.c_str(), 0777);
+#endif
+}
 
 void util::set_source_rgb(const Cairo::RefPtr<Cairo::Context>& cr, std::string hex_color)
 {
@@ -30,16 +45,16 @@ std::vector<double> util::hex_to_rgb(std::string hex_val)
 {
   std::vector<double> rgb_vect;
   hex_val = hex_val.substr(1, hex_val.length()); //remove # from hexadecimal code
-    for (size_t iter = 0; iter < hex_val.size(); iter+=2) {
-      if (iter != hex_val.size() - 1){
-        std::string hex_sub_sec;// = (std::string) hex_val[iter];// + hex_val[iter+1];
-        std::stringstream char_conv;
-        char_conv << hex_val[iter];
-        char_conv << hex_val[iter+1];
-        char_conv >> hex_sub_sec;
-        rgb_vect.push_back(util::hex_to_dec(hex_sub_sec));
-      }
+  for (size_t iter = 0; iter < hex_val.size(); iter+=2) {
+    if (iter != hex_val.size() - 1){
+      std::string hex_sub_sec;// = (std::string) hex_val[iter];// + hex_val[iter+1];
+      std::stringstream char_conv;
+      char_conv << hex_val[iter];
+      char_conv << hex_val[iter+1];
+      char_conv >> hex_sub_sec;
+      rgb_vect.push_back(util::hex_to_dec(hex_sub_sec));
     }
+  }
   return rgb_vect;
 }
 
@@ -49,8 +64,77 @@ double util::hex_to_dec(std::string hex_val)
   std::stringstream ss;
   ss << std::hex << hex_val;
   ss >> dec_val;
-  //std::cout << static_cast<double>(dec_val) << std::endl; // output it as a signed type
   return static_cast<double>(dec_val);
+}
+
+std::string util::gen_ins_stmt(std::string table_name, std::vector<std::string> fields, std::vector<std::string> values)
+{
+  std::stringstream fields_stream;
+  std::stringstream values_stream;
+
+  if (fields.size() == values.size()) {
+    fields_stream <<  "INSERT INTO " << table_name << " (";
+  
+    for (size_t iter = 0; iter < fields.size(); iter++) {
+      if (iter != fields.size() - 1) {
+	fields_stream << fields[iter] << ", ";
+	values_stream << util::escape_string(values[iter]) <<  "', '";
+      }
+      else {
+	fields_stream << fields[iter] << ") VALUES('";
+	values_stream << util::escape_string(values[iter]) << "');";
+      }
+    }
+    fields_stream << values_stream.str();
+  }
+  else 
+    return "Error number of fields don't match number of values";
+
+  return fields_stream.str(); // the fields_stream now contains the full insert statement
+}
+
+std::string util::replace(std::string text, std::string find_value, std::string replace_value)
+{
+  std::stringstream replaced_text;
+  for (size_t iter = 0; iter < text.size(); iter++){
+    if (text[iter] != *util::to_char(find_value))
+      replaced_text << text[iter];
+    else
+      replaced_text << replace_value;
+  }
+  return replaced_text.str();
+}
+
+std::string util::escape_string(std::string text)
+{
+  text = util::replace(text, "'", "''");
+  return text;
+}
+
+std::string util::escape_spaces(std::string text)
+{
+  text = util::replace(text, " ", "\\ ");
+  return text;
+}
+
+std::string util::escape_slashes(std::string text)
+{
+  text = util::replace(text, "/", "-");
+  return text;
+}
+
+std::string util::unescape_spaces(std::string text)
+{
+  text = util::replace(text, "\\ ", "");
+  return text;
+}
+
+bool util::has_text(std::string base_string, std::string search_value)
+{
+  if (base_string.find(search_value) != std::string::npos)
+    return true;
+  else
+    return false;
 }
 
 char* util::to_char(std::string string_value)
@@ -103,28 +187,28 @@ std::string util::time_format(double total_seconds)
   std::string time_format;
 
   if (hours >= 10)
-  {
-    hours_format_value = util::to_string(hours) + ":";
-  }
+    {
+      hours_format_value = util::to_string(hours) + ":";
+    }
   if (hours < 10 && hours > 0)
-  {
-    hours_format_value = "0" + util::to_string(hours) + ":";
-  }
+    {
+      hours_format_value = "0" + util::to_string(hours) + ":";
+    }
   if (minutes >= 10)
-  {
-    minutes_format_value = util::to_string(minutes) + ":";
-  }
+    {
+      minutes_format_value = util::to_string(minutes) + ":";
+    }
   if (minutes < 10)
-  {
-    minutes_format_value = "0" + util::to_string(minutes) + ":";
-  }
+    {
+      minutes_format_value = "0" + util::to_string(minutes) + ":";
+    }
   if (seconds >= 10){
     seconds_format_value = util::to_string(seconds);
   }
   if (seconds < 10)
-  {
-    seconds_format_value = "0" + util::to_string(seconds);
-  }
+    {
+      seconds_format_value = "0" + util::to_string(seconds);
+    }
 
   time_format = hours_format_value + minutes_format_value + seconds_format_value;
   return time_format;

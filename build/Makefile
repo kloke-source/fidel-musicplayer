@@ -176,19 +176,6 @@ Spectrum/fast:
 .PHONY : Spectrum/fast
 
 #=============================================================================
-# Target rules for targets named Audio-Info
-
-# Build rule for target.
-Audio-Info: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Audio-Info
-.PHONY : Audio-Info
-
-# fast build rule for target.
-Audio-Info/fast:
-	$(MAKE) -f src/Audio-Info/CMakeFiles/Audio-Info.dir/build.make src/Audio-Info/CMakeFiles/Audio-Info.dir/build
-.PHONY : Audio-Info/fast
-
-#=============================================================================
 # Target rules for targets named Audio-Library
 
 # Build rule for target.
@@ -200,6 +187,19 @@ Audio-Library: cmake_check_build_system
 Audio-Library/fast:
 	$(MAKE) -f src/Audio-Library/CMakeFiles/Audio-Library.dir/build.make src/Audio-Library/CMakeFiles/Audio-Library.dir/build
 .PHONY : Audio-Library/fast
+
+#=============================================================================
+# Target rules for targets named Audio-Info
+
+# Build rule for target.
+Audio-Info: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Audio-Info
+.PHONY : Audio-Info
+
+# fast build rule for target.
+Audio-Info/fast:
+	$(MAKE) -f src/Audio-Info/CMakeFiles/Audio-Info.dir/build.make src/Audio-Info/CMakeFiles/Audio-Info.dir/build
+.PHONY : Audio-Info/fast
 
 # Help Target
 help:
@@ -214,8 +214,8 @@ help:
 	@echo "... Audio"
 	@echo "... Utilities"
 	@echo "... Spectrum"
-	@echo "... Audio-Info"
 	@echo "... Audio-Library"
+	@echo "... Audio-Info"
 .PHONY : help
 
 

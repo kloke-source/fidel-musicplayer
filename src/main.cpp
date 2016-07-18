@@ -11,5 +11,5 @@
 int main(int argc, char *argv[])
 {
   //  fidel_ui::Instance()->initialize(argc, argv);
-  AudioLibrary::scan_dir("/home/tashrif/Music/");
+  AudioLibrary::scan();
 }

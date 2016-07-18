@@ -6,6 +6,32 @@
 
 #IncludeRegexTransform: 
 
+../src/Audio-Info/audioinfo.h
+taglib.h
+-
+taglib/fileref.h
+-
+id3v2tag.h
+-
+mpegfile.h
+-
+flacfile.h
+-
+id3v2frame.h
+-
+id3v2header.h
+-
+attachedpictureframe.h
+-
+cstdio
+-
+string.h
+-
+iostream
+-
+gtkmm.h
+-
+
 ../src/Audio-Library/audio-library.h
 taglib/taglib.h
 -
@@ -16,6 +42,8 @@ dirent.h
 iostream
 -
 sqlite3.h
+-
+Audio-Info/audioinfo.h
 -
 Utilities/btree.h
 -
