@@ -14,7 +14,13 @@
 #include <iostream>
 #include <gtkmm.h>
 
-using namespace std;
+enum {
+  SONG_NAME,
+  ARTIST,
+  ALBUM,
+  DURATION_SECONDS,
+  TIME
+};
 
 class audioinfo{
 public:
@@ -22,18 +28,19 @@ public:
   ~audioinfo();
 
   static void init(char *filesrc);
-  static Glib::ustring get_info(std::string field);
+  static std::string get_info(int enum_field);
+  static std::string get_info(std::string field);
   static double tag_duration();
   static void set_duration(double duration);
   static void set_duration_from_tag();
   static double duration();
   //static Gtk::Image* get_album_art(char *file_location, int width, int height);
   //static string extract_album_art(char *file_location);
-  static Gtk::Image* get_extracted_album_art(char *file_location, int width, int height);
+  static std::pair<guint8*, gsize> extract_album_art(std::string file_location);
   //static vector<Gtk::Image*> get_all_album_art(int width, int height);
   //static void testprint();
 private:
-  static void setData();
+  static void set_data();
   static bool init_checker(char *filesrc);
 };
 #endif

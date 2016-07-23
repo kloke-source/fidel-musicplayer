@@ -48,6 +48,16 @@ Audio-Info/audioinfo.h
 Utilities/btree.h
 -
 
+../src/GUI/gui.h
+vector
+-
+gtkmm.h
+-
+iostream
+-
+GUI/singleton.h
+-
+
 ../src/GUI/singleton.h
 assert.h
 -
@@ -70,19 +80,9 @@ iostream
 vector
 -
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
-vector
--
-gtkmm.h
--
-iostream
--
-GUI/singleton.h
--
-
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp
 GUI/gui.h
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
+-
 gtkmm.h
 -
 Utilities/util.h

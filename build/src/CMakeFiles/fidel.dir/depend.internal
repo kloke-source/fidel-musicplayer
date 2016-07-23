@@ -4,10 +4,10 @@
 src/CMakeFiles/fidel.dir/main.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
+ ../src/GUI/gui.h
  ../src/GUI/singleton.h
  ../src/Utilities/btree.h
  ../src/Utilities/util.h
- /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/main.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h
  /usr/include/atk-1.0/atk/atk.h

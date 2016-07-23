@@ -3,10 +3,10 @@
 
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Audio-Info/audioinfo.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Audio-Library/audio-library.h
+src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/gui.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/singleton.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Utilities/btree.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Utilities/util.h
-src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/gui.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/main.cpp
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/atk-1.0/atk/atk.h

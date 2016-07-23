@@ -90,7 +90,7 @@ std::string util::gen_ins_stmt(std::string table_name, std::vector<std::string> 
   else 
     return "Error number of fields don't match number of values";
 
-  return fields_stream.str(); // the fields_stream now contains the full insert statement
+  return fields_stream.str();
 }
 
 std::string util::replace(std::string text, std::string find_value, std::string replace_value)
@@ -135,6 +135,13 @@ bool util::has_text(std::string base_string, std::string search_value)
     return true;
   else
     return false;
+}
+
+bool util::check_file_format(std::string file, std::string file_format)
+{
+  if (file.substr(file.find_last_of(".") + 1) == file_format)
+    return true;
+  else return false;
 }
 
 char* util::to_char(std::string string_value)

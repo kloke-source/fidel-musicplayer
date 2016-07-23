@@ -18,6 +18,7 @@ class util{
   static double hex_to_dec(std::string hex_val);
 
   static std::string gen_ins_stmt(std::string table_name, std::vector<std::string> fields, std::vector<std::string> values);
+  
   static std::string replace(std::string text, std::string find_value, std::string replace_value);
   static std::string escape_string(std::string text);
   static std::string escape_spaces(std::string text);
@@ -25,6 +26,7 @@ class util{
   static std::string unescape_spaces(std::string text);
    
   static bool has_text(std::string base_string, std::string search_value);
+  static bool check_file_format(std::string file, std::string file_format);
   static char *to_char(std::string string_value);
   static int to_int (std::string text);
   static std::string to_string(int value);

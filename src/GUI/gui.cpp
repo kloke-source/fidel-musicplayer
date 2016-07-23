@@ -155,9 +155,9 @@ void gui::init_icons()
   pause_icon = new Image();
   next_icon = new Image();
 
-  previous_icon->set_from_resource("/fidel/Resources/playback-previous.svg");
-  play_icon->set_from_resource("/fidel/Resources/playback-play.svg");
-  next_icon->set_from_resource("/fidel/Resources/playback-next.svg");
+  previous_icon->set_from_resource("/fidel/Resources/icons/playback-previous.svg");
+  play_icon->set_from_resource("/fidel/Resources/icons/playback-play.svg");
+  next_icon->set_from_resource("/fidel/Resources/icons/playback-next.svg");
 
   previous_button->add(*previous_icon);
   play_button->add(*play_icon);

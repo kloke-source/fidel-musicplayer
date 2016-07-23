@@ -80,7 +80,7 @@ void seeker::seek()
     audio_playback::Instance()->seek(seek_value, "seeker");
   }
   if (seek_value > audioinfo::duration()) {
-    cout << "called this fkjafeal" << endl;
+    std::cout << "called this fkjafeal" << std::endl;
     if (hours_deleted == false){
       hours_tenths_entry->set_text("");
       hours_units_entry->set_text("");
@@ -203,7 +203,7 @@ void seeker::init()
 
 void seeker::init_builder()
 {
-  string ui_filelocation = Glib::get_home_dir() + "/fidel/Resources/UI/seeker.ui";
+  std::string ui_filelocation = Glib::get_home_dir() + "/fidel/Resources/UI/seeker.ui";
   try
   {
     seeker_builder->add_from_file(ui_filelocation);
@@ -211,7 +211,7 @@ void seeker::init_builder()
   catch(const Glib::FileError& ex)
   {
     std::cerr << "FileError: " << ex.what() << std::endl;
-    std::cout << "Try running configure script again " << endl;
+    std::cout << "Try running configure script again " << std::endl;
   }
   catch(const Glib::MarkupError& ex)
   {
@@ -293,8 +293,8 @@ bool seeker::on_cancel_button_leave(GdkEventCrossing* event)
 
 void seeker::set_entry_focus()
 {
-  cout << "set_entry_focus called " << endl;
-  cout << "Duration" << audioinfo::duration() << endl;
+  std::cout << "set_entry_focus called " << std::endl;
+  std::cout << "Duration" << audioinfo::duration() << std::endl;
 
   if (audioinfo::duration() <= (9*3600) && audioinfo::duration() > (59*60)){
     hours_units_entry->grab_focus();
@@ -330,7 +330,7 @@ void seeker::set_entry_focus()
   }
 }
 
-void seeker::data_validator(Glib::ustring text,
+void seeker::data_validator(std::string text,
   int *character_num, Gtk::Entry *data_entry_widget)
   {
     try {
@@ -347,42 +347,42 @@ void seeker::data_validator(Glib::ustring text,
   }
 
   //initialize data entry handlers
-  void seeker::hours_tenths_handler(const Glib::ustring& text,int* character_num)
+  void seeker::hours_tenths_handler(const std::string& text,int* character_num)
   {
     if (error_label->get_text() != ""){
       error_label->set_text("");
     }
     seeker::data_validator(text, character_num, hours_tenths_entry);
   }
-  void seeker::hours_units_handler(const Glib::ustring& text,int* character_num)
+  void seeker::hours_units_handler(const std::string& text,int* character_num)
   {
     if (error_label->get_text() != ""){
       error_label->set_text("");
     }
     seeker::data_validator(text, character_num, hours_units_entry);
   }
-  void seeker::minutes_tenths_handler(const Glib::ustring& text,int* character_num)
+  void seeker::minutes_tenths_handler(const std::string& text,int* character_num)
   {
     if (error_label->get_text() != ""){
       error_label->set_text("");
     }
     seeker::data_validator(text, character_num, minutes_tenths_entry);
   }
-  void seeker::minutes_units_handler(const Glib::ustring& text,int* character_num)
+  void seeker::minutes_units_handler(const std::string& text,int* character_num)
   {
     if (error_label->get_text() != ""){
       error_label->set_text("");
     }
     seeker::data_validator(text, character_num, minutes_units_entry);
   }
-  void seeker::seconds_tenths_handler(const Glib::ustring& text,int* character_num)
+  void seeker::seconds_tenths_handler(const std::string& text,int* character_num)
   {
     if (error_label->get_text() != ""){
       error_label->set_text("");
     }
     seeker::data_validator(text, character_num, seconds_tenths_entry);
   }
-  void seeker::seconds_units_handler(const Glib::ustring& text,int* character_num)
+  void seeker::seconds_units_handler(const std::string& text,int* character_num)
   {
     if (error_label->get_text() != ""){
       error_label->set_text("");

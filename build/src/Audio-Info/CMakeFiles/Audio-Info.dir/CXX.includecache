@@ -83,11 +83,11 @@ vector
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp
 audioinfo.h
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.h
-Utilities/util.h
+iostream
+-
+gtkmm.h
 -
 taglib/taglib.h
--
-Audio-Library/audio-library.h
 -
 taglib/fileref.h
 -
@@ -97,17 +97,9 @@ taglib/oggfile.h
 -
 taglib/vorbisfile.h
 -
-iostream
+Utilities/util.h
 -
-gtkmm.h
--
-unicode/ustream.h
--
-unicode/uchar.h
--
-unicode/unistr.h
--
-unicode/brkiter.h
+Audio-Library/audio-library.h
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.h
