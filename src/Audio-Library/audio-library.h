@@ -11,13 +11,15 @@
 
 using namespace std;
 
-class AudioLibrary{
+class AudioLibrary {
  public:
   static void initialize();
+  static void populate_playlist();
   static void scan();
  private:
   // initialization functions
   static void init_db();
+  static int load_db();
   static int generic_db_callback(void *data, int total_col_num, char **value, char **fields);
   // validation functions
   static bool check_file_format(std::string input_file);
@@ -35,7 +37,8 @@ class AudioLibrary{
   static void add_artist_summ(std::string file_location);
   static void write_artist_summ();
   static void write_artists(std::string file_location);
-    
+
+  static int populate_playlist_cb(void *data, int total_col_num, char **value, char **fields);
   static void scan_dir(const char *dir_location);
   static int flush_to_db(sqlite3 *pInMemory, const char *file_name);
 };

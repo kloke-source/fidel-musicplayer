@@ -32,6 +32,22 @@ iostream
 gtkmm.h
 -
 
+../src/Audio-Library/audio-library.h
+taglib/taglib.h
+-
+gtkmm.h
+-
+dirent.h
+-
+iostream
+-
+sqlite3.h
+-
+Audio-Info/audioinfo.h
+-
+Utilities/btree.h
+-
+
 ../src/Audio/playback.h
 iostream
 -
@@ -138,6 +154,8 @@ Utilities/util.h
 Audio/playback.h
 -
 Spectrum/spectrum.h
+-
+Audio-Library/audio-library.h
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h

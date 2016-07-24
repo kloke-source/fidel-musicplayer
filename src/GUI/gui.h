@@ -55,7 +55,7 @@ Gtk::TreeModelColumn<Glib::ustring> col_file_location;
 */
 private:
 	void init_connections();
-	//void init_widget_vectors();
+	bool keyboard_shortcuts(GdkEventKey* event);
 	void init_icons();
 	void init_spectrum();
 

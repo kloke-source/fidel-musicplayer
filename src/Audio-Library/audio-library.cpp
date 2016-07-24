@@ -6,6 +6,7 @@
 #include <Audio-Info/audioinfo.h>
 #include <Audio-Library/audio-library.h>
 #include <Utilities/threadpool.h>
+#include <GUI/playlist.h>
 #include <mutex>
 #include <thread>
 //#define library_db ":memory:"
@@ -17,6 +18,7 @@ bool initialized = false;
 // database variables
 sqlite3 *library_db;
 bool db_opened = false;
+bool db_loaded = false;
 
 // --> table fields
 std::vector<std::string> library_fields;
@@ -62,7 +64,25 @@ std::vector<std::string> file_locations;
 std::vector<std::string> subdir_locations;
 std::vector<char*> omitted_locations;
 
-ThreadPool threadpool;
+enum audio_lib_enums {
+  LIB_ID,
+  LIB_FILE_LOCATION,
+  LIB_NAME,
+  LIB_ARTIST,
+  LIB_ALBUM,
+  LIB_TIME,
+  DURATION_SEC,
+  FILE_COUNT = 0,
+  ARTIST_NUM = 1,
+  ALBUM_NUM = 2,
+  LIB = 0,
+  LIB_INFO = 1,
+  ALBUM_INFO = 2,
+  ALBUM_SUMM = 3,
+  ARTIST_INFO = 4,
+  ARTIST_SUMM = 5,
+};
+
 void AudioLibrary::initialize()
 {
   if (initialized == false) {
@@ -180,6 +200,41 @@ void AudioLibrary::init_db()
     sqlite3_free(error_msg);
   }else{
     fprintf(stdout, "Table created successfully\n");
+  }
+}
+
+int AudioLibrary::load_db()
+{
+  AudioLibrary::initialize();
+  if (db_loaded == false) {
+    db_loaded = true;
+    int ret_code;
+    sqlite3 *in_memory = library_db;
+    sqlite3 *source_file;           /* Database connection opened on default_db_location.c_str() */
+    sqlite3_backup *backup_obj;  /* Backup object used to copy data */
+    sqlite3 *destination;             /* Database to copy to (source_file or in_memory) */
+    sqlite3 *source;           /* Database to copy from (source_file or in_memory) */
+
+    /* Open the database file identified by default_db_location.c_str(). Exit early if this fails
+    ** for any reason. */
+    ret_code = sqlite3_open(default_db_location.c_str(), &source_file);
+    if( ret_code==SQLITE_OK ){
+
+      source = source_file;
+      destination   = in_memory;
+
+      backup_obj = sqlite3_backup_init(destination, "main", source, "main");
+      if( backup_obj ){
+	(void)sqlite3_backup_step(backup_obj, -1);
+	(void)sqlite3_backup_finish(backup_obj);
+      }
+      ret_code = sqlite3_errcode(destination);
+    }
+
+    /* Close the database connection opened on database file default_db_location.c_str()
+    ** and return the result of this function. */
+    (void)sqlite3_close(source_file);
+    return ret_code;
   }
 }
 
@@ -433,6 +488,37 @@ void AudioLibrary::write_artists(std::string file_location)
     std::string ins_stmt = "INSERT INTO artists(artist_name) VALUES('" + artist_name + "');";
     AudioLibrary::db_ins_row(ins_stmt);
   }
+}
+
+void AudioLibrary::populate_playlist()
+{
+  char *err_msg = 0;
+  int ret_code;
+  const char *sql_stmt = "SELECT * from library";
+  const char* data = "";
+
+
+  AudioLibrary::load_db();
+
+  ret_code = sqlite3_exec(library_db, sql_stmt, populate_playlist_cb, (void*)data, &err_msg);
+  if( ret_code != SQLITE_OK ){
+    fprintf(stderr, "SQL error: %s\n", err_msg);
+    sqlite3_free(err_msg);
+  }else{
+    fprintf(stdout, "Operation done successfully\n");
+  }
+}
+
+int AudioLibrary::populate_playlist_cb(void *data, int total_col_num, char **value, char **fields)
+{
+  std::vector<std::string> row_data;
+  row_data.push_back(value[LIB_NAME]);
+  row_data.push_back(value[LIB_ARTIST]);
+  row_data.push_back(value[LIB_ALBUM]);
+  row_data.push_back(value[LIB_TIME]);
+  row_data.push_back(value[LIB_FILE_LOCATION]);
+  //gui_playlist::Instance()->add_list_store_row(row_data);
+  return 0;
 }
 
 void AudioLibrary::scan()

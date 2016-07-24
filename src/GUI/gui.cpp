@@ -12,7 +12,7 @@
 #include <Spectrum/spectrum.h>
 //#include <Audio-Info/audioinfo.h>
 //#include <GUI/album-art-viewer.h>
-//#include <Audio-Library/audio-library.h>
+#include <Audio-Library/audio-library.h>
 
 gui::gui(){}
 gui::~gui(){}
@@ -131,15 +131,32 @@ void gui::get_widgets()
 void gui::init_connections()
 {
   window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
+  window->signal_key_press_event().connect(sigc::mem_fun(this, &gui::keyboard_shortcuts));
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
   audio_playback::Instance()->signal_update_pb_timer().connect(sigc::mem_fun(this, &gui::update_pb_timer));
 }
-/*
-void gui::init_widget_vectors()
-{
 
+bool gui::keyboard_shortcuts(GdkEventKey* event)
+{
+	if((event->keyval == GDK_KEY_o) &&
+	(event->state & (GDK_CONTROL_MASK)))
+	{
+		gui::on_file_open_triggered();
+	}
+	if((event->keyval == GDK_KEY_s) &&
+	(event->state & (GDK_CONTROL_MASK)))
+	{
+		seeker::show(window);
+	}
+	if((event->keyval == GDK_KEY_p) &&
+	(event->state & (GDK_CONTROL_MASK)))
+	{
+
+         AudioLibrary::scan();
+	}
+	return true;
 }
-*/
+
 void gui::init_spectrum()
 {
   audio_playback::Instance()->signal_spectrum_start().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::start_visualization));

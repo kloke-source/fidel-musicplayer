@@ -1,8 +1,11 @@
+#ifndef PLAYLIST_H
+#define PLAYLIST_H
+
 #include <gtkmm.h>
 #include <Audio/playback.h>
 #include <vector>
 
-class Playlist {
+class Playlist : public Gtk::ScrolledWindow {
  public:
   Playlist();
   ~Playlist();
@@ -22,11 +25,11 @@ class Playlist {
     Gtk::TreeModelColumn<std::string> col_file_location;
   };
 
-  Gtk::ScrolledWindow* get_frame();
+  void add_list_store_row(std::vector<std::string> row_data);
  private:
   void init_connections();
   void init_playlist();
-  void add_list_store_row(std::vector<std::string> row_data);
   void on_double_click_handler(const Gtk::TreeModel::Path& path, Gtk::TreeViewColumn *column);
 };
 
+#endif
