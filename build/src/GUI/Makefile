@@ -179,6 +179,33 @@ gui.cpp.s:
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.s
 .PHONY : gui.cpp.s
 
+playlist.o: playlist.cpp.o
+
+.PHONY : playlist.o
+
+# target to build an object file
+playlist.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o
+.PHONY : playlist.cpp.o
+
+playlist.i: playlist.cpp.i
+
+.PHONY : playlist.i
+
+# target to preprocess a source file
+playlist.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.i
+.PHONY : playlist.cpp.i
+
+playlist.s: playlist.cpp.s
+
+.PHONY : playlist.s
+
+# target to generate assembly for a file
+playlist.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.s
+.PHONY : playlist.cpp.s
+
 seeker.o: seeker.cpp.o
 
 .PHONY : seeker.o
@@ -248,6 +275,9 @@ help:
 	@echo "... gui.o"
 	@echo "... gui.i"
 	@echo "... gui.s"
+	@echo "... playlist.o"
+	@echo "... playlist.i"
+	@echo "... playlist.s"
 	@echo "... seeker.o"
 	@echo "... seeker.i"
 	@echo "... seeker.s"

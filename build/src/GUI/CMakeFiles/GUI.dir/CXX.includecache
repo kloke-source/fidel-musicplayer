@@ -58,6 +58,14 @@ iostream
 GUI/singleton.h
 -
 
+../src/GUI/playlist.h
+gtkmm.h
+-
+Audio/playback.h
+-
+vector
+-
+
 ../src/GUI/seeker.h
 GUI/singleton.h
 -
@@ -84,6 +92,12 @@ gtkmm.h
 GUI/singleton.h
 -
 Utilities/util.h
+-
+
+../src/Utilities/btree.h
+iostream
+-
+vector
 -
 
 ../src/Utilities/util.h
@@ -134,6 +148,20 @@ gtkmm.h
 iostream
 -
 GUI/singleton.h
+-
+
+/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp
+GUI/playlist.h
+-
+iostream
+-
+Utilities/util.h
+-
+Audio/playback.h
+-
+Utilities/btree.h
+-
+vector
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp

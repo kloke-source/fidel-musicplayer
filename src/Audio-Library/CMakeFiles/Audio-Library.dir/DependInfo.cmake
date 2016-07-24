@@ -4,11 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/fidel-resources.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/themer.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -50,7 +46,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/gstreamer-1.0"
   "/usr/lib/gstreamer-1.0/include"
   "/usr/include/taglib"
-  "../src"
+  "src"
   )
 
 # Targets to which this target links.
