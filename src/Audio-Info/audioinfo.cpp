@@ -52,12 +52,9 @@ void audioinfo::set_data()
   info.album = (audio_file.tag()->album()).to8Bit(true);
   info.duration_seconds = (audio_file.audioProperties()->length());
 
-  //info.song_name = util::escape_slashes(info.song_name);
-  //info.artist = util::escape_slashes(info.artist);
-  //info.album = util::escape_slashes(info.album);
-
   if (info.song_name == "" || info.song_name == " "){
-    //info.song_name = util::file_to_song_name(audio_file_location);
+    info.song_name = util::file_to_song_name(audio_file_location);
+    info.song_name = util::escape_slashes(info.song_name);
   }
   if (info.artist == "" || info.artist == " "){
     info.artist = "Unknown Artist";

@@ -93,6 +93,29 @@ std::string util::gen_ins_stmt(std::string table_name, std::vector<std::string> 
   return fields_stream.str();
 }
 
+std::string util::file_to_song_name(std::string file)
+{
+  std::string file_formats[] = {"flac","mp3","wav","ogg","m4a","m4p"};
+  int formats_num = 6;
+  int slash_pos;
+  bool is_file_location = false;
+  slash_pos = file.find_last_of("/");
+  is_file_location = true;
+
+  if (is_file_location == true){
+    file.erase(0, slash_pos + 1);
+  }
+  for (int iter = 0; iter < formats_num; iter++) {
+    if (file.substr(file.find_last_of(".") + 1) == file_formats[iter]){
+      std::string file_format = "." + file_formats[iter];
+      file.erase((file.length() - (file_formats[iter].length() + 1)),
+      (file.length() + (file_formats[iter].length() + 1)));
+      break;
+    }
+  }
+  return file;
+}
+
 std::string util::replace(std::string text, std::string find_value, std::string replace_value)
 {
   std::stringstream replaced_text;

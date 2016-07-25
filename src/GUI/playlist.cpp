@@ -33,6 +33,7 @@ Playlist::~Playlist(){}
 void Playlist::init_connections()
 {
   playlist_tree_view->signal_row_activated().connect(sigc::mem_fun(this, &Playlist::on_double_click_handler));
+  this->signal_size_allocate().connect(sigc::mem_fun(this, &Playlist::resize_handler));
 }
 
 void Playlist::init_playlist()
@@ -104,6 +105,74 @@ void Playlist::add_list_store_row(std::vector<std::string> row_data)
   }
   if (alternate_color == true && skip == false){
     alternate_color = false;
+  }
+}
+
+void Playlist::link_to_search_entry(Gtk::SearchEntry *search_entry)
+{
+  this->playlist_search_entry = search_entry;
+  search_entry->signal_insert_text().connect(sigc::mem_fun(this, &Playlist::on_search_entry_kb_event));
+
+}
+
+void Playlist::on_search_entry_kb_event(const std::string& text, int* character_num)
+{
+  Playlist::search_playlist(this->playlist_search_entry->get_text());
+}
+
+void Playlist::search_playlist(std::string search_term)
+{
+  Gtk::TreeModel::Children rows = playlist_model->children();
+  Glib::RefPtr<Gtk::TreeView::Selection> selection = playlist_tree_view->get_selection();
+  Gtk::TreeModel::Children::iterator iterator = selection->get_selected();
+  selection->unselect(iterator);
+  std::vector<std::string> search_results;
+  std::vector<int> search_ids;
+
+  bool found = false;
+  for (int iter = 0; iter < 4; iter++){
+    std::cout << "Search iteration " << iter << std::endl;
+    search_results = playlist_info_store[iter].rec_search(search_term);
+    search_ids = playlist_info_store[iter].get_search_ids();
+    if (search_results.size() > 0){
+      found = true;
+      iterator = rows[search_ids[0]];
+      playlist_tree_view->scroll_to_row(playlist_model->get_path(iterator));
+      selection->select(iterator);
+      break;
+    }
+  }
+
+  if (found == false){
+    for (size_t iter = 0; iter < 4; iter++){
+      search_results = playlist_info_store[iter].iterative_search(search_term);
+      search_ids = playlist_info_store[iter].get_iterated_ids();
+      if (search_results.size() > 0){
+	found = true;
+	std::cout << "search id -> b -> " << search_ids[0] << std::endl;
+	iterator = rows[search_ids[0]];
+	playlist_tree_view->scroll_to_row(playlist_model->get_path(iterator));
+	selection->select(iterator);
+	break;
+      }
+    }
+  }
+
+  for (size_t iter = 0; iter < search_results.size(); iter++){
+    std::cout << "gui search results : " << iter << " -> " << search_results[iter] << std::endl;
+    std::cout << "search id : " << iter << " pos -> " << search_ids[iter] << std::endl;
+  }
+}
+
+void Playlist::resize_handler(Gtk::Allocation &allocation)
+{
+  double frame_width = allocation.get_width();
+  double frame_height = allocation.get_height();
+
+  for (int col_iter = 0; col_iter < 4; col_iter++) {
+    playlist_tree_view->get_column(col_iter)->set_expand(true);
+    Gtk::CellRendererText* playlist = dynamic_cast<Gtk::CellRendererText*>(playlist_tree_view->get_column_cell_renderer(col_iter));
+    playlist->property_ellipsize() = Pango::ELLIPSIZE_END;
   }
 }
 

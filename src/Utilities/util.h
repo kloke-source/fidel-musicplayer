@@ -18,7 +18,7 @@ class util{
   static double hex_to_dec(std::string hex_val);
 
   static std::string gen_ins_stmt(std::string table_name, std::vector<std::string> fields, std::vector<std::string> values);
-  
+  static std::string file_to_song_name(std::string file);
   static std::string replace(std::string text, std::string find_value, std::string replace_value);
   static std::string escape_string(std::string text);
   static std::string escape_spaces(std::string text);

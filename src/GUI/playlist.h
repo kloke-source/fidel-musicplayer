@@ -26,9 +26,14 @@ class Playlist : public Gtk::ScrolledWindow {
   };
 
   void add_list_store_row(std::vector<std::string> row_data);
+  void link_to_search_entry(Gtk::SearchEntry *search_entry);
  private:
+  Gtk::SearchEntry *playlist_search_entry;
   void init_connections();
   void init_playlist();
+  void resize_handler(Gtk::Allocation &allocation);
+  void on_search_entry_kb_event(const std::string& text, int* character_num);
+  void search_playlist(std::string search_term);
   void on_double_click_handler(const Gtk::TreeModel::Path& path, Gtk::TreeViewColumn *column);
 };
 

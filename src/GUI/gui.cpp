@@ -25,7 +25,6 @@ ApplicationWindow *window;
 Toolbar *toolbar;
 ImageMenuItem *open_action;
 Notebook *view_switcher;
-Entry *playlist_search_entry;
 
 Image *previous_icon, *play_icon, *pause_icon, *next_icon;
 
@@ -42,6 +41,9 @@ Label *sidebar_album_label;
 Label *sidebar_song_name;
 Label *sidebar_song_artist;
 Label *sidebar_song_album;
+
+//Gtk::SearchBar *fidel_search_bar;
+Gtk::SearchEntry *fidel_search_entry;
 
 Box *split_view_layout;
 Box *split_view_spectrum;
@@ -74,7 +76,6 @@ void gui::initialize(int argc, char **argv)
   gui::init_builder();
   gui::get_widgets();
   gui::init_connections();
-  //gui::init_widget_vectors();
   gui::init_icons();
   gui::init_playback_functions();
   gui::init_playlist();
@@ -84,9 +85,6 @@ void gui::initialize(int argc, char **argv)
   window->maximize();
 
   app->run(*window);
-  //delete window;
-  //std::cout << window << std::endl;
-  //g_resources_unregister(fidel_resources);
   g_resource_unref(fidel_resources);
 }
 
@@ -96,8 +94,10 @@ void gui::get_widgets()
   builder->get_widget("toolbar", toolbar);
   builder->get_widget("open_action", open_action);
   builder->get_widget("view_switcher", view_switcher);
-  builder->get_widget("playlist_search_entry", playlist_search_entry);
 
+  // builder->get_widget("fidel_search_bar", fidel_search_bar);
+  builder->get_widget("fidel_search_entry", fidel_search_entry);
+  
   builder->get_widget("split_view_label", split_view_label);
   builder->get_widget("playlist_view_label", playlist_view_label);
   builder->get_widget("library_view_label", library_view_label);
@@ -201,6 +201,7 @@ void gui::init_playback_functions()
 void gui::init_playlist()
 {
   AudioLibrary::populate_playlist();
+  gui_playlist::Instance()->link_to_search_entry(fidel_search_entry);
   playlist_view->pack_start(*gui_playlist::Instance(), Gtk::PACK_EXPAND_WIDGET);
   window->show_all();
 }
