@@ -415,12 +415,13 @@ void AudioLibrary::write_album_info(std::string file_location)
       full_album_information.push_back(album_info);
 
       album_info_values.push_back(album_name);
-      if (strcmp( (const char *)album_info.album_art.first, "No Album Art") == 0)
+      if ( (const char*) album_info.album_art.first != "No Album Art")
 	{
 	  album_info_values.push_back("?");
       
 	  std::stringstream blob_ins_stmt;
 	  blob_ins_stmt << "INSERT INTO album_information (album_name, album_art) VALUES('" << album_name  << "', ?);";
+	  std::cout << blob_ins_stmt.str() << std::endl;
 	  AudioLibrary::db_ins_blob(blob_ins_stmt.str(), album_info.album_art.first, album_info.album_art.second);
 	}
       else {
