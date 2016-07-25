@@ -23,6 +23,9 @@ public:
   BstNode* insert_backend(BstNode* root, T data);
   BstNode* insert_backend(BstNode* root, T data, int id);
 
+  void clear();
+  void clear_backend(BstNode* root);
+  
   void insert(T data);
   void insert(T data, int id);
 
@@ -123,6 +126,28 @@ template <class T>
 void btree<T>::insert(T data, int id)
 {
   root_node = btree<T>::insert_backend(root_node, data, id);
+}
+
+template <class T>
+void btree<T>::clear()
+{
+  btree<T>::clear_backend(root_node);
+  root_node = NULL;
+}
+
+template <class T>
+void btree<T>::clear_backend(BstNode* root)
+{
+  if(!root) return;
+  if(root->left){
+    std::cout << endl << "deleting left" << std::endl;
+    btree<T>::clear_backend(root->left);
+  }
+  if(root->right){
+    std::cout << endl << "deleting right" << std::endl;
+    btree<T>::clear_backend(root->right);
+  }
+  delete root;
 }
 
 template <class T>

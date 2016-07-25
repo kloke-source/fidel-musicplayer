@@ -17,8 +17,11 @@ bool initialized = false;
 
 // database variables
 sqlite3 *library_db;
+bool db_initialized = false;
 bool db_opened = false;
 bool db_loaded = false;
+bool db_indexed = false;
+bool indexed_once = false;
 
 // --> table fields
 std::vector<std::string> library_fields;
@@ -122,8 +125,22 @@ void AudioLibrary::initialize()
     util::create_folder(util::get_home_dir() + "/.fidel/");
     util::create_folder(util::get_home_dir() + "/.fidel/Databases");
     default_db_location = util::get_home_dir() + "/.fidel/Databases/library.db";
-    AudioLibrary::init_db();
-  }  
+  }
+  if (db_indexed == true) {
+    sqlite3_close_v2(library_db);
+    library_db = NULL;
+    db_initialized = false;
+    db_indexed = false;
+    file_locations.clear();
+    subdir_locations.clear();
+    full_album_summary.clear();
+    full_album_information.clear();
+    full_artist_summary.clear();
+    artists.clear();
+    total_files = 0;
+    subdir_count = 0;
+  }
+  AudioLibrary::init_db();
 }
 
 int AudioLibrary::generic_db_callback(void *data, int total_col_num, char **value, char **fields)
@@ -142,64 +159,67 @@ int AudioLibrary::generic_db_callback(void *data, int total_col_num, char **valu
  */
 void AudioLibrary::init_db()
 {
-  char *error_msg = 0;
-  int  ret_code;
-  std::string sql_stmt;
+  if (db_initialized == false) {
+    db_initialized = true;
+    char *error_msg = 0;
+    int  ret_code;
+    std::string sql_stmt;
 
-  /* Open database */
-  ret_code = sqlite3_open_v2("", &library_db, SQLITE_OPEN_READWRITE, NULL); /**< By leaving the first parameter sqlite creates a temporary database which has comparable speeds to a full fledged in-memory database */
-  if( ret_code ){
-    fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(library_db));
-  }else{
-    fprintf(stdout, "Opened database successfully\n");
-  }
+    /* Open database */
+    ret_code = sqlite3_open_v2("", &library_db, SQLITE_OPEN_READWRITE, NULL); /**< By leaving the first parameter sqlite creates a temporary database which has comparable speeds to a full fledged in-memory database */
+    if( ret_code ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(library_db));
+    }else{
+      fprintf(stdout, "Opened database successfully\n");
+    }
 
-  /* Create tables */
-  sql_stmt = "CREATE TABLE library (" \
-    "ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," \
-    "file_location TEXT," \
-    "Name TEXT," \
-    "Artist TEXT," \
-    "Album TEXT," \
-    "Time TEXT," \
-    "duration_seconds NUMERIC);" \
-    "\n" \
-    "CREATE TABLE library_information (" \
-    "ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," \
-    "total_songs INTEGER," \
-    "total_albums INTEGER," \
-    "total_artists INTEGER);" \
-    "\n" \
-    "CREATE TABLE album_information (" \
-    "ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," \
-    "album_name INTEGER," \
-    "album_art BLOB);" \
-    "\n" \
-    "CREATE TABLE album_summary (" \
-    "ID INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE," \
-    "album_name TEXT," \
-    "songs_in_album TEXT," \
-    "file_location TEXT);" \
-    "\n" \
-    "CREATE TABLE artists (" \
-    "ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," \
-    "artist_name TEXT);" \
-    "\n" \
-    "CREATE TABLE artist_summary (" \
-    "ID INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE," \
-    "artist_name TEXT," \
-    "songs_by_artist TEXT," \
-    "file_location TEXT);";
+    /* Create tables */
+    sql_stmt = "CREATE TABLE library (" \
+      "ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," \
+      "file_location TEXT," \
+      "Name TEXT," \
+      "Artist TEXT," \
+      "Album TEXT," \
+      "Time TEXT," \
+      "duration_seconds NUMERIC);" \
+      "\n" \
+      "CREATE TABLE library_information (" \
+      "ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," \
+      "total_songs INTEGER," \
+      "total_albums INTEGER," \
+      "total_artists INTEGER);" \
+      "\n" \
+      "CREATE TABLE album_information (" \
+      "ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," \
+      "album_name INTEGER," \
+      "album_art BLOB);" \
+      "\n" \
+      "CREATE TABLE album_summary (" \
+      "ID INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE," \
+      "album_name TEXT," \
+      "songs_in_album TEXT," \
+      "file_location TEXT);" \
+      "\n" \
+      "CREATE TABLE artists (" \
+      "ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," \
+      "artist_name TEXT);" \
+      "\n" \
+      "CREATE TABLE artist_summary (" \
+      "ID INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE," \
+      "artist_name TEXT," \
+      "songs_by_artist TEXT," \
+      "file_location TEXT);";
 
 
-  /* Execute SQL statement */
-  ret_code = sqlite3_exec(library_db, util::to_char(sql_stmt), generic_db_callback, 0, &error_msg);
-  if( ret_code != SQLITE_OK ){
-    if (util::has_text(error_msg, "already exists") == false) // omits the already exists error msg
-      fprintf(stderr, "SQL error: %s\n", error_msg);
-    sqlite3_free(error_msg);
-  }else{
-    fprintf(stdout, "Table created successfully\n");
+    /* Execute SQL statement */
+    ret_code = sqlite3_exec(library_db, util::to_char(sql_stmt), generic_db_callback, 0, &error_msg);
+    if( ret_code != SQLITE_OK ){
+      if (util::has_text(error_msg, "already exists") == false) // omits the already exists error msg
+	fprintf(stderr, "SQL error: %s\n", error_msg);
+      sqlite3_free(error_msg);
+    }else{
+      fprintf(stdout, "Table created successfully\n");
+    }
   }
 }
 
@@ -395,7 +415,7 @@ void AudioLibrary::write_album_info(std::string file_location)
       full_album_information.push_back(album_info);
 
       album_info_values.push_back(album_name);
-      if ((const char *)album_info.album_art.first != "No Album Art")
+      if (strcmp( (const char *)album_info.album_art.first, "No Album Art") == 0)
 	{
 	  album_info_values.push_back("?");
       
@@ -405,7 +425,8 @@ void AudioLibrary::write_album_info(std::string file_location)
 	}
       else {
 	album_info_values.push_back("No Album Art");
-	std::string ins_stmt = util::gen_ins_stmt("album_information",album_info_fields, album_info_values);
+	std::string ins_stmt = util::gen_ins_stmt("album_information", album_info_fields, album_info_values);
+	std::cout << "No album art insert" << std::endl;
 	AudioLibrary::db_ins_row(ins_stmt);
       }
     }
@@ -523,8 +544,11 @@ int AudioLibrary::populate_playlist_cb(void *data, int total_col_num, char **val
 
 void AudioLibrary::scan()
 {
+  db_indexed = true; // will become false after initialize function
   AudioLibrary::initialize();
   AudioLibrary::scan_dir(default_music_folder.c_str());
+  db_indexed = true;
+  indexed_once = true;
 }
 
 std::mutex indexing_mutex;
