@@ -27,6 +27,16 @@ iostream
 -
 GUI/singleton.h
 -
+GUI/playlist.h
+-
+
+../src/GUI/playlist.h
+gtkmm.h
+-
+Audio/playback.h
+-
+vector
+-
 
 ../src/GUI/singleton.h
 assert.h

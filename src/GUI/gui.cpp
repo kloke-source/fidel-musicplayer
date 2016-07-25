@@ -6,6 +6,7 @@
 #include <GUI/fidel-resources.h>
 #include <GUI/seeker.h>
 #include <GUI/themer.h>
+#include <GUI/playlist.h>
 #include <Utilities/util.h>
 //#include <Utilities/btree.h>
 #include <Audio/playback.h>
@@ -76,6 +77,7 @@ void gui::initialize(int argc, char **argv)
   //gui::init_widget_vectors();
   gui::init_icons();
   gui::init_playback_functions();
+  gui::init_playlist();
   gui::init_spectrum();
   gui::set_styles();
   window->set_size_request(800, 450);
@@ -194,6 +196,13 @@ void gui::init_playback_functions()
   playback_slider->set_draw_value(false);
   playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_SHRINK);
   playback_slider->show();
+}
+
+void gui::init_playlist()
+{
+  AudioLibrary::populate_playlist();
+  playlist_view->pack_start(*gui_playlist::Instance(), Gtk::PACK_EXPAND_WIDGET);
+  window->show_all();
 }
 
 void gui::pb_slider_val_changed()

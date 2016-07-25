@@ -517,7 +517,7 @@ int AudioLibrary::populate_playlist_cb(void *data, int total_col_num, char **val
   row_data.push_back(value[LIB_ALBUM]);
   row_data.push_back(value[LIB_TIME]);
   row_data.push_back(value[LIB_FILE_LOCATION]);
-  //gui_playlist::Instance()->add_list_store_row(row_data);
+  gui_playlist::Instance()->add_list_store_row(row_data);
   return 0;
 }
 

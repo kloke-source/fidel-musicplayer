@@ -69,6 +69,8 @@ iostream
 -
 GUI/singleton.h
 -
+GUI/playlist.h
+-
 
 ../src/GUI/playlist.h
 gtkmm.h

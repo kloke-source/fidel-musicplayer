@@ -3,6 +3,7 @@
 
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Audio/playback.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/gui.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/playlist.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/singleton.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Spectrum/spectrum.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Utilities/threadpool.h

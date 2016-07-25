@@ -5,6 +5,7 @@ src/Audio/CMakeFiles/Audio.dir/playback.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio/playback.h
  ../src/GUI/gui.h
+ ../src/GUI/playlist.h
  ../src/GUI/singleton.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio/playback.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h

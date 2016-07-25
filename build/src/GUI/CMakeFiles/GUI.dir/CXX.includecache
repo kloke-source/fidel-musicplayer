@@ -73,6 +73,8 @@ iostream
 -
 GUI/singleton.h
 -
+GUI/playlist.h
+-
 
 ../src/GUI/playlist.h
 gtkmm.h
@@ -149,6 +151,8 @@ GUI/seeker.h
 -
 GUI/themer.h
 -
+GUI/playlist.h
+-
 Utilities/util.h
 -
 Audio/playback.h
@@ -166,6 +170,8 @@ gtkmm.h
 iostream
 -
 GUI/singleton.h
+-
+GUI/playlist.h
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp
