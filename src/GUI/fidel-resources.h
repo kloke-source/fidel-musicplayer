@@ -3,8 +3,5 @@
 
 #include <gio/gio.h>
 
-class Resource{
-public: 
-  static G_GNUC_INTERNAL GResource *fidel_get_resource (void); 
-};
+G_GNUC_INTERNAL GResource *fidel_get_resource (void);
 #endif

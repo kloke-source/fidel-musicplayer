@@ -3,10 +3,13 @@
 #include <gtkmm.h>
 #include <iostream>
 #include <gio/gio.h>
+extern "C" {
 #include <GUI/fidel-resources.h>
+}
 #include <GUI/seeker.h>
 #include <GUI/themer.h>
 #include <GUI/playlist.h>
+#include <GUI/fidel-popover.h>
 #include <Utilities/util.h>
 //#include <Utilities/btree.h>
 #include <Audio/playback.h>
@@ -18,7 +21,6 @@
 gui::gui(){}
 gui::~gui(){}
 
-GResource *fidel_resources;
 Builder builder;
 ApplicationWindow *window;
 
@@ -82,10 +84,25 @@ void gui::initialize(int argc, char **argv)
   gui::init_spectrum();
   gui::set_styles();
   window->set_size_request(800, 450);
-  window->maximize();
+  
+  FidelPopover fidel_popover;
+  fidel_popover.set_relative_to(*fidel_search_entry);
+  fidel_popover.add_title("Hello");
+  fidel_popover.add_title("Hello again");
+  fidel_popover.add_separator();
 
+  Gtk::Image *image = new Gtk::Image();
+  Gtk::Image *image_copy = new Gtk::Image();
+  
+  image->set("/home/tashrif/Downloads/album-art-test.jpg");
+  image_copy->set("/home/tashrif/Downloads/album-art-test.jpg");
+  fidel_popover.add_entry(image, "Hello image");
+  fidel_popover.add_entry(image_copy, "Hello image", "Supp text");
+  fidel_popover.pop_item();
+  fidel_popover.show_all();
+
+  window->maximize();
   app->run(*window);
-  g_resource_unref(fidel_resources);
 }
 
 void gui::get_widgets()
@@ -140,23 +157,23 @@ void gui::init_connections()
 
 bool gui::keyboard_shortcuts(GdkEventKey* event)
 {
-	if((event->keyval == GDK_KEY_o) &&
-	(event->state & (GDK_CONTROL_MASK)))
-	{
-		gui::on_file_open_triggered();
-	}
-	if((event->keyval == GDK_KEY_s) &&
-	(event->state & (GDK_CONTROL_MASK)))
-	{
-		seeker::show(window);
-	}
-	if((event->keyval == GDK_KEY_p) &&
-	(event->state & (GDK_CONTROL_MASK)))
-	{
+  if((event->keyval == GDK_KEY_o) &&
+     (event->state & (GDK_CONTROL_MASK)))
+    {
+      gui::on_file_open_triggered();
+    }
+  if((event->keyval == GDK_KEY_s) &&
+     (event->state & (GDK_CONTROL_MASK)))
+    {
+      seeker::show(window);
+    }
+  if((event->keyval == GDK_KEY_p) &&
+     (event->state & (GDK_CONTROL_MASK)))
+    {
 
-         AudioLibrary::scan();
-	}
-	return true;
+      AudioLibrary::scan();
+    }
+  return true;
 }
 
 void gui::init_spectrum()
@@ -209,9 +226,9 @@ void gui::init_playlist()
 void gui::pb_slider_val_changed()
 {
   if (pb_slider_usr_moved == true)
-  {
-    audio_playback::Instance()->seek(playback_slider->get_value(), "fidel_ui");
-  }
+    {
+      audio_playback::Instance()->seek(playback_slider->get_value(), "fidel_ui");
+    }
 }
 
 void gui::update_pb_timer(double time)
@@ -256,7 +273,7 @@ bool gui::on_window_closed(GdkEventAny* event)
 void gui::on_file_open_triggered()
 {
   Gtk::FileChooserDialog fileOpenDialog("Please choose a file",
-  Gtk::FILE_CHOOSER_ACTION_OPEN);
+					Gtk::FILE_CHOOSER_ACTION_OPEN);
   fileOpenDialog.set_transient_for(*window);
   fileOpenDialog.set_position(Gtk::WIN_POS_CENTER);
   fileOpenDialog.add_button("_Cancel", Gtk::RESPONSE_CANCEL);
@@ -275,60 +292,62 @@ void gui::on_file_open_triggered()
   int result = fileOpenDialog.run();
 
   switch(result)
-  {
+    {
     case(Gtk::RESPONSE_OK):
-    {
-      std::cout << "Open clicked." << std::endl;
-      std::string filesrc = fileOpenDialog.get_filename();
-      std::cout << "filesrc: " << filesrc << std::endl;
-      char *audio_file_src = util::to_char(filesrc);
-
-      if (audio_file_chosen == false)
       {
-        audio_file_chosen = true;
-        fileOpenDialog.~FileChooserDialog();
-        audio_playback::Instance()->audio_file(audio_file_src);
+	std::cout << "Open clicked." << std::endl;
+	std::string filesrc = fileOpenDialog.get_filename();
+	std::cout << "filesrc: " << filesrc << std::endl;
+	char *audio_file_src = util::to_char(filesrc);
+
+	if (audio_file_chosen == false)
+	  {
+	    audio_file_chosen = true;
+	    fileOpenDialog.~FileChooserDialog();
+	    audio_playback::Instance()->audio_file(audio_file_src);
+	  }
+	else{
+	  audio_playback::Instance()->kill_curr_stream();
+	  audio_file_chosen = true;
+	  fileOpenDialog.~FileChooserDialog();
+	  audio_playback::Instance()->audio_file(audio_file_src);
+	}
+	break;
       }
-      else{
-        audio_playback::Instance()->kill_curr_stream();
-        audio_file_chosen = true;
-        fileOpenDialog.~FileChooserDialog();
-        audio_playback::Instance()->audio_file(audio_file_src);
-      }
-      break;
-    }
     case(Gtk::RESPONSE_CANCEL):
-    {
-      std::cout << "Cancel clicked." << std::endl;
-      break;
-    }
+      {
+	std::cout << "Cancel clicked." << std::endl;
+	break;
+      }
     default:
-    {
-      std::cout << "Unexpected button clicked." << std::endl;
-      break;
+      {
+	std::cout << "Unexpected button clicked." << std::endl;
+	break;
+      }
     }
-  }
 }
+
+extern G_GNUC_INTERNAL GResource *fidel_get_resource(void);
 
 void gui::init_builder()
 {
   builder = Gtk::Builder::create();
-  fidel_resources = Resource::fidel_get_resource();
-  g_resources_register(fidel_resources);
+  fidel_resources = Glib::wrap(fidel_get_resource(), false);
+  fidel_resources->register_global();
   try
-  {
-    builder->add_from_resource("/fidel/Resources/fidel.ui");
-  }
+    {
+      builder->add_from_resource("/fidel/Resources/fidel.ui");
+    }
   catch(const Glib::FileError& error)
-  {
-    std::cerr << "FileError: " << error.what() << std::endl;
-  }
+    {
+      std::cerr << "FileError: " << error.what() << std::endl;
+    }
   catch(const Glib::MarkupError& error)
-  {
-    std::cerr << "MarkupError: " << error.what() << std::endl;
-  }
+    {
+      std::cerr << "MarkupError: " << error.what() << std::endl;
+    }
   catch(const Gtk::BuilderError& error)
-  {
-    std::cerr << "BuilderError: " << error.what() << std::endl;
-  }
+    {
+      std::cerr << "BuilderError: " << error.what() << std::endl;
+    }
 }

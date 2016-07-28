@@ -21,6 +21,13 @@ std::string util::get_home_dir()
   return Glib::get_home_dir();
 }
 
+void util::resize_image(Gtk::Image *image, int width, int height)
+{
+  Glib::RefPtr<Gdk::Pixbuf> image_pixbuf = image->get_pixbuf();
+  image_pixbuf = image_pixbuf->scale_simple(width, height, Gdk::INTERP_BILINEAR);
+  image->set(image_pixbuf);
+}
+
 void util::create_folder(std::string location)
 {
 #if defined(_WIN32)
@@ -74,7 +81,7 @@ std::string util::gen_ins_stmt(std::string table_name, std::vector<std::string> 
 
   if (fields.size() == values.size()) {
     fields_stream <<  "INSERT INTO " << table_name << " (";
-  
+
     for (size_t iter = 0; iter < fields.size(); iter++) {
       if (iter != fields.size() - 1) {
 	fields_stream << fields[iter] << ", ";
@@ -87,7 +94,7 @@ std::string util::gen_ins_stmt(std::string table_name, std::vector<std::string> 
     }
     fields_stream << values_stream.str();
   }
-  else 
+  else
     return "Error number of fields don't match number of values";
 
   return fields_stream.str();

@@ -60,6 +60,14 @@ GUI/singleton.h
 vector
 -
 
+../src/GUI/fidel-popover.h
+gtkmm.h
+-
+iostream
+-
+vector
+-
+
 ../src/GUI/fidel-resources.h
 gio/gio.h
 -
@@ -128,10 +136,14 @@ iostream
 vector
 -
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.cpp
-gio/gio.h
+/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp
+GUI/fidel-popover.h
 -
-GUI/fidel-resources.h
+Utilities/util.h
+-
+vector
+-
+iostream
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp
@@ -152,6 +164,8 @@ GUI/seeker.h
 GUI/themer.h
 -
 GUI/playlist.h
+-
+GUI/fidel-popover.h
 -
 Utilities/util.h
 -

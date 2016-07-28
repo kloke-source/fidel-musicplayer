@@ -112,7 +112,6 @@ void Playlist::link_to_search_entry(Gtk::SearchEntry *search_entry)
 {
   this->playlist_search_entry = search_entry;
   search_entry->signal_insert_text().connect(sigc::mem_fun(this, &Playlist::on_search_entry_kb_event));
-
 }
 
 void Playlist::on_search_entry_kb_event(const std::string& text, int* character_num)
@@ -131,7 +130,7 @@ void Playlist::search_playlist(std::string search_term)
 
   bool found = false;
   for (int iter = 0; iter < 4; iter++){
-    std::cout << "Search iteration " << iter << std::endl;
+    //std::cout << "Search iteration " << iter << std::endl;
     search_results = playlist_info_store[iter].rec_search(search_term);
     search_ids = playlist_info_store[iter].get_search_ids();
     if (search_results.size() > 0){
@@ -149,7 +148,7 @@ void Playlist::search_playlist(std::string search_term)
       search_ids = playlist_info_store[iter].get_iterated_ids();
       if (search_results.size() > 0){
 	found = true;
-	std::cout << "search id -> b -> " << search_ids[0] << std::endl;
+	//std::cout << "search id -> b -> " << search_ids[0] << std::endl;
 	iterator = rows[search_ids[0]];
 	playlist_tree_view->scroll_to_row(playlist_model->get_path(iterator));
 	selection->select(iterator);
@@ -159,8 +158,9 @@ void Playlist::search_playlist(std::string search_term)
   }
 
   for (size_t iter = 0; iter < search_results.size(); iter++){
-    std::cout << "gui search results : " << iter << " -> " << search_results[iter] << std::endl;
-    std::cout << "search id : " << iter << " pos -> " << search_ids[iter] << std::endl;
+    //std::cout << "gui search results : " << iter << " -> " << search_results[iter] << std::endl;
+    //std::cout << "search id : " << iter << " pos -> " << search_ids[iter] << std::endl;
+    std::cout << "Search results (" << iter << ") -> " << search_results[iter] << std::endl;
   }
 }
 

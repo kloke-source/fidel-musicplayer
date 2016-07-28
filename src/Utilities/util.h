@@ -12,6 +12,7 @@
 class util{
  public:
   static std::string get_home_dir();
+  static void resize_image(Gtk::Image *image, int width, int height);
   static void create_folder(std::string location);
   static void set_source_rgb(const Cairo::RefPtr<Cairo::Context>& cr, std::string hex_color);
   static std::vector<double> hex_to_rgb(std::string hex_val);
@@ -24,7 +25,7 @@ class util{
   static std::string escape_spaces(std::string text);
   static std::string escape_slashes(std::string text);
   static std::string unescape_spaces(std::string text);
-   
+
   static bool has_text(std::string base_string, std::string search_value);
   static bool check_file_format(std::string file, std::string file_format);
   static char *to_char(std::string string_value);
