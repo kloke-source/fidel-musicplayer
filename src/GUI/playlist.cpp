@@ -131,43 +131,25 @@ void Playlist::search_playlist(std::string search_term)
   std::vector<int> search_ids;
 
   bool found = false;
-  for (size_t iter = 0; iter < 3; iter++) {
-    search_results = playlist_info_store[iter].iterative_search(search_term);
-    search_ids = playlist_info_store[iter].get_iterated_ids();
-    if (search_results.size() > 0) {
-      found = true;
-
-      iterator = rows[search_ids[0]];
-      playlist_tree_view->scroll_to_row(playlist_model->get_path(iterator));
-      selection->select(iterator);
-
-      std::vector<std::string> song_name_search_results;
-      std::vector<std::string> artist_search_results;
-      std::vector<std::string> album_search_results;
-      std::vector<std::string> file_loc_search_results;
-
-      for (size_t iter = 0; iter < search_ids.size(); iter++) {
-	  song_name_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_name));
-	  std::string artist_name = rows[search_ids[iter]].get_value(playlist_columns.col_artist);
-	  std::string album_name = rows[search_ids[iter]].get_value(playlist_columns.col_album);
-	  if (util::search_vect(artist_search_results, artist_name) == false)
-	    artist_search_results.push_back(artist_name);
-	  if (util::search_vect(album_search_results, album_name) == false)
-	    album_search_results.push_back(album_name);	    
-	  file_loc_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_file_location));
-	}
-      full_search_results.push_back(song_name_search_results);
-      full_search_results.push_back(artist_search_results);
-      full_search_results.push_back(album_search_results);
-      full_search_results.push_back(file_loc_search_results);
-      break;
-    }
-  }
-
-  if (found == false) {
+  int search_options = 2;
+  enum {
+    REC_SEARCH,
+    ITER_SEARCH
+  };
+  
+  for (size_t search_type = 0; search_type < search_options; search_type++) {
     for (size_t iter = 0; iter < 3; iter++) {
-      search_results = playlist_info_store[iter].iterative_search(search_term);
-      search_ids = playlist_info_store[iter].get_iterated_ids();
+      if (search_type == REC_SEARCH) {
+	search_results = playlist_info_store[iter].rec_search(search_term);
+	search_ids = playlist_info_store[iter].get_search_ids();
+      }
+      if (search_type == ITER_SEARCH) {
+	search_results = playlist_info_store[iter].iterative_search(search_term);
+	search_ids = playlist_info_store[iter].get_iterated_ids();      
+      }
+      if (search_results.size() > 0) {
+	found = true;
+
 	iterator = rows[search_ids[0]];
 	playlist_tree_view->scroll_to_row(playlist_model->get_path(iterator));
 	selection->select(iterator);
@@ -187,34 +169,39 @@ void Playlist::search_playlist(std::string search_term)
 	    album_search_results.push_back(album_name);	    
 	  file_loc_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_file_location));
 	}
-      full_search_results.push_back(song_name_search_results);
-      full_search_results.push_back(artist_search_results);
-      full_search_results.push_back(album_search_results);
-      full_search_results.push_back(file_loc_search_results);
+	full_search_results.push_back(song_name_search_results);
+	full_search_results.push_back(artist_search_results);
+	full_search_results.push_back(album_search_results);
+	full_search_results.push_back(file_loc_search_results);
 	break;
       }
     }
+    if (found == true)
+      break;
+  }
 
+  /*  
   for (size_t prim_iter = 0; prim_iter < full_search_results.size(); prim_iter++) {
     //std::cout << found_info[prim_iter] << " ---> " << std::endl;
-      switch (prim_iter) {
-      case COL_NAME:
-	std::cout << "Songs --->" << std::endl;
-	break;
-      case COL_ARTIST:
-	std::cout << "Artists --->" << std::endl;
-	break;
-      case COL_ALBUM:
-	std::cout << "Albums --->" << std::endl;
-	break;
-      case 3:
-	std::cout << "File Locations --->" << std::endl;
-	break;
-      }
+    switch (prim_iter) {
+    case COL_NAME:
+      std::cout << "Songs --->" << std::endl;
+      break;
+    case COL_ARTIST:
+      std::cout << "Artists --->" << std::endl;
+      break;
+    case COL_ALBUM:
+      std::cout << "Albums --->" << std::endl;
+      break;
+    case 3:
+      std::cout << "File Locations --->" << std::endl;
+      break;
+    }
     for (size_t sec_iter = 0; sec_iter < full_search_results[prim_iter].size(); sec_iter++) {
       std::cout << full_search_results[prim_iter][sec_iter] << std::endl;
     }
   }
+  */
 }
 
 void Playlist::resize_handler(Gtk::Allocation &allocation)
