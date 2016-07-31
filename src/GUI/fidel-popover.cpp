@@ -6,7 +6,17 @@
 FidelPopover::FidelPopover()
 {
   this->popover_frame = new Gtk::Box(Gtk::ORIENTATION_VERTICAL, 5);
+  this->set_size_request(300, 0);
   this->add(*popover_frame);
+
+  default_title_font.set_family("Open Sans Light");
+  default_title_font.set_size(12.5 * PANGO_SCALE);
+  
+  default_prim_popover_font.set_family("Open Sans Light");
+  default_prim_popover_font.set_size(11 * PANGO_SCALE);
+
+  default_supp_popover_font.set_family("Open Sans Light");
+  default_supp_popover_font.set_size(10.5 * PANGO_SCALE);
 }
 
 FidelPopover::~FidelPopover()
@@ -23,8 +33,10 @@ void FidelPopover::add_title(std::string title)
   Gtk::Box *entry = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
   Gtk::Label *label = new Gtk::Label();
   
-  label->set_text(title);
+  label->set_markup("<b>" + title + "</b>");
   label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_CENTER);
+  label->set_margin_left(7);
+  label->override_font(default_title_font);
   
   entry->pack_start(*label, Gtk::PACK_EXPAND_WIDGET);
   popover_frame->pack_start(*entry, Gtk::PACK_SHRINK);
@@ -35,9 +47,10 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
 {
   Gtk::Box *entry = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL, 5);
   Gtk::Label *label = new Gtk::Label();
-  label->set_text(label_text);
+  label->set_markup("<b>" + label_text + "</b>");
   label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_CENTER);
-  
+  label->override_font(default_prim_popover_font);  
+
   bool image_exists = false;
   for (size_t iter=0; iter < items_in_popover.size(); iter++) {
     if (image == items_in_popover[iter].image) {
@@ -48,6 +61,7 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
 
   if (image_exists == false) {
     util::resize_image(image, default_image_size, default_image_size);
+    image->set_margin_left(15);
     entry->pack_start(*image, Gtk::PACK_SHRINK);
     entry->pack_end(*label, Gtk::PACK_EXPAND_WIDGET);
     popover_frame->pack_start(*entry, Gtk::PACK_SHRINK);
@@ -58,6 +72,17 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
   }
 }
 
+void FidelPopover::add_entry(std::pair<guint8*, gsize> image, std::string prim_label_text, std::string supp_label_text)
+{
+  Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
+  loader->write(image.first, image.second);
+  loader->close();
+  Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
+  Gtk::Image gtk_image;
+  gtk_image.set(pixbuf);
+  FidelPopover::add_entry(&gtk_image, prim_label_text, supp_label_text);
+}
+
 void FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_text, std::string supp_label_text)
 {
   Gtk::Box *entry = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL, 5);
@@ -66,14 +91,17 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_text, std
   Gtk::Label *prim_label = new Gtk::Label();
   Gtk::Label *supp_label = new Gtk::Label();
   
-  prim_label->set_text(prim_label_text);
+  prim_label->set_markup("<b>" + prim_label_text + "</b>");
   prim_label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_END);
-
+  prim_label->override_font(default_prim_popover_font);
+  
   supp_label->set_text(supp_label_text);
   supp_label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_START);
+  supp_label->override_color(Gdk::RGBA("#616161"));
+  supp_label->override_font(default_supp_popover_font);
   
   bool image_exists = false;
-  for (size_t iter=0; iter < items_in_popover.size(); iter++) {
+  for (size_t iter = 0; iter < items_in_popover.size(); iter++) {
     if (image == items_in_popover[iter].image) {
       image_exists = true;
       break;
@@ -82,8 +110,10 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_text, std
 
   if (image_exists == false) {
     util::resize_image(image, default_image_size, default_image_size);
+    image->set_margin_left(15);
+    image->set_margin_right(5);
     entry->pack_start(*image, Gtk::PACK_SHRINK);
-
+	
     label_container->pack_start(*prim_label, Gtk::PACK_EXPAND_WIDGET);
     label_container->pack_end(*supp_label, Gtk::PACK_EXPAND_WIDGET);
     
@@ -101,6 +131,11 @@ void FidelPopover::add_separator()
   Gtk::Separator *separator = new Gtk::Separator(Gtk::ORIENTATION_HORIZONTAL);
   popover_frame->pack_start(*separator, Gtk::PACK_SHRINK);
   items_in_popover.emplace_back(PopoverEntries{NULL, NULL, NULL, NULL, separator});
+}
+
+void FidelPopover::populate(std::vector<std::string> populate_data)
+{
+  
 }
 
 void FidelPopover::pop_item()

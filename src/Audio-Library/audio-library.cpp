@@ -52,6 +52,7 @@ struct ArtistSummary{
 
 std::vector<AlbumSummary> full_album_summary;
 std::vector<AlbumInfo> full_album_information;
+btree<std::string> full_loaded_album_names;
 std::vector<ArtistSummary> full_artist_summary;
 btree<std::string> artists;
 // validating variables
@@ -67,23 +68,19 @@ std::vector<std::string> file_locations;
 std::vector<std::string> subdir_locations;
 std::vector<char*> omitted_locations;
 
-enum audio_lib_enums {
+enum {
   LIB_ID,
   LIB_FILE_LOCATION,
   LIB_NAME,
   LIB_ARTIST,
   LIB_ALBUM,
   LIB_TIME,
-  DURATION_SEC,
-  FILE_COUNT = 0,
-  ARTIST_NUM = 1,
-  ALBUM_NUM = 2,
-  LIB = 0,
-  LIB_INFO = 1,
-  ALBUM_INFO = 2,
-  ALBUM_SUMM = 3,
-  ARTIST_INFO = 4,
-  ARTIST_SUMM = 5,
+};
+
+enum {
+  INFO_ALBUM_ID,
+  INFO_ALBUM_NAME,
+  INFO_ALBUM_ART
 };
 
 void AudioLibrary::initialize()
@@ -227,7 +224,6 @@ int AudioLibrary::load_db()
 {
   AudioLibrary::initialize();
   if (db_loaded == false) {
-    db_loaded = true;
     int ret_code;
     sqlite3 *in_memory = library_db;
     sqlite3 *source_file;           /* Database connection opened on default_db_location.c_str() */
@@ -254,10 +250,45 @@ int AudioLibrary::load_db()
     /* Close the database connection opened on database file default_db_location.c_str()
     ** and return the result of this function. */
     (void)sqlite3_close(source_file);
+    AudioLibrary::load_album_info();
+    db_loaded = true;
     return ret_code;
   }
 }
 
+void AudioLibrary::load_album_info()
+{
+  if (db_loaded == false) {
+    AudioLibrary::initialize();
+    sqlite3_stmt * statement;
+
+    sqlite3_prepare_v2(library_db, "SELECT * FROM album_information;", -1, &statement, 0);
+
+    while(sqlite3_column_text(statement, INFO_ALBUM_ID))
+      {
+	AlbumInfo album_info;
+    
+	album_info.album_name = std::string((char *)sqlite3_column_text(statement, INFO_ALBUM_NAME));
+	full_loaded_album_names.insert(album_info.album_name);
+	
+	guint8 *raw_image_buffer = (guint8 *)sqlite3_column_blob(statement, INFO_ALBUM_ART);
+        gsize raw_image_size = sqlite3_column_bytes(statement, INFO_ALBUM_ART);
+    
+	album_info.album_art = std::make_pair(raw_image_buffer, raw_image_size);
+	full_album_information.push_back(album_info);
+	sqlite3_step(statement);
+      }
+    sqlite3_finalize(statement);
+  }
+}
+
+std::pair<guint8*, gsize> AudioLibrary::get_album_art(std::string album_name)
+{
+  full_loaded_album_names.search(album_name);
+  int album_pos = full_loaded_album_names.get_search_id();
+  return full_album_information[album_pos].album_art;
+}
+  
 bool AudioLibrary::check_file_format(std::string input_file)
 {
   return valid_file_formats.check(input_file.substr(input_file.find_last_of(".") + 1));
