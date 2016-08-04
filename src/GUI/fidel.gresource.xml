@@ -10,6 +10,6 @@
     <file>Resources/icons/repeat.svg</file>
     <file>Resources/icons/seeker.ui</file>
     <file>Resources/icons/shuffle.svg</file>
-    <file>Resources/icons/blank-albumart-icon.svg</file>
+    <file>Resources/icons/blank-albumart.svg</file>
   </gresource>
 </gresources>

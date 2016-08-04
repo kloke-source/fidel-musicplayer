@@ -47,6 +47,7 @@ void FidelPopover::add_title(std::string title)
   entry->pack_start(*label, Gtk::PACK_EXPAND_WIDGET);
   popover_frame->pack_start(*entry, Gtk::PACK_SHRINK);
   items_in_popover.emplace_back(PopoverEntries{entry, NULL, label, NULL, NULL});
+  FidelPopover::add_separator();
 }
 
 void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
@@ -135,8 +136,10 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_text, std
 void FidelPopover::add_separator()
 {
   Gtk::Separator *separator = new Gtk::Separator(Gtk::ORIENTATION_HORIZONTAL);
-  popover_frame->pack_start(*separator, Gtk::PACK_SHRINK);
-  items_in_popover.emplace_back(PopoverEntries{NULL, NULL, NULL, NULL, separator});
+  Gtk::Box *separator_container = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
+  separator_container->pack_start(*separator, Gtk::PACK_EXPAND_WIDGET);
+  popover_frame->pack_start(*separator_container, Gtk::PACK_SHRINK);
+  items_in_popover.emplace_back(PopoverEntries{separator_container, NULL, NULL, NULL, separator});
 }
 
 void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
@@ -158,12 +161,16 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	loader->close();
 	Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
 	album_art->set(pixbuf);
-	album_art_exists = true;	  
+	album_art_exists = true;
       }
       if (album_art_exists == true) {
 	FidelPopover::add_entry(album_art, song_name, supp_label);
       }
-      if (iter == 5)
+      else {
+	album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");
+	FidelPopover::add_entry(album_art, song_name, supp_label);
+      }
+      if (iter == 3)
 	break;
   }  
 }
