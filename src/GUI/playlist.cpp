@@ -5,14 +5,6 @@
 #include <Utilities/btree.h>
 #include <vector>
 
-enum {
-  COL_NAME,
-  COL_ARTIST,
-  COL_ALBUM,
-  COL_TIME,
-  COL_FILE_LOC
-};
-
 Playlist::Playlist_Columns playlist_columns;
 Gtk::TreeView *playlist_tree_view;
 Glib::RefPtr<Gtk::ListStore> playlist_model;
@@ -32,7 +24,7 @@ Playlist::~Playlist(){}
 
 void Playlist::init_connections()
 {
-  playlist_tree_view->signal_row_activated().connect(sigc::mem_fun(this, &Playlist::on_double_click_handler));
+  playlist_tree_view->signal_row_activated().connect(sigc::mem_fun(this, &Playlist::on_double_click_handler));  
   this->signal_size_allocate().connect(sigc::mem_fun(this, &Playlist::resize_handler));
 }
 
@@ -111,12 +103,22 @@ void Playlist::add_list_store_row(std::vector<std::string> row_data)
 void Playlist::link_to_search_entry(Gtk::SearchEntry *search_entry)
 {
   this->playlist_search_entry = search_entry;
-  search_entry->signal_insert_text().connect(sigc::mem_fun(this, &Playlist::on_search_entry_kb_event));
+  fidel_popover::Instance()->set_relative_to(*search_entry);
+  fidel_popover::Instance()->set_position(Gtk::POS_BOTTOM);
+  fidel_popover::Instance()->set_modal(false);
+  search_entry->signal_insert_text().connect(sigc::mem_fun(this, &Playlist::on_insert_text));
+  search_entry->signal_delete_text().connect(sigc::mem_fun(this, &Playlist::on_delete_text));
 }
 
-void Playlist::on_search_entry_kb_event(const std::string& text, int* character_num)
+void Playlist::on_insert_text(const std::string& text, int* character_num)
 {
   Playlist::search_playlist(this->playlist_search_entry->get_text());
+}
+
+void Playlist::on_delete_text(int start_pos, int end_pos)
+{
+  std::string search_term = playlist_search_entry->get_text();
+  Playlist::search_playlist(search_term);
 }
 
 void Playlist::search_playlist(std::string search_term)
@@ -132,6 +134,7 @@ void Playlist::search_playlist(std::string search_term)
 
   bool found = false;
   int search_options = 2;
+  
   enum {
     REC_SEARCH,
     ITER_SEARCH
@@ -149,7 +152,6 @@ void Playlist::search_playlist(std::string search_term)
       }
       if (search_results.size() > 0) {
 	found = true;
-
 	iterator = rows[search_ids[0]];
 	playlist_tree_view->scroll_to_row(playlist_model->get_path(iterator));
 	selection->select(iterator);
@@ -163,9 +165,7 @@ void Playlist::search_playlist(std::string search_term)
 	  song_name_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_name));
 	  std::string artist_name = rows[search_ids[iter]].get_value(playlist_columns.col_artist);
 	  std::string album_name = rows[search_ids[iter]].get_value(playlist_columns.col_album);
-	  if (util::search_vect(artist_search_results, artist_name) == false)
 	    artist_search_results.push_back(artist_name);
-	  if (util::search_vect(album_search_results, album_name) == false)
 	    album_search_results.push_back(album_name);	    
 	  file_loc_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_file_location));
 	}
@@ -179,28 +179,29 @@ void Playlist::search_playlist(std::string search_term)
     if (found == true)
       break;
   }
-
+  fidel_popover::Instance()->populate(full_search_results);
+  fidel_popover::Instance()->show_all();
   /*  
-  for (size_t prim_iter = 0; prim_iter < full_search_results.size(); prim_iter++) {
-    //std::cout << found_info[prim_iter] << " ---> " << std::endl;
-    switch (prim_iter) {
-    case COL_NAME:
+      for (size_t prim_iter = 0; prim_iter < full_search_results.size(); prim_iter++) {
+      //std::cout << found_info[prim_iter] << " ---> " << std::endl;
+      switch (prim_iter) {
+      case COL_NAME:
       std::cout << "Songs --->" << std::endl;
       break;
-    case COL_ARTIST:
+      case COL_ARTIST:
       std::cout << "Artists --->" << std::endl;
       break;
-    case COL_ALBUM:
+      case COL_ALBUM:
       std::cout << "Albums --->" << std::endl;
       break;
-    case 3:
+      case 3:
       std::cout << "File Locations --->" << std::endl;
       break;
-    }
-    for (size_t sec_iter = 0; sec_iter < full_search_results[prim_iter].size(); sec_iter++) {
+      }
+      for (size_t sec_iter = 0; sec_iter < full_search_results[prim_iter].size(); sec_iter++) {
       std::cout << full_search_results[prim_iter][sec_iter] << std::endl;
-    }
-  }
+      }
+      }
   */
 }
 

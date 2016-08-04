@@ -247,11 +247,14 @@ src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o
  /usr/include/glib-2.0/gobject/gvaluetypes.h
  /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o
+ ../src/Audio-Info/audioinfo.h
+ ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
  ../src/GUI/fidel-popover.h
  ../src/GUI/gui.h
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h
+ ../src/Utilities/btree.h
  ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h
@@ -1475,6 +1478,32 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o
  /usr/include/sigc++-2.0/sigc++/trackable.h
  /usr/include/sigc++-2.0/sigc++/type_traits.h
  /usr/include/sigc++-2.0/sigc++/visit_each.h
+ /usr/include/taglib/attachedpictureframe.h
+ /usr/include/taglib/audioproperties.h
+ /usr/include/taglib/flacfile.h
+ /usr/include/taglib/flacmetadatablock.h
+ /usr/include/taglib/flacpicture.h
+ /usr/include/taglib/flacproperties.h
+ /usr/include/taglib/id3v2frame.h
+ /usr/include/taglib/id3v2framefactory.h
+ /usr/include/taglib/id3v2header.h
+ /usr/include/taglib/id3v2tag.h
+ /usr/include/taglib/mpegfile.h
+ /usr/include/taglib/mpegheader.h
+ /usr/include/taglib/mpegproperties.h
+ /usr/include/taglib/tag.h
+ /usr/include/taglib/taglib.h
+ /usr/include/taglib/taglib_config.h
+ /usr/include/taglib/taglib_export.h
+ /usr/include/taglib/tbytevector.h
+ /usr/include/taglib/tfile.h
+ /usr/include/taglib/tiostream.h
+ /usr/include/taglib/tlist.h
+ /usr/include/taglib/tlist.tcc
+ /usr/include/taglib/tmap.h
+ /usr/include/taglib/tmap.tcc
+ /usr/include/taglib/trefcounter.h
+ /usr/include/taglib/tstring.h
  /usr/lib/gdkmm-3.0/include/gdkmmconfig.h
  /usr/lib/giomm-2.4/include/giommconfig.h
  /usr/lib/glib-2.0/include/glibconfig.h
@@ -2756,6 +2785,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o
  /usr/lib/sigc++-2.0/include/sigc++config.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o
  ../src/Audio/playback.h
+ ../src/GUI/fidel-popover.h
  ../src/GUI/gui.h
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h
@@ -3994,6 +4024,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio/playback.h
+ ../src/GUI/fidel-popover.h
  ../src/GUI/gui.h
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h
@@ -5257,6 +5288,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
  /usr/lib/sigc++-2.0/include/sigc++config.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o
  ../src/Audio/playback.h
+ ../src/GUI/fidel-popover.h
  ../src/GUI/gui.h
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h

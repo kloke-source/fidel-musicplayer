@@ -5,6 +5,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/fidel-popover.h
  ../src/GUI/gui.h
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h

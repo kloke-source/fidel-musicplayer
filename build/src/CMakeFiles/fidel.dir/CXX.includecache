@@ -60,6 +60,14 @@ GUI/singleton.h
 vector
 -
 
+../src/GUI/fidel-popover.h
+gtkmm.h
+-
+iostream
+-
+vector
+-
+
 ../src/GUI/gui.h
 vector
 -
@@ -76,6 +84,8 @@ GUI/playlist.h
 gtkmm.h
 -
 Audio/playback.h
+-
+GUI/fidel-popover.h
 -
 vector
 -

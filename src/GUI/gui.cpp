@@ -83,24 +83,16 @@ void gui::initialize(int argc, char **argv)
   gui::init_playlist();
   gui::init_spectrum();
   gui::set_styles();
+  //fidel_popover::Instance()->add_title("Songs");
+  //fidel_popover::Instance()->add_title("Songs");
+  //fidel_popover::Instance()->add_title("Songs");
+  //fidel_popover::Instance()->add_title("Songs");
+  //fidel_popover::Instance()->add_title("Songs");
+  //fidel_popover::Instance()->add_title("Songs");    
+  //fidel_popover::Instance()->show_all();
+  //fidel_popover::Instance()->clear();
+  //fidel_popover::Instance()->clear();
   window->set_size_request(800, 450);
-  
-  FidelPopover fidel_popover;
-  fidel_popover.set_relative_to(*fidel_search_entry);
-  fidel_popover.add_title("Hello");
-  fidel_popover.add_title("Hello again");
-  fidel_popover.add_separator();
-
-  Gtk::Image *image = new Gtk::Image();
-  Gtk::Image *image_copy = new Gtk::Image();
-  
-  image->set("/home/tashrif/Downloads/album-art-test.jpg");
-  image_copy->set("/home/tashrif/Downloads/album-art-test.jpg");
-  fidel_popover.add_entry(image, "Hello image");
-  fidel_popover.add_entry(image_copy, "Hello image", "Supp text");
-  fidel_popover.pop_item();
-  fidel_popover.show_all();
-
   window->maximize();
   app->run(*window);
 }

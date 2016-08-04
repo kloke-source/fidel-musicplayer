@@ -15,13 +15,13 @@ class AudioLibrary {
  public:
   static void initialize();
   static void populate_playlist();
+  static std::tuple<guint8*, gsize, bool> get_album_art(std::string album_name); 
   static void scan();
  private:
   // initialization functions
   static void init_db();
   static int load_db();
   static void load_album_info();
-  static std::pair<guint8*, gsize> get_album_art(std::string album_name);
   
   static int generic_db_callback(void *data, int total_col_num, char **value, char **fields);
   // validation functions

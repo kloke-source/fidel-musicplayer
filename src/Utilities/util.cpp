@@ -164,7 +164,6 @@ bool util::search_vect(std::vector<std::string> vect, std::string search_param)
    bool found = false;
    for (size_t iter = 0; iter < vect.size(); iter++) {
      if (vect[iter] == search_param) {
-       std::cout << "Search param " << search_param << " already exists" << std::endl;
        found = true;
        break;
      }

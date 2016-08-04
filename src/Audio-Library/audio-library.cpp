@@ -40,7 +40,7 @@ struct AlbumSummary{
 
 struct AlbumInfo{
   std::string album_name;
-  std::pair<guint8*, gsize> album_art;
+  std::tuple<guint8*, gsize, bool> album_art;
 };
 
 struct ArtistSummary{
@@ -274,7 +274,7 @@ void AudioLibrary::load_album_info()
 	guint8 *raw_image_buffer = (guint8 *)sqlite3_column_blob(statement, INFO_ALBUM_ART);
         gsize raw_image_size = sqlite3_column_bytes(statement, INFO_ALBUM_ART);
     
-	album_info.album_art = std::make_pair(raw_image_buffer, raw_image_size);
+	album_info.album_art = std::make_tuple(raw_image_buffer, raw_image_size, true);
 	full_album_information.push_back(album_info);
 	sqlite3_step(statement);
       }
@@ -282,7 +282,7 @@ void AudioLibrary::load_album_info()
   }
 }
 
-std::pair<guint8*, gsize> AudioLibrary::get_album_art(std::string album_name)
+std::tuple<guint8*, gsize, bool> AudioLibrary::get_album_art(std::string album_name)
 {
   full_loaded_album_names.search(album_name);
   int album_pos = full_loaded_album_names.get_search_id();
@@ -446,14 +446,14 @@ void AudioLibrary::write_album_info(std::string file_location)
       full_album_information.push_back(album_info);
 
       album_info_values.push_back(album_name);
-      if ( (const char*) album_info.album_art.first != "No Album Art")
+      if (std::get<2>(album_info.album_art) == true)
 	{
 	  album_info_values.push_back("?");
       
 	  std::stringstream blob_ins_stmt;
 	  blob_ins_stmt << "INSERT INTO album_information (album_name, album_art) VALUES('" << album_name  << "', ?);";
 	  std::cout << blob_ins_stmt.str() << std::endl;
-	  AudioLibrary::db_ins_blob(blob_ins_stmt.str(), album_info.album_art.first, album_info.album_art.second);
+	  AudioLibrary::db_ins_blob(blob_ins_stmt.str(), std::get<0>(album_info.album_art), std::get<1>(album_info.album_art));
 	}
       else {
 	album_info_values.push_back("No Album Art");

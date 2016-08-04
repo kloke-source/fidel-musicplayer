@@ -3,6 +3,7 @@
 
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/Audio-Info/audioinfo.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/Audio/playback.h
+src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/GUI/fidel-popover.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/GUI/gui.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/GUI/playlist.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/GUI/singleton.h

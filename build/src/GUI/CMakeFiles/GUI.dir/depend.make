@@ -246,11 +246,14 @@ src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o: /usr/include/glib-2.0/gobject/gv
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o: /usr/include/glib-2.0/gobject/gvaluetypes.h
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o: /usr/lib/glib-2.0/include/glibconfig.h
 
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/Audio-Info/audioinfo.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/Audio-Library/audio-library.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/Audio/playback.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/playlist.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/singleton.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/Utilities/btree.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/Utilities/util.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/fidel-popover.cpp
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h
@@ -1474,6 +1477,32 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/sigc++-2.0/sigc++/s
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/sigc++-2.0/sigc++/trackable.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/sigc++-2.0/sigc++/type_traits.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/sigc++-2.0/sigc++/visit_each.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/attachedpictureframe.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/audioproperties.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/flacfile.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/flacmetadatablock.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/flacpicture.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/flacproperties.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/id3v2frame.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/id3v2framefactory.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/id3v2header.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/id3v2tag.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/mpegfile.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/mpegheader.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/mpegproperties.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tag.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/taglib.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/taglib_config.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/taglib_export.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tbytevector.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tfile.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tiostream.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tlist.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tlist.tcc
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tmap.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tmap.tcc
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/trefcounter.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/taglib/tstring.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/gdkmm-3.0/include/gdkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
@@ -2755,6 +2784,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
 
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/playlist.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/singleton.h
@@ -3993,6 +4023,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/sigc++-2.0/include/sigc++con
 
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/playlist.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/singleton.h
@@ -5256,6 +5287,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/pangomm-1.4/include/pangommcon
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
 
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/gui.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/playlist.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/singleton.h

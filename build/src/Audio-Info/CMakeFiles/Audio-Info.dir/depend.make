@@ -4,6 +4,7 @@
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Audio-Info/audioinfo.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Audio-Library/audio-library.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Audio/playback.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/fidel-popover.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/gui.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/playlist.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/singleton.h

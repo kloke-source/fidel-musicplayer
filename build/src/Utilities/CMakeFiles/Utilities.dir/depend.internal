@@ -3,6 +3,7 @@
 
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o
  ../src/Audio/playback.h
+ ../src/GUI/fidel-popover.h
  ../src/GUI/gui.h
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h

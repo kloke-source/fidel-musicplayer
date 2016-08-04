@@ -124,7 +124,7 @@ std::string audioinfo::get_info(std::string field)
   return song_info;
 }
 
-std::pair<guint8*, gsize> audioinfo::extract_album_art(std::string file_location)
+std::tuple<guint8*, gsize, bool> audioinfo::extract_album_art(std::string file_location)
 {
   guint8* extracted_image;
   gsize image_size;
@@ -195,7 +195,7 @@ std::pair<guint8*, gsize> audioinfo::extract_album_art(std::string file_location
     }
   }
   if (albumart_found == true)
-    return std::make_pair(extracted_image, image_size);
+    return std::make_tuple(extracted_image, image_size, true);
   else
-    return std::make_pair((guint8*)"No Album Art", NULL);
+    return std::make_tuple((guint8*)"No Album Art", NULL, false);
 }

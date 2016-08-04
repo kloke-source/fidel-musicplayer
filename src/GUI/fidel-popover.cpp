@@ -1,5 +1,7 @@
 #include <GUI/fidel-popover.h>
 #include <Utilities/util.h>
+#include <Audio-Info/audioinfo.h>
+#include <Audio-Library/audio-library.h>
 #include <vector>
 #include <iostream>
 
@@ -23,9 +25,13 @@ FidelPopover::~FidelPopover()
 {
   std::cout << "Fidel popover destructor called" << std::endl;
   std::cout << "Destructor popping" << std::endl;
-  for (size_t iter = 0; iter < items_in_popover.size(); iter++) {
-    FidelPopover::pop_item();      
-  }
+  FidelPopover::clear();
+}
+
+void FidelPopover::clear()
+{
+  while (items_in_popover.size())
+    FidelPopover::pop_item();
 }
 
 void FidelPopover::add_title(std::string title)
@@ -133,9 +139,105 @@ void FidelPopover::add_separator()
   items_in_popover.emplace_back(PopoverEntries{NULL, NULL, NULL, NULL, separator});
 }
 
-void FidelPopover::populate(std::vector<std::string> populate_data)
+void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 {
-  
+  FidelPopover::clear();
+  FidelPopover::add_title("Songs");
+
+  if (populate_data.size() && populate_data.size() == 4) {
+    for (size_t iter = 0; iter < populate_data[Playlist::FILE_LOC].size(); iter++) {
+      std::string song_name = Glib::Markup::escape_text(populate_data[Playlist::SONG_NAME][iter]);
+      std::cout << "Song name popover -> " << song_name << std::endl;
+      std::string supp_label = populate_data[Playlist::ARTIST][iter] + " --- " + populate_data[Playlist::ALBUM][iter];
+      std::tuple<guint8*, gsize, bool> raw_image = audioinfo::extract_album_art(populate_data[Playlist::FILE_LOC][iter]);
+      Gtk::Image *album_art = new Gtk::Image();
+      bool album_art_exists = false;
+      if (std::get<2>(raw_image) == true) {
+	Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
+	loader->write(std::get<0>(raw_image), std::get<1>(raw_image));
+	loader->close();
+	Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
+	album_art->set(pixbuf);
+	album_art_exists = true;	  
+      }
+      if (album_art_exists == true) {
+	FidelPopover::add_entry(album_art, song_name, supp_label);
+      }
+      if (iter == 5)
+	break;
+  }  
+}
+  /*
+  std::string song_name;
+  for (size_t prim_iter = 0; prim_iter < populate_data.size(); prim_iter++) {
+    std::string supp_label;
+    //std::cout << found_info[prim_iter] << " ---> " << std::endl;
+    for (size_t sec_iter = 0; sec_iter < populate_data[prim_iter].size(); sec_iter++) {
+      switch (prim_iter) {
+      case Playlist::SONG_NAME:
+	song_name = Glib::Markup::escape_text(populate_data[prim_iter][sec_iter]);
+	std::cout << "Songs name ---> " << song_name << std::endl;
+	break;
+      case Playlist::ARTIST:
+	supp_label = populate_data[prim_iter][sec_iter];
+	std::cout << "Artists --->" << std::endl;
+	break;
+      case Playlist::ALBUM:
+	supp_label += " --- " + populate_data[prim_iter][sec_iter];
+	std::cout << "Albums --->" << std::endl;
+	break;
+      case Playlist::FILE_LOC:
+	bool album_art_exists = false;
+	std::tuple<guint8*, gsize, bool> raw_image = audioinfo::extract_album_art(populate_data[prim_iter][sec_iter]);	
+	Gtk::Image *album_art = new Gtk::Image();	
+	if (std::get<2>(raw_image) == true) {
+	  Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
+	  loader->write(std::get<0>(raw_image), std::get<1>(raw_image));
+	  loader->close();
+	  Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
+	  album_art->set(pixbuf);
+	  album_art_exists = true;	  
+	}
+	if (album_art_exists == true) {
+	  FidelPopover::add_entry(album_art, song_name, supp_label);
+	}	
+	std::cout << "File Locations --->" << std::endl;
+	break;
+      }
+      //std::cout << populate_data[prim_iter][sec_iter] << std::endl;
+      if (sec_iter == 5)
+	break;
+    }
+  }
+  */
+  /*
+  if (populate_data.size() == 4)
+    {
+      if (populate_data[Playlist::FILE_LOC].size() >= 4) {
+      for (size_t iter = 0; iter < populate_data[Playlist::FILE_LOC].size(); iter++) {
+	std::string song_name = Glib::Markup::escape_text(populate_data[Playlist::SONG_NAME][iter]);
+	std::string supp_label = populate_data[Playlist::ARTIST][iter] + " --- " + populate_data[Playlist::ALBUM][iter];
+	std::cout << "escaped song name -> " << song_name << std::endl;
+	std::tuple<guint8*, gsize, bool> raw_image = audioinfo::extract_album_art(populate_data[Playlist::FILE_LOC][iter]);
+	Gtk::Image *album_art = new Gtk::Image();
+	bool album_art_exists = false;
+	if (std::get<2>(raw_image) == true) {
+	  Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
+	  loader->write(std::get<0>(raw_image), std::get<1>(raw_image));
+	  loader->close();
+	  Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
+	  album_art->set(pixbuf);
+	  album_art_exists = true;	  
+	}
+	if (album_art_exists == true) {
+	  FidelPopover::add_entry(album_art, song_name, supp_label);
+	}
+	if (iter == 5)
+	  break;
+      }
+    }
+    }
+  */
 }
 
 void FidelPopover::pop_item()
@@ -144,5 +246,5 @@ void FidelPopover::pop_item()
   Gtk::Box *removed_entry = items_in_popover[pop_position].entry;
   popover_frame->remove(*removed_entry);
 
-  items_in_popover.erase(items_in_popover.begin() + pop_position - 1);
+  items_in_popover.erase(items_in_popover.begin() + pop_position);
 }
