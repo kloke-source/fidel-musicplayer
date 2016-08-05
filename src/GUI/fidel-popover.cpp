@@ -1,5 +1,6 @@
 #include <GUI/fidel-popover.h>
 #include <Utilities/util.h>
+#include <Utilities/btree.h>
 #include <Audio-Info/audioinfo.h>
 #include <Audio-Library/audio-library.h>
 #include <vector>
@@ -145,19 +146,31 @@ void FidelPopover::add_separator()
 void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 {
   FidelPopover::clear();
-  FidelPopover::add_title("Songs");
-
+  
   if (populate_data.size() && populate_data.size() == 4) {
+    FidelPopover::add_title("Songs");    
     // Add songs to popover
+
+    std::string current_album;
+    std::tuple<guint8*, gsize, bool> current_raw_album_art;
+   
     for (size_t iter = 0; iter < populate_data[Playlist::FILE_LOC].size(); iter++) {
       std::string song_name = Glib::Markup::escape_text(populate_data[Playlist::SONG_NAME][iter]);
-      std::string supp_label = populate_data[Playlist::ARTIST][iter] + " \u2015 " + populate_data[Playlist::ALBUM][iter]; // \u2015 is the unicode character for horizontal bar
-      std::tuple<guint8*, gsize, bool> raw_image = audioinfo::extract_album_art(populate_data[Playlist::FILE_LOC][iter]);
+      std::string artist = populate_data[Playlist::ARTIST][iter];
+      std::string album = populate_data[Playlist::ALBUM][iter];
+      std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
+      std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
+
+      if (current_album != album) {
+	current_album = album;
+	current_raw_album_art = audioinfo::extract_album_art(file_loc);
+      }
+      
       Gtk::Image *album_art = new Gtk::Image();
       bool album_art_exists = false;
-      if (std::get<2>(raw_image) == true) {
+      if (std::get<2>(current_raw_album_art) == true) {
 	Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
-	loader->write(std::get<0>(raw_image), std::get<1>(raw_image));
+	loader->write(std::get<0>(current_raw_album_art), std::get<1>(current_raw_album_art));
 	loader->close();
 	Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
 	album_art->set(pixbuf);
@@ -171,45 +184,41 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
     }
     // Add artists and albums to popover
     FidelPopover::add_title("Artists");
-    
-    std::vector<std::vector<std::string>> grouped_artists;
+
+
+    btree<std::string> added_artists;
+    std::vector<std::string> grouped_artists;
     std::vector<std::tuple<guint8*, gsize, bool>> grouped_raw_album_art;
+    std::vector<int> num_songs_artist;
     
     for (size_t iter = 0; iter < populate_data[Playlist::ARTIST].size(); iter++) {
       std::string artist = Glib::Markup::escape_text(populate_data[Playlist::ARTIST][iter]);
-      bool grouped_artist_exists = false;
-      
-      for (size_t group_prim_iter = 0; group_prim_iter < grouped_artists.size(); group_prim_iter++) {
-	if (util::search_vect(grouped_artists[group_prim_iter], artist) == true)
-	  {
-	    grouped_artist_exists = true;
-	    grouped_artists[group_prim_iter].push_back(artist);
-	    break;
-	  }
+      std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
+      std::string album = populate_data[Playlist::ALBUM][iter];
+
+      if (current_album != album) {
+	current_album = album;
+	current_raw_album_art = audioinfo::extract_album_art(file_loc);
       }
-      if (grouped_artist_exists == false)
-	{
-	  std::vector<std::string> temp;
-	  temp.push_back(artist);
-	  grouped_artists.push_back(temp);
-	  grouped_raw_album_art.push_back(audioinfo::extract_album_art(populate_data[Playlist::FILE_LOC][iter]));
-	}
+      grouped_raw_album_art.push_back(current_raw_album_art);
+	
+      if (added_artists.search(artist) != artist) {
+	added_artists.insert(artist);
+	num_songs_artist.push_back(1);
+      }
+      else {
+	int artist_pos = added_artists.get_search_id();
+	num_songs_artist[artist_pos]++;
+      }
     }
 
+    grouped_artists = added_artists.inorder();
     for (size_t iter = 0; iter < grouped_artists.size(); iter++) {
-      std::string artist = grouped_artists[iter][0];
-      std::stringstream supp_label;
-      if (grouped_artists[iter].size() == 1)
-	supp_label << "1 song";
-      else
-	supp_label << grouped_artists[iter].size() << " songs";
-
-      std::tuple<guint8*, gsize, bool> raw_image = grouped_raw_album_art[iter];
       Gtk::Image *album_art = new Gtk::Image();
       bool album_art_exists = false;
-      if (std::get<2>(raw_image) == true) {
+      if (std::get<2>(grouped_raw_album_art[iter]) == true) {
 	Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
-	loader->write(std::get<0>(raw_image), std::get<1>(raw_image));
+	loader->write(std::get<0>(grouped_raw_album_art[iter]), std::get<1>(grouped_raw_album_art[iter]));
 	loader->close();
 	Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
 	album_art->set(pixbuf);
@@ -217,26 +226,34 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
       }
       if (album_art_exists == false)
 	album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");      
-      FidelPopover::add_entry(album_art, artist, supp_label.str());
+      
+      FidelPopover::add_entry(album_art, grouped_artists[iter], util::to_string(num_songs_artist[iter]));
       if (iter == 3)
 	break;
     }
     
     // Add albums to popover
     FidelPopover::add_title("Albums");
-    std::vector<std::string> added_albums;
-    std::vector<std::tuple<guint8*, gsize, bool>> added_album_art;
+    btree<std::string> added_albums;
+    
     for (size_t iter = 0; iter < populate_data[Playlist::ALBUM].size(); iter++) {
       std::string album = Glib::Markup::escape_text(populate_data[Playlist::ALBUM][iter]);
       std::string supp_label = populate_data[Playlist::ARTIST][iter];
-      if (util::search_vect(added_albums, album) == false) {
-	added_albums.push_back(album);
-	std::tuple<guint8*, gsize, bool> raw_image = audioinfo::extract_album_art(populate_data[Playlist::FILE_LOC][iter]);
+      std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
+      
+      if (added_albums.check(album) == false) {
+	added_albums.insert(album);
+
+	if (current_album != album) {
+	  current_album = album;
+	  current_raw_album_art = audioinfo::extract_album_art(file_loc);
+	}
+
 	Gtk::Image *album_art = new Gtk::Image();
 	bool album_art_exists = false;
-	if (std::get<2>(raw_image) == true) {
+	if (std::get<2>(current_raw_album_art) == true) {
 	  Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
-	  loader->write(std::get<0>(raw_image), std::get<1>(raw_image));
+	  loader->write(std::get<0>(current_raw_album_art), std::get<1>(current_raw_album_art));
 	  loader->close();
 	  Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
 	  album_art->set(pixbuf);
@@ -244,7 +261,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	}
 	if (album_art_exists == false)
 	  album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");
-	FidelPopover::add_entry(album_art, album, supp_label);
+	FidelPopover::add_entry(album_art, album, supp_label);      
       }
       if (iter == 3)
 	break;

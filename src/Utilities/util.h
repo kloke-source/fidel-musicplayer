@@ -17,7 +17,7 @@ class util{
   static void set_source_rgb(const Cairo::RefPtr<Cairo::Context>& cr, std::string hex_color);
   static std::vector<double> hex_to_rgb(std::string hex_val);
   static double hex_to_dec(std::string hex_val);
-
+  
   static std::string gen_ins_stmt(std::string table_name, std::vector<std::string> fields, std::vector<std::string> values);
   static std::string file_to_song_name(std::string file);
   static std::string replace(std::string text, std::string find_value, std::string replace_value);
@@ -26,7 +26,7 @@ class util{
   static std::string escape_slashes(std::string text);
   static std::string unescape_spaces(std::string text);
 
-  static bool search_vect(std::vector<std::string> vect, std::string search_param);
+  static std::pair<bool, int> search_vect(std::vector<std::string> vect, std::string search_param);
   static bool has_text(std::string base_string, std::string search_value);
   static bool check_file_format(std::string file, std::string file_format);
   static char *to_char(std::string string_value);
