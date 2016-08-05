@@ -159,16 +159,18 @@ std::string util::unescape_spaces(std::string text)
   return text;
 }
 
-bool util::search_vect(std::vector<std::string> vect, std::string search_param)
+std::pair<bool, int> util::search_vect(std::vector<std::string> vect, std::string search_param)
  {
    bool found = false;
+   int found_pos;
    for (size_t iter = 0; iter < vect.size(); iter++) {
      if (vect[iter] == search_param) {
        found = true;
+       found_pos = iter;
        break;
      }
    }
-   return found;
+   return std::make_pair(found, found_pos);
  }
 
 bool util::has_text(std::string base_string, std::string search_value)

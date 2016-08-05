@@ -143,6 +143,8 @@ GUI/fidel-popover.h
 -
 Utilities/util.h
 -
+Utilities/btree.h
+-
 Audio-Info/audioinfo.h
 -
 Audio-Library/audio-library.h
