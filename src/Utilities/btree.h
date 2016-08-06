@@ -181,12 +181,10 @@ string btree<T>::to_lower(string input)
 template <class T>
 bool btree<T>::rec_comp(string value, string compare)
 {
-  if (btree<T>::to_lower(value) == btree<T>::to_lower(compare)){
+  if (strcmp(btree<T>::to_lower(value).c_str(),btree<T>::to_lower(compare).c_str()) == 0)
     return true;
-  }
-  else {
+  else
     return false;
-  }
 }
 
 template <class T>
@@ -211,7 +209,7 @@ bool btree<T>::rec_search_backend(btree<T>::BstNode* root, string search_term) {
   if(root == NULL) {
     return false;
   }
-  else if(btree<T>::rec_comp((root->data).substr(0, search_term.length()), search_term ) == true) {
+  else if (btree<T>::rec_comp((root->data).substr(0, search_term.length()), search_term ) == true) {
     search_results.push_back(root->data);
     search_ids.push_back(root->id);
     found_node = root;
@@ -219,7 +217,7 @@ bool btree<T>::rec_search_backend(btree<T>::BstNode* root, string search_term) {
     while (btree<T>::rec_search_backend(found_node->left, search_term));
     return true;
   }
-  else if(search_term <= root->data) {
+  else if (btree<T>::to_lower(search_term) <= btree<T>::to_lower(root->data)) {
     return btree<T>::rec_search_backend(root->left,search_term);
   }
   else {
