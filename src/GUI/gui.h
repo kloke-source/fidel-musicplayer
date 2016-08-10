@@ -42,10 +42,12 @@ class gui{
 
   void set_styles();
   bool on_window_closed(GdkEventAny* event);
+  void on_play_button_clicked();
+  void on_playback_status_changed(int status);
   void get_widgets();
   void on_file_open_triggered();
 };
 
 typedef Singleton<gui> fidel_ui;
-typedef Singleton<Playlist> gui_playlist;
+typedef Singleton<Playlist> all_songs;
 #endif

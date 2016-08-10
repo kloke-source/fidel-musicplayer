@@ -26,6 +26,7 @@ void Playlist::init_connections()
 {
   playlist_tree_view->signal_row_activated().connect(sigc::mem_fun(this, &Playlist::on_double_click_handler));  
   this->signal_size_allocate().connect(sigc::mem_fun(this, &Playlist::resize_handler));
+  audio_playback::Instance()->signal_track_finished().connect(sigc::mem_fun(this, &Playlist::on_track_finished));
 }
 
 void Playlist::init_playlist()
@@ -71,6 +72,7 @@ int file_count_iter = 0;
 
 void Playlist::add_list_store_row(std::vector<std::string> row_data)
 {
+  total_songs++;
   Gtk::TreeModel::Row row = *(playlist_model->append());
   row[playlist_columns.col_name] = row_data[COL_NAME];
   row[playlist_columns.col_artist] = row_data[COL_ARTIST];
@@ -165,8 +167,8 @@ void Playlist::search_playlist(std::string search_term)
 	  song_name_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_name));
 	  std::string artist_name = rows[search_ids[iter]].get_value(playlist_columns.col_artist);
 	  std::string album_name = rows[search_ids[iter]].get_value(playlist_columns.col_album);
-	    artist_search_results.push_back(artist_name);
-	    album_search_results.push_back(album_name);	    
+	  artist_search_results.push_back(artist_name);
+	  album_search_results.push_back(album_name);	    
 	  file_loc_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_file_location));
 	}
 	full_search_results.push_back(song_name_search_results);
@@ -221,11 +223,42 @@ void Playlist::on_double_click_handler(const Gtk::TreeModel::Path& path, Gtk::Tr
 {
   cout << "double clicked signal emitted" << endl;
   Glib::RefPtr<Gtk::TreeSelection> selection = playlist_tree_view->get_selection();
+  
   Gtk::TreeModel::iterator selected_row = selection->get_selected();
+  //curr_song_iterator = (int)selected_row;
   Gtk::TreeModel::Row row = *selected_row;
-  Glib::ustring file_location = row.get_value(playlist_columns.col_file_location);
+  Gtk::TreeModel::Path selected_path = playlist_model->get_path(selected_row);
+  
+  curr_song_iterator = util::to_int(selected_path.to_string());
+  
+  std::string file_location = row.get_value(playlist_columns.col_file_location);
   fflush(stdout);
   printf("\nselected file_location: %s", file_location.data());
   audio_playback::Instance()->audio_file(util::to_char(file_location));
   fflush(stdout);
+}
+
+void Playlist::on_track_finished()
+{
+  std::cout << "Track has finished" << std::endl;
+  if (curr_song_iterator != (total_songs - 1))
+    curr_song_iterator++;
+  else
+    curr_song_iterator = 0;
+  
+  Glib::RefPtr<Gtk::TreeView::Selection> selection = playlist_tree_view->get_selection();
+  Gtk::TreeModel::Children::iterator iterator = selection->get_selected();
+
+  // unselect finished track
+  selection->unselect(iterator);
+
+  Gtk::TreeModel::Children rows = playlist_model->children();
+  
+  // select next track
+  iterator = rows[curr_song_iterator];
+  playlist_tree_view->scroll_to_row(playlist_model->get_path(iterator));
+  selection->select(iterator);
+
+  std::string file_location = rows[curr_song_iterator].get_value(playlist_columns.col_file_location);  
+  audio_playback::Instance()->audio_file(util::to_char(file_location));
 }

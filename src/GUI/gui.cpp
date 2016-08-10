@@ -144,7 +144,9 @@ void gui::init_connections()
   window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
   window->signal_key_press_event().connect(sigc::mem_fun(this, &gui::keyboard_shortcuts));
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
+  play_button->signal_clicked().connect(sigc::mem_fun(this, &gui::on_play_button_clicked));
   audio_playback::Instance()->signal_update_pb_timer().connect(sigc::mem_fun(this, &gui::update_pb_timer));
+  audio_playback::Instance()->signal_status_changed().connect(sigc::mem_fun(this, &gui::on_playback_status_changed));
 }
 
 bool gui::keyboard_shortcuts(GdkEventKey* event)
@@ -186,7 +188,8 @@ void gui::init_icons()
   previous_icon->set_from_resource("/fidel/Resources/icons/playback-previous.svg");
   play_icon->set_from_resource("/fidel/Resources/icons/playback-play.svg");
   next_icon->set_from_resource("/fidel/Resources/icons/playback-next.svg");
-
+  pause_icon->set_from_resource("/fidel/Resources/icons/playback-pause.svg");
+    
   previous_button->add(*previous_icon);
   play_button->add(*play_icon);
   next_button->add(*next_icon);
@@ -210,8 +213,8 @@ void gui::init_playback_functions()
 void gui::init_playlist()
 {
   AudioLibrary::populate_playlist();
-  gui_playlist::Instance()->link_to_search_entry(fidel_search_entry);
-  playlist_view->pack_start(*gui_playlist::Instance(), Gtk::PACK_EXPAND_WIDGET);
+  all_songs::Instance()->link_to_search_entry(fidel_search_entry);
+  playlist_view->pack_start(*all_songs::Instance(), Gtk::PACK_EXPAND_WIDGET);
   window->show_all();
 }
 
@@ -259,7 +262,43 @@ void gui::set_styles()
 bool gui::on_window_closed(GdkEventAny* event)
 {
   audio_playback::Instance()->kill_audio();
+  delete all_songs::Instance();
   return false;
+}
+
+void gui::on_play_button_clicked()
+{
+  bool skip = false;
+  if (audio_playback::Instance()->is_playing() == true)
+    {
+      skip = true;
+      audio_playback::Instance()->pause();
+    }
+  if (audio_playback::Instance()->is_playing() == false && skip == false)
+    {
+      audio_playback::Instance()->play();
+    }
+}
+
+void gui::on_playback_status_changed(int status)
+{
+  std::cout << "Status changed " << status << std::endl;
+  switch (status) {
+  case playback::PAUSED: {
+    play_button->remove();
+    play_button->add(*play_icon);
+    play_button->show_all();
+    break;    
+  }
+  case playback::PLAYLING: {
+    play_button->remove();
+    play_button->add(*pause_icon);
+    play_button->show_all();
+    break;
+  }
+  case playback::IDLE:
+    break;
+  }
 }
 
 void gui::on_file_open_triggered()
