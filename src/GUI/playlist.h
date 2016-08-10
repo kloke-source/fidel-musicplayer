@@ -36,8 +36,12 @@ class Playlist : public Gtk::ScrolledWindow {
   void add_list_store_row(std::vector<std::string> row_data);
   void link_to_search_entry(Gtk::SearchEntry *search_entry);
  private:
+  // variables
+  int total_songs;
+  int curr_song_iterator;
   Gtk::SearchEntry *playlist_search_entry;
-  
+
+  // enums
   enum {
     COL_NAME,
     COL_ARTIST,
@@ -46,13 +50,17 @@ class Playlist : public Gtk::ScrolledWindow {
     COL_FILE_LOC
   };
 
+  // functions
   void init_connections();
   void init_playlist();
   void resize_handler(Gtk::Allocation &allocation);
   void on_insert_text(const std::string& text, int* character_num);
   void on_delete_text(int start_pos, int end_pos);
   void search_playlist(std::string search_term);
+
+  // signal handlers
   void on_double_click_handler(const Gtk::TreeModel::Path& path, Gtk::TreeViewColumn *column);
+  void on_track_finished();
 };
 typedef Singleton<FidelPopover> fidel_popover;
 #endif

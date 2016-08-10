@@ -37,8 +37,8 @@ playback::playback()
 
 static gboolean
 bus_cb (GstBus     *bus __attribute__((unused)),
-GstMessage *message __attribute__((unused)),
-gpointer    data __attribute__((unused)))
+	GstMessage *message __attribute__((unused)),
+	gpointer    data __attribute__((unused)))
 {
   if (message->type == GST_MESSAGE_EOS){
     g_main_loop_quit(loop);
@@ -60,11 +60,11 @@ gpointer    data __attribute__((unused)))
       guint iter;
 
       if (!gst_structure_get_clock_time (s, "endtime", &endtime))
-      endtime = GST_CLOCK_TIME_NONE;
+	endtime = GST_CLOCK_TIME_NONE;
 
       /*
-      g_print ("New spectrum message, endtime %" GST_TIME_FORMAT "\n",
-      GST_TIME_ARGS (endtime));
+	g_print ("New spectrum message, endtime %" GST_TIME_FORMAT "\n",
+	GST_TIME_ARGS (endtime));
       */
 
       double seek_value = (double)endtime/1000000000;
@@ -75,7 +75,7 @@ gpointer    data __attribute__((unused)))
 
       for (iter = 0; iter < spect_bands; iter++) {
         freq = (gdouble) ((AUDIOFREQ / 2) * iter + AUDIOFREQ / 4) / spect_bands;
-        std::cout << "Frequency (band " << iter << ")" << freq << std::endl;
+
         mag = gst_value_list_get_value (magnitudes, iter);
         phase = gst_value_list_get_value (phases, iter);
 
@@ -101,8 +101,8 @@ static void setSubCaps(GstCaps  *cap){
 
 static void
 cb_newpad (GstElement *decodebin __attribute__((unused)),
-GstPad     *pad,
-gpointer    data __attribute__((unused)))
+	   GstPad     *pad,
+	   gpointer    data __attribute__((unused)))
 {
   GstCaps *caps;
   GstStructure *str;
@@ -173,7 +173,7 @@ void playback::audio_file(char *filesrc)
   g_assert (conv);
   spectrum = gst_element_factory_make ("spectrum", "spectrum");
   g_object_set (G_OBJECT (spectrum), "bands", spect_bands, "threshold", -80,
-  "post-messages", TRUE, "message-phase", TRUE, NULL);
+		"post-messages", TRUE, "message-phase", TRUE, NULL);
 
   audiopad = gst_element_get_static_pad (conv, "sink");
   sink = gst_element_factory_make ("alsasink", "sink");
@@ -185,157 +185,167 @@ void playback::audio_file(char *filesrc)
   gst_element_link(spectrum, sink);
   gst_caps_unref(subCaps);
   gst_element_add_pad (audio,
-    gst_ghost_pad_new ("sink", audiopad));
-    gst_object_unref (audiopad);
-    gst_bin_add (GST_BIN (pipeline), audio);
-    idle=false;
-    playback::play();
-    g_main_loop_run (loop);
-    playback::kill_audio();
+		       gst_ghost_pad_new ("sink", audiopad));
+  gst_object_unref (audiopad);
+  gst_bin_add (GST_BIN (pipeline), audio);
+  idle=false;
+  playback::change_playback_status(playback::IDLE);
+  playback::play();
+  g_main_loop_run (loop);
+  playback::set_track_finished();
+  playback::kill_audio();
+}
+
+void query_duration()
+{
+  duration_obtained = true;
+  gint64 duration_nanoseconds;
+  gst_element_query_duration (pipeline, GST_FORMAT_TIME, &duration_nanoseconds);
+  double duration = ((double)duration_nanoseconds)/1000000000;
+
+  std::cout << "Duration -> " << duration << std::endl;
+  //std::cout << "Test tag dur -> " << audioinfo::tag_duration() << std::endl;
+
+  if ((int)duration == audioinfo::tag_duration()){
+    audioinfo::set_duration(duration);
+    fidel_ui::Instance()->set_pb_endtime(duration);
   }
-
-  void query_duration()
-  {
-    duration_obtained = true;
-    gint64 duration_nanoseconds;
-    gst_element_query_duration (pipeline, GST_FORMAT_TIME, &duration_nanoseconds);
-    double duration = ((double)duration_nanoseconds)/1000000000;
-
-    std::cout << "Duration -> " << duration << std::endl;
-    //std::cout << "Test tag dur -> " << audioinfo::tag_duration() << std::endl;
-
-    if ((int)duration == audioinfo::tag_duration()){
-      audioinfo::set_duration(duration);
-      fidel_ui::Instance()->set_pb_endtime(duration);
-    }
-    if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
+  if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
     {
       std::cout << "Duration > tag" << std::endl;
       audioinfo::set_duration_from_tag();
       fidel_ui::Instance()->set_pb_endtime(audioinfo::duration());
     }
-    if (audioinfo::tag_duration() > (int)duration && audioinfo::tag_duration() >=3600)
+  if (audioinfo::tag_duration() > (int)duration && audioinfo::tag_duration() >=3600)
     {
       std::cout << "tag > duration" << std::endl;
       audioinfo::set_duration(duration);
       fidel_ui::Instance()->set_pb_endtime(duration);
     }
-    if ((int)duration == 0 || (int)duration < 0)
+  if ((int)duration == 0 || (int)duration < 0)
     {
       std::cout << "Duration == 0 || < 0" << std::endl;
       audioinfo::set_duration_from_tag();
       fidel_ui::Instance()->set_pb_endtime(audioinfo::duration());
     }
-  }
+}
 
-  void playback::kill_curr_stream()
-  {
-    if (idle==false){
-      stream_killed = true;
-      //idle=true;
-      /*
+void playback::kill_curr_stream()
+{
+  if (idle==false){
+    stream_killed = true;
+    //idle=true;
+    /*
       g_main_loop_quit(loop);
       gst_element_set_state (pipeline, GST_STATE_NULL);
-      */
-      // --(deprecated)-- fidel_ui::Instance()->delete_sidebar_data();
-      //idle=true;
-      g_main_loop_quit(loop);
-      gst_element_set_state (pipeline, GST_STATE_NULL);
-      gst_object_unref (GST_OBJECT(pipeline));
-      gst_object_unref(GST_OBJECT(audio));
-      //gst_object_unref (GST_OBJECT (audio));
-      subCaps = NULL;
-      duration_obtained = false;
+    */
+    // --(deprecated)-- fidel_ui::Instance()->delete_sidebar_data();
+    //idle=true;
+    g_main_loop_quit(loop);
+    gst_element_set_state (pipeline, GST_STATE_NULL);
+    gst_object_unref (GST_OBJECT(pipeline));
+    gst_object_unref(GST_OBJECT(audio));
+    //gst_object_unref (GST_OBJECT (audio));
+    subCaps = NULL;
+    duration_obtained = false;
 
-      //gst_object_unref (GST_OBJECT (subCaps));
+    //gst_object_unref (GST_OBJECT (subCaps));
 
 
-      //playback::kill_audio();
-    }
+    //playback::kill_audio();
   }
+}
 
-  void playback::kill_audio()
-  {
-    if (idle==false){
-      idle=true;
-      g_main_loop_quit(loop);
-      gst_element_set_state (pipeline, GST_STATE_NULL);
-      gst_object_unref (GST_OBJECT (pipeline));
-      g_main_loop_unref(loop);
-    }
+void playback::kill_audio()
+{
+  if (idle==false){
+    idle=true;
+    g_main_loop_quit(loop);
+    gst_element_set_state (pipeline, GST_STATE_NULL);
+    gst_object_unref (GST_OBJECT (pipeline));
+    g_main_loop_unref(loop);
   }
+}
 
-  bool playback::idle_status()
-  {
-    return idle;
+bool playback::idle_status()
+{
+  return idle;
+}
+
+bool playback::is_playing()
+{
+  return playing;
+}
+
+void playback::pause()
+{
+  if (idle == false){
+    playing = false;
+    playback::change_playback_status(playback::PAUSED);
+    gst_element_set_state(pipeline, GST_STATE_PAUSED);
   }
+}
 
-  bool playback::is_playing()
-  {
-    return playing;
+void playback::play()
+{
+  if (idle == false){
+    playing = true;
+    playback::change_playback_status(playback::PLAYLING);
+    gst_element_set_state(pipeline, GST_STATE_PLAYING);
   }
+}
 
-  void playback::pause()
-  {
-    if (idle == false){
-      playing = false;
-      std::cout << "called " << std::endl;
-      // --(deprecated)-- fidel_ui::Instance()->set_paused_icon();
-      gst_element_set_state(pipeline, GST_STATE_PAUSED);
-    }
+void playback::seek(double time, std::string sender)
+{
+  double seekvalue = time * 1000000000;
+  if (sender == "seeker"){
+    // --(deprecated)-- fidel_ui::Instance()->update_pb_timer(&time);
   }
+  gst_element_seek (pipeline, 1.0, GST_FORMAT_TIME, GST_SEEK_FLAG_FLUSH,
+		    GST_SEEK_TYPE_SET, seekvalue,
+		    GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
+}
 
-  void playback::play()
-  {
-    if (idle == false){
-      playing = true;
+//--- start of signal functions ---
+/* start of playback status signal functions */
+playback::type_signal_status_changed playback::signal_status_changed()
+{
+  return m_signal_status_changed;
+}
 
-      // --(deprecated)-- fidel_ui::Instance()->set_playing_icon();
-      gst_element_set_state(pipeline, GST_STATE_PLAYING);
-    }
-  }
+void playback::change_playback_status(int status)
+{
+  playback::m_signal_status_changed.emit(status);
+}
 
-  void playback::seek(double time, std::string sender)
-  {
-    double seekvalue = time * 1000000000;
-    if (sender == "seeker"){
-      // --(deprecated)-- fidel_ui::Instance()->update_pb_timer(&time);
-    }
-    gst_element_seek (pipeline, 1.0, GST_FORMAT_TIME, GST_SEEK_FLAG_FLUSH,
-      GST_SEEK_TYPE_SET, seekvalue,
-      GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
-    }
+/* start of spectrum start visualization signal functions */
+playback::type_signal_start_spectrum playback::signal_spectrum_start()
+{
+  return m_signal_spectrum_start;
+}
 
-    //--- start of signal functions ---
-    /* start of playback status signal functions */
-    playback::type_signal_status_changed playback::signal_status_changed()
-    {
-      return m_signal_status_changed;
-    }
+void playback::start_spectrum_visualization()
+{
+  playback::m_signal_spectrum_start.emit();
+}
 
-    void playback::change_playback_status(bool is_playing)
-    {
-      playback::m_signal_status_changed.emit(is_playing);
-    }
+/* start of update playback slider position signal functions */
+playback::type_signal_pb_timer_changed playback::signal_update_pb_timer()
+{
+  return m_signal_update_pb_timer;
+}
 
-    /* start of spectrum start visualization signal functions */
-    playback::type_signal_start_spectrum playback::signal_spectrum_start()
-    {
-      return m_signal_spectrum_start;
-    }
+void playback::update_pb_timer(double seek_value)
+{
+  playback::m_signal_update_pb_timer.emit(seek_value);
+}
 
-    void playback::start_spectrum_visualization()
-    {
-      playback::m_signal_spectrum_start.emit();
-    }
+playback::type_signal_track_finished playback::signal_track_finished()
+{
+  return m_signal_track_finished;
+}
 
-    /* start of update playback slider position signal functions */
-    playback::type_signal_pb_timer_changed playback::signal_update_pb_timer()
-    {
-      return m_signal_update_pb_timer;
-    }
-
-    void playback::update_pb_timer(double seek_value)
-    {
-      playback::m_signal_update_pb_timer.emit(seek_value);
-    }
+void playback::set_track_finished()
+{
+  playback::m_signal_track_finished.emit();
+}
