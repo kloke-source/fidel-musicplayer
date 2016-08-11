@@ -19,7 +19,7 @@ extern "C" {
 #include <Audio-Library/audio-library.h>
 
 typedef Singleton<spectrum> spectrum_visualizer;
-typedef Singleton<spectrum> mini_spectrum;
+spectrum *mini_spectrum;
 
 gui::gui(){}
 gui::~gui(){}
@@ -233,8 +233,9 @@ void gui::init_sidebar()
   sidebar_song_artist->override_font(sidebar_font);
   sidebar_song_album->override_font(sidebar_font);
 
-  mini_spectrum::Instance()->set_spect_bands(20);
-  mini_spectrum_container->pack_start(*mini_spectrum::Instance(), Gtk::PACK_EXPAND_WIDGET);
+  mini_spectrum = new spectrum();
+  mini_spectrum->set_spect_bands(20);
+  mini_spectrum_container->pack_start(*mini_spectrum, Gtk::PACK_EXPAND_WIDGET);
   mini_spectrum_container->show_all();
 }
 

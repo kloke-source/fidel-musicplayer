@@ -42,10 +42,10 @@ void Playlist::init_playlist()
   stylecontext->add_provider(cssprov, GTK_STYLE_PROVIDER_PRIORITY_USER);
   stylecontext->context_save();
 
-  //playlist_font.set_family("DS-Digital");
-  //playlist_font.set_size(20 * PANGO_SCALE);
+  default_font.set_family("Open Sans Light");
+  default_font.set_size(default_font_size * PANGO_SCALE);
 
-  //playlist_tree_view->override_font(playlist_font);
+  playlist_tree_view->override_font(default_font);
 
   this->add(*playlist_tree_view);
   this->set_policy(Gtk::POLICY_NEVER, Gtk::POLICY_AUTOMATIC);
@@ -209,8 +209,21 @@ void Playlist::search_playlist(std::string search_term)
 
 void Playlist::resize_handler(Gtk::Allocation &allocation)
 {
-  double frame_width = allocation.get_width();
-  double frame_height = allocation.get_height();
+  int window_width = allocation.get_width();
+  int window_height = allocation.get_height();
+
+  cout << "Window width: " << window_width << endl;
+  cout << "Window height: " << window_height << endl;
+
+  playlist_tree_view->get_column(0)->set_max_width(.55 * window_width);
+  playlist_tree_view->get_column(1)->set_max_width(.15 * window_width);
+  playlist_tree_view->get_column(2)->set_max_width(.15 * window_width);
+  playlist_tree_view->get_column(3)->set_max_width(.05 * window_width);
+
+  cout << "Column 1 width : " << .55 * window_width << endl;
+  cout << "Column 2 width : " << .15 * window_width << endl;
+  cout << "Column 3 width : " << .15 * window_width << endl;
+  cout << "Column 4 width : " << .05 * window_width << endl;
 
   for (int col_iter = 0; col_iter < 4; col_iter++) {
     playlist_tree_view->get_column(col_iter)->set_expand(true);

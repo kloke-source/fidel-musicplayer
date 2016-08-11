@@ -41,6 +41,10 @@ class Playlist : public Gtk::ScrolledWindow {
   int curr_song_iterator;
   Gtk::SearchEntry *playlist_search_entry;
 
+  // fonts
+  Pango::FontDescription default_font;
+  int default_font_size = 13;
+  
   // enums
   enum {
     COL_NAME,
