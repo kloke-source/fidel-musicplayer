@@ -52,10 +52,11 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/CMakeFiles/Audio-Library.dir/DependInfo.cmake"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio/CMakeFiles/Audio.dir/DependInfo.cmake"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/CMakeFiles/Audio-Info.dir/DependInfo.cmake"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/CMakeFiles/Spectrum.dir/DependInfo.cmake"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/CMakeFiles/Utilities.dir/DependInfo.cmake"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/CMakeFiles/Spectrum.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

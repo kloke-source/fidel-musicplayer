@@ -18,6 +18,8 @@ extern "C" {
 //#include <GUI/album-art-viewer.h>
 #include <Audio-Library/audio-library.h>
 
+typedef Singleton<spectrum> spectrum_visualizer;
+
 gui::gui(){}
 gui::~gui(){}
 
@@ -83,6 +85,7 @@ void gui::initialize(int argc, char **argv)
   gui::init_playlist();
   gui::init_spectrum();
   gui::set_styles();
+  
   //fidel_popover::Instance()->add_title("Songs");
   //fidel_popover::Instance()->add_title("Songs");
   //fidel_popover::Instance()->add_title("Songs");
@@ -172,7 +175,7 @@ bool gui::keyboard_shortcuts(GdkEventKey* event)
 
 void gui::init_spectrum()
 {
-  audio_playback::Instance()->signal_spectrum_start().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::start_visualization));
+  //  audio_playback::Instance()->signal_spectrum_start().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::start_visualization));
   spectrum_view_layout->pack_start(*spectrum_visualizer::Instance(), Gtk::PACK_EXPAND_WIDGET);
   spectrum_visualizer::Instance()->set_double_buffered(true);
   window->show_all();
@@ -290,7 +293,7 @@ void gui::on_playback_status_changed(int status)
     play_button->show_all();
     break;    
   }
-  case playback::PLAYLING: {
+  case playback::PLAYING: {
     play_button->remove();
     play_button->add(*pause_icon);
     play_button->show_all();

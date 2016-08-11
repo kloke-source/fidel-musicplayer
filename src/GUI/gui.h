@@ -30,7 +30,9 @@ class gui{
   void update_pb_timer(double time);
   void set_pb_endtime(int endtime);
  private:
+  // variables
   Glib::RefPtr<Gio::Resource> fidel_resources;
+  
   void init_connections();
   bool keyboard_shortcuts(GdkEventKey* event);
   void init_icons();

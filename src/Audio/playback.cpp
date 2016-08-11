@@ -9,7 +9,7 @@
 
 #define AUDIOFREQ 44800
 
-extern int spect_bands;
+int spect_bands = 250;
 bool idle=true;
 bool stream_killed = true;
 bool playing=false;
@@ -87,6 +87,7 @@ bus_cb (GstBus     *bus __attribute__((unused)),
           phase_shifts[iter] = (double)phase_shift;
         }
       }
+      audio_playback::Instance()->notify_spect_bands_updated();
       g_print ("\n");
     }
   }
@@ -290,7 +291,7 @@ void playback::play()
 {
   if (idle == false){
     playing = true;
-    playback::change_playback_status(playback::PLAYLING);
+    playback::change_playback_status(playback::PLAYING);
     gst_element_set_state(pipeline, GST_STATE_PLAYING);
   }
 }
@@ -329,6 +330,16 @@ void playback::start_spectrum_visualization()
   playback::m_signal_spectrum_start.emit();
 }
 
+void playback::notify_spect_bands_updated()
+{
+  playback::m_signal_spect_bands_updated.emit(band_magnitudes);
+}
+
+playback::type_signal_spect_bands_updated playback::signal_spect_bands_updated()
+{
+  return m_signal_spect_bands_updated;
+}
+  
 /* start of update playback slider position signal functions */
 playback::type_signal_pb_timer_changed playback::signal_update_pb_timer()
 {
