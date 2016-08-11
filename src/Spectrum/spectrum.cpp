@@ -7,24 +7,8 @@
 #include <Utilities/threadpool.h>
 #define PI 3.14159265
 
-extern std::vector<double> band_magnitudes;
-extern std::vector<double> phase_shifts;
+//extern std::vector<double> phase_shifts;
 
-int spect_bands=250;
-double spect_padding;
-
-bool auto_padding = true;
-
-double spect_padding_top = .02; // 2% this padding is only applied if a spectrum bar reaches the height of the spectrum frame
-
-Cairo::RefPtr<Cairo::Context> paintCairo;
-
-std::vector<int> shaders;
-std::vector<double> previously_painted;
-
-std::vector<double> bar_heights;
-
-ThreadPool threadpool;
 spectrum::spectrum()
 {
   for (size_t band = 0; band < spect_bands; band++) {
@@ -32,10 +16,21 @@ spectrum::spectrum()
     previously_painted.push_back(0);
     bar_heights.push_back(0);
   }
+  spectrum::init_connections();
 }
 
 spectrum::~spectrum() {}
 
+void spectrum::init_connections()
+{
+  this->bands_updated_connection = audio_playback::Instance()->signal_spect_bands_updated().connect(sigc::mem_fun(this, &spectrum::on_spect_bands_updated));
+  this->playback_status_changed_connection = audio_playback::Instance()->signal_status_changed().connect(sigc::mem_fun(this, &spectrum::on_playback_status_changed));
+}
+
+void spectrum::set_spect_bands(int bands)
+{
+  this->spect_bands = bands;
+}
 
 double spectrum::to_degree(double radian_val)
 {
@@ -57,12 +52,12 @@ double spectrum::sin_func(double value)
 
 void spectrum::start_visualization()
 {
-  Glib::signal_timeout().connect(sigc::mem_fun(*this, &spectrum::on_timeout), 1);
+  this->visualization_connection = Glib::signal_timeout().connect(sigc::mem_fun(*this, &spectrum::on_timeout), 1);
 }
 
 void spectrum::stop_visualization()
 {
-
+  visualization_connection.disconnect();
 }
 
 void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
@@ -87,7 +82,21 @@ void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
   cr->fill();
 }
 
-double max_magnitude = 80;
+void spectrum::on_spect_bands_updated(std::vector<double> band_magnitudes)
+{
+  spect_band_magnitudes = band_magnitudes;
+}
+
+void spectrum::on_playback_status_changed(int playback_status)
+{
+  std::cout << "Status changed" << std::endl;
+  if (playback_status == playback::PAUSED) {
+    spectrum::stop_visualization();
+    //spectrum::clear_context(paint_cairo);
+  }
+  if (playback_status == playback::PLAYING)
+    spectrum::start_visualization();
+}
 
 //motion interpolation
 //y=k*sin((1/k)*x - PI/2) + k Delta easing expression
@@ -99,15 +108,9 @@ double max_magnitude = 80;
 //--> subdivision spacing = (k*PI)/s
 //--> s = subdivisions/speed
 
-int paint_iter=0;
-bool paint_decrement=false;
-
-int speed=100;
-int subdivisions=speed;
-
 bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
-  paintCairo = this->get_window()->create_cairo_context();
+  paint_cairo = this->get_window()->create_cairo_context();
   Gtk::Allocation allocation = get_allocation();
 
   double frame_width = allocation.get_width();
@@ -132,11 +135,11 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   spectrum::clear_context(cr);
   util::set_source_rgb(cr, "#2d2d2d");
   //#pragma omp parallel for
-  for (int band = 0; band < band_magnitudes.size(); band++) {
-    double magnitude = band_magnitudes[band];
+  for (int band = 0; band < spect_band_magnitudes.size(); band++) {
+    double magnitude = spect_band_magnitudes[band];
     double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
     double height_required = frame_height - ( ((-1) * magnitude)/spectrum_vert_scale);
-  
+    
     double interp_x_pos = (shaders[band]*scale_factor*PI)/speed; //interpolation variables (the x position on the interpolation curve)
   
     double bar_height;
@@ -144,7 +147,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
       bar_height = scale_factor * spectrum::sin_func((1/scale_factor)*interp_x_pos - PI/2) + scale_factor; //interpolation variables
 
     bar_heights[band] = bar_height;
-  
+
     if (previously_painted[band] < height_required && shaders[band] <= subdivisions)
       {
 	shaders[band]++;

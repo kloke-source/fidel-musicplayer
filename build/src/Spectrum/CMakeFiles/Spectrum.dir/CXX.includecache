@@ -57,6 +57,8 @@ cstddef
 ../src/Spectrum/spectrum.h
 gtkmm.h
 -
+vector
+-
 GUI/singleton.h
 -
 Utilities/util.h
