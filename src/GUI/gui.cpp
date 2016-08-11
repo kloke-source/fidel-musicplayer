@@ -14,11 +14,12 @@ extern "C" {
 //#include <Utilities/btree.h>
 #include <Audio/playback.h>
 #include <Spectrum/spectrum.h>
-//#include <Audio-Info/audioinfo.h>
+#include <Audio-Info/audioinfo.h>
 //#include <GUI/album-art-viewer.h>
 #include <Audio-Library/audio-library.h>
 
 typedef Singleton<spectrum> spectrum_visualizer;
+typedef Singleton<spectrum> mini_spectrum;
 
 gui::gui(){}
 gui::~gui(){}
@@ -31,6 +32,7 @@ ImageMenuItem *open_action;
 Notebook *view_switcher;
 
 Image *previous_icon, *play_icon, *pause_icon, *next_icon;
+Image *sidebar_hide_icon, *sidebar_show_icon;
 
 Label *split_view_label;
 Label *playlist_view_label;
@@ -57,8 +59,9 @@ Box *playback_frame;
 Box *playlist_view;
 Box *playback_slider_frame;
 Box *sidebar_layout;
-Box *sidebar_albumart;
+Box *sidebar_album_art_container;
 Box *spectrum_view_layout;
+Box *mini_spectrum_container;
 
 Grid *sidebar_audioinfo_layout;
 Scale *playback_slider;
@@ -83,6 +86,7 @@ void gui::initialize(int argc, char **argv)
   gui::init_icons();
   gui::init_playback_functions();
   gui::init_playlist();
+  gui::init_sidebar();
   gui::init_spectrum();
   gui::set_styles();
   
@@ -132,9 +136,10 @@ void gui::get_widgets()
   builder->get_widget("playlist_view", playlist_view);
   builder->get_widget("playback_slider_frame", playback_slider_frame);
   builder->get_widget("sidebar_layout", sidebar_layout);
-  builder->get_widget("sidebar_albumart", sidebar_albumart);
+  builder->get_widget("sidebar_album_art_container", sidebar_album_art_container);
   builder->get_widget("spectrum_view_layout", spectrum_view_layout);
-
+  builder->get_widget("mini_spectrum_container", mini_spectrum_container);
+  
   builder->get_widget("sidebar_audioinfo_layout", sidebar_audioinfo_layout);
   builder->get_widget("previous_button", previous_button);
   builder->get_widget("play_button", play_button);
@@ -148,8 +153,11 @@ void gui::init_connections()
   window->signal_key_press_event().connect(sigc::mem_fun(this, &gui::keyboard_shortcuts));
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
   play_button->signal_clicked().connect(sigc::mem_fun(this, &gui::on_play_button_clicked));
+  sidebar_hider->signal_clicked().connect(sigc::mem_fun(this, &gui::on_sidebar_hider_clicked));
+  
   audio_playback::Instance()->signal_update_pb_timer().connect(sigc::mem_fun(this, &gui::update_pb_timer));
   audio_playback::Instance()->signal_status_changed().connect(sigc::mem_fun(this, &gui::on_playback_status_changed));
+  audio_playback::Instance()->signal_now_playing().connect(sigc::mem_fun(this, &gui::set_sidebar_data));
 }
 
 bool gui::keyboard_shortcuts(GdkEventKey* event)
@@ -178,7 +186,7 @@ void gui::init_spectrum()
   //  audio_playback::Instance()->signal_spectrum_start().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::start_visualization));
   spectrum_view_layout->pack_start(*spectrum_visualizer::Instance(), Gtk::PACK_EXPAND_WIDGET);
   spectrum_visualizer::Instance()->set_double_buffered(true);
-  window->show_all();
+  spectrum_visualizer::Instance()->show_all();
 }
 
 void gui::init_icons()
@@ -202,11 +210,39 @@ void gui::init_icons()
   next_icon->show();
 }
 
+void gui::init_sidebar()
+{
+  sidebar_hide_icon = new Gtk::Image();
+  sidebar_show_icon = new Gtk::Image();
+
+  sidebar_hide_icon->set_from_resource("/fidel/Resources/icons/sidebar-hide.svg");
+  sidebar_show_icon->set_from_resource("/fidel/Resources/icons/sidebar-show.svg");
+
+  sidebar_hider->add(*sidebar_show_icon);
+  sidebar_hider->show_all();
+  sidebar_layout->hide();
+
+  // set sidebar fonts
+  sidebar_font.set_family("Open Sans Light");
+  sidebar_font.set_size(14 * PANGO_SCALE);
+
+  sidebar_name_label->override_font(sidebar_font);
+  sidebar_artist_label->override_font(sidebar_font);
+  sidebar_album_label->override_font(sidebar_font);
+  sidebar_song_name->override_font(sidebar_font);
+  sidebar_song_artist->override_font(sidebar_font);
+  sidebar_song_album->override_font(sidebar_font);
+
+  mini_spectrum::Instance()->set_spect_bands(20);
+  mini_spectrum_container->pack_start(*mini_spectrum::Instance(), Gtk::PACK_EXPAND_WIDGET);
+  mini_spectrum_container->show_all();
+}
+
 void gui::init_playback_functions()
 {
   idle_status_label->set_text("Idle");
   playback_slider_adjustment = Gtk::Adjustment::create(0.0, 0.0, 1, 0.1, 1.0, 1.0);
-  //Note: This adjustment is used when the player is in idle. It doesn't really matter as a new one is created depending on the length of the audio track
+  // Note: This adjustment is used when the player is in idle. It doesn't really matter as a new one is created depending on the length of the audio track
   playback_slider = new Gtk::Scale(playback_slider_adjustment, Gtk::ORIENTATION_HORIZONTAL);
   playback_slider->set_draw_value(false);
   playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_SHRINK);
@@ -269,6 +305,46 @@ bool gui::on_window_closed(GdkEventAny* event)
   return false;
 }
 
+void gui::set_sidebar_data(char *now_playing_song)
+{
+  std::tuple<guint8*, gsize, bool> raw_album_art = audioinfo::extract_album_art(now_playing_song);
+  delete sidebar_album_art;
+  sidebar_album_art = Gtk::manage(new Gtk::Image);
+  
+  if (std::get<2>(raw_album_art) == true) {
+    Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
+    loader->write(std::get<0>(raw_album_art), std::get<1>(raw_album_art));
+    loader->close();
+    Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
+    sidebar_album_art->set(pixbuf);
+  }
+  else
+    sidebar_album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");
+  util::resize_image(sidebar_album_art, default_sidebar_size, default_sidebar_size);
+  sidebar_album_art_container->pack_start(*sidebar_album_art, Gtk::PACK_EXPAND_WIDGET);
+  // sidebar_audioinfo_layout->set_resize_mode(Gtk::RESIZE_QUEUE);
+
+  // sidebar_albumart_icon = new Gtk::Image();
+  // sidebar_albumart_icon = sidebar_album_art;
+  // sidebar_album_art_container->pack_start(*sidebar_albumart_icon, Gtk::PACK_EXPAND_WIDGET);
+
+  int max_chars = sidebar_width/(sidebar_font.get_size()/PANGO_SCALE);
+
+  sidebar_song_name->set_max_width_chars(max_chars);
+  sidebar_song_artist->set_max_width_chars(max_chars);
+  sidebar_song_album->set_max_width_chars(max_chars);
+
+  sidebar_song_name->set_ellipsize(Pango::ELLIPSIZE_END);
+  sidebar_song_artist->set_ellipsize(Pango::ELLIPSIZE_END);
+  sidebar_song_album->set_ellipsize(Pango::ELLIPSIZE_END);
+
+  sidebar_song_name->set_text(audioinfo::get_info(SONG_NAME));
+  sidebar_song_artist->set_text(audioinfo::get_info(ARTIST));
+  sidebar_song_album->set_text(audioinfo::get_info(ALBUM));
+
+  gui::show_sidebar();
+}
+
 void gui::on_play_button_clicked()
 {
   bool skip = false;
@@ -301,6 +377,36 @@ void gui::on_playback_status_changed(int status)
   }
   case playback::IDLE:
     break;
+  }
+}
+
+void gui::hide_sidebar()
+{
+  sidebar_hider->remove();  
+  sidebar_hider->add(*sidebar_show_icon);
+  sidebar_layout->hide();
+  sidebar_hidden = true;
+  sidebar_hider->show_all();  
+}
+
+void gui::show_sidebar()
+{
+  sidebar_hider->remove();  
+  sidebar_hider->add(*sidebar_hide_icon);
+  sidebar_layout->show_all();    
+  sidebar_hidden = false;
+  sidebar_hider->show_all();  
+}
+
+void gui::on_sidebar_hider_clicked()
+{
+  bool skip = false;
+  if (sidebar_hidden == false) {
+    gui::hide_sidebar();
+    skip = true;
+  }
+  else if (skip == false) {
+    gui::show_sidebar();
   }
 }
 

@@ -32,10 +32,19 @@ class gui{
  private:
   // variables
   Glib::RefPtr<Gio::Resource> fidel_resources;
+  Gtk::Image *sidebar_album_art;
+  
+  int sidebar_width = 200;
+  int default_sidebar_size = 200;
+  bool sidebar_hidden = true;
+  
+  // fonts
+  Pango::FontDescription sidebar_font;
   
   void init_connections();
   bool keyboard_shortcuts(GdkEventKey* event);
   void init_icons();
+  void init_sidebar();
   void init_spectrum();
 
   void init_playback_functions();
@@ -43,10 +52,19 @@ class gui{
   void pb_slider_val_changed();
 
   void set_styles();
+  void get_widgets();
+
+  void hide_sidebar();
+  void show_sidebar();
+  
+  // signal handlers
   bool on_window_closed(GdkEventAny* event);
+  void set_sidebar_data(char *now_playing_song);
   void on_play_button_clicked();
   void on_playback_status_changed(int status);
-  void get_widgets();
+
+  void on_sidebar_hider_clicked();
+
   void on_file_open_triggered();
 };
 

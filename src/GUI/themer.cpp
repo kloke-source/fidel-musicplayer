@@ -43,8 +43,9 @@ extern Box *playback_frame;
 extern Box *playlist_view;
 extern Box *playback_slider_frame;
 extern Box *sidebar_layout;
-extern Box *sidebar_albumart;
+extern Box *sidebar_album_art_container;
 extern Box *spectrum_view_layout;
+extern Box *mini_spectrum_container;
 
 extern Grid *sidebar_audioinfo_layout;
 extern Scale *playback_slider;
@@ -187,9 +188,10 @@ void themer::init_vectors()
   box_vect.push_back(playlist_view);
   box_vect.push_back(playback_slider_frame);
   box_vect.push_back(sidebar_layout);
-  box_vect.push_back(sidebar_albumart);
+  box_vect.push_back(sidebar_album_art_container);
   box_vect.push_back(spectrum_view_layout);
-
+  box_vect.push_back(mini_spectrum_container);
+  
   grid_vect.push_back(sidebar_audioinfo_layout);
 
   scale_vect.push_back(playback_slider);

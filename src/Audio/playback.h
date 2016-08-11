@@ -33,6 +33,9 @@ class playback{
   void set_track_finished();
   
   //signal accessors
+  typedef sigc::signal<void, char*> type_signal_now_playing;
+  type_signal_now_playing signal_now_playing();
+  
   typedef sigc::signal<void, int> type_signal_status_changed;
   type_signal_status_changed signal_status_changed();
 
@@ -49,6 +52,7 @@ class playback{
   type_signal_track_finished signal_track_finished();
   
  protected:
+  type_signal_now_playing m_signal_now_playing;
   type_signal_start_spectrum m_signal_spectrum_start;
   type_signal_spect_bands_updated m_signal_spect_bands_updated;
   type_signal_status_changed m_signal_status_changed;

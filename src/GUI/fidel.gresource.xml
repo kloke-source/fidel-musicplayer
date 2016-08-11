@@ -10,6 +10,8 @@
     <file>Resources/icons/repeat.svg</file>
     <file>Resources/icons/seeker.ui</file>
     <file>Resources/icons/shuffle.svg</file>
+    <file>Resources/icons/sidebar-show.svg</file>
+    <file>Resources/icons/sidebar-hide.svg</file>    
     <file>Resources/icons/blank-albumart.svg</file>
   </gresource>
 </gresources>

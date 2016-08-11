@@ -183,6 +183,8 @@ Audio/playback.h
 -
 Spectrum/spectrum.h
 -
+Audio-Info/audioinfo.h
+-
 Audio-Library/audio-library.h
 -
 

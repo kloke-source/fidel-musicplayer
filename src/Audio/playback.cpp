@@ -144,13 +144,8 @@ void playback::audio_file(char *filesrc)
 
   duration_obtained=false;
   audioinfo::init(filesrc);
-  std::vector<Glib::ustring> song_data;
-  //song_data.push_back(audioinfo::get_info("song_name"));
-  //song_data.push_back(audioinfo::get_info("artist"));
-  //song_data.push_back(audioinfo::get_info("album"));
-  // --(deprecated)-- fidel_ui::Instance()->set_sidebar_data(//audioinfo::get_album_art(filesrc, 200, 200), song_data);
-
-  //start spectrum visualization
+  m_signal_now_playing.emit(filesrc);
+  
   audio_playback::Instance()->start_spectrum_visualization();
 
   gst_init (NULL, NULL);
@@ -307,7 +302,14 @@ void playback::seek(double time, std::string sender)
 		    GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE);
 }
 
+
 //--- start of signal functions ---
+
+playback::type_signal_now_playing playback::signal_now_playing()
+{
+  return m_signal_now_playing;
+}
+
 /* start of playback status signal functions */
 playback::type_signal_status_changed playback::signal_status_changed()
 {
