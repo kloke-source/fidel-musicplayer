@@ -1,10 +1,11 @@
 #ifndef PLAYLIST_H
 #define PLAYLIST_H
 
+#include <vector>
 #include <gtkmm.h>
 #include <Audio/playback.h>
+#include <Utilities/btree.h>
 #include <GUI/fidel-popover.h>
-#include <vector>
 
 class Playlist : public Gtk::ScrolledWindow {
  public:
@@ -39,12 +40,22 @@ class Playlist : public Gtk::ScrolledWindow {
   // variables
   int total_songs;
   int curr_song_iterator;
+
+  bool alternate_color = false;
+  int file_count_iter = 0;
+
   Gtk::SearchEntry *playlist_search_entry;
+
+  Playlist::Playlist_Columns playlist_columns;
+  Gtk::TreeView *playlist_tree_view;
+  Glib::RefPtr<Gtk::ListStore> playlist_model;
+  std::vector<btree<std::string>> playlist_info_store;
+
 
   // fonts
   Pango::FontDescription default_font;
   int default_font_size = 13;
-  
+
   // enums
   enum {
     COL_NAME,

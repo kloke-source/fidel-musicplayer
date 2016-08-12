@@ -7,6 +7,7 @@ src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o
  ../src/GUI/gui.h
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h
+ ../src/Utilities/btree.h
  ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/util.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h

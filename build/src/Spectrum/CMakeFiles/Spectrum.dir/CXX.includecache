@@ -39,13 +39,15 @@ GUI/playlist.h
 -
 
 ../src/GUI/playlist.h
+vector
+-
 gtkmm.h
 -
 Audio/playback.h
 -
-GUI/fidel-popover.h
+Utilities/btree.h
 -
-vector
+GUI/fidel-popover.h
 -
 
 ../src/GUI/singleton.h
@@ -62,6 +64,12 @@ vector
 GUI/singleton.h
 -
 Utilities/util.h
+-
+
+../src/Utilities/btree.h
+iostream
+-
+vector
 -
 
 ../src/Utilities/threadpool.h

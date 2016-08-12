@@ -81,13 +81,15 @@ GUI/playlist.h
 -
 
 ../src/GUI/playlist.h
+vector
+-
 gtkmm.h
 -
 Audio/playback.h
 -
-GUI/fidel-popover.h
+Utilities/btree.h
 -
-vector
+GUI/fidel-popover.h
 -
 
 ../src/GUI/singleton.h
@@ -148,8 +150,6 @@ Audio-Info/audioinfo.h
 Audio-Library/audio-library.h
 -
 Utilities/threadpool.h
--
-GUI/playlist.h
 -
 mutex
 -

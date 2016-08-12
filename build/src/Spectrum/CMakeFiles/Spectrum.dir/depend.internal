@@ -8,6 +8,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h
  ../src/Spectrum/spectrum.h
+ ../src/Utilities/btree.h
  ../src/Utilities/threadpool.h
  ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp

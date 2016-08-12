@@ -7,6 +7,7 @@ src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/GUI/fidel-popover.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/GUI/gui.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/GUI/playlist.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/GUI/singleton.h
+src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/Utilities/btree.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: ../src/Audio/playback.cpp
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h
 src/Audio/CMakeFiles/Audio.dir/playback.cpp.o: /usr/include/atk-1.0/atk/atk.h

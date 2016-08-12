@@ -254,9 +254,13 @@ void gui::init_playback_functions()
 
 void gui::init_playlist()
 {
+  all_songs_playlist = new Playlist();
   AudioLibrary::populate_playlist();
-  all_songs::Instance()->link_to_search_entry(fidel_search_entry);
-  playlist_stack->add(*all_songs::Instance(), "all_songs", "All Songs");
+  
+  all_songs_playlist->link_to_search_entry(fidel_search_entry);
+  
+  playlist_stack->add(*all_songs_playlist, "all_songs", "All Songs");
+  
   window->show_all();
 }
 
@@ -266,6 +270,11 @@ void gui::init_stack_sidebar()
   playlist_stack_sidebar->set_stack(*playlist_stack);
   playlist_stack_sidebar_container->pack_start(*playlist_stack_sidebar, Gtk::PACK_EXPAND_WIDGET);
   playlist_stack_sidebar_container->show_all();
+}
+
+void gui::add_playlist_row(std::vector<std::string> row_data)
+{
+  all_songs_playlist->add_list_store_row(row_data);
 }
 
 void gui::pb_slider_val_changed()
@@ -312,7 +321,7 @@ void gui::set_styles()
 bool gui::on_window_closed(GdkEventAny* event)
 {
   audio_playback::Instance()->kill_audio();
-  delete all_songs::Instance();
+  delete all_songs_playlist;
   return false;
 }
 

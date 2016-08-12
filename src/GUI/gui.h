@@ -29,10 +29,13 @@ class gui{
 
   void update_pb_timer(double time);
   void set_pb_endtime(int endtime);
+  void add_playlist_row(std::vector<std::string> row_data);
  private:
   // variables
   Glib::RefPtr<Gio::Resource> fidel_resources;
   Gtk::Image *sidebar_album_art;
+  Playlist *all_songs_playlist;
+  Playlist *queue_playlist;
   
   int sidebar_width = 200;
   int default_sidebar_size = 200;

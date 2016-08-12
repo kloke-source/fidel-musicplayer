@@ -6,7 +6,6 @@
 #include <Audio-Info/audioinfo.h>
 #include <Audio-Library/audio-library.h>
 #include <Utilities/threadpool.h>
-#include <GUI/playlist.h>
 #include <mutex>
 #include <thread>
 //#define library_db ":memory:"
@@ -570,7 +569,7 @@ int AudioLibrary::populate_playlist_cb(void *data, int total_col_num, char **val
   row_data.push_back(value[LIB_ALBUM]);
   row_data.push_back(value[LIB_TIME]);
   row_data.push_back(value[LIB_FILE_LOCATION]);
-  all_songs::Instance()->add_list_store_row(row_data);
+  fidel_ui::Instance()->add_playlist_row(row_data);
   return 0;
 }
 

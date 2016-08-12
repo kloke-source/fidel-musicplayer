@@ -81,13 +81,15 @@ GUI/playlist.h
 -
 
 ../src/GUI/playlist.h
+vector
+-
 gtkmm.h
 -
 Audio/playback.h
 -
-GUI/fidel-popover.h
+Utilities/btree.h
 -
-vector
+GUI/fidel-popover.h
 -
 
 ../src/GUI/singleton.h

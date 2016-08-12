@@ -5,11 +5,6 @@
 #include <Utilities/btree.h>
 #include <vector>
 
-Playlist::Playlist_Columns playlist_columns;
-Gtk::TreeView *playlist_tree_view;
-Glib::RefPtr<Gtk::ListStore> playlist_model;
-std::vector<btree<std::string>> playlist_info_store;
-
 Playlist::Playlist()
 {
   for (int iter=0; iter < 4; iter++){
@@ -52,7 +47,7 @@ void Playlist::init_playlist()
 
   playlist_model = Gtk::ListStore::create(playlist_columns);
   playlist_tree_view->set_model(playlist_model);
-  playlist_tree_view->set_headers_visible(false);
+  // playlist_tree_view->set_headers_visible(false);
 
   playlist_tree_view->append_column("Name", playlist_columns.col_name);
   playlist_tree_view->append_column("Artist", playlist_columns.col_artist);
@@ -66,9 +61,6 @@ void Playlist::init_playlist()
 
   }
 }
-
-bool alternate_color = false;
-int file_count_iter = 0;
 
 void Playlist::add_list_store_row(std::vector<std::string> row_data)
 {

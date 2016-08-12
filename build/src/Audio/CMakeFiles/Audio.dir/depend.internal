@@ -8,6 +8,7 @@ src/Audio/CMakeFiles/Audio.dir/playback.cpp.o
  ../src/GUI/gui.h
  ../src/GUI/playlist.h
  ../src/GUI/singleton.h
+ ../src/Utilities/btree.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio/playback.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h
  /usr/include/atk-1.0/atk/atk.h
