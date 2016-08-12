@@ -19,7 +19,7 @@ class playback{
   void audio_file(char *filesrc);
   void kill_curr_stream();
   void kill_audio();
-  bool idle_status();
+  bool is_idle();
   bool is_playing();
   void pause();
   void play();

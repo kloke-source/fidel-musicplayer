@@ -223,7 +223,6 @@ void gui::init_sidebar()
 
   sidebar_hider->add(*sidebar_show_icon);
   sidebar_hider->show_all();
-  sidebar_layout->hide();
 
   // set sidebar fonts
   sidebar_font.set_family("Open Sans Light");
@@ -398,20 +397,23 @@ void gui::hide_sidebar()
   sidebar_hider->add(*sidebar_show_icon);
   sidebar_stack_switcher->hide();
   sidebar_stack->hide();
-  sidebar_layout->hide();
+  
   sidebar_hidden = true;
   sidebar_hider->show_all();  
 }
 
 void gui::show_sidebar()
 {
+  if (audio_playback::Instance()->is_idle() == false) {
   sidebar_hider->remove();  
   sidebar_hider->add(*sidebar_hide_icon);
   sidebar_stack_switcher->show();
   sidebar_stack->show();
   sidebar_layout->show_all();
+  
   sidebar_hidden = false;
-  sidebar_hider->show_all();  
+  sidebar_hider->show_all();
+  }
 }
 
 void gui::on_sidebar_hider_clicked()

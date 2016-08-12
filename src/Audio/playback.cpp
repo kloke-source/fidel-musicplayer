@@ -144,7 +144,6 @@ void playback::audio_file(char *filesrc)
 
   duration_obtained=false;
   audioinfo::init(filesrc);
-  m_signal_now_playing.emit(filesrc);
   
   audio_playback::Instance()->start_spectrum_visualization();
 
@@ -187,6 +186,7 @@ void playback::audio_file(char *filesrc)
   idle=false;
   playback::change_playback_status(playback::IDLE);
   playback::play();
+  m_signal_now_playing.emit(filesrc);  
   g_main_loop_run (loop);
   playback::set_track_finished();
   playback::kill_audio();
@@ -263,7 +263,7 @@ void playback::kill_audio()
   }
 }
 
-bool playback::idle_status()
+bool playback::is_idle()
 {
   return idle;
 }
