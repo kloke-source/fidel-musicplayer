@@ -40,7 +40,7 @@ extern Box *split_view_spectrum;
 extern Box *split_view_playlist;
 extern Box *library_view_frame;
 extern Box *playback_frame;
-extern Box *playlist_view;
+// extern Box *playlist_view;
 extern Box *playback_slider_frame;
 extern Box *sidebar_layout;
 extern Box *sidebar_album_art_container;
@@ -185,7 +185,7 @@ void themer::init_vectors()
   box_vect.push_back(split_view_playlist);
   box_vect.push_back(library_view_frame);
   box_vect.push_back(playback_frame);
-  box_vect.push_back(playlist_view);
+  // box_vect.push_back(playlist_view);
   box_vect.push_back(playback_slider_frame);
   box_vect.push_back(sidebar_layout);
   box_vect.push_back(sidebar_album_art_container);

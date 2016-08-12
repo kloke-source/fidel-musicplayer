@@ -49,6 +49,7 @@ class gui{
 
   void init_playback_functions();
   void init_playlist();
+  void init_stack_sidebar();
   void pb_slider_val_changed();
 
   void set_styles();

@@ -62,6 +62,13 @@ Box *sidebar_layout;
 Box *sidebar_album_art_container;
 Box *spectrum_view_layout;
 Box *mini_spectrum_container;
+Box *playlist_stack_sidebar_container;
+
+Gtk::Stack *playlist_stack;
+Gtk::Stack *sidebar_stack;
+
+Gtk::StackSwitcher *sidebar_stack_switcher;
+Gtk::StackSidebar *playlist_stack_sidebar;
 
 Grid *sidebar_audioinfo_layout;
 Scale *playback_slider;
@@ -89,16 +96,8 @@ void gui::initialize(int argc, char **argv)
   gui::init_sidebar();
   gui::init_spectrum();
   gui::set_styles();
-  
-  //fidel_popover::Instance()->add_title("Songs");
-  //fidel_popover::Instance()->add_title("Songs");
-  //fidel_popover::Instance()->add_title("Songs");
-  //fidel_popover::Instance()->add_title("Songs");
-  //fidel_popover::Instance()->add_title("Songs");
-  //fidel_popover::Instance()->add_title("Songs");    
-  //fidel_popover::Instance()->show_all();
-  //fidel_popover::Instance()->clear();
-  //fidel_popover::Instance()->clear();
+  gui::init_stack_sidebar();
+
   window->set_size_request(800, 450);
   window->maximize();
   app->run(*window);
@@ -127,19 +126,23 @@ void gui::get_widgets()
   builder->get_widget("sidebar_song_name", sidebar_song_name);
   builder->get_widget("sidebar_song_artist", sidebar_song_artist);
   builder->get_widget("sidebar_song_album", sidebar_song_album);
-
+  
   builder->get_widget("split_view_layout", split_view_layout);
   builder->get_widget("split_view_spectrum", split_view_spectrum);
   builder->get_widget("split_view_playlist", split_view_playlist);
   builder->get_widget("library_view_frame", library_view_frame);
   builder->get_widget("playback_frame", playback_frame);
-  builder->get_widget("playlist_view", playlist_view);
   builder->get_widget("playback_slider_frame", playback_slider_frame);
   builder->get_widget("sidebar_layout", sidebar_layout);
   builder->get_widget("sidebar_album_art_container", sidebar_album_art_container);
   builder->get_widget("spectrum_view_layout", spectrum_view_layout);
   builder->get_widget("mini_spectrum_container", mini_spectrum_container);
-  
+
+  builder->get_widget("playlist_stack_sidebar_container", playlist_stack_sidebar_container);
+  builder->get_widget("playlist_stack", playlist_stack);
+  builder->get_widget("sidebar_stack", sidebar_stack);  
+  builder->get_widget("sidebar_stack_switcher", sidebar_stack_switcher);
+
   builder->get_widget("sidebar_audioinfo_layout", sidebar_audioinfo_layout);
   builder->get_widget("previous_button", previous_button);
   builder->get_widget("play_button", play_button);
@@ -236,7 +239,7 @@ void gui::init_sidebar()
   mini_spectrum = new spectrum();
   mini_spectrum->set_spect_bands(20);
   mini_spectrum_container->pack_start(*mini_spectrum, Gtk::PACK_EXPAND_WIDGET);
-  mini_spectrum_container->show_all();
+  gui::hide_sidebar();
 }
 
 void gui::init_playback_functions()
@@ -254,8 +257,16 @@ void gui::init_playlist()
 {
   AudioLibrary::populate_playlist();
   all_songs::Instance()->link_to_search_entry(fidel_search_entry);
-  playlist_view->pack_start(*all_songs::Instance(), Gtk::PACK_EXPAND_WIDGET);
+  playlist_stack->add(*all_songs::Instance(), "all_songs", "All Songs");
   window->show_all();
+}
+
+void gui::init_stack_sidebar()
+{
+  playlist_stack_sidebar = new Gtk::StackSidebar();
+  playlist_stack_sidebar->set_stack(*playlist_stack);
+  playlist_stack_sidebar_container->pack_start(*playlist_stack_sidebar, Gtk::PACK_EXPAND_WIDGET);
+  playlist_stack_sidebar_container->show_all();
 }
 
 void gui::pb_slider_val_changed()
@@ -385,6 +396,8 @@ void gui::hide_sidebar()
 {
   sidebar_hider->remove();  
   sidebar_hider->add(*sidebar_show_icon);
+  sidebar_stack_switcher->hide();
+  sidebar_stack->hide();
   sidebar_layout->hide();
   sidebar_hidden = true;
   sidebar_hider->show_all();  
@@ -394,7 +407,9 @@ void gui::show_sidebar()
 {
   sidebar_hider->remove();  
   sidebar_hider->add(*sidebar_hide_icon);
-  sidebar_layout->show_all();    
+  sidebar_stack_switcher->show();
+  sidebar_stack->show();
+  sidebar_layout->show_all();
   sidebar_hidden = false;
   sidebar_hider->show_all();  
 }

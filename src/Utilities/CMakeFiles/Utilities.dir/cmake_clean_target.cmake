@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libUtilities.a"
+  "libUtilities_debug.a"
 )

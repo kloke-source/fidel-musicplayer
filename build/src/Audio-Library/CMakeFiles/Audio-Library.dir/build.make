@@ -60,15 +60,15 @@ include src/Audio-Library/CMakeFiles/Audio-Library.dir/flags.make
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: src/Audio-Library/CMakeFiles/Audio-Library.dir/flags.make
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/Audio-Library/audio-library.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Library && /usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Audio-Library.dir/audio-library.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Library && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Audio-Library.dir/audio-library.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp
 
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Audio-Library.dir/audio-library.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Library && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp > CMakeFiles/Audio-Library.dir/audio-library.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Library && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp > CMakeFiles/Audio-Library.dir/audio-library.cpp.i
 
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Audio-Library.dir/audio-library.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Library && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp -o CMakeFiles/Audio-Library.dir/audio-library.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Library && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp -o CMakeFiles/Audio-Library.dir/audio-library.cpp.s
 
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o.requires:
 
