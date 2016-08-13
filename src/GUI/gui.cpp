@@ -9,6 +9,7 @@ extern "C" {
 #include <GUI/seeker.h>
 #include <GUI/themer.h>
 #include <GUI/playlist.h>
+#include <GUI/playlist-manager.h>
 #include <GUI/fidel-popover.h>
 #include <Utilities/util.h>
 //#include <Utilities/btree.h>
@@ -68,7 +69,7 @@ Gtk::Stack *playlist_stack;
 Gtk::Stack *sidebar_stack;
 
 Gtk::StackSwitcher *sidebar_stack_switcher;
-Gtk::StackSidebar *playlist_stack_sidebar;
+PlaylistManager *playlist_manager;
 
 Grid *sidebar_audioinfo_layout;
 Scale *playback_slider;
@@ -89,6 +90,7 @@ void gui::initialize(int argc, char **argv)
   Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "anorak.fidel");
   gui::init_builder();
   gui::get_widgets();
+  gui::init_stack_sidebar();  
   gui::init_connections();
   gui::init_icons();
   gui::init_playback_functions();
@@ -96,7 +98,6 @@ void gui::initialize(int argc, char **argv)
   gui::init_sidebar();
   gui::init_spectrum();
   gui::set_styles();
-  gui::init_stack_sidebar();
 
   window->set_size_request(800, 450);
   window->maximize();
@@ -255,20 +256,21 @@ void gui::init_playback_functions()
 void gui::init_playlist()
 {
   all_songs_playlist = new Playlist();
+  queue_playlist = new Playlist();
   AudioLibrary::populate_playlist();
   
   all_songs_playlist->link_to_search_entry(fidel_search_entry);
-  
-  playlist_stack->add(*all_songs_playlist, "all_songs", "All Songs");
-  
+
+  playlist_manager->add_playlist(*all_songs_playlist, "all_songs", "All Songs");
+  playlist_manager->add_playlist(*queue_playlist, "queue", "Queue");
+
   window->show_all();
 }
 
 void gui::init_stack_sidebar()
 {
-  playlist_stack_sidebar = new Gtk::StackSidebar();
-  playlist_stack_sidebar->set_stack(*playlist_stack);
-  playlist_stack_sidebar_container->pack_start(*playlist_stack_sidebar, Gtk::PACK_EXPAND_WIDGET);
+  playlist_manager = new PlaylistManager(*playlist_stack);
+  playlist_stack_sidebar_container->pack_start(*playlist_manager, Gtk::PACK_EXPAND_WIDGET);
   playlist_stack_sidebar_container->show_all();
 }
 
@@ -435,6 +437,11 @@ void gui::on_sidebar_hider_clicked()
   else if (skip == false) {
     gui::show_sidebar();
   }
+}
+
+void gui::on_test_signal(Gtk::Widget *widget)
+{
+  std::cout << "Switched to " << widget->get_name() << std::endl;
 }
 
 void gui::on_file_open_triggered()

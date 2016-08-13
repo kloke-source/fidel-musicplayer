@@ -23,7 +23,7 @@ class spectrum : public Gtk::DrawingArea{
   double max_magnitude = 80;  
 
   bool auto_padding = true;
-
+  
   // interpolation variables
 
   int paint_iter=0;

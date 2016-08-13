@@ -84,6 +84,16 @@ GUI/singleton.h
 GUI/playlist.h
 -
 
+../src/GUI/playlist-manager.h
+vector
+-
+gtkmm.h
+-
+iostream
+-
+GUI/playlist.h
+-
+
 ../src/GUI/playlist.h
 vector
 -
@@ -177,6 +187,8 @@ GUI/themer.h
 -
 GUI/playlist.h
 -
+GUI/playlist-manager.h
+-
 GUI/fidel-popover.h
 -
 Utilities/util.h
@@ -200,6 +212,10 @@ iostream
 GUI/singleton.h
 -
 GUI/playlist.h
+-
+
+/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist-manager.cpp
+GUI/playlist-manager.h
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp

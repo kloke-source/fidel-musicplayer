@@ -143,9 +143,12 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     double interp_x_pos = (shaders[band]*scale_factor*PI)/speed; //interpolation variables (the x position on the interpolation curve)
   
     double bar_height;
-    if(scale_factor != 0)
+    if (scale_factor != 0 && audio_playback::Instance()->is_playing() == true)
       bar_height = scale_factor * spectrum::sin_func((1/scale_factor)*interp_x_pos - PI/2) + scale_factor; //interpolation variables
-
+      
+    if (audio_playback::Instance()->is_playing() == false)
+      bar_height = previously_painted[band];
+      
     bar_heights[band] = bar_height;
 
     if (previously_painted[band] < height_required && shaders[band] <= subdivisions)

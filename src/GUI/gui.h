@@ -65,10 +65,10 @@ class gui{
   bool on_window_closed(GdkEventAny* event);
   void set_sidebar_data(char *now_playing_song);
   void on_play_button_clicked();
-  void on_playback_status_changed(int status);
-
+  void on_playback_status_changed(int status);  
   void on_sidebar_hider_clicked();
-
+  void on_test_signal(Gtk::Widget *widget);
+  
   void on_file_open_triggered();
 };
 

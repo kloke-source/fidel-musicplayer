@@ -21,7 +21,7 @@ void Playlist::init_connections()
 {
   playlist_tree_view->signal_row_activated().connect(sigc::mem_fun(this, &Playlist::on_double_click_handler));  
   this->signal_size_allocate().connect(sigc::mem_fun(this, &Playlist::resize_handler));
-  audio_playback::Instance()->signal_track_finished().connect(sigc::mem_fun(this, &Playlist::on_track_finished));
+  track_finished_connection = audio_playback::Instance()->signal_track_finished().connect(sigc::mem_fun(this, &Playlist::on_track_finished));
 }
 
 void Playlist::init_playlist()
@@ -60,6 +60,18 @@ void Playlist::init_playlist()
     column->add_attribute(cell_renderer->property_cell_background(), playlist_columns.col_color);
 
   }
+}
+
+void Playlist::enable()
+{
+  std::cout << "Playlist enable " << std::endl;
+  track_finished_connection = audio_playback::Instance()->signal_track_finished().connect(sigc::mem_fun(this, &Playlist::on_track_finished));
+}
+
+void Playlist::disable()
+{
+  std::cout << "Playlist disabled " << std::endl;
+  track_finished_connection.disconnect();
 }
 
 void Playlist::add_list_store_row(std::vector<std::string> row_data)
@@ -204,18 +216,18 @@ void Playlist::resize_handler(Gtk::Allocation &allocation)
   int window_width = allocation.get_width();
   int window_height = allocation.get_height();
 
-  cout << "Window width: " << window_width << endl;
-  cout << "Window height: " << window_height << endl;
+  // cout << "Window width: " << window_width << endl;
+  // cout << "Window height: " << window_height << endl;
 
   playlist_tree_view->get_column(0)->set_max_width(.55 * window_width);
   playlist_tree_view->get_column(1)->set_max_width(.15 * window_width);
   playlist_tree_view->get_column(2)->set_max_width(.15 * window_width);
   playlist_tree_view->get_column(3)->set_max_width(.05 * window_width);
 
-  cout << "Column 1 width : " << .55 * window_width << endl;
-  cout << "Column 2 width : " << .15 * window_width << endl;
-  cout << "Column 3 width : " << .15 * window_width << endl;
-  cout << "Column 4 width : " << .05 * window_width << endl;
+  // cout << "Column 1 width : " << .55 * window_width << endl;
+  // cout << "Column 2 width : " << .15 * window_width << endl;
+  // cout << "Column 3 width : " << .15 * window_width << endl;
+  // cout << "Column 4 width : " << .05 * window_width << endl;
 
   for (int col_iter = 0; col_iter < 4; col_iter++) {
     playlist_tree_view->get_column(col_iter)->set_expand(true);

@@ -34,9 +34,14 @@ class Playlist : public Gtk::ScrolledWindow {
     Gtk::TreeModelColumn<std::string> col_file_location;
   };
 
+  void enable();
+  void disable();
   void add_list_store_row(std::vector<std::string> row_data);
   void link_to_search_entry(Gtk::SearchEntry *search_entry);
  private:
+  // connections
+  sigc::connection track_finished_connection;
+  
   // variables
   int total_songs;
   int curr_song_iterator;

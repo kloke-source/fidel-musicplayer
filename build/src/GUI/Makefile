@@ -206,6 +206,33 @@ gui.cpp.s:
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.s
 .PHONY : gui.cpp.s
 
+playlist-manager.o: playlist-manager.cpp.o
+
+.PHONY : playlist-manager.o
+
+# target to build an object file
+playlist-manager.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o
+.PHONY : playlist-manager.cpp.o
+
+playlist-manager.i: playlist-manager.cpp.i
+
+.PHONY : playlist-manager.i
+
+# target to preprocess a source file
+playlist-manager.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.i
+.PHONY : playlist-manager.cpp.i
+
+playlist-manager.s: playlist-manager.cpp.s
+
+.PHONY : playlist-manager.s
+
+# target to generate assembly for a file
+playlist-manager.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.s
+.PHONY : playlist-manager.cpp.s
+
 playlist.o: playlist.cpp.o
 
 .PHONY : playlist.o
@@ -305,6 +332,9 @@ help:
 	@echo "... gui.o"
 	@echo "... gui.i"
 	@echo "... gui.s"
+	@echo "... playlist-manager.o"
+	@echo "... playlist-manager.i"
+	@echo "... playlist-manager.s"
 	@echo "... playlist.o"
 	@echo "... playlist.i"
 	@echo "... playlist.s"
