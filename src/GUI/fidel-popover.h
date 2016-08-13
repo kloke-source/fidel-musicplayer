@@ -12,6 +12,7 @@ class FidelPopover : public Gtk::Popover {
   void clear();
   
   void add_title(std::string title);
+  void add_entry(Gtk::Button *button_entry);
   void add_entry(Gtk::Image *image, std::string label_text);
   void add_entry(Gtk::Image *image, std::string prim_label_text, std::string supp_label_text);
   void add_entry(std::pair<guint8*, gsize> image, std::string prim_label_text, std::string supp_label_text);
@@ -35,6 +36,7 @@ class FidelPopover : public Gtk::Popover {
   };
   
   struct PopoverEntries {
+    Gtk::Button *button_entry;
     Gtk::Box *entry;
     Gtk::Image *image;
     Gtk::Label *prim_label;

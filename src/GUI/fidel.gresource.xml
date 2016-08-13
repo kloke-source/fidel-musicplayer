@@ -2,14 +2,18 @@
 <gresources>
   <gresource prefix="/fidel">
     <file preprocess="xml-stripblanks">Resources/fidel.ui</file>
+    <file>Resources/icons/seeker.ui</file>    
     <file>Resources/icons/playback-previous.svg</file>
     <file>Resources/icons/playback-pause.svg</file>
     <file>Resources/icons/playback-play.svg</file>
     <file>Resources/icons/playback-next.svg</file>
+    <file>Resources/icons/playback-shuffle.svg</file>    
     <file>Resources/icons/playback-stop.svg</file>
-    <file>Resources/icons/repeat.svg</file>
-    <file>Resources/icons/seeker.ui</file>
-    <file>Resources/icons/shuffle.svg</file>
+    <file>Resources/icons/playback-repeat.svg</file>
+    <file>Resources/icons/view-more-horizontal.svg</file>
+    <file>Resources/icons/view-more-vertical.svg</file>
+    <file>Resources/icons/play-next.svg</file>
+    <file>Resources/icons/add-to-bottom-of-queue.svg</file>
     <file>Resources/icons/sidebar-show.svg</file>
     <file>Resources/icons/sidebar-hide.svg</file>    
     <file>Resources/icons/blank-albumart.svg</file>

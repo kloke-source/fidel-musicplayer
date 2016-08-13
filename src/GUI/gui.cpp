@@ -11,6 +11,7 @@ extern "C" {
 #include <GUI/playlist.h>
 #include <GUI/playlist-manager.h>
 #include <GUI/fidel-popover.h>
+#include <GUI/fidel-options.h>
 #include <Utilities/util.h>
 //#include <Utilities/btree.h>
 #include <Audio/playback.h>
@@ -90,7 +91,10 @@ void gui::initialize(int argc, char **argv)
   Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "anorak.fidel");
   gui::init_builder();
   gui::get_widgets();
-  gui::init_stack_sidebar();  
+  FidelOptions fidel_options;
+  split_view_spectrum->pack_start(fidel_options, Gtk::PACK_EXPAND_WIDGET);
+  fidel_options.show();
+  gui::init_stack_sidebar();
   gui::init_connections();
   gui::init_icons();
   gui::init_playback_functions();
@@ -276,7 +280,7 @@ void gui::init_stack_sidebar()
 
 void gui::add_playlist_row(std::vector<std::string> row_data)
 {
-  all_songs_playlist->add_list_store_row(row_data);
+  all_songs_playlist->add_row(row_data);
 }
 
 void gui::pb_slider_val_changed()

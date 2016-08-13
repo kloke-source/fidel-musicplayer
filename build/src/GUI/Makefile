@@ -125,6 +125,33 @@ GUI/fast:
 	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
 .PHONY : GUI/fast
 
+fidel-options.o: fidel-options.cpp.o
+
+.PHONY : fidel-options.o
+
+# target to build an object file
+fidel-options.cpp.o:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o
+.PHONY : fidel-options.cpp.o
+
+fidel-options.i: fidel-options.cpp.i
+
+.PHONY : fidel-options.i
+
+# target to preprocess a source file
+fidel-options.cpp.i:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.i
+.PHONY : fidel-options.cpp.i
+
+fidel-options.s: fidel-options.cpp.s
+
+.PHONY : fidel-options.s
+
+# target to generate assembly for a file
+fidel-options.cpp.s:
+	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.s
+.PHONY : fidel-options.cpp.s
+
 fidel-popover.o: fidel-popover.cpp.o
 
 .PHONY : fidel-popover.o
@@ -323,6 +350,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... GUI"
+	@echo "... fidel-options.o"
+	@echo "... fidel-options.i"
+	@echo "... fidel-options.s"
 	@echo "... fidel-popover.o"
 	@echo "... fidel-popover.i"
 	@echo "... fidel-popover.s"

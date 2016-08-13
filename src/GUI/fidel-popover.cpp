@@ -47,8 +47,15 @@ void FidelPopover::add_title(std::string title)
   
   entry->pack_start(*label, Gtk::PACK_EXPAND_WIDGET);
   popover_frame->pack_start(*entry, Gtk::PACK_SHRINK);
-  items_in_popover.emplace_back(PopoverEntries{entry, NULL, label, NULL, NULL});
+  items_in_popover.emplace_back(PopoverEntries{NULL, entry, NULL, label, NULL, NULL});
   FidelPopover::add_separator();
+}
+
+void FidelPopover::add_entry(Gtk::Button *button_entry)
+{
+  std::cout << "Popover button clicked" << std::endl;
+  popover_frame->pack_start(*button_entry, Gtk::PACK_EXPAND_WIDGET);
+  items_in_popover.emplace_back(PopoverEntries{button_entry, NULL, NULL, NULL, NULL, NULL});  
 }
 
 void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
@@ -73,7 +80,7 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
     entry->pack_start(*image, Gtk::PACK_SHRINK);
     entry->pack_end(*label, Gtk::PACK_EXPAND_WIDGET);
     popover_frame->pack_start(*entry, Gtk::PACK_SHRINK);
-    items_in_popover.emplace_back(PopoverEntries{entry, image, label, NULL, NULL});
+    items_in_popover.emplace_back(PopoverEntries{NULL, entry, image, label, NULL, NULL});
   }
   if (image_exists == true) {
     std::cerr << "Error image pointer already in use\n";
@@ -127,7 +134,7 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_text, std
     
     entry->pack_end(*label_container, Gtk::PACK_EXPAND_WIDGET);
     popover_frame->pack_start(*entry, Gtk::PACK_SHRINK);
-    items_in_popover.emplace_back(PopoverEntries{entry, image, prim_label, supp_label, NULL});
+    items_in_popover.emplace_back(PopoverEntries{NULL, entry, image, prim_label, supp_label, NULL});
   }
   if (image_exists == true) {
     std::cerr << "Error image pointer already in use\n";
@@ -140,7 +147,7 @@ void FidelPopover::add_separator()
   Gtk::Box *separator_container = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
   separator_container->pack_start(*separator, Gtk::PACK_EXPAND_WIDGET);
   popover_frame->pack_start(*separator_container, Gtk::PACK_SHRINK);
-  items_in_popover.emplace_back(PopoverEntries{separator_container, NULL, NULL, NULL, separator});
+  items_in_popover.emplace_back(PopoverEntries{NULL, separator_container, NULL, NULL, NULL, separator});
 }
 
 void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)

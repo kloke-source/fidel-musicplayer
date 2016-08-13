@@ -74,7 +74,7 @@ void Playlist::disable()
   track_finished_connection.disconnect();
 }
 
-void Playlist::add_list_store_row(std::vector<std::string> row_data)
+void Playlist::add_row(std::vector<std::string> row_data)
 {
   total_songs++;
   Gtk::TreeModel::Row row = *(playlist_model->append());
@@ -104,6 +104,12 @@ void Playlist::add_list_store_row(std::vector<std::string> row_data)
   if (alternate_color == true && skip == false){
     alternate_color = false;
   }
+}
+
+void Playlist::add_row(Gtk::TreeModel::Row treemodel_row)
+{
+  Gtk::TreeModel::Row row = *(playlist_model->append());
+  row = treemodel_row;
 }
 
 void Playlist::link_to_search_entry(Gtk::SearchEntry *search_entry)
