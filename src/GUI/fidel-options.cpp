@@ -3,6 +3,7 @@
 FidelOptions::FidelOptions()
 {
   FidelOptions::initialize();
+  FidelOptions::init_connections();  
 }
 
 FidelOptions::~FidelOptions(){}
@@ -58,16 +59,38 @@ void FidelOptions::initialize()
   options_popover->add_entry(add_to_bottom_of_queue_button);
   options_popover->set_relative_to(*this);
   options_popover->set_size_request(0, 0);
-
-  FidelOptions::init_connections();
 }
 
 void FidelOptions::init_connections()
 {
-  //  this->signal_clicked().connect(sigc::mem_fun(this, &FidelOptions::on_options_clicked));
+}
+
+void FidelOptions::set_play_next_cb(std::function<void()> cb_func)
+{
+  play_next_button->signal_clicked().connect(cb_func);
+}
+
+void FidelOptions::set_add_to_bottom_of_queue_cb(std::function<void()> cb_func)
+{
+  add_to_bottom_of_queue_button->signal_clicked().connect(cb_func);
+}
+
+FidelPopover* FidelOptions::get_popover()
+{
+  return options_popover;
 }
 
 void FidelOptions::on_clicked()
 {
-    options_popover->show_all();
+  options_popover->show_all();
 }
+
+void FidelOptions::on_play_next_clicked()
+{
+  std::cout << "On play next clicked " << std::endl;
+}
+
+void FidelOptions::on_add_to_bottom_of_queue_clicked()
+{
+}
+							  

@@ -2,9 +2,12 @@
 #define FIDEL_OPTIONS_HH
 
 #include <gtkmm.h>
+#include <iostream>
 #include <GUI/gui.h>
 #include <Utilities/util.h>
 #include <GUI/fidel-popover.h>
+
+class FidelPopover;
 
 class FidelOptions : public Gtk::Button {
  public:
@@ -19,10 +22,15 @@ class FidelOptions : public Gtk::Button {
   
   void initialize();
   void init_connections();
+
+  void set_play_next_cb(std::function<void()> cb_func);
+  void set_add_to_bottom_of_queue_cb(std::function<void()> cb_func);
+  FidelPopover* get_popover();
  private:
   int default_font_size = 11;
   bool popover_hidden = true;
   Pango::FontDescription default_font;
+  std::function<void()> test_func;
   
   Gtk::Button *play_next_button;
   Gtk::Button *add_to_bottom_of_queue_button;
@@ -41,5 +49,7 @@ class FidelOptions : public Gtk::Button {
 
   //signal handlers
   void on_clicked() override;
+  void on_play_next_clicked();
+  void on_add_to_bottom_of_queue_clicked();
 };
 #endif

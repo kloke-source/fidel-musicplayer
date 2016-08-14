@@ -1,10 +1,23 @@
 #ifndef GUI
 #define GUI
+
 #include <vector>
 #include <gtkmm.h>
 #include <iostream>
-#include <GUI/singleton.h>
+#include <gio/gio.h>
+#include <GUI/seeker.h>
+#include <GUI/themer.h>
 #include <GUI/playlist.h>
+#include <GUI/singleton.h>
+#include <GUI/playlist-manager.h>
+#include <Spectrum/spectrum.h>
+#include <Audio/playback.h>
+#include <Audio-Library/audio-library.h>
+#include <Utilities/util.h>
+
+extern "C" {
+#include <GUI/fidel-resources.h>
+}
 
 typedef Glib::RefPtr<Gtk::Builder> Builder;
 typedef Glib::RefPtr<Gtk::FileFilter> FileFilter;
@@ -20,7 +33,8 @@ typedef Gtk::Grid Grid;
 typedef Gtk::Scale Scale;
 typedef Gtk::Button Button;
 
-class gui{
+class Playlist;
+class gui {
  public:
   gui();
   virtual ~gui();
@@ -30,6 +44,8 @@ class gui{
   void update_pb_timer(double time);
   void set_pb_endtime(int endtime);
   void add_playlist_row(std::vector<std::string> row_data);
+  
+  void add_to_queue(std::vector<std::string> row_data);
  private:
   // variables
   Glib::RefPtr<Gio::Resource> fidel_resources;
@@ -73,5 +89,4 @@ class gui{
 };
 
 typedef Singleton<gui> fidel_ui;
-typedef Singleton<Playlist> all_songs;
 #endif

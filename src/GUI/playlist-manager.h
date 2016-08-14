@@ -6,6 +6,8 @@
 #include <iostream>
 #include <GUI/playlist.h>
 
+class Playlist;
+
 class PlaylistManager : public Gtk::StackSidebar {
  public:
   PlaylistManager();

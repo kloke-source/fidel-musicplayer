@@ -5,10 +5,16 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/fidel-options.h
  ../src/GUI/fidel-popover.h
+ ../src/GUI/fidel-resources.h
  ../src/GUI/gui.h
+ ../src/GUI/playlist-manager.h
  ../src/GUI/playlist.h
+ ../src/GUI/seeker.h
  ../src/GUI/singleton.h
+ ../src/GUI/themer.h
+ ../src/Spectrum/spectrum.h
  ../src/Utilities/btree.h
  ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Info/audioinfo.cpp

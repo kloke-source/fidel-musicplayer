@@ -53,7 +53,6 @@ void FidelPopover::add_title(std::string title)
 
 void FidelPopover::add_entry(Gtk::Button *button_entry)
 {
-  std::cout << "Popover button clicked" << std::endl;
   popover_frame->pack_start(*button_entry, Gtk::PACK_EXPAND_WIDGET);
   items_in_popover.emplace_back(PopoverEntries{button_entry, NULL, NULL, NULL, NULL, NULL});  
 }

@@ -5,7 +5,10 @@
 #include <gtkmm.h>
 #include <Audio/playback.h>
 #include <Utilities/btree.h>
-#include <GUI/fidel-popover.h>
+#include <GUI/fidel-options.h>
+
+//class gui;
+class FidelOptions;
 
 class Playlist : public Gtk::ScrolledWindow {
  public:
@@ -37,11 +40,17 @@ class Playlist : public Gtk::ScrolledWindow {
   void enable();
   void disable();
   void add_row(std::vector<std::string> row_data);
-  void add_row(Gtk::TreeModel::Row treemodel_row);
   void link_to_search_entry(Gtk::SearchEntry *search_entry);
  private:
   // connections
   sigc::connection track_finished_connection;
+
+  // enums
+  enum {
+    LEFT_CLICK = 1,
+    MIDDLE_CLICK = 2,
+    RIGHT_CLICK  = 3
+  };
   
   // variables
   int total_songs;
@@ -78,10 +87,11 @@ class Playlist : public Gtk::ScrolledWindow {
   void on_insert_text(const std::string& text, int* character_num);
   void on_delete_text(int start_pos, int end_pos);
   void search_playlist(std::string search_term);
-
+  
   // signal handlers
-  void on_double_click_handler(const Gtk::TreeModel::Path& path, Gtk::TreeViewColumn *column);
+  void on_row_double_clicked(const Gtk::TreeModel::Path& path, Gtk::TreeViewColumn *column);
+  bool on_right_click(GdkEventButton *button_event);  
   void on_track_finished();
 };
-typedef Singleton<FidelPopover> fidel_popover;
+
 #endif

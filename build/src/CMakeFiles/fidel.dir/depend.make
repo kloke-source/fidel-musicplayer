@@ -4,10 +4,16 @@
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Audio-Info/audioinfo.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Audio-Library/audio-library.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Audio/playback.h
+src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/fidel-options.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/fidel-popover.h
+src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/fidel-resources.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/gui.h
+src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/playlist-manager.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/playlist.h
+src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/seeker.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/singleton.h
+src/CMakeFiles/fidel.dir/main.cpp.o: ../src/GUI/themer.h
+src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Spectrum/spectrum.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Utilities/btree.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/Utilities/util.h
 src/CMakeFiles/fidel.dir/main.cpp.o: ../src/main.cpp
