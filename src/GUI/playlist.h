@@ -39,7 +39,10 @@ class Playlist : public Gtk::ScrolledWindow {
 
   void enable();
   void disable();
-  void add_row(std::vector<std::string> row_data);
+  void prepend_row(std::vector<std::string> row_data);    
+  void append_after_current(std::vector<std::string> row_data);
+  void append_row(std::vector<std::string> row_data);
+  void append_row();  
   void link_to_search_entry(Gtk::SearchEntry *search_entry);
  private:
   // connections

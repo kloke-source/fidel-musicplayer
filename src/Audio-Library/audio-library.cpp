@@ -569,7 +569,7 @@ int AudioLibrary::populate_playlist_cb(void *data, int total_col_num, char **val
   row_data.push_back(value[LIB_ALBUM]);
   row_data.push_back(value[LIB_TIME]);
   row_data.push_back(value[LIB_FILE_LOCATION]);
-  fidel_ui::Instance()->add_playlist_row(row_data);
+  fidel_ui::Instance()->append_playlist_row(row_data);
   return 0;
 }
 

@@ -76,10 +76,10 @@ void Playlist::disable()
   track_finished_connection.disconnect();
 }
 
-void Playlist::add_row(std::vector<std::string> row_data)
+void Playlist::prepend_row(std::vector<std::string> row_data)
 {
   total_songs++;
-  Gtk::TreeModel::Row row = *(playlist_model->append());
+  Gtk::TreeModel::Row row = *(playlist_model->prepend());
   row[playlist_columns.col_name] = row_data[COL_NAME];
   row[playlist_columns.col_artist] = row_data[COL_ARTIST];
   row[playlist_columns.col_album] = row_data[COL_ALBUM];
@@ -93,19 +93,84 @@ void Playlist::add_row(std::vector<std::string> row_data)
   file_count_iter++;
   if (alternate_color == false){
     row[playlist_columns.col_color] = "#464545";
+    alternate_color = true;    
+  }
+  else {
+    row[playlist_columns.col_color] = "#373535";
+    alternate_color = false;    
+  }  
+}
+
+void Playlist::append_after_current(std::vector<std::string> row_data)
+{
+  Gtk::TreeModel::Children rows = playlist_model->children();
+  Gtk::TreeModel::Children::iterator after_curr_iterator = rows[curr_song_iterator];
+  total_songs++;
+  Gtk::TreeModel::Row row = *(playlist_model->insert_after(after_curr_iterator));
+  
+  row[playlist_columns.col_name] = row_data[COL_NAME];
+  row[playlist_columns.col_artist] = row_data[COL_ARTIST];
+  row[playlist_columns.col_album] = row_data[COL_ALBUM];
+  row[playlist_columns.col_time] = row_data[COL_TIME];
+  row[playlist_columns.col_file_location] = row_data[COL_FILE_LOC];
+  
+  file_count_iter++;
+  if (alternate_color == false){
+    row[playlist_columns.col_color] = "#464545";
+    alternate_color = true;    
+  }
+  else {
+    row[playlist_columns.col_color] = "#373535";
+    alternate_color = false;    
+  }  
+}
+
+void Playlist::append_row(std::vector<std::string> row_data)
+{
+  total_songs++;
+  Gtk::TreeModel::Row row = *(playlist_model->append());
+  row[playlist_columns.col_name] = row_data[COL_NAME];
+  row[playlist_columns.col_artist] = row_data[COL_ARTIST];
+  row[playlist_columns.col_album] = row_data[COL_ALBUM];
+  row[playlist_columns.col_time] = row_data[COL_TIME];
+  row[playlist_columns.col_file_location] = row_data[COL_FILE_LOC];
+  
+  for(int iter=0; iter < 4; iter++) {
+    playlist_info_store[iter].insert(row_data[iter], file_count_iter);
+  }
+  
+  file_count_iter++;
+  if (alternate_color == false){
+    row[playlist_columns.col_color] = "#464545";
+    alternate_color = true;    
+  }
+  else {
+    row[playlist_columns.col_color] = "#373535";
+    alternate_color = false;    
+  }
+}
+
+void Playlist::append_row()
+{
+  total_songs++;
+  Gtk::TreeModel::Row row = *(playlist_model->append());
+  row[playlist_columns.col_name] = "";
+  row[playlist_columns.col_artist] = "";
+  row[playlist_columns.col_album] = "";
+  row[playlist_columns.col_time] = "";
+  row[playlist_columns.col_file_location] = "";
+  
+  if (alternate_color == false){
+    row[playlist_columns.col_color] = "#464545";
   }
   else {
     row[playlist_columns.col_color] = "#373535";
   }
 
-  bool skip = false;
-  if (alternate_color == false){
+  if (alternate_color == false)
     alternate_color = true;
-    skip = true;
-  }
-  if (alternate_color == true && skip == false){
+  else
     alternate_color = false;
-  }
 }
 
 void Playlist::link_to_search_entry(Gtk::SearchEntry *search_entry)
@@ -274,12 +339,22 @@ bool Playlist::on_right_click(GdkEventButton *button_event)
     row_data.push_back((row[playlist_columns.col_time]));
     row_data.push_back((row[playlist_columns.col_file_location]));
 
-    std::function<void()> add_to_bottom_of_queue_cb_func = [row_data, this](){
-      fidel_ui::Instance()->add_to_queue(row_data);
+    FidelPopover *options_popover = fidel_options.get_popover();
+
+    Playlist* queue = fidel_ui::Instance()->get_playlist_queue();
+    std::function<void()> play_next_cb_func = [row_data, queue, options_popover](){
+      queue->append_after_current(row_data);
+      options_popover->hide();
+    };
+      
+    std::function<void()> add_to_bottom_of_queue_cb_func = [row_data, queue, options_popover](){
+      queue->append_row(row_data);
+      options_popover->hide();      
     };
 
     fidel_options.set_add_to_bottom_of_queue_cb(add_to_bottom_of_queue_cb_func);
-    FidelPopover *options_popover = fidel_options.get_popover();
+    fidel_options.set_play_next_cb(play_next_cb_func);
+
     const Gdk::Rectangle pointing_area(button_event->x, button_event->y, 1, 1);
     options_popover->set_pointing_to(pointing_area);
     options_popover->set_relative_to(*this);

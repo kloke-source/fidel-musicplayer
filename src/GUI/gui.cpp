@@ -264,14 +264,14 @@ void gui::init_stack_sidebar()
   playlist_stack_sidebar_container->show_all();
 }
 
-void gui::add_playlist_row(std::vector<std::string> row_data)
+Playlist* gui::get_playlist_queue()
 {
-  all_songs_playlist->add_row(row_data);
+  return queue_playlist;
 }
 
-void gui::add_to_queue(std::vector<std::string> row_data)
+void gui::append_playlist_row(std::vector<std::string> row_data)
 {
-  queue_playlist->add_row(row_data);
+  all_songs_playlist->append_row(row_data);
 }
 
 void gui::pb_slider_val_changed()
