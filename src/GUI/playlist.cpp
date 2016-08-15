@@ -105,24 +105,36 @@ void Playlist::append_after_current(std::vector<std::string> row_data)
 {
   Gtk::TreeModel::Children rows = playlist_model->children();
   Gtk::TreeModel::Children::iterator after_curr_iterator = rows[curr_song_iterator];
+  Gtk::TreeModel::Row row = *(playlist_model->insert_after(after_curr_iterator));  
   total_songs++;
-  Gtk::TreeModel::Row row = *(playlist_model->insert_after(after_curr_iterator));
+  file_count_iter++;  
   
   row[playlist_columns.col_name] = row_data[COL_NAME];
   row[playlist_columns.col_artist] = row_data[COL_ARTIST];
   row[playlist_columns.col_album] = row_data[COL_ALBUM];
   row[playlist_columns.col_time] = row_data[COL_TIME];
   row[playlist_columns.col_file_location] = row_data[COL_FILE_LOC];
-  
-  file_count_iter++;
-  if (alternate_color == false){
-    row[playlist_columns.col_color] = "#464545";
-    alternate_color = true;    
+
+  bool alternate_color = false;
+  if (rows[curr_song_iterator].get_value(playlist_columns.col_color) == "#464545")
+    alternate_color = true;
+  int iter;
+  if (curr_song_iterator == 0)
+    iter = curr_song_iterator;
+  else
+    iter = curr_song_iterator + 1;
+  while (iter < total_songs) {
+    Gtk::TreeModel::Row row = *(rows[iter]);
+    if (alternate_color == false){
+      row[playlist_columns.col_color] = "#464545";
+      alternate_color = true;    
+    }
+    else {
+      row[playlist_columns.col_color] = "#373535";
+      alternate_color = false;    
+    }
+    iter++;
   }
-  else {
-    row[playlist_columns.col_color] = "#373535";
-    alternate_color = false;    
-  }  
 }
 
 void Playlist::append_row(std::vector<std::string> row_data)
