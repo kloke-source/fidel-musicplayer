@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Spectrum.dir/spectrum.cpp.o"
-  "libSpectrum.pdb"
-  "libSpectrum.a"
+  "libSpectrum_debug.pdb"
+  "libSpectrum_debug.a"
 )
 
 # Per-language clean rules from dependency scanning.

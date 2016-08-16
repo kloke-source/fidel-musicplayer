@@ -23,8 +23,15 @@ class FidelOptions : public Gtk::Button {
   void initialize();
   void init_connections();
 
+  void show_popover();
+  void hide_popover();
+  void set_relative_to(const Gtk::Widget& widget);
+  void set_pointing_to(const Gdk::Rectangle& rect);
   void set_play_next_cb(std::function<void()> cb_func);
   void set_add_to_bottom_of_queue_cb(std::function<void()> cb_func);
+  
+  Gtk::Image* get_icon();
+  Gtk::Image* get_icon(IconType icon_type);
   FidelPopover* get_popover();
  private:
   int default_font_size = 11;
@@ -46,10 +53,5 @@ class FidelOptions : public Gtk::Button {
   Gtk::Label *play_next_label;
   Gtk::Label *add_to_bottom_of_queue_label;
   FidelPopover *options_popover;
-
-  //signal handlers
-  void on_clicked() override;
-  void on_play_next_clicked();
-  void on_add_to_bottom_of_queue_clicked();
 };
 #endif

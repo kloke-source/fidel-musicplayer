@@ -135,6 +135,7 @@ void Playlist::append_after_current(std::vector<std::string> row_data)
     }
     iter++;
   }
+  this->alternate_color = alternate_color;
 }
 
 void Playlist::append_row(std::vector<std::string> row_data)
@@ -245,18 +246,24 @@ void Playlist::search_playlist(std::string search_term)
 	std::vector<std::string> artist_search_results;
 	std::vector<std::string> album_search_results;
 	std::vector<std::string> file_loc_search_results;
-
+	std::vector<std::string> time_search_results;
+	
 	for (size_t iter = 0; iter < search_ids.size(); iter++) {
-	  song_name_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_name));
+	  std::string song_name = rows[search_ids[iter]].get_value(playlist_columns.col_name);
 	  std::string artist_name = rows[search_ids[iter]].get_value(playlist_columns.col_artist);
 	  std::string album_name = rows[search_ids[iter]].get_value(playlist_columns.col_album);
+	  std::string time = rows[search_ids[iter]].get_value(playlist_columns.col_time);
+	  
+	  song_name_search_results.push_back(song_name);
 	  artist_search_results.push_back(artist_name);
-	  album_search_results.push_back(album_name);	    
+	  album_search_results.push_back(album_name);
+	  time_search_results.push_back(time);
 	  file_loc_search_results.push_back(rows[search_ids[iter]].get_value(playlist_columns.col_file_location));
 	}
 	full_search_results.push_back(song_name_search_results);
 	full_search_results.push_back(artist_search_results);
 	full_search_results.push_back(album_search_results);
+	full_search_results.push_back(time_search_results);
 	full_search_results.push_back(file_loc_search_results);
 	break;
       }

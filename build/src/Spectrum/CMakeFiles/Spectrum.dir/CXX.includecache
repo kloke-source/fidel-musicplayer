@@ -79,6 +79,8 @@ iostream
 -
 vector
 -
+GUI/fidel-options.h
+-
 
 ../src/GUI/fidel-resources.h
 gio/gio.h

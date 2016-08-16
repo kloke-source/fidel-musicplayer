@@ -65,6 +65,26 @@ void FidelOptions::init_connections()
 {
 }
 
+void FidelOptions::show_popover()
+{
+  options_popover->show_all();
+}
+
+void FidelOptions::hide_popover()
+{
+  options_popover->hide();
+}
+
+void FidelOptions::set_relative_to(const Gtk::Widget& widget)
+{
+  options_popover->set_relative_to(widget);
+}
+
+void FidelOptions::set_pointing_to(const Gdk::Rectangle& rect)
+{
+  options_popover->set_pointing_to(rect);
+}
+
 void FidelOptions::set_play_next_cb(std::function<void()> cb_func)
 {
   play_next_button->signal_clicked().connect(cb_func);
@@ -75,22 +95,32 @@ void FidelOptions::set_add_to_bottom_of_queue_cb(std::function<void()> cb_func)
   add_to_bottom_of_queue_button->signal_clicked().connect(cb_func);
 }
 
+Gtk::Image* FidelOptions::get_icon()
+{
+  Gtk::Image *icon = new Gtk::Image();
+  icon->set(view_more_horizontal_icon->get_pixbuf());
+  return icon;
+}
+
+Gtk::Image* FidelOptions::get_icon(IconType icon_type)
+{
+  switch (icon_type) {
+  case HORIZONTAL_ICON: {
+    Gtk::Image *icon = new Gtk::Image();
+    icon->set(view_more_horizontal_icon->get_pixbuf());    
+    return icon;
+    break;
+  }
+  case VERTICAL_ICON: {
+    Gtk::Image *icon = new Gtk::Image();
+    icon->set(view_more_vertical_icon->get_pixbuf());    
+    return icon;
+    break;
+  }
+  }
+}
+
 FidelPopover* FidelOptions::get_popover()
 {
   return options_popover;
-}
-
-void FidelOptions::on_clicked()
-{
-  options_popover->show_all();
-}
-
-void FidelOptions::on_play_next_clicked()
-{
-  std::cout << "On play next clicked " << std::endl;
-}
-
-void FidelOptions::on_add_to_bottom_of_queue_clicked()
-{
-}
-							  
+}							  

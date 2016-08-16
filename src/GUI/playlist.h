@@ -19,6 +19,7 @@ class Playlist : public Gtk::ScrolledWindow {
     SONG_NAME,
     ARTIST,
     ALBUM,
+    TIME,
     FILE_LOC
   };
 
