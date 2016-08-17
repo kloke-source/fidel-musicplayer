@@ -331,7 +331,7 @@ void gui::set_sidebar_data(char *now_playing_song)
   
   sidebar_album_art = audioinfo::get_album_art((std::string)now_playing_song);
   
-  util::resize_image(*sidebar_album_art, default_sidebar_size, default_sidebar_size);
+  sidebar_album_art = util::resize_image(sidebar_album_art, default_sidebar_size, default_sidebar_size);
   sidebar_album_art_container->pack_start(*sidebar_album_art, Gtk::PACK_EXPAND_WIDGET);
   // sidebar_audioinfo_layout->set_resize_mode(Gtk::RESIZE_QUEUE);
 

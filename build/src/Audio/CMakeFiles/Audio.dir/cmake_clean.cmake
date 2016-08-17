@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Audio.dir/playback.cpp.o"
-  "libAudio_debug.pdb"
-  "libAudio_debug.a"
+  "libAudio.pdb"
+  "libAudio.a"
 )
 
 # Per-language clean rules from dependency scanning.

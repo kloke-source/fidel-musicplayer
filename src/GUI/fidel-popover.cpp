@@ -92,7 +92,7 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
   }
 
   if (image_exists == false) {
-    util::resize_image(*image, default_image_size, default_image_size);
+    image = util::resize_image(image, default_image_size, default_image_size);
     image->set_margin_left(15);
     content_frame->pack_start(*image, Gtk::PACK_SHRINK);
     content_frame->pack_end(*label, Gtk::PACK_EXPAND_WIDGET);
@@ -153,7 +153,7 @@ FidelOptions* FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_
   }
 
   if (image_exists == false) {
-    util::resize_image(*image, default_image_size, default_image_size);
+    image = util::resize_image(image, default_image_size, default_image_size);
     image->set_margin_left(15);
     image->set_margin_right(5);
 
