@@ -38,11 +38,8 @@ void PlaylistManager::add_playlist(Playlist& playlist, const Glib::ustring& name
 void PlaylistManager::on_playlist_switched(Gtk::Widget *widget)
 {
   std::cout << "On playlist switched" << std::endl;
-  Playlist *switched_playlist = (Playlist*)widget;
-  for (size_t iter = 0; iter < playlists.size(); iter++) {
-    if (playlists[iter] != switched_playlist)
-      playlists[iter]->disable();
-    else
-      playlists[iter]->enable();
-  }
+  Playlist *active_playlist = (Playlist*)playlist_stack->get_visible_child();
+  for (size_t iter = 0; iter < playlists.size(); iter++)
+    playlists[iter]->disable();
+  active_playlist->enable();
 }
