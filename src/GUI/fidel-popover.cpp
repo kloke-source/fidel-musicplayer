@@ -92,7 +92,7 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
   }
 
   if (image_exists == false) {
-    util::resize_image(image, default_image_size, default_image_size);
+    util::resize_image(*image, default_image_size, default_image_size);
     image->set_margin_left(15);
     content_frame->pack_start(*image, Gtk::PACK_SHRINK);
     content_frame->pack_end(*label, Gtk::PACK_EXPAND_WIDGET);
@@ -153,7 +153,7 @@ FidelOptions* FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_
   }
 
   if (image_exists == false) {
-    util::resize_image(image, default_image_size, default_image_size);
+    util::resize_image(*image, default_image_size, default_image_size);
     image->set_margin_left(15);
     image->set_margin_right(5);
 
@@ -210,8 +210,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
     FidelPopover::add_title("Songs");    
     // Add songs to popover
 
-    std::string current_album;
-    std::tuple<guint8*, gsize, bool> current_raw_album_art;
+    //    std::string current_album;
     std::vector<std::vector<std::string>> full_row_data;
     Playlist *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
       
@@ -234,23 +233,8 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
       std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
       std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
 
-      if (current_album != album) {
-	current_album = album;
-	current_raw_album_art = audioinfo::extract_album_art(file_loc);
-      }
-      
-      Gtk::Image *album_art = new Gtk::Image();
-      bool album_art_exists = false;
-      if (std::get<2>(current_raw_album_art) == true) {
-	Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
-	loader->write(std::get<0>(current_raw_album_art), std::get<1>(current_raw_album_art));
-	loader->close();
-	Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
-	album_art->set(pixbuf);
-	album_art_exists = true;
-      }
-      if (album_art_exists == false)
-	album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");      
+      std::cout << "Popover file_loc " << file_loc << std::endl;
+      Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
       FidelOptions *fidel_options = FidelPopover::add_entry(album_art, song_name, supp_label);      
       fidel_options->set_play_next_cb([queue_playlist, full_row_data, iter, fidel_options](){
 	  queue_playlist->append_after_current(full_row_data[iter]);
@@ -264,6 +248,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	break;      
     }
 
+
     if (populate_data[Playlist::SONG_NAME].size() > 1)
       {
 	// Add artists and albums to popover
@@ -272,7 +257,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 
 	btree<std::string> added_artists;
 	std::vector<std::string> grouped_artists;
-	std::vector<std::tuple<guint8*, gsize, bool>> grouped_raw_album_art;
+	std::vector<Gtk::Image*> grouped_raw_album_art;
 	std::vector<int> num_songs_artist;
     
 	for (size_t iter = 0; iter < populate_data[Playlist::ARTIST].size(); iter++) {
@@ -280,11 +265,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	  std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
 	  std::string album = populate_data[Playlist::ALBUM][iter];
 
-	  if (current_album != album) {
-	    current_album = album;
-	    current_raw_album_art = audioinfo::extract_album_art(file_loc);
-	  }
-	  grouped_raw_album_art.push_back(current_raw_album_art);
+	  grouped_raw_album_art.push_back(audioinfo::get_album_art(file_loc));
 	
 	  if (added_artists.search(artist) != artist) {
 	    added_artists.insert(artist);
@@ -298,19 +279,8 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 
 	grouped_artists = added_artists.inorder();
 	for (size_t iter = 0; iter < grouped_artists.size(); iter++) {
-	  Gtk::Image *album_art = new Gtk::Image();
-	  bool album_art_exists = false;
-	  if (std::get<2>(grouped_raw_album_art[iter]) == true) {
-	    Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
-	    loader->write(std::get<0>(grouped_raw_album_art[iter]), std::get<1>(grouped_raw_album_art[iter]));
-	    loader->close();
-	    Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
-	    album_art->set(pixbuf);
-	    album_art_exists = true;
-	  }
-	  if (album_art_exists == false)
-	    album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");      
-      
+	  Gtk::Image *album_art = grouped_raw_album_art[iter];
+	  
 	  FidelOptions *fidel_options = FidelPopover::add_entry(album_art, grouped_artists[iter], util::to_string(num_songs_artist[iter]));
 	  fidel_options->set_play_next_cb([queue_playlist, full_row_data, fidel_options](){
 	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
@@ -340,24 +310,9 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
       
 	  if (added_albums.check(album) == false) {
 	    added_albums.insert(album);
-
-	    if (current_album != album) {
-	      current_album = album;
-	      current_raw_album_art = audioinfo::extract_album_art(file_loc);
-	    }
-
-	    Gtk::Image *album_art = new Gtk::Image();
-	    bool album_art_exists = false;
-	    if (std::get<2>(current_raw_album_art) == true) {
-	      Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
-	      loader->write(std::get<0>(current_raw_album_art), std::get<1>(current_raw_album_art));
-	      loader->close();
-	      Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
-	      album_art->set(pixbuf);
-	      album_art_exists = true;
-	    }
-	    if (album_art_exists == false)
-	      album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");
+	    
+	    Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
+	    
 	    FidelOptions *fidel_options = FidelPopover::add_entry(album_art, album, supp_label);
 	    fidel_options->set_play_next_cb([queue_playlist, full_row_data, fidel_options](){
 		for (size_t iter = 0; iter < full_row_data.size(); iter++) {

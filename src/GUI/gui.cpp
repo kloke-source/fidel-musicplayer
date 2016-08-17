@@ -324,20 +324,14 @@ bool gui::on_window_closed(GdkEventAny* event)
 
 void gui::set_sidebar_data(char *now_playing_song)
 {
-  std::tuple<guint8*, gsize, bool> raw_album_art = audioinfo::extract_album_art(now_playing_song);
-  delete sidebar_album_art;
-  sidebar_album_art = Gtk::manage(new Gtk::Image);
-  
-  if (std::get<2>(raw_album_art) == true) {
-    Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
-    loader->write(std::get<0>(raw_album_art), std::get<1>(raw_album_art));
-    loader->close();
-    Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
-    sidebar_album_art->set(pixbuf);
-  }
+  if (sidebar_album_art == NULL)
+  sidebar_album_art = Gtk::manage(new Gtk::Image());
   else
-    sidebar_album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");
-  util::resize_image(sidebar_album_art, default_sidebar_size, default_sidebar_size);
+    sidebar_album_art_container->remove(*sidebar_album_art);
+  
+  sidebar_album_art = audioinfo::get_album_art((std::string)now_playing_song);
+  
+  util::resize_image(*sidebar_album_art, default_sidebar_size, default_sidebar_size);
   sidebar_album_art_container->pack_start(*sidebar_album_art, Gtk::PACK_EXPAND_WIDGET);
   // sidebar_audioinfo_layout->set_resize_mode(Gtk::RESIZE_QUEUE);
 

@@ -34,9 +34,9 @@ namespace {
   };
   
   AudioFileInfo info;
-  ExtractedAlbumArtSuppData extracted_album_art_supp_data;
-  
+  ExtractedAlbumArtSuppData extracted_album_art_supp_data;  
   std::vector<Gtk::Image*> extracted_album_art;
+  int total_extracted_album_art = 0;
 }
 
 bool audioinfo::init_checker(char *filesrc)
@@ -143,7 +143,8 @@ Gtk::Image* audioinfo::get_album_art(std::string file_location)
   std::tuple<guint8*, gsize, bool> raw_album_art;
   
   bool album_art_found = extracted_album_art_supp_data.file_locs.check(file_location);
-    int found_pos = extracted_album_art_supp_data.file_locs.get_search_id();  
+    int found_pos = extracted_album_art_supp_data.file_locs.get_search_id();
+    std::cout << "Found pos (iteration 0)" << found_pos << std::endl;
     if (album_art_found == false) {
       audioinfo::init(util::to_char(file_location));
       current_file_album = audioinfo::get_info(ALBUM);
@@ -154,21 +155,24 @@ Gtk::Image* audioinfo::get_album_art(std::string file_location)
       if (album_art_found == false) {
 	album_art_found = extracted_album_art_supp_data.artists.check(current_file_artist);
 	found_pos = extracted_album_art_supp_data.artists.get_search_id();
+    std::cout << "Found pos (iteration 1)" << found_pos << std::endl;
       }
       if (album_art_found == false) {
 	raw_album_art = audioinfo::extract_album_art(file_location);
 	album_art_found = extracted_album_art_supp_data.pixel_data.check(*std::get<0>(raw_album_art));
 	found_pos = extracted_album_art_supp_data.pixel_data.get_search_id();
+    std::cout << "Found pos (iteration 2)" << found_pos << std::endl;
       }
     }
     
-  if (album_art_found == true) {
+  if (album_art_found == true) {    
     Gtk::Image *album_art = new Gtk::Image();
     Glib::RefPtr<Gdk::Pixbuf> existing_pixbuf = extracted_album_art[found_pos]->get_pixbuf();
     album_art->set(existing_pixbuf);
     return album_art;
   }
   if (album_art_found == false) {
+    std::cout << "Last resort album art not found" << std::endl;
     Gtk::Image *album_art = new Gtk::Image();
     if (std::get<2>(raw_album_art) == true) {
       Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();      
@@ -179,11 +183,13 @@ Gtk::Image* audioinfo::get_album_art(std::string file_location)
     }
     else
       album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");
-    
-    extracted_album_art_supp_data.file_locs.insert(file_location);
-    extracted_album_art_supp_data.albums.insert(current_file_album);
-    extracted_album_art_supp_data.artists.insert(current_file_artist);
-    extracted_album_art_supp_data.pixel_data.insert(*album_art->get_pixbuf()->get_pixels());
+
+    extracted_album_art.push_back(album_art);
+    extracted_album_art_supp_data.file_locs.insert(file_location, total_extracted_album_art);
+    extracted_album_art_supp_data.albums.insert(current_file_album, total_extracted_album_art);
+    extracted_album_art_supp_data.artists.insert(current_file_artist, total_extracted_album_art);
+    extracted_album_art_supp_data.pixel_data.insert(*album_art->get_pixbuf()->get_pixels(), total_extracted_album_art);
+    total_extracted_album_art++;
     return album_art;
   }
 }
