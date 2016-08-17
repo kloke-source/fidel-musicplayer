@@ -25,6 +25,7 @@ class FidelOptions : public Gtk::Button {
 
   void show_popover();
   void hide_popover();
+  void set_position(Gtk::PositionType position);
   void set_relative_to(const Gtk::Widget& widget);
   void set_pointing_to(const Gdk::Rectangle& rect);
   void set_play_next_cb(std::function<void()> cb_func);

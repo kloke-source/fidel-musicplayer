@@ -71,9 +71,6 @@ void gui::initialize(int argc, char **argv)
   Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "anorak.fidel");
   gui::init_builder();
   gui::get_widgets();
-  // FidelOptions fidel_options;
-  // split_view_spectrum->pack_start(fidel_options, Gtk::PACK_EXPAND_WIDGET);
-  // fidel_options.show();
   gui::init_stack_sidebar();
   gui::init_connections();
   gui::init_icons();
@@ -82,13 +79,7 @@ void gui::initialize(int argc, char **argv)
   gui::init_sidebar();
   gui::init_spectrum();
   gui::set_styles();
-  /*
-  FidelPopover *test_popover = new FidelPopover();
-  const Gdk::Rectangle pointing_area(100, 10, 10, 10);
-  test_popover->set_pointing_to(pointing_area);
-  test_popover->set_relative_to(*fidel_search_entry);  
-  test_popover->show_all();
-  */
+
   window->set_size_request(800, 450);
   window->maximize();
   app->run(*window);

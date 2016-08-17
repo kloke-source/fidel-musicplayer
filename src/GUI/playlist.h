@@ -45,6 +45,10 @@ class Playlist : public Gtk::ScrolledWindow {
   void append_row(std::vector<std::string> row_data);
   void append_row();  
   void link_to_search_entry(Gtk::SearchEntry *search_entry);
+  
+  // signal accessors
+  typedef sigc::signal<void> type_signal_playing;
+  type_signal_playing signal_playing();
  private:
   // connections
   sigc::connection track_finished_connection;
@@ -91,11 +95,16 @@ class Playlist : public Gtk::ScrolledWindow {
   void on_insert_text(const std::string& text, int* character_num);
   void on_delete_text(int start_pos, int end_pos);
   void search_playlist(std::string search_term);
-  
+
+  //signal functions
+  void set_playing();
+    
   // signal handlers
   void on_row_double_clicked(const Gtk::TreeModel::Path& path, Gtk::TreeViewColumn *column);
   bool on_right_click(GdkEventButton *button_event);  
   void on_track_finished();
+ protected:
+  type_signal_playing m_signal_playing;
 };
 
 #endif

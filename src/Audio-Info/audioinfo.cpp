@@ -11,7 +11,10 @@
 #include <Audio-Library/audio-library.h>
 
 audioinfo::audioinfo(){}
-audioinfo::~audioinfo(){}
+audioinfo::~audioinfo()
+{
+  std::cout << "AudioInfo destructor" << std::endl;
+}
 
 namespace {
   TagLib::FileRef audio_file;
@@ -166,7 +169,6 @@ Gtk::Image* audioinfo::get_album_art(std::string file_location)
     return extracted_album_art[found_pos];
   
   if (album_art_found == false) {
-    std::cout << "Last resort album art not found" << std::endl;
     Gtk::Image *album_art = new Gtk::Image();
     if (std::get<2>(raw_album_art) == true) {
       Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();      

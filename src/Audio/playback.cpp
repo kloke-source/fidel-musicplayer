@@ -132,7 +132,6 @@ cb_newpad (GstElement *decodebin __attribute__((unused)),
 
 void playback::audio_file(char *filesrc)
 {
-  std::cout << "Inputted filesrc: "  << filesrc << std::endl;
   if (playback::is_playing() == true || stream_killed == false){
     playback::kill_curr_stream();
   }
@@ -199,28 +198,22 @@ void query_duration()
   gst_element_query_duration (pipeline, GST_FORMAT_TIME, &duration_nanoseconds);
   double duration = ((double)duration_nanoseconds)/1000000000;
 
-  std::cout << "Duration -> " << duration << std::endl;
-  //std::cout << "Test tag dur -> " << audioinfo::tag_duration() << std::endl;
-
   if ((int)duration == audioinfo::tag_duration()){
     audioinfo::set_duration(duration);
     fidel_ui::Instance()->set_pb_endtime(duration);
   }
   if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
     {
-      std::cout << "Duration > tag" << std::endl;
       audioinfo::set_duration_from_tag();
       fidel_ui::Instance()->set_pb_endtime(audioinfo::duration());
     }
   if (audioinfo::tag_duration() > (int)duration && audioinfo::tag_duration() >=3600)
     {
-      std::cout << "tag > duration" << std::endl;
       audioinfo::set_duration(duration);
       fidel_ui::Instance()->set_pb_endtime(duration);
     }
   if ((int)duration == 0 || (int)duration < 0)
     {
-      std::cout << "Duration == 0 || < 0" << std::endl;
       audioinfo::set_duration_from_tag();
       fidel_ui::Instance()->set_pb_endtime(audioinfo::duration());
     }

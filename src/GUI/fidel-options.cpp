@@ -75,6 +75,11 @@ void FidelOptions::hide_popover()
   options_popover->hide();
 }
 
+void FidelOptions::set_position(Gtk::PositionType position)
+{
+  options_popover->set_position(position);
+}
+
 void FidelOptions::set_relative_to(const Gtk::Widget& widget)
 {
   options_popover->set_relative_to(widget);

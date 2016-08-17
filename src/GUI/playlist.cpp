@@ -66,13 +66,11 @@ void Playlist::init_playlist()
 
 void Playlist::enable()
 {
-  std::cout << "Playlist enable " << std::endl;
   track_finished_connection = audio_playback::Instance()->signal_track_finished().connect(sigc::mem_fun(this, &Playlist::on_track_finished));
 }
 
 void Playlist::disable()
 {
-  std::cout << "Playlist disabled " << std::endl;
   track_finished_connection.disconnect();
 }
 
@@ -335,6 +333,7 @@ void Playlist::on_row_double_clicked(const Gtk::TreeModel::Path& path, Gtk::Tree
   curr_song_iterator = util::to_int(selected_path.to_string());
   
   std::string file_location = row.get_value(playlist_columns.col_file_location);
+  Playlist::set_playing();
   fflush(stdout);
   printf("\nselected file_location: %s", file_location.data());
   audio_playback::Instance()->audio_file(util::to_char(file_location));
@@ -404,6 +403,17 @@ void Playlist::on_track_finished()
   playlist_tree_view->scroll_to_row(playlist_model->get_path(iterator));
   selection->select(iterator);
 
-  std::string file_location = rows[curr_song_iterator].get_value(playlist_columns.col_file_location);  
+  std::string file_location = rows[curr_song_iterator].get_value(playlist_columns.col_file_location);
+  Playlist::set_playing();
   audio_playback::Instance()->audio_file(util::to_char(file_location));
+}
+
+void Playlist::set_playing()
+{
+  m_signal_playing.emit();
+}
+
+Playlist::type_signal_playing Playlist::signal_playing()
+{
+  return m_signal_playing;
 }

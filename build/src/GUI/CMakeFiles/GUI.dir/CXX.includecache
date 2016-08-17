@@ -189,19 +189,19 @@ GUI/fidel-options.h
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp
-GUI/fidel-popover.h
+vector
+-
+iostream
 -
 Utilities/util.h
 -
 Utilities/btree.h
 -
+GUI/fidel-popover.h
+-
 Audio-Info/audioinfo.h
 -
 Audio-Library/audio-library.h
--
-vector
--
-iostream
 -
 
 /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp

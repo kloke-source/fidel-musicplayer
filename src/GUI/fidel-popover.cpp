@@ -1,10 +1,10 @@
-#include <GUI/fidel-popover.h>
-#include <Utilities/util.h>
-#include <Utilities/btree.h>
-#include <Audio-Info/audioinfo.h>
-#include <Audio-Library/audio-library.h>
 #include <vector>
 #include <iostream>
+#include <Utilities/util.h>
+#include <Utilities/btree.h>
+#include <GUI/fidel-popover.h>
+#include <Audio-Info/audioinfo.h>
+#include <Audio-Library/audio-library.h>
 
 FidelPopover::FidelPopover()
 {
@@ -14,7 +14,7 @@ FidelPopover::FidelPopover()
 
   default_title_font.set_family("Open Sans Light");
   default_title_font.set_size(12.5 * PANGO_SCALE);
-  
+
   default_prim_popover_font.set_family("Open Sans Light");
   default_prim_popover_font.set_size(11 * PANGO_SCALE);
 
@@ -24,14 +24,17 @@ FidelPopover::FidelPopover()
 
 FidelPopover::~FidelPopover()
 {
-  std::cout << "Fidel popover destructor called" << std::endl;
-  std::cout << "Destructor popping" << std::endl;
+  std::cout << "Fidel Popover Destructor" << std::endl;
   FidelPopover::clear();
 
   while (widgets_in_popover.size())
-    widgets_in_popover[widgets_in_popover.size()];
+    delete widgets_in_popover[widgets_in_popover.size()];
   while (images_in_popover.size())
-    images_in_popover[images_in_popover.size()];
+    delete images_in_popover[images_in_popover.size()];
+  while (fidel_option_icons_vect.size())
+    delete fidel_option_icons_vect[fidel_option_icons_vect.size()];
+  while (toplevel_popover_entries.size())
+    delete toplevel_popover_entries[toplevel_popover_entries.size()];
 }
 
 void FidelPopover::show_all()
@@ -112,7 +115,7 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
   }
 }
 
-void FidelPopover::add_entry(std::pair<guint8*, gsize> image, std::string prim_label_text, std::string supp_label_text)
+FidelOptions* FidelPopover::add_entry(std::pair<guint8*, gsize> image, std::string prim_label_text, std::string supp_label_text)
 {
   Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
   loader->write(image.first, image.second);
@@ -120,7 +123,7 @@ void FidelPopover::add_entry(std::pair<guint8*, gsize> image, std::string prim_l
   Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
   Gtk::Image gtk_image;
   gtk_image.set(pixbuf);
-  FidelPopover::add_entry(&gtk_image, prim_label_text, supp_label_text);
+  return FidelPopover::add_entry(&gtk_image, prim_label_text, supp_label_text);
 }
 
 FidelOptions* FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_text, std::string supp_label_text)
@@ -159,6 +162,7 @@ FidelOptions* FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_
 
     Gtk::Image *fidel_options_icon = fidel_options->get_icon();
     fidel_options->set_relative_to(*button_entry);
+    fidel_options->set_position(Gtk::POS_RIGHT);
     button_entry->signal_clicked().connect([fidel_options](){fidel_options->show_popover();});    
     button_entry->signal_enter().connect([fidel_options_icon](){fidel_options_icon->show();});
     button_entry->signal_leave().connect([fidel_options_icon](){fidel_options_icon->hide();});
@@ -233,16 +237,17 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
       std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
       std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
 
-      std::cout << "Popover file_loc " << file_loc << std::endl;
       Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
       FidelOptions *fidel_options = FidelPopover::add_entry(album_art, song_name, supp_label);      
-      fidel_options->set_play_next_cb([queue_playlist, full_row_data, iter, fidel_options](){
+      fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, iter, fidel_options](){
 	  queue_playlist->append_after_current(full_row_data[iter]);
-	  fidel_options->hide_popover();	
+	  fidel_options->hide_popover();
+	  this->hide();
 	});
-      fidel_options->set_add_to_bottom_of_queue_cb([queue_playlist, full_row_data, iter, fidel_options](){
+      fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, iter, fidel_options](){
 	  queue_playlist->append_row(full_row_data[iter]);
-	  fidel_options->hide_popover();	
+	  fidel_options->hide_popover();
+	  this->hide();
 	});
       if (iter == 3)
 	break;      
@@ -253,7 +258,6 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
       {
 	// Add artists and albums to popover
 	FidelPopover::add_title("Artists");
-
 
 	btree<std::string> added_artists;
 	std::vector<std::string> grouped_artists;
@@ -282,17 +286,19 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	  Gtk::Image *album_art = grouped_raw_album_art[iter];
 	  
 	  FidelOptions *fidel_options = FidelPopover::add_entry(album_art, grouped_artists[iter], util::to_string(num_songs_artist[iter]));
-	  fidel_options->set_play_next_cb([queue_playlist, full_row_data, fidel_options](){
+	  fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
 	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
 		queue_playlist->append_after_current(full_row_data[iter]);
 	      }
-	      fidel_options->hide_popover();	
+	      fidel_options->hide_popover();
+	      this->hide();	      
 	    });
-	  fidel_options->set_add_to_bottom_of_queue_cb([queue_playlist, full_row_data, fidel_options](){
+	  fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
 	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
 		queue_playlist->append_row(full_row_data[iter]);	    
 	      }
-	      fidel_options->hide_popover();	
+	      fidel_options->hide_popover();
+	      this->hide();	      
 	    });	    
 	  
 	  if (iter == 3)
@@ -314,17 +320,19 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	    Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
 	    
 	    FidelOptions *fidel_options = FidelPopover::add_entry(album_art, album, supp_label);
-	    fidel_options->set_play_next_cb([queue_playlist, full_row_data, fidel_options](){
+	    fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
 		for (size_t iter = 0; iter < full_row_data.size(); iter++) {
 		  queue_playlist->append_after_current(full_row_data[iter]);
 		}
-		fidel_options->hide_popover();	
+		fidel_options->hide_popover();
+		this->hide();
 	      });
-	    fidel_options->set_add_to_bottom_of_queue_cb([queue_playlist, full_row_data, fidel_options](){
+	    fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
 		for (size_t iter = 0; iter < full_row_data.size(); iter++) {
 		  queue_playlist->append_row(full_row_data[iter]);	    
 		}
-		fidel_options->hide_popover();	
+		fidel_options->hide_popover();
+		this->hide();
 	      });	    
 	  }
 	  if (iter == 3)

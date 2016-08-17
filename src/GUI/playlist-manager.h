@@ -20,10 +20,5 @@ class PlaylistManager : public Gtk::StackSidebar {
   // variables
   std::vector<Playlist*> playlists;
   Gtk::Stack *playlist_stack;
-  
-  void init_connections();
-  
-  //signal handlers
-  void on_playlist_switched(Gtk::Widget *widget);
 };
 #endif
