@@ -10,12 +10,14 @@ src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o
  ../src/GUI/fidel-resources.h
  ../src/GUI/gui.h
  ../src/GUI/playlist-manager.h
+ ../src/GUI/playlist-queue.h
  ../src/GUI/playlist.h
  ../src/GUI/seeker.h
  ../src/GUI/singleton.h
  ../src/GUI/themer.h
  ../src/Spectrum/spectrum.h
  ../src/Utilities/btree.h
+ ../src/Utilities/threadpool.h
  ../src/Utilities/util.h
  /home/tashrif/Dev/fidel-musicplayer-cmake/src/Utilities/util.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h

@@ -8,12 +8,14 @@
 #include <GUI/seeker.h>
 #include <GUI/themer.h>
 #include <GUI/playlist.h>
+#include <GUI/playlist-queue.h>
 #include <GUI/singleton.h>
 #include <GUI/playlist-manager.h>
 #include <Spectrum/spectrum.h>
 #include <Audio/playback.h>
 #include <Audio-Library/audio-library.h>
 #include <Utilities/util.h>
+#include <Utilities/threadpool.h>
 
 extern "C" {
 #include <GUI/fidel-resources.h>
@@ -34,6 +36,8 @@ typedef Gtk::Scale Scale;
 typedef Gtk::Button Button;
 
 class Playlist;
+class PlaylistQueue;
+
 class gui {
  public:
   gui();
@@ -43,14 +47,13 @@ class gui {
 
   void update_pb_timer(double time);
   void set_pb_endtime(int endtime);
-  Playlist* get_playlist_queue();
+  PlaylistQueue* get_playlist_queue();
   void append_playlist_row(std::vector<std::string> row_data);
  private:
   // variables
   Glib::RefPtr<Gio::Resource> fidel_resources;
   Gtk::Image* sidebar_album_art;
   Playlist* all_songs_playlist;
-  Playlist* queue_playlist;
   
   int sidebar_width = 200;
   int default_sidebar_size = 200;
@@ -88,4 +91,6 @@ class gui {
 };
 
 typedef Singleton<gui> fidel_ui;
+typedef Singleton<ThreadPool> threadpool;
+typedef Singleton<PlaylistQueue> queue_playlist;
 #endif

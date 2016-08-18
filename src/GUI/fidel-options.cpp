@@ -103,7 +103,7 @@ void FidelOptions::set_add_to_bottom_of_queue_cb(std::function<void()> cb_func)
 Gtk::Image* FidelOptions::get_icon()
 {
   Gtk::Image *icon = new Gtk::Image();
-  icon->set(view_more_horizontal_icon->get_pixbuf());
+  icon->set(view_more_vertical_icon->get_pixbuf());
   return icon;
 }
 

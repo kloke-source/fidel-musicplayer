@@ -10,6 +10,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
  ../src/GUI/fidel-resources.h
  ../src/GUI/gui.h
  ../src/GUI/playlist-manager.h
+ ../src/GUI/playlist-queue.h
  ../src/GUI/playlist.h
  ../src/GUI/seeker.h
  ../src/GUI/singleton.h

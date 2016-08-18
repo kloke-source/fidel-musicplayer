@@ -2,6 +2,8 @@
 #define SINGLETON
 #include <assert.h>
 #include <cstddef>
+#include <iostream>
+
 template <class T>
 class Singleton{
 public:
@@ -19,7 +21,11 @@ public:
 
 protected:
     Singleton();
-    ~Singleton();
+    ~Singleton()
+      {
+	std::cout << "Singleton destructor called" << std::endl;
+	Singleton::ResetInstance();
+      }
 private:
     Singleton(Singleton const&);
     Singleton& operator=(Singleton const&);

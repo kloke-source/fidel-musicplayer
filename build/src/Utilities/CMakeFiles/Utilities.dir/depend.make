@@ -9,12 +9,14 @@ src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/fidel-popover.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/fidel-resources.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/gui.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/playlist-manager.h
+src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/playlist-queue.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/playlist.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/seeker.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/singleton.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/themer.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/Spectrum/spectrum.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/Utilities/btree.h
+src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/Utilities/threadpool.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/Utilities/util.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/Utilities/util.cpp
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h

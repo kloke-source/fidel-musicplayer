@@ -9,12 +9,14 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/fidel-popov
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/fidel-resources.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/gui.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/playlist-manager.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/playlist-queue.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/playlist.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/seeker.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/singleton.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/GUI/themer.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Spectrum/spectrum.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Utilities/btree.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Utilities/threadpool.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Utilities/util.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Audio-Info/audioinfo.cpp
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: ../src/Audio-Info/audioinfo.h

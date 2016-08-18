@@ -9,6 +9,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/f
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/fidel-resources.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/gui.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/playlist-manager.h
+src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/playlist-queue.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/playlist.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/seeker.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/singleton.h

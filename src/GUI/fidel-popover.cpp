@@ -9,8 +9,11 @@
 FidelPopover::FidelPopover()
 {
   this->popover_frame = new Gtk::Box(Gtk::ORIENTATION_VERTICAL, 5);
-  this->set_size_request(300, 0);
-  this->add(*popover_frame);
+  this->popover_scrolled_window = new Gtk::ScrolledWindow();
+  this->popover_scrolled_window->set_policy(Gtk::POLICY_NEVER, Gtk::POLICY_NEVER);
+  this->set_size_request(350, 500);
+  this->popover_scrolled_window->add(*popover_frame);  
+  this->add(*popover_scrolled_window);
 
   default_title_font.set_family("Open Sans Light");
   default_title_font.set_size(12.5 * PANGO_SCALE);
@@ -35,6 +38,10 @@ FidelPopover::~FidelPopover()
     delete fidel_option_icons_vect[fidel_option_icons_vect.size()];
   while (toplevel_popover_entries.size())
     delete toplevel_popover_entries[toplevel_popover_entries.size()];
+
+  delete popover_frame;
+  delete popover_scrolled_window;
+  delete this;
 }
 
 void FidelPopover::show_all()
@@ -49,6 +56,29 @@ void FidelPopover::clear()
 {
   while (toplevel_popover_entries.size())
     FidelPopover::pop_item();
+}
+
+void FidelPopover::set_policy(Gtk::PolicyType hscrollbar_policy, Gtk::PolicyType vscrollbar_policy)
+{
+  this->popover_scrolled_window->set_policy(hscrollbar_policy, vscrollbar_policy);
+}
+
+void FidelPopover::add_text(std::string text)
+{
+  Gtk::Box *frame = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
+  Gtk::Label *label = new Gtk::Label();
+
+  //  text = Glib::Markup::escape_text(text);
+  label->set_markup(text);
+  label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_CENTER);
+  label->set_margin_left(7);
+  label->override_font(default_title_font);
+  
+  frame->pack_start(*label, Gtk::PACK_EXPAND_WIDGET);
+  popover_frame->pack_start(*frame, Gtk::PACK_SHRINK);
+
+  toplevel_popover_entries.push_back(frame);
+  widgets_in_popover.push_back(label);  
 }
 
 void FidelPopover::add_title(std::string title)
@@ -67,6 +97,12 @@ void FidelPopover::add_title(std::string title)
   toplevel_popover_entries.push_back(frame);
   widgets_in_popover.push_back(label);
   FidelPopover::add_separator();
+}
+
+void FidelPopover::add_top_entry(Gtk::Button *button_entry)
+{
+  popover_frame->pack_end(*button_entry, Gtk::PACK_EXPAND_WIDGET);
+  toplevel_popover_entries.push_back(button_entry);  
 }
 
 void FidelPopover::add_entry(Gtk::Button *button_entry)
@@ -115,18 +151,12 @@ void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
   }
 }
 
-FidelOptions* FidelPopover::add_entry(std::pair<guint8*, gsize> image, std::string prim_label_text, std::string supp_label_text)
+FidelOptions* FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_text, std::string supp_label_text)
 {
-  Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
-  loader->write(image.first, image.second);
-  loader->close();
-  Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
-  Gtk::Image gtk_image;
-  gtk_image.set(pixbuf);
-  return FidelPopover::add_entry(&gtk_image, prim_label_text, supp_label_text);
+  return FidelPopover::add_entry(image, default_image_size, prim_label_text, supp_label_text);
 }
 
-FidelOptions* FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_text, std::string supp_label_text)
+FidelOptions* FidelPopover::add_entry(Gtk::Image *image, int image_size, std::string prim_label_text, std::string supp_label_text)
 {
   Gtk::Box *frame = new Gtk::Box();
   FidelOptions *fidel_options = new FidelOptions();
@@ -156,7 +186,7 @@ FidelOptions* FidelPopover::add_entry(Gtk::Image *image, std::string prim_label_
   }
 
   if (image_exists == false) {
-    image = util::resize_image(image, default_image_size, default_image_size);
+    image = util::resize_image(image, image_size, image_size);
     image->set_margin_left(15);
     image->set_margin_right(5);
 
@@ -216,7 +246,6 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 
     //    std::string current_album;
     std::vector<std::vector<std::string>> full_row_data;
-    Playlist *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
       
     for (size_t iter = 0; iter < populate_data[Playlist::FILE_LOC].size(); iter++) {    
       std::vector<std::string> row_data;
@@ -239,13 +268,13 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 
       Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
       FidelOptions *fidel_options = FidelPopover::add_entry(album_art, song_name, supp_label);      
-      fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, iter, fidel_options](){
-	  queue_playlist->append_after_current(full_row_data[iter]);
+      fidel_options->set_play_next_cb([this, full_row_data, iter, fidel_options](){
+	  queue_playlist::Instance()->append_after_current(full_row_data[iter]);
 	  fidel_options->hide_popover();
 	  this->hide();
 	});
-      fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, iter, fidel_options](){
-	  queue_playlist->append_row(full_row_data[iter]);
+      fidel_options->set_add_to_bottom_of_queue_cb([this, full_row_data, iter, fidel_options](){
+	  queue_playlist::Instance()->append_row(full_row_data[iter]);
 	  fidel_options->hide_popover();
 	  this->hide();
 	});
@@ -286,17 +315,19 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	  Gtk::Image *album_art = grouped_raw_album_art[iter];
 	  
 	  FidelOptions *fidel_options = FidelPopover::add_entry(album_art, grouped_artists[iter], util::to_string(num_songs_artist[iter]));
-	  fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
+	  fidel_options->set_play_next_cb([this, full_row_data, fidel_options](){
 	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		queue_playlist->append_after_current(full_row_data[iter]);
+		queue_playlist::Instance()->append_after_current(full_row_data[iter]);
 	      }
+	      queue_playlist::Instance()->overview_notify();
 	      fidel_options->hide_popover();
 	      this->hide();	      
 	    });
-	  fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
+	  fidel_options->set_add_to_bottom_of_queue_cb([this, full_row_data, fidel_options](){
 	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		queue_playlist->append_row(full_row_data[iter]);	    
+		queue_playlist::Instance()->append_row(full_row_data[iter]);	    
 	      }
+	      queue_playlist::Instance()->overview_notify();
 	      fidel_options->hide_popover();
 	      this->hide();	      
 	    });	    
@@ -320,17 +351,19 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	    Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
 	    
 	    FidelOptions *fidel_options = FidelPopover::add_entry(album_art, album, supp_label);
-	    fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
+	    fidel_options->set_play_next_cb([this, full_row_data, fidel_options](){
 		for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		  queue_playlist->append_after_current(full_row_data[iter]);
+		  queue_playlist::Instance()->append_after_current(full_row_data[iter]);
 		}
+		queue_playlist::Instance()->overview_notify();
 		fidel_options->hide_popover();
 		this->hide();
 	      });
-	    fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
+	    fidel_options->set_add_to_bottom_of_queue_cb([this, full_row_data, fidel_options](){
 		for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		  queue_playlist->append_row(full_row_data[iter]);	    
+		  queue_playlist::Instance()->append_row(full_row_data[iter]);	    
 		}
+		queue_playlist::Instance()->overview_notify();
 		fidel_options->hide_popover();
 		this->hide();
 	      });	    
@@ -340,6 +373,14 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	}
       }
   }
+}
+
+void FidelPopover::pop_from_top()
+{
+  size_t pop_position = 0;
+  popover_frame->remove(*toplevel_popover_entries[pop_position]);
+  delete toplevel_popover_entries[pop_position];
+  toplevel_popover_entries.erase(toplevel_popover_entries.begin() + pop_position);
 }
 
 void FidelPopover::pop_item()

@@ -9,6 +9,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/fidel-popover.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/fidel-resources.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/gui.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/playlist-manager.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/playlist-queue.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/playlist.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/seeker.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/singleton.h

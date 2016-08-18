@@ -1,0 +1,4 @@
+#include <GUI/playlist-queue.h>
+
+PlaylistQueue::PlaylistQueue(){}
+PlaylistQueue::~PlaylistQueue(){}

@@ -1,13 +1,11 @@
-#ifndef PLAYLIST_H
-#define PLAYLIST_H
+#ifndef PLAYLIST_HH
+#define PLAYLIST_HH
 
 #include <vector>
 #include <gtkmm.h>
 #include <Audio/playback.h>
 #include <Utilities/btree.h>
-#include <GUI/fidel-options.h>
 
-//class gui;
 class FidelOptions;
 
 class Playlist : public Gtk::ScrolledWindow {
@@ -43,9 +41,9 @@ class Playlist : public Gtk::ScrolledWindow {
   void prepend_row(std::vector<std::string> row_data);    
   void append_after_current(std::vector<std::string> row_data);
   void append_row(std::vector<std::string> row_data);
-  void append_row();  
+  void append_row();
+  std::vector<std::vector<std::string>> get_full_row_data();  
   void link_to_search_entry(Gtk::SearchEntry *search_entry);
-  
   // signal accessors
   typedef sigc::signal<void> type_signal_playing;
   type_signal_playing signal_playing();

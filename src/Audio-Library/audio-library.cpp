@@ -5,7 +5,6 @@
 #include <Utilities/util.h>
 #include <Audio-Info/audioinfo.h>
 #include <Audio-Library/audio-library.h>
-#include <Utilities/threadpool.h>
 #include <mutex>
 #include <thread>
 //#define library_db ":memory:"

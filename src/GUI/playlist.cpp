@@ -184,6 +184,26 @@ void Playlist::append_row()
     alternate_color = false;
 }
 
+std::vector<std::vector<std::string>> Playlist::get_full_row_data()
+{
+  std::vector<std::vector<std::string>> full_row_data;
+  Gtk::TreeModel::SlotForeachPathAndIter foreach_cb = [this, &full_row_data](const Gtk::TreeModel::Path& path, const Gtk::TreeModel::iterator& iterator)->bool
+    {
+      std::vector<std::string> row_data;
+      Gtk::TreeModel::Row row = *iterator;
+      row_data.push_back(row[playlist_columns.col_name]);
+      row_data.push_back(row[playlist_columns.col_artist]);
+      row_data.push_back(row[playlist_columns.col_album]);
+      row_data.push_back(row[playlist_columns.col_time]);
+      row_data.push_back(row[playlist_columns.col_file_location]);
+      
+      full_row_data.push_back(row_data);
+      return false;
+    };
+  playlist_model->foreach(foreach_cb);
+  return full_row_data;
+}
+
 void Playlist::link_to_search_entry(Gtk::SearchEntry *search_entry)
 {
   this->playlist_search_entry = search_entry;
@@ -359,7 +379,7 @@ bool Playlist::on_right_click(GdkEventButton *button_event)
 
     FidelPopover *options_popover = fidel_options.get_popover();
 
-    Playlist* queue = fidel_ui::Instance()->get_playlist_queue();
+    PlaylistQueue* queue = fidel_ui::Instance()->get_playlist_queue();
     std::function<void()> play_next_cb_func = [row_data, queue, options_popover](){
       queue->append_after_current(row_data);
       options_popover->hide();

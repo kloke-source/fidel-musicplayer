@@ -4,7 +4,6 @@
 #include <math.h>
 #include <Audio/playback.h>
 #include <Utilities/util.h>
-#include <Utilities/threadpool.h>
 #define PI 3.14159265
 
 //extern std::vector<double> phase_shifts;
@@ -75,6 +74,7 @@ void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
   double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
   util::set_source_rgb(cr, "#2d2d2d"); //dfdfdf
   //#36D7B7
+  
   for (int band = 0; band < spect_bands; band++) {
     double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
     cr->rectangle(bar_x_pos, (frame_height/2 - 1), spec_bar_width, 1);

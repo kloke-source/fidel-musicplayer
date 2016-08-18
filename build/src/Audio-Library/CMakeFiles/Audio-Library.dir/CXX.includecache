@@ -101,6 +101,8 @@ GUI/themer.h
 -
 GUI/playlist.h
 -
+GUI/playlist-queue.h
+-
 GUI/singleton.h
 -
 GUI/playlist-manager.h
@@ -112,6 +114,8 @@ Audio/playback.h
 Audio-Library/audio-library.h
 -
 Utilities/util.h
+-
+Utilities/threadpool.h
 -
 GUI/fidel-resources.h
 -
@@ -126,6 +130,18 @@ iostream
 GUI/playlist.h
 -
 
+../src/GUI/playlist-queue.h
+vector
+-
+gtkmm.h
+-
+GUI/playlist.h
+-
+GUI/fidel-popover.h
+-
+Utilities/util.h
+-
+
 ../src/GUI/playlist.h
 vector
 -
@@ -134,8 +150,6 @@ gtkmm.h
 Audio/playback.h
 -
 Utilities/btree.h
--
-GUI/fidel-options.h
 -
 
 ../src/GUI/seeker.h
@@ -148,6 +162,8 @@ gtkmm.h
 assert.h
 -
 cstddef
+-
+iostream
 -
 
 ../src/GUI/themer.h
@@ -218,8 +234,6 @@ Utilities/util.h
 Audio-Info/audioinfo.h
 -
 Audio-Library/audio-library.h
--
-Utilities/threadpool.h
 -
 mutex
 -

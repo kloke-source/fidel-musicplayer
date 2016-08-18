@@ -10,6 +10,8 @@
     <file>Resources/icons/playback-shuffle.svg</file>    
     <file>Resources/icons/playback-stop.svg</file>
     <file>Resources/icons/playback-repeat.svg</file>
+    <file>Resources/icons/queue-overview.svg</file>
+    <file>Resources/icons/queue-overview-notify.svg</file>
     <file>Resources/icons/view-more-horizontal.svg</file>
     <file>Resources/icons/view-more-vertical.svg</file>
     <file>Resources/icons/play-next.svg</file>

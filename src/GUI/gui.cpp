@@ -3,7 +3,11 @@
 typedef Singleton<spectrum> spectrum_visualizer;
 spectrum *mini_spectrum;
 
-gui::gui(){}
+gui::gui()
+{
+  fidel_ui::ResetInstance();
+}
+
 gui::~gui(){}
 
 Builder builder;
@@ -13,7 +17,7 @@ Toolbar *toolbar;
 ImageMenuItem *open_action;
 Notebook *view_switcher;
 
-Image *previous_icon, *play_icon, *pause_icon, *next_icon;
+Image *previous_icon, *play_icon, *pause_icon, *next_icon, *queue_overview_icon;
 Image *sidebar_hide_icon, *sidebar_show_icon;
 
 Label *split_view_label;
@@ -61,6 +65,7 @@ Button *previous_button;
 Button *play_button;
 Button *next_button;
 Button *sidebar_hider;
+Button *queue_overview_button;
 
 std::vector<Button*> all_buttons;
 
@@ -130,6 +135,7 @@ void gui::get_widgets()
   builder->get_widget("play_button", play_button);
   builder->get_widget("next_button", next_button);
   builder->get_widget("sidebar_hider", sidebar_hider);
+  builder->get_widget("queue_overview_button", queue_overview_button);
 }
 
 void gui::init_connections()
@@ -180,19 +186,18 @@ void gui::init_icons()
   play_icon = new Image();
   pause_icon = new Image();
   next_icon = new Image();
-
+  queue_overview_icon = new Gtk::Image();
+  
   previous_icon->set_from_resource("/fidel/Resources/icons/playback-previous.svg");
   play_icon->set_from_resource("/fidel/Resources/icons/playback-play.svg");
   next_icon->set_from_resource("/fidel/Resources/icons/playback-next.svg");
   pause_icon->set_from_resource("/fidel/Resources/icons/playback-pause.svg");
-    
+  queue_overview_icon->set_from_resource("/fidel/Resources/icons/queue-overview.svg");
+  
   previous_button->add(*previous_icon);
   play_button->add(*play_icon);
   next_button->add(*next_icon);
-
-  previous_icon->show();
-  play_icon->show();
-  next_icon->show();
+  queue_overview_button->add(*queue_overview_icon);
 }
 
 void gui::init_sidebar()
@@ -237,13 +242,13 @@ void gui::init_playback_functions()
 void gui::init_playlist()
 {
   all_songs_playlist = new Playlist();
-  queue_playlist = new Playlist();
+  queue_playlist::Instance()->set_overview_button(queue_overview_button);
   AudioLibrary::populate_playlist();
   
   all_songs_playlist->link_to_search_entry(fidel_search_entry);
 
   playlist_manager->add_playlist(*all_songs_playlist, "all_songs", "All Songs");
-  playlist_manager->add_playlist(*queue_playlist, "queue", "Queue");
+  playlist_manager->add_playlist(*queue_playlist::Instance(), "queue", "Queue");
 
   window->show_all();
 }
@@ -255,9 +260,9 @@ void gui::init_stack_sidebar()
   playlist_stack_sidebar_container->show_all();
 }
 
-Playlist* gui::get_playlist_queue()
+PlaylistQueue* gui::get_playlist_queue()
 {
-  return queue_playlist;
+  return queue_playlist::Instance();
 }
 
 void gui::append_playlist_row(std::vector<std::string> row_data)
