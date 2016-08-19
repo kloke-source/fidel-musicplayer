@@ -242,13 +242,13 @@ void gui::init_playback_functions()
 void gui::init_playlist()
 {
   all_songs_playlist = new Playlist();
-  queue_playlist::Instance()->set_overview_button(queue_overview_button);
+  queue_playlist = new PlaylistQueue(queue_overview_button);
   AudioLibrary::populate_playlist();
   
   all_songs_playlist->link_to_search_entry(fidel_search_entry);
 
   playlist_manager->add_playlist(*all_songs_playlist, "all_songs", "All Songs");
-  playlist_manager->add_playlist(*queue_playlist::Instance(), "queue", "Queue");
+  playlist_manager->add_playlist(*queue_playlist, "queue", "Queue");
 
   window->show_all();
 }
@@ -262,7 +262,7 @@ void gui::init_stack_sidebar()
 
 PlaylistQueue* gui::get_playlist_queue()
 {
-  return queue_playlist::Instance();
+  return queue_playlist;
 }
 
 void gui::append_playlist_row(std::vector<std::string> row_data)

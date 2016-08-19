@@ -59,19 +59,10 @@ class Playlist : public Gtk::ScrolledWindow {
   };
   
   // variables
-  int total_songs;
-  int curr_song_iterator;
-
   bool alternate_color = false;
   int file_count_iter = 0;
 
   Gtk::SearchEntry *playlist_search_entry;
-
-  Playlist::Playlist_Columns playlist_columns;
-  Gtk::TreeView *playlist_tree_view;
-  Glib::RefPtr<Gtk::ListStore> playlist_model;
-  std::vector<btree<std::string>> playlist_info_store;
-
 
   // fonts
   Pango::FontDescription default_font;
@@ -102,6 +93,14 @@ class Playlist : public Gtk::ScrolledWindow {
   bool on_right_click(GdkEventButton *button_event);  
   void on_track_finished();
  protected:
+  int total_songs;
+  int curr_song_iterator;
+  
+  Playlist::Playlist_Columns playlist_columns;
+  Gtk::TreeView *playlist_tree_view;
+  Glib::RefPtr<Gtk::ListStore> playlist_model;
+  std::vector<btree<std::string>> playlist_info_store;
+  
   type_signal_playing m_signal_playing;
 };
 

@@ -34,8 +34,8 @@ FidelPopover::~FidelPopover()
     delete widgets_in_popover[widgets_in_popover.size()];
   while (images_in_popover.size())
     delete images_in_popover[images_in_popover.size()];
-  while (fidel_option_icons_vect.size())
-    delete fidel_option_icons_vect[fidel_option_icons_vect.size()];
+  while (fidel_options_vect.size())
+    delete fidel_options_vect[fidel_options_vect.size()];
   while (toplevel_popover_entries.size())
     delete toplevel_popover_entries[toplevel_popover_entries.size()];
 
@@ -47,8 +47,8 @@ FidelPopover::~FidelPopover()
 void FidelPopover::show_all()
 {
   Gtk::Popover::show_all();
-  for (size_t iter = 0; iter < fidel_option_icons_vect.size(); iter++) {
-    fidel_option_icons_vect[iter]->hide();
+  for (size_t iter = 0; iter < fidel_options_vect.size(); iter++) {
+    fidel_options_vect[iter]->hide();
   }
 }
 
@@ -81,6 +81,25 @@ void FidelPopover::add_text(std::string text)
   widgets_in_popover.push_back(label);  
 }
 
+void FidelPopover::add_text_with_widget(std::string text, Gtk::Widget *widget)
+{
+  Gtk::Box *frame = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
+  Gtk::Label *label = new Gtk::Label();
+
+  label->set_markup(text);
+  label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_CENTER);
+  label->set_margin_left(7);
+  label->override_font(default_title_font);
+  
+  frame->pack_start(*label, Gtk::PACK_EXPAND_WIDGET); 
+  frame->pack_start(*widget, Gtk::PACK_EXPAND_WIDGET); 
+  popover_frame->pack_start(*frame, Gtk::PACK_SHRINK);
+
+  toplevel_popover_entries.push_back(frame);
+  widgets_in_popover.push_back(label);
+  widgets_in_popover.push_back(widget);  
+}
+
 void FidelPopover::add_title(std::string title)
 {
   Gtk::Box *frame = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL);
@@ -105,10 +124,10 @@ void FidelPopover::add_top_entry(Gtk::Button *button_entry)
   toplevel_popover_entries.push_back(button_entry);  
 }
 
-void FidelPopover::add_entry(Gtk::Button *button_entry)
+void FidelPopover::add_entry(Gtk::Widget *widget)
 {
-  popover_frame->pack_start(*button_entry, Gtk::PACK_EXPAND_WIDGET);
-  toplevel_popover_entries.push_back(button_entry);
+  popover_frame->pack_start(*widget, Gtk::PACK_EXPAND_WIDGET);
+  toplevel_popover_entries.push_back(widget);    
 }
 
 void FidelPopover::add_entry(Gtk::Image *image, std::string label_text)
@@ -213,7 +232,7 @@ FidelOptions* FidelPopover::add_entry(Gtk::Image *image, int image_size, std::st
     widgets_in_popover.push_back(button_entry);
     widgets_in_popover.push_back(content_frame);
     widgets_in_popover.push_back(fidel_options);    
-    fidel_option_icons_vect.push_back(fidel_options_icon);    
+    fidel_options_vect.push_back(fidel_options_icon);    
     widgets_in_popover.push_back(label_container);
     widgets_in_popover.push_back(prim_label);
     widgets_in_popover.push_back(supp_label);
@@ -224,6 +243,76 @@ FidelOptions* FidelPopover::add_entry(Gtk::Image *image, int image_size, std::st
     std::cerr << "Error image pointer already in use\n";
   }
   return fidel_options;
+}
+
+FidelOptions* FidelPopover::add_segmented_entry(Gtk::Image *image, int image_size, std::string prim_label_text, std::string supp_label_text)
+{
+  Gtk::Box *frame = new Gtk::Box();
+  FidelOptions *fidel_options = new FidelOptions();
+  Gtk::Button *button_entry = new Gtk::Button();
+  button_entry->set_relief(Gtk::RELIEF_NONE);  
+  Gtk::Box *content_frame = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL, 5);
+  Gtk::Box *label_container = new Gtk::Box(Gtk::ORIENTATION_VERTICAL, 4);
+
+  Gtk::Label *prim_label = new Gtk::Label();
+  Gtk::Label *supp_label = new Gtk::Label();
+  
+  prim_label->set_markup("<b>" + prim_label_text + "</b>");
+  prim_label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_END);
+  prim_label->override_font(default_prim_popover_font);
+  
+  supp_label->set_text(supp_label_text);
+  supp_label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_START);
+  supp_label->override_color(Gdk::RGBA("#616161"));
+  supp_label->override_font(default_supp_popover_font);
+  
+  bool image_exists = false;
+  for (size_t iter = 0; iter < images_in_popover.size(); iter++) {
+    if (image == images_in_popover[iter]) {
+      image_exists = true;
+      break;
+    }
+  }
+
+  if (image_exists == false) {
+    image = util::resize_image(image, image_size, image_size);
+    image->set_margin_left(15);
+    image->set_margin_right(5);
+
+    fidel_options->set_relative_to(*button_entry);
+    fidel_options->set_position(Gtk::POS_RIGHT);
+    
+    button_entry->signal_enter().connect([fidel_options](){fidel_options->show();});
+    fidel_options->signal_leave().connect([fidel_options](){fidel_options->hide();});
+    //    fidel_options->signal_clicked().connect([fidel_options](){fidel_options->show_popover();});
+    
+    content_frame->pack_start(*image, Gtk::PACK_SHRINK);
+
+    label_container->pack_start(*prim_label, Gtk::PACK_EXPAND_WIDGET);
+    label_container->pack_end(*supp_label, Gtk::PACK_EXPAND_WIDGET);
+
+    content_frame->pack_end(*label_container, Gtk::PACK_EXPAND_WIDGET);
+    
+    button_entry->add(*content_frame);
+
+    frame->pack_start(*fidel_options, Gtk::PACK_SHRINK);
+    frame->pack_start(*button_entry, Gtk::PACK_EXPAND_WIDGET);
+
+    toplevel_popover_entries.push_back(frame);
+    images_in_popover.push_back(image);
+    fidel_options_vect.push_back(fidel_options);
+    widgets_in_popover.push_back(button_entry);
+    widgets_in_popover.push_back(content_frame);
+    widgets_in_popover.push_back(fidel_options);
+    widgets_in_popover.push_back(label_container);
+    widgets_in_popover.push_back(prim_label);
+    widgets_in_popover.push_back(supp_label);
+      
+    popover_frame->pack_start(*frame, Gtk::PACK_SHRINK);
+  }
+  if (image_exists == true) {
+    std::cerr << "Error image pointer already in use\n";
+  }
 }
 
 void FidelPopover::add_separator()
@@ -267,14 +356,15 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
       std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
 
       Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
-      FidelOptions *fidel_options = FidelPopover::add_entry(album_art, song_name, supp_label);      
-      fidel_options->set_play_next_cb([this, full_row_data, iter, fidel_options](){
-	  queue_playlist::Instance()->append_after_current(full_row_data[iter]);
+      FidelOptions *fidel_options = FidelPopover::add_entry(album_art, song_name, supp_label);
+      PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
+      fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, iter, fidel_options](){
+	  queue_playlist->append_after_current(full_row_data[iter]);
 	  fidel_options->hide_popover();
 	  this->hide();
 	});
-      fidel_options->set_add_to_bottom_of_queue_cb([this, full_row_data, iter, fidel_options](){
-	  queue_playlist::Instance()->append_row(full_row_data[iter]);
+      fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, iter, fidel_options](){
+	  queue_playlist->append_row(full_row_data[iter]);
 	  fidel_options->hide_popover();
 	  this->hide();
 	});
@@ -315,19 +405,20 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	  Gtk::Image *album_art = grouped_raw_album_art[iter];
 	  
 	  FidelOptions *fidel_options = FidelPopover::add_entry(album_art, grouped_artists[iter], util::to_string(num_songs_artist[iter]));
-	  fidel_options->set_play_next_cb([this, full_row_data, fidel_options](){
+	  PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
+	  fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
 	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		queue_playlist::Instance()->append_after_current(full_row_data[iter]);
+		queue_playlist->append_after_current(full_row_data[iter]);
 	      }
-	      queue_playlist::Instance()->overview_notify();
+	      queue_playlist->overview_notify();
 	      fidel_options->hide_popover();
 	      this->hide();	      
 	    });
-	  fidel_options->set_add_to_bottom_of_queue_cb([this, full_row_data, fidel_options](){
+	  fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
 	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		queue_playlist::Instance()->append_row(full_row_data[iter]);	    
+		queue_playlist->append_row(full_row_data[iter]);	    
 	      }
-	      queue_playlist::Instance()->overview_notify();
+	      queue_playlist->overview_notify();
 	      fidel_options->hide_popover();
 	      this->hide();	      
 	    });	    
@@ -351,19 +442,20 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 	    Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
 	    
 	    FidelOptions *fidel_options = FidelPopover::add_entry(album_art, album, supp_label);
-	    fidel_options->set_play_next_cb([this, full_row_data, fidel_options](){
+	    PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
+	    fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
 		for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		  queue_playlist::Instance()->append_after_current(full_row_data[iter]);
+		  queue_playlist->append_after_current(full_row_data[iter]);
 		}
-		queue_playlist::Instance()->overview_notify();
+		queue_playlist->overview_notify();
 		fidel_options->hide_popover();
 		this->hide();
 	      });
-	    fidel_options->set_add_to_bottom_of_queue_cb([this, full_row_data, fidel_options](){
+	    fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
 		for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		  queue_playlist::Instance()->append_row(full_row_data[iter]);	    
+		  queue_playlist->append_row(full_row_data[iter]);	    
 		}
-		queue_playlist::Instance()->overview_notify();
+		queue_playlist->overview_notify();
 		fidel_options->hide_popover();
 		this->hide();
 	      });	    

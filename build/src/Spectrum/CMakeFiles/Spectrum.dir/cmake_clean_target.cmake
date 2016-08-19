@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libSpectrum.a"
+  "libSpectrum_debug.a"
 )

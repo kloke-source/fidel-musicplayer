@@ -54,7 +54,7 @@ class gui {
   Glib::RefPtr<Gio::Resource> fidel_resources;
   Gtk::Image* sidebar_album_art;
   Playlist* all_songs_playlist;
-  
+  PlaylistQueue* queue_playlist;
   int sidebar_width = 200;
   int default_sidebar_size = 200;
   bool sidebar_hidden = true;
@@ -92,5 +92,4 @@ class gui {
 
 typedef Singleton<gui> fidel_ui;
 typedef Singleton<ThreadPool> threadpool;
-typedef Singleton<PlaylistQueue> queue_playlist;
 #endif

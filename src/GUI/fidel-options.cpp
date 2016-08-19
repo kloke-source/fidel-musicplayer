@@ -34,7 +34,7 @@ void FidelOptions::initialize()
   play_next_icon->set_from_resource("/fidel/Resources/icons/play-next.svg");
   add_to_bottom_of_queue_icon->set_from_resource("/fidel/Resources/icons/add-to-bottom-of-queue.svg");
 
-  this->add(*view_more_horizontal_icon);
+  this->add(*view_more_vertical_icon);
   
   play_next_label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_CENTER);
   //play_next_label->set_margin_left(5);
