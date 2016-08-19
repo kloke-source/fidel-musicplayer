@@ -25,7 +25,7 @@ class FidelPopover : public Gtk::Popover {
   void add_entry(Gtk::Image *image, std::string label_text);
   FidelOptions* add_entry(Gtk::Image *image, std::string prim_label_text, std::string supp_label_text);
   FidelOptions* add_entry(Gtk::Image *image, int image_size, std::string prim_label_text, std::string supp_label_text);
-  FidelOptions* add_segmented_entry(Gtk::Image *image, int image_size, std::string prim_label_text, std::string supp_label_text);
+  void add_segmented_entry(FidelOptions *segmented_options, Gtk::Image *image, int image_size, std::string prim_label_text, std::string supp_label_text);
   void add_separator();
   void populate(std::vector<std::vector<std::string>> populate_data);
   

@@ -146,8 +146,9 @@ void PlaylistQueue::show_first_song()
       std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
 
       Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
-      FidelOptions *fidel_options = this->queue_overview_popover->add_entry(album_art, song_name, supp_label);
-	
+      FidelOptions *fidel_options = new FidelOptions();
+    this->queue_overview_popover->add_segmented_entry(fidel_options, album_art, default_image_size, song_name, supp_label);
+      
       fidel_options->set_play_next_cb([this, up_next_song_data, fidel_options](){
 	  this->append_after_current(up_next_song_data);
 	  fidel_options->hide_popover();
@@ -187,22 +188,21 @@ void PlaylistQueue::show_all_songs()
     std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
 
     Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
-    FidelOptions *fidel_options = this->queue_overview_popover->add_segmented_entry(album_art, default_image_size, song_name, supp_label);
+    FidelOptions* fidel_options = new FidelOptions();
 
-        fidel_options->set_play_next_cb([](){std::cout << "Hello darkness" << std::endl;});
-    /*
+    this->queue_overview_popover->add_segmented_entry(fidel_options, album_art, default_image_size, song_name, supp_label);
+
     fidel_options->set_play_next_cb([this, all_up_next_songs, iter, fidel_options](){
 	this->append_after_current(all_up_next_songs[iter]);
 	fidel_options->hide_popover();
 	this->queue_overview_popover->hide();
       });
-    /*
+
     fidel_options->set_add_to_bottom_of_queue_cb([this, all_up_next_songs, iter, fidel_options](){
 	this->append_row(all_up_next_songs[iter]);
 	fidel_options->hide_popover();
 	this->queue_overview_popover->hide();	    
       });
-    */
   }
   this->queue_overview_popover->set_policy(Gtk::POLICY_NEVER, Gtk::POLICY_AUTOMATIC);
   this->queue_overview_popover->set_size_request(350, 500);

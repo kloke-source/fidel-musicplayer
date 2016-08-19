@@ -34,6 +34,8 @@ class FidelOptions : public Gtk::Button {
   Gtk::Image* get_icon();
   Gtk::Image* get_icon(IconType icon_type);
   FidelPopover* get_popover();
+
+  Gtk::Button* get_play_next_button();
  private:
   int default_font_size = 11;
   bool popover_hidden = true;

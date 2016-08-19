@@ -245,10 +245,9 @@ FidelOptions* FidelPopover::add_entry(Gtk::Image *image, int image_size, std::st
   return fidel_options;
 }
 
-FidelOptions* FidelPopover::add_segmented_entry(Gtk::Image *image, int image_size, std::string prim_label_text, std::string supp_label_text)
+void FidelPopover::add_segmented_entry(FidelOptions *segmented_options, Gtk::Image *image, int image_size, std::string prim_label_text, std::string supp_label_text)
 {
   Gtk::Box *frame = new Gtk::Box();
-  FidelOptions *fidel_options = new FidelOptions();
   Gtk::Button *button_entry = new Gtk::Button();
   button_entry->set_relief(Gtk::RELIEF_NONE);  
   Gtk::Box *content_frame = new Gtk::Box(Gtk::ORIENTATION_HORIZONTAL, 5);
@@ -265,7 +264,8 @@ FidelOptions* FidelPopover::add_segmented_entry(Gtk::Image *image, int image_siz
   supp_label->set_alignment(Gtk::ALIGN_START, Gtk::ALIGN_START);
   supp_label->override_color(Gdk::RGBA("#616161"));
   supp_label->override_font(default_supp_popover_font);
-  
+
+  /*
   bool image_exists = false;
   for (size_t iter = 0; iter < images_in_popover.size(); iter++) {
     if (image == images_in_popover[iter]) {
@@ -273,18 +273,18 @@ FidelOptions* FidelPopover::add_segmented_entry(Gtk::Image *image, int image_siz
       break;
     }
   }
-
-  if (image_exists == false) {
+  */
+  //  if (image_exists == false) {
     image = util::resize_image(image, image_size, image_size);
     image->set_margin_left(15);
     image->set_margin_right(5);
 
-    fidel_options->set_relative_to(*button_entry);
-    fidel_options->set_position(Gtk::POS_RIGHT);
+    segmented_options->set_relative_to(*button_entry);
+    segmented_options->set_position(Gtk::POS_RIGHT);
     
-    button_entry->signal_enter().connect([fidel_options](){fidel_options->show();});
-    fidel_options->signal_leave().connect([fidel_options](){fidel_options->hide();});
-    //    fidel_options->signal_clicked().connect([fidel_options](){fidel_options->show_popover();});
+    button_entry->signal_enter().connect([segmented_options](){segmented_options->show();});
+    segmented_options->signal_leave().connect([segmented_options](){segmented_options->hide();});
+    segmented_options->signal_clicked().connect([segmented_options](){segmented_options->show_popover();});
     
     content_frame->pack_start(*image, Gtk::PACK_SHRINK);
 
@@ -295,24 +295,24 @@ FidelOptions* FidelPopover::add_segmented_entry(Gtk::Image *image, int image_siz
     
     button_entry->add(*content_frame);
 
-    frame->pack_start(*fidel_options, Gtk::PACK_SHRINK);
+    frame->pack_start(*segmented_options, Gtk::PACK_SHRINK);
     frame->pack_start(*button_entry, Gtk::PACK_EXPAND_WIDGET);
 
     toplevel_popover_entries.push_back(frame);
     images_in_popover.push_back(image);
-    fidel_options_vect.push_back(fidel_options);
+    fidel_options_vect.push_back(segmented_options);
     widgets_in_popover.push_back(button_entry);
     widgets_in_popover.push_back(content_frame);
-    widgets_in_popover.push_back(fidel_options);
+    widgets_in_popover.push_back(segmented_options);
     widgets_in_popover.push_back(label_container);
     widgets_in_popover.push_back(prim_label);
     widgets_in_popover.push_back(supp_label);
       
     popover_frame->pack_start(*frame, Gtk::PACK_SHRINK);
-  }
-  if (image_exists == true) {
-    std::cerr << "Error image pointer already in use\n";
-  }
+    //  }
+    //  if (image_exists == true) {
+    //    std::cerr << "Error image pointer already in use\n";
+    //  }
 }
 
 void FidelPopover::add_separator()

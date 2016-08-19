@@ -129,3 +129,8 @@ FidelPopover* FidelOptions::get_popover()
 {
   return options_popover;
 }							  
+
+Gtk::Button* FidelOptions::get_play_next_button()
+{
+  return play_next_button;
+}
