@@ -1,7 +1,0 @@
-#ifndef PLAYLIST_QUEUE_HH
-#define PLAYLIST_QUEUE_HH
-
-class PlaylistQueue : public Playlist {
-  
-}
-#endif

@@ -68,11 +68,11 @@ void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
   if (auto_padding == true)
     spect_padding = (double) (.65 * frame_width) / (spect_bands + 1); // .65 is ideal padding ratio
 
-  util::set_source_rgb(cr, "#dfdfdf");//2d2d2d
+  util::set_source_rgb(cr, "#10183a");//2d2d2d
   cr->rectangle(0, 0, frame_width, frame_height);
   cr->fill();
   double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
-  util::set_source_rgb(cr, "#2d2d2d"); //dfdfdf
+  util::set_source_rgb(cr, "#36D7B7"); //dfdfdf
   //#36D7B7
   
   for (int band = 0; band < spect_bands; band++) {
@@ -133,7 +133,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   double scale_factor=frame_height/2;
 
   spectrum::clear_context(cr);
-  util::set_source_rgb(cr, "#2d2d2d");
+  util::set_source_rgb(cr, "#36D7B7");
   //#pragma omp parallel for
   for (int band = 0; band < spect_band_magnitudes.size(); band++) {
     double magnitude = spect_band_magnitudes[band];

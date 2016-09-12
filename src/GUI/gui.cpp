@@ -85,7 +85,7 @@ void gui::initialize(int argc, char **argv)
   gui::init_spectrum();
   gui::set_styles();
 
-  window->set_size_request(800, 450);
+  //  window->set_size_request(800, 450);
   window->maximize();
   app->run(*window);
 }
@@ -99,7 +99,7 @@ void gui::get_widgets()
 
   // builder->get_widget("fidel_search_bar", fidel_search_bar);
   builder->get_widget("fidel_search_entry", fidel_search_entry);
-  
+
   builder->get_widget("split_view_label", split_view_label);
   builder->get_widget("playlist_view_label", playlist_view_label);
   builder->get_widget("library_view_label", library_view_label);
@@ -113,7 +113,7 @@ void gui::get_widgets()
   builder->get_widget("sidebar_song_name", sidebar_song_name);
   builder->get_widget("sidebar_song_artist", sidebar_song_artist);
   builder->get_widget("sidebar_song_album", sidebar_song_album);
-  
+
   builder->get_widget("split_view_layout", split_view_layout);
   builder->get_widget("split_view_spectrum", split_view_spectrum);
   builder->get_widget("split_view_playlist", split_view_playlist);
@@ -127,7 +127,7 @@ void gui::get_widgets()
 
   builder->get_widget("playlist_stack_sidebar_container", playlist_stack_sidebar_container);
   builder->get_widget("playlist_stack", playlist_stack);
-  builder->get_widget("sidebar_stack", sidebar_stack);  
+  builder->get_widget("sidebar_stack", sidebar_stack);
   builder->get_widget("sidebar_stack_switcher", sidebar_stack_switcher);
 
   builder->get_widget("sidebar_audioinfo_layout", sidebar_audioinfo_layout);
@@ -145,7 +145,7 @@ void gui::init_connections()
   open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
   play_button->signal_clicked().connect(sigc::mem_fun(this, &gui::on_play_button_clicked));
   sidebar_hider->signal_clicked().connect(sigc::mem_fun(this, &gui::on_sidebar_hider_clicked));
-  
+
   audio_playback::Instance()->signal_update_pb_timer().connect(sigc::mem_fun(this, &gui::update_pb_timer));
   audio_playback::Instance()->signal_status_changed().connect(sigc::mem_fun(this, &gui::on_playback_status_changed));
   audio_playback::Instance()->signal_now_playing().connect(sigc::mem_fun(this, &gui::set_sidebar_data));
@@ -187,13 +187,13 @@ void gui::init_icons()
   pause_icon = new Image();
   next_icon = new Image();
   queue_overview_icon = new Gtk::Image();
-  
+
   previous_icon->set_from_resource("/fidel/Resources/icons/playback-previous.svg");
   play_icon->set_from_resource("/fidel/Resources/icons/playback-play.svg");
   next_icon->set_from_resource("/fidel/Resources/icons/playback-next.svg");
   pause_icon->set_from_resource("/fidel/Resources/icons/playback-pause.svg");
   queue_overview_icon->set_from_resource("/fidel/Resources/icons/queue-overview.svg");
-  
+
   previous_button->add(*previous_icon);
   play_button->add(*play_icon);
   next_button->add(*next_icon);
@@ -244,7 +244,7 @@ void gui::init_playlist()
   all_songs_playlist = new Playlist();
   queue_playlist = new PlaylistQueue(queue_overview_button);
   AudioLibrary::populate_playlist();
-  
+
   all_songs_playlist->link_to_search_entry(fidel_search_entry);
 
   playlist_manager->add_playlist(*all_songs_playlist, "all_songs", "All Songs");
@@ -324,9 +324,9 @@ void gui::set_sidebar_data(char *now_playing_song)
   sidebar_album_art = Gtk::manage(new Gtk::Image());
   else
     sidebar_album_art_container->remove(*sidebar_album_art);
-  
+
   sidebar_album_art = audioinfo::get_album_art((std::string)now_playing_song);
-  
+
   sidebar_album_art = util::resize_image(sidebar_album_art, default_sidebar_size, default_sidebar_size);
   sidebar_album_art_container->pack_start(*sidebar_album_art, Gtk::PACK_EXPAND_WIDGET);
   // sidebar_audioinfo_layout->set_resize_mode(Gtk::RESIZE_QUEUE);
@@ -374,7 +374,7 @@ void gui::on_playback_status_changed(int status)
     play_button->remove();
     play_button->add(*play_icon);
     play_button->show_all();
-    break;    
+    break;
   }
   case playback::PLAYING: {
     play_button->remove();
@@ -389,24 +389,24 @@ void gui::on_playback_status_changed(int status)
 
 void gui::hide_sidebar()
 {
-  sidebar_hider->remove();  
+  sidebar_hider->remove();
   sidebar_hider->add(*sidebar_show_icon);
   sidebar_stack_switcher->hide();
   sidebar_stack->hide();
-  
+
   sidebar_hidden = true;
-  sidebar_hider->show_all();  
+  sidebar_hider->show_all();
 }
 
 void gui::show_sidebar()
 {
   if (audio_playback::Instance()->is_idle() == false) {
-  sidebar_hider->remove();  
+  sidebar_hider->remove();
   sidebar_hider->add(*sidebar_hide_icon);
   sidebar_stack_switcher->show();
   sidebar_stack->show();
   sidebar_layout->show_all();
-  
+
   sidebar_hidden = false;
   sidebar_hider->show_all();
   }
