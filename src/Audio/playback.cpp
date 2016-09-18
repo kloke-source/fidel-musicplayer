@@ -132,7 +132,6 @@ cb_newpad (GstElement *decodebin __attribute__((unused)),
 
 void playback::audio_file(char *filesrc)
 {
-  std::cout << "Inputted filesrc: "  << filesrc << std::endl;
   if (playback::is_playing() == true || stream_killed == false){
     playback::kill_curr_stream();
   }
@@ -144,13 +143,7 @@ void playback::audio_file(char *filesrc)
 
   duration_obtained=false;
   audioinfo::init(filesrc);
-  std::vector<Glib::ustring> song_data;
-  //song_data.push_back(audioinfo::get_info("song_name"));
-  //song_data.push_back(audioinfo::get_info("artist"));
-  //song_data.push_back(audioinfo::get_info("album"));
-  // --(deprecated)-- fidel_ui::Instance()->set_sidebar_data(//audioinfo::get_album_art(filesrc, 200, 200), song_data);
 
-  //start spectrum visualization
   audio_playback::Instance()->start_spectrum_visualization();
 
   gst_init (NULL, NULL);
@@ -192,6 +185,9 @@ void playback::audio_file(char *filesrc)
   idle=false;
   playback::change_playback_status(playback::IDLE);
   playback::play();
+
+  m_signal_now_playing.emit(filesrc);
+
   g_main_loop_run (loop);
   playback::set_track_finished();
   playback::kill_audio();
@@ -204,28 +200,22 @@ void query_duration()
   gst_element_query_duration (pipeline, GST_FORMAT_TIME, &duration_nanoseconds);
   double duration = ((double)duration_nanoseconds)/1000000000;
 
-  std::cout << "Duration -> " << duration << std::endl;
-  //std::cout << "Test tag dur -> " << audioinfo::tag_duration() << std::endl;
-
   if ((int)duration == audioinfo::tag_duration()){
     audioinfo::set_duration(duration);
     fidel_ui::Instance()->set_pb_endtime(duration);
   }
   if ((int)duration > audioinfo::tag_duration() && (int)duration >= 3600)
     {
-      std::cout << "Duration > tag" << std::endl;
       audioinfo::set_duration_from_tag();
       fidel_ui::Instance()->set_pb_endtime(audioinfo::duration());
     }
   if (audioinfo::tag_duration() > (int)duration && audioinfo::tag_duration() >=3600)
     {
-      std::cout << "tag > duration" << std::endl;
       audioinfo::set_duration(duration);
       fidel_ui::Instance()->set_pb_endtime(duration);
     }
   if ((int)duration == 0 || (int)duration < 0)
     {
-      std::cout << "Duration == 0 || < 0" << std::endl;
       audioinfo::set_duration_from_tag();
       fidel_ui::Instance()->set_pb_endtime(audioinfo::duration());
     }
@@ -268,7 +258,7 @@ void playback::kill_audio()
   }
 }
 
-bool playback::idle_status()
+bool playback::is_idle()
 {
   return idle;
 }
@@ -308,6 +298,12 @@ void playback::seek(double time, std::string sender)
 }
 
 //--- start of signal functions ---
+
+playback::type_signal_now_playing playback::signal_now_playing()
+{
+  return m_signal_now_playing;
+}
+
 /* start of playback status signal functions */
 playback::type_signal_status_changed playback::signal_status_changed()
 {
@@ -339,7 +335,7 @@ playback::type_signal_spect_bands_updated playback::signal_spect_bands_updated()
 {
   return m_signal_spect_bands_updated;
 }
-  
+
 /* start of update playback slider position signal functions */
 playback::type_signal_pb_timer_changed playback::signal_update_pb_timer()
 {

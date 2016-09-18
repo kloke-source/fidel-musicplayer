@@ -50,8 +50,15 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "src"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+<<<<<<< HEAD
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
+=======
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-options.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist-manager.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o"
+>>>>>>> GUI
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o"
   "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/CMakeFiles/GUI.dir/themer.cpp.o"

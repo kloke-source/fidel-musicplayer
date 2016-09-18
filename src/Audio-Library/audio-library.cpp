@@ -5,8 +5,6 @@
 #include <Utilities/util.h>
 #include <Audio-Info/audioinfo.h>
 #include <Audio-Library/audio-library.h>
-#include <Utilities/threadpool.h>
-#include <GUI/playlist.h>
 #include <mutex>
 #include <thread>
 //#define library_db ":memory:"
@@ -87,7 +85,7 @@ void AudioLibrary::initialize()
 {
   if (initialized == false) {
     initialized = true;
-    
+
     valid_file_formats.insert("mp3");
     valid_file_formats.insert("flac");
     valid_file_formats.insert("wav");
@@ -95,7 +93,7 @@ void AudioLibrary::initialize()
     valid_file_formats.insert("m4a");
     valid_file_formats.insert("m4p");
 
-    library_fields.push_back("file_location");    
+    library_fields.push_back("file_location");
     library_fields.push_back("Name");
     library_fields.push_back("Artist");
     library_fields.push_back("Album");
@@ -112,12 +110,12 @@ void AudioLibrary::initialize()
 
     album_info_fields.push_back("album_name");
     album_info_fields.push_back("album_art");
-    
+
     artist_summ_fields.push_back("artist_name");
     artist_summ_fields.push_back("songs_by_artist");
     artist_summ_fields.push_back("file_location");
 
-    
+
     default_music_folder = util::get_home_dir() + "/Music";
     util::create_folder(util::get_home_dir() + "/.fidel/");
     util::create_folder(util::get_home_dir() + "/.fidel/Databases");
@@ -149,9 +147,9 @@ int AudioLibrary::generic_db_callback(void *data, int total_col_num, char **valu
   return 0;
 }
 
-/** 
+/**
  * \brief Essentially initializes the sqlite database so that it can be written to
- * \details This function initializes the database as an in-memory database so that 
+ * \details This function initializes the database as an in-memory database so that
  * database related operations take place much quicker
  */
 void AudioLibrary::init_db()
@@ -267,13 +265,13 @@ void AudioLibrary::load_album_info()
     while(sqlite3_column_text(statement, INFO_ALBUM_ID))
       {
 	AlbumInfo album_info;
-    
+
 	album_info.album_name = std::string((char *)sqlite3_column_text(statement, INFO_ALBUM_NAME));
 	full_loaded_album_names.insert(album_info.album_name);
-	
+
 	guint8 *raw_image_buffer = (guint8 *)sqlite3_column_blob(statement, INFO_ALBUM_ART);
         gsize raw_image_size = sqlite3_column_bytes(statement, INFO_ALBUM_ART);
-    
+
 	album_info.album_art = std::make_tuple(raw_image_buffer, raw_image_size, true);
 	full_album_information.push_back(album_info);
 	sqlite3_step(statement);
@@ -288,7 +286,7 @@ std::tuple<guint8*, gsize, bool> AudioLibrary::get_album_art(std::string album_n
   int album_pos = full_loaded_album_names.get_search_id();
   return full_album_information[album_pos].album_art;
 }
-  
+
 bool AudioLibrary::check_file_format(std::string input_file)
 {
   return valid_file_formats.check(input_file.substr(input_file.find_last_of(".") + 1));
@@ -332,18 +330,18 @@ void AudioLibrary::db_ins_blob(std::string blob_ins_stmt, guint8 *buffer, gsize 
 void AudioLibrary::write_lib_data(std::string file_location)
 {
   audioinfo::init(util::to_char(file_location));
-	      
+
   std::vector<std::string> library_field_values;
-	      
+
   library_field_values.push_back(file_location);
   library_field_values.push_back(audioinfo::get_info(SONG_NAME));
   library_field_values.push_back(audioinfo::get_info(ARTIST));
   library_field_values.push_back(audioinfo::get_info(ALBUM));
   library_field_values.push_back(audioinfo::get_info(TIME));
   library_field_values.push_back(audioinfo::get_info(DURATION_SECONDS));
-	      
+
   std::string ins_stmt = util::gen_ins_stmt("library", library_fields, library_field_values);
-  std::cout << "Inserted " << file_location << std::endl;	     
+  std::cout << "Inserted " << file_location << std::endl;
   AudioLibrary::db_ins_row(ins_stmt);
 }
 
@@ -401,11 +399,11 @@ void AudioLibrary::add_album_summ(std::string file_location)
 void AudioLibrary::write_album_summ()
 {
   std::vector<std::vector<std::string>> full_album_summ_data;
-  
+
   for (size_t album_iter = 0; album_iter < full_album_summary.size(); album_iter++){
     std::string album_name = full_album_summary[album_iter].album_name;
     std::vector<std::string> songs_in_album = full_album_summary[album_iter].songs_in_album.inorder();
-    
+
     for (size_t songs_iter = 0; songs_iter < songs_in_album.size(); songs_iter++){
       std::vector<std::string> album_summ_values;
       std::string song_name = songs_in_album[songs_iter];
@@ -440,7 +438,7 @@ void AudioLibrary::write_album_info(std::string file_location)
       total_albums++;
       AlbumInfo album_info;
       std::vector<std::string> album_info_values;
-	    
+
       album_info.album_name = album_name;
       album_info.album_art = audioinfo::extract_album_art(file_location);
       full_album_information.push_back(album_info);
@@ -449,16 +447,14 @@ void AudioLibrary::write_album_info(std::string file_location)
       if (std::get<2>(album_info.album_art) == true)
 	{
 	  album_info_values.push_back("?");
-      
+
 	  std::stringstream blob_ins_stmt;
 	  blob_ins_stmt << "INSERT INTO album_information (album_name, album_art) VALUES('" << album_name  << "', ?);";
-	  std::cout << blob_ins_stmt.str() << std::endl;
 	  AudioLibrary::db_ins_blob(blob_ins_stmt.str(), std::get<0>(album_info.album_art), std::get<1>(album_info.album_art));
 	}
       else {
 	album_info_values.push_back("No Album Art");
 	std::string ins_stmt = util::gen_ins_stmt("album_information", album_info_fields, album_info_values);
-	std::cout << "No album art insert" << std::endl;
 	AudioLibrary::db_ins_row(ins_stmt);
       }
     }
@@ -508,11 +504,11 @@ void AudioLibrary::add_artist_summ(std::string file_location)
 void AudioLibrary::write_artist_summ()
 {
   std::vector<std::vector<std::string>> full_artist_summ_data;
-  
+
   for (size_t artist_iter = 0; artist_iter < full_artist_summary.size(); artist_iter++){
     std::string artist_name = full_artist_summary[artist_iter].artist_name;
     std::vector<std::string> songs_by_artist = full_artist_summary[artist_iter].songs_by_artist.inorder();
-    
+
     for (size_t songs_iter = 0; songs_iter < songs_by_artist.size(); songs_iter++){
       std::vector<std::string> artist_summ_values;
       std::string song_name = songs_by_artist[songs_iter];
@@ -534,7 +530,7 @@ void AudioLibrary::write_artists(std::string file_location)
 
   audioinfo::init(util::to_char(file_location));
   std::string artist_name = audioinfo::get_info(ARTIST);
-	
+
   if (artists.check(artist_name) == false) {
     total_artists++;
     artists.insert(artist_name);
@@ -570,7 +566,7 @@ int AudioLibrary::populate_playlist_cb(void *data, int total_col_num, char **val
   row_data.push_back(value[LIB_ALBUM]);
   row_data.push_back(value[LIB_TIME]);
   row_data.push_back(value[LIB_FILE_LOCATION]);
-  all_songs::Instance()->add_list_store_row(row_data);
+  fidel_ui::Instance()->append_playlist_row(row_data);
   return 0;
 }
 
@@ -599,7 +595,7 @@ void AudioLibrary::scan_dir(const char *dir_location){
     std::stringstream test;
     const char *file;
     GDir *dir = g_dir_open(subdir_locations[subdir_iter].c_str(), 0, &error);
-    
+
     while ((file = g_dir_read_name(dir))){
       try {
 	GError *subdir_error = NULL;

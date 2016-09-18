@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio/playback.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio/CMakeFiles/Audio.dir/playback.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/Audio/playback.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/Audio/CMakeFiles/Audio.dir/playback.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

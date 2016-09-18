@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="15.925704"
+   height="15"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   viewBox="0 0 15.925704 15"
+   sodipodi:docname="add-next.svg">
+  <defs
+     id="project-open">
+    <style
+       type="text/css"
+       id="current-color-scheme">
+      .ColorScheme-Text {
+        color:#455a64;
+      }
+      </style>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="1"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="8.5515728"
+     inkscape:cx="-9.9499561"
+     inkscape:cy="3.6011668"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="true"
+     units="px"
+     inkscape:showpageshadow="false"
+     borderlayer="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="716"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4137"
+       originx="-3.7661251"
+       originy="-1.9017756" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+        <cc:license
+           rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Uri Herrera</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Nitrux</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:relation>Owner</dc:relation>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-3.7661252,-1035.4604)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="top layer"
+     transform="translate(-3.7661252,0.9017759)">
+    <g
+       id="g4145"
+       transform="matrix(1.5575558,0,0,1.5575558,-2.464098,-7.1319991)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         sodipodi:nodetypes="cccccccccccccccccccccccccccccc"
+         class="ColorScheme-Text"
+         inkscape:connector-curvature="0"
+         id="rect4146"
+         d="m 4,1040.3622 0,2 2,0 0,-2 z m 3,0 0,2 6,0 0,-2 z m -3,3 0,2 2,0 0,-2 z m 3,0 0,2 6,0 0,-2 z m -3,3 0,2 2,0 0,-2 z m 3,0 0,2 6,0 0,-2 z"
+         style="color:#455a64;fill:#4d4d4d;fill-opacity:1;stroke:none"
+         transform="translate(0,-1036.3622)" />
+      <g
+         transform="matrix(1.6696035,0,0,1.6696035,-5.5213826,-7.0907011)"
+         id="g4794">
+        <circle
+           style="fill:#b3b3b3;fill-opacity:1"
+           id="path4783"
+           cx="10.067183"
+           cy="10.651146"
+           r="1.7596899" />
+        <path
+           inkscape:connector-curvature="0"
+           style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke-opacity:1"
+           d="m 9.8822715,9.1718618 0,1.2943692 -1.2943831,0 0,0.369828 1.2943831,0 0,1.29437 0.3698235,0 0,-1.29437 1.294383,0 0,-0.369828 -1.294383,0 0,-1.2943692 -0.3698235,0 z"
+           id="rect4148" />
+      </g>
+    </g>
+  </g>
+</svg>

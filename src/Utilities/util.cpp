@@ -21,13 +21,22 @@ std::string util::get_home_dir()
   return Glib::get_home_dir();
 }
 
-void util::resize_image(Gtk::Image *image, int width, int height)
+Gtk::Image* util::resize_image(Gtk::Image* image, int width, int height)
 {
-  Glib::RefPtr<Gdk::Pixbuf> image_pixbuf = image->get_pixbuf();
-  image_pixbuf = image_pixbuf->scale_simple(width, height, Gdk::INTERP_BILINEAR);
-  image->set(image_pixbuf);
+  Glib::RefPtr<Gdk::Pixbuf> original_pixbuf = image->get_pixbuf();  
+  Glib::RefPtr<Gdk::Pixbuf> scaled_pixbuf = original_pixbuf->scale_simple(width, height, Gdk::INTERP_BILINEAR);
+  Gtk::Image *scaled_image = new Gtk::Image();
+  scaled_image->set(scaled_pixbuf);
+  return scaled_image;
 }
-
+/*
+void util::resize_image(Gtk::Image& image, int width, int height)
+{
+  Glib::RefPtr<Gdk::Pixbuf> image_pixbuf = image.get_pixbuf();
+  image_pixbuf = image_pixbuf->scale_simple(width, height, Gdk::INTERP_BILINEAR);
+  image.set(image_pixbuf);
+}
+*/
 void util::create_folder(std::string location)
 {
 #if defined(_WIN32)

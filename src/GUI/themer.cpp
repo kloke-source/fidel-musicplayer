@@ -11,52 +11,52 @@ themer::themer(){}
 themer::~themer(){}
 
 extern GResource *fidel_resources;
-extern Builder builder;
-extern ApplicationWindow *window;
+extern Gtk::Builder builder;
+extern Gtk::ApplicationWindow *window;
+extern Gtk::Toolbar *toolbar;
+extern Gtk::ImageMenuItem *open_action;
+extern Gtk::Notebook *view_switcher;
+extern Gtk::Entry *playlist_search_entry;
 
-extern Toolbar *toolbar;
-extern ImageMenuItem *open_action;
-extern Notebook *view_switcher;
-extern Entry *playlist_search_entry;
+extern Gtk::Image *previous_icon, *play_icon, *pause_icon, *next_icon;
 
-extern Image *previous_icon, *play_icon, *pause_icon, *next_icon;
+extern Gtk::Label *split_view_label;
+extern Gtk::Label *playlist_view_label;
+extern Gtk::Label *library_view_label;
+extern Gtk::Label *spectrum_view_label;
+extern Gtk::Label *idle_status_label;
+extern Gtk::Label *playback_timer;
+extern Gtk::Label *playback_endtime;
+extern Gtk::Label *sidebar_name_label;
+extern Gtk::Label *sidebar_artist_label;
+extern Gtk::Label *sidebar_album_label;
+extern Gtk::Label *sidebar_song_name;
+extern Gtk::Label *sidebar_song_artist;
+extern Gtk::Label *sidebar_song_album;
 
-extern Label *split_view_label;
-extern Label *playlist_view_label;
-extern Label *library_view_label;
-extern Label *spectrum_view_label;
-extern Label *idle_status_label;
-extern Label *playback_timer;
-extern Label *playback_endtime;
-extern Label *sidebar_name_label;
-extern Label *sidebar_artist_label;
-extern Label *sidebar_album_label;
-extern Label *sidebar_song_name;
-extern Label *sidebar_song_artist;
-extern Label *sidebar_song_album;
+extern Gtk::Box *split_view_layout;
+extern Gtk::Box *split_view_spectrum;
+extern Gtk::Box *split_view_playlist;
+extern Gtk::Box *library_view_frame;
+extern Gtk::Box *playback_frame;
+// extern Box *playlist_view;
+extern Gtk::Box *playback_slider_frame;
+extern Gtk::Box *sidebar_layout;
+extern Gtk::Box *sidebar_album_art_container;
+extern Gtk::Box *spectrum_view_layout;
+extern Gtk::Box *mini_spectrum_container;
 
-extern Box *split_view_layout;
-extern Box *split_view_spectrum;
-extern Box *split_view_playlist;
-extern Box *library_view_frame;
-extern Box *playback_frame;
-extern Box *playlist_view;
-extern Box *playback_slider_frame;
-extern Box *sidebar_layout;
-extern Box *sidebar_albumart;
-extern Box *spectrum_view_layout;
+extern Gtk::Grid *sidebar_audioinfo_layout;
+extern Gtk::Scale *playback_slider;
 
-extern Grid *sidebar_audioinfo_layout;
-extern Scale *playback_slider;
-
-extern Button *previous_button;
-extern Button *play_button;
-extern Button *next_button;
-extern Button *sidebar_hider;
+extern Gtk::Button *previous_button;
+extern Gtk::Button *play_button;
+extern Gtk::Button *next_button;
+extern Gtk::Button *sidebar_hider;
 
 /* widget vector enums */
 
-enum{
+enum {
   NOTEBOOKS,
   ENTRIES,
   IMAGES,
@@ -71,7 +71,8 @@ enum{
 typedef Glib::RefPtr<Gtk::StyleContext> StyleContext;
 
 /* style context vector */
-std::vector<std::vector<StyleContext> > all_style_ctx_vect;
+std::vector<std::vector<StyleContext>> all_style_ctx_vect;
+
 std::vector<StyleContext> notebook_style_ctx_vect;
 std::vector<StyleContext> entry_style_ctx_vect;
 std::vector<StyleContext> image_style_ctx_vect;
@@ -82,14 +83,15 @@ std::vector<StyleContext> scale_style_ctx_vect;
 std::vector<StyleContext> button_style_ctx_vect;
 
 /* widget vectors */
-std::vector<Notebook*> notebook_vect;
-std::vector<Entry*> entry_vect;
-std::vector<Image*> image_vect;
-std::vector<Label*> label_vect;
-std::vector<Box*> box_vect;
-std::vector<Grid*> grid_vect;
-std::vector<Scale*> scale_vect;
-std::vector<Button*> button_vect;
+std::vector<Gtk::Notebook*> notebook_vect;
+std::vector<Gtk::Entry*> entry_vect;
+std::vector<Gtk::Image*> image_vect;
+std::vector<Gtk::Label*> notebook_label_vect;
+std::vector<Gtk::Label*> label_vect;
+std::vector<Gtk::Box*> box_vect;
+std::vector<Gtk::Grid*> grid_vect;
+std::vector<Gtk::Scale*> scale_vect;
+std::vector<Gtk::Button*> button_vect;
 
 /* stylesheet enums */
 enum{
@@ -102,27 +104,54 @@ std::stringstream notebook_stylesheet;
 std::stringstream slider_stylesheet;
 
 std::vector<std::string> stylesheet_vect; // stylesheet vector
+
+
+/* fonts */
+// notebook fonts
+Pango::FontDescription notebook_font;
+
+// font sizes
+int notebook_font_size = 11;
+
 /* notebook colors */
-std::string selected_tab_bg_color = "#e8e8e8";
-std::string selected_tab_font_bg_color = "#2d2d2d";
-std::string selected_tab_top_border_bg_color = "#cccccc";
+std::string selected_tab_bg_color = "#242323";
+std::string selected_tab_font_bg_color = "#ffffff";
+std::string selected_tab_top_border_bg_color = "#242323";
 std::string selected_tab_bottom_border_bg_color = "transparent";
 std::string notebook_unselected_bottom_border_bg_color = "transparent";
-std::string notebook_tab_bg_color = "#e0e0e0";
-std::string notebook_tab_hover_bg_color = "#f0f0f0";
-std::string notebook_tab_hover_bottom_border_bg_color = "#a1a1a1";
-std::string notebook_bottom_border_color = "#cccccc";
+std::string notebook_tab_bg_color = "#2d2d2d";
+std::string notebook_tab_hover_bg_color = "#3C403C";
+std::string notebook_tab_hover_bottom_border_bg_color = "#3C403C";
+std::string notebook_bottom_border_color = "#2d2d2d";
 
 /* notebook settings */
-int notebook_bottom_border_width = 1; //px
+int notebook_bottom_border_width = 0; //px
+
+void themer::set_colors()
+{
+  window->override_background_color(Gdk::RGBA("#2d2d2d"));
+}
+
+void themer::set_fonts()
+{
+  for (size_t iter = 0; iter < notebook_label_vect.size(); iter++) {
+    notebook_label_vect[iter]->override_font(notebook_font);
+  }
+}
 
 void themer::set_styles()
 {
+  window->override_background_color(Gdk::RGBA("#2d2d2d"));
   if (themer_initialized == false)
   themer::init_stylesheets();
   themer::init_vectors();
+  themer::init_fonts();
+
 
   themer_initialized = true;
+
+  themer::set_colors();
+  themer::set_fonts();
 
   for (size_t iter = 0; iter < stylesheet_vect.size(); iter++) {
     Glib::RefPtr<Gtk::CssProvider> cssprov = Gtk::CssProvider::create();
@@ -165,10 +194,11 @@ void themer::init_vectors()
   }
   notebook_vect.push_back(view_switcher);
 
-  label_vect.push_back(split_view_label);
-  label_vect.push_back(playlist_view_label);
-  label_vect.push_back(library_view_label);
-  label_vect.push_back(spectrum_view_label);
+  notebook_label_vect.push_back(split_view_label);
+  notebook_label_vect.push_back(playlist_view_label);
+  notebook_label_vect.push_back(library_view_label);
+  notebook_label_vect.push_back(spectrum_view_label);
+
   label_vect.push_back(idle_status_label);
   label_vect.push_back(playback_timer);
   label_vect.push_back(playback_endtime);
@@ -184,11 +214,12 @@ void themer::init_vectors()
   box_vect.push_back(split_view_playlist);
   box_vect.push_back(library_view_frame);
   box_vect.push_back(playback_frame);
-  box_vect.push_back(playlist_view);
+  // box_vect.push_back(playlist_view);
   box_vect.push_back(playback_slider_frame);
   box_vect.push_back(sidebar_layout);
-  box_vect.push_back(sidebar_albumart);
+  box_vect.push_back(sidebar_album_art_container);
   box_vect.push_back(spectrum_view_layout);
+  box_vect.push_back(mini_spectrum_container);
 
   grid_vect.push_back(sidebar_audioinfo_layout);
 
@@ -242,6 +273,12 @@ void themer::init_vectors()
   all_style_ctx_vect.push_back(button_style_ctx_vect);
 }
 
+void themer::init_fonts()
+{
+  notebook_font.set_family("Open Sans Light");
+  notebook_font.set_size(notebook_font_size * PANGO_SCALE);
+}
+
 void themer::init_stylesheets()
 {
   notebook_stylesheet << "\
@@ -249,13 +286,10 @@ void themer::init_stylesheets()
   @define-color selected_tab_font_bg_color " << selected_tab_font_bg_color << ";\n\
   @define-color selected_tab_top_border_bg_color " << selected_tab_top_border_bg_color << ";\n\
   @define-color selected_tab_bottom_border_bg_color " << selected_tab_bottom_border_bg_color << ";\n\
-  \n\
   @define-color notebook_unselected_bottom_border_bg_color " << notebook_unselected_bottom_border_bg_color << ";\n\
-  \n\
   @define-color notebook_tab_bg_color " << notebook_tab_bg_color << ";\n\
   @define-color notebook_tab_hover_bg_color " << notebook_tab_hover_bg_color << ";\n\
   @define-color notebook_tab_hover_bottom_border_bg_color " << notebook_tab_hover_bottom_border_bg_color << ";\n\
-  \n\
   @define-color notebook_bottom_border_color " << notebook_bottom_border_color << ";\n\
   \n\
   * { border-top-width: 0; } /* Removes top border from notebook */\n\
@@ -287,15 +321,13 @@ void themer::init_stylesheets()
   \n\
   /* Applies to selected notebook tab */\n\
   notebook > header tab:checked {\n\
+    color: @selected_tab_font_bg_color;\n\
     background-color: @selected_tab_bg_color;\n\
     border-top-width: 0px; /*Sets the width of the selected notebook tab's top border */\n\
     border-bottom-width: 1px; /*Sets the width of the selected notebook tab's bottom border */\n\
     border-top-color: @selected_tab_top_border_bg_color;\n\
     border-bottom-color: @selected_tab_bottom_border_bg_color;\n\
     outline: none; }\n\
-  \n\
-  notebook > header tab:checked label {\n\
-    color: @selected_tab_font_bg_color; }\n\
   \n\
   notebook > header tab > box, notebook > header tab > label {\n\
     border-width: 2px;\n\

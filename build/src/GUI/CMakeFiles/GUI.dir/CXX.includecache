@@ -60,12 +60,26 @@ GUI/singleton.h
 vector
 -
 
+../src/GUI/fidel-options.h
+gtkmm.h
+-
+iostream
+-
+GUI/gui.h
+-
+Utilities/util.h
+-
+GUI/fidel-popover.h
+-
+
 ../src/GUI/fidel-popover.h
 gtkmm.h
 -
 iostream
 -
 vector
+-
+GUI/fidel-options.h
 -
 
 ../src/GUI/fidel-resources.h
@@ -79,19 +93,63 @@ gtkmm.h
 -
 iostream
 -
+gio/gio.h
+-
+GUI/seeker.h
+-
+GUI/themer.h
+-
+GUI/playlist.h
+-
+GUI/playlist-queue.h
+-
 GUI/singleton.h
+-
+GUI/playlist-manager.h
+-
+Spectrum/spectrum.h
+-
+Audio/playback.h
+-
+Audio-Library/audio-library.h
+-
+Utilities/util.h
+-
+Utilities/threadpool.h
+-
+GUI/fidel-resources.h
+-
+
+../src/GUI/playlist-manager.h
+vector
+-
+gtkmm.h
+-
+iostream
 -
 GUI/playlist.h
 -
 
+../src/GUI/playlist-queue.h
+vector
+-
+gtkmm.h
+-
+GUI/playlist.h
+-
+GUI/fidel-popover.h
+-
+Utilities/util.h
+-
+
 ../src/GUI/playlist.h
+vector
+-
 gtkmm.h
 -
 Audio/playback.h
 -
-GUI/fidel-popover.h
--
-vector
+Utilities/btree.h
 -
 
 ../src/GUI/seeker.h
@@ -104,6 +162,8 @@ gtkmm.h
 assert.h
 -
 cstddef
+-
+iostream
 -
 
 ../src/GUI/themer.h
@@ -130,6 +190,32 @@ iostream
 vector
 -
 
+../src/Utilities/threadpool.h
+vector
+-
+queue
+-
+memory
+-
+thread
+-
+mutex
+-
+<<<<<<< HEAD
+Utilities/btree.h
+-
+Audio-Info/audioinfo.h
+=======
+condition_variable
+>>>>>>> GUI
+-
+future
+-
+functional
+-
+stdexcept
+-
+
 ../src/Utilities/util.h
 gtkmm.h
 -
@@ -140,81 +226,57 @@ iostream
 vector
 -
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp
-GUI/fidel-popover.h
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-options.cpp
+GUI/fidel-options.h
+-
+
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-popover.cpp
+vector
+-
+iostream
 -
 Utilities/util.h
 -
 Utilities/btree.h
+-
+GUI/fidel-popover.h
 -
 Audio-Info/audioinfo.h
 -
 Audio-Library/audio-library.h
 -
-vector
--
-iostream
+
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/gui.cpp
+GUI/gui.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp
-gui.h
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
-vector
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-manager.cpp
+GUI/playlist-manager.h
 -
-gtkmm.h
+
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-queue.cpp
+GUI/playlist-queue.h
+-
+thread
+-
+chrono
+-
+
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist.cpp
+GUI/playlist.h
 -
 iostream
 -
-gio/gio.h
+Utilities/util.h
 -
-GUI/fidel-resources.h
--
-GUI/seeker.h
--
-GUI/themer.h
--
-GUI/playlist.h
+Audio/playback.h
 -
 GUI/fidel-popover.h
 -
-Utilities/util.h
--
-Audio/playback.h
--
-Spectrum/spectrum.h
--
-Audio-Library/audio-library.h
--
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.h
-vector
--
-gtkmm.h
--
-iostream
--
-GUI/singleton.h
--
-GUI/playlist.h
--
-
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp
-GUI/playlist.h
--
-iostream
--
-Utilities/util.h
--
-Audio/playback.h
--
-Utilities/btree.h
--
-vector
--
-
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.cpp
 seeker.h
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.h
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.h
 gtkmm.h
 -
 iostream
@@ -226,13 +288,13 @@ Audio/playback.h
 Audio-Info/audioinfo.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.h
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.h
 GUI/singleton.h
 -
 gtkmm.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/themer.cpp
 iostream
 -
 gtkmm.h
@@ -11563,6 +11625,8 @@ glib-object.h
 /usr/include/pango-1.0/pango/pango-bidi-type.h
 glib.h
 -
+pango/pango-version-macros.h
+-
 
 /usr/include/pango-1.0/pango/pango-break.h
 glib.h
@@ -11581,6 +11645,8 @@ pango/pango-attributes.h
 /usr/include/pango-1.0/pango/pango-coverage.h
 glib.h
 -
+pango/pango-version-macros.h
+-
 
 /usr/include/pango-1.0/pango/pango-engine.h
 pango/pango-types.h
@@ -11596,6 +11662,8 @@ pango/pango-script.h
 
 /usr/include/pango-1.0/pango/pango-enum-types.h
 glib-object.h
+-
+pango/pango-version-macros.h
 -
 
 /usr/include/pango-1.0/pango/pango-features.h
@@ -11655,6 +11723,8 @@ glib.h
 -
 glib-object.h
 -
+pango/pango-version-macros.h
+-
 pango/pango-script.h
 -
 
@@ -11683,6 +11753,8 @@ pango/pango-layout.h
 /usr/include/pango-1.0/pango/pango-script.h
 glib.h
 -
+pango/pango-version-macros.h
+-
 pango/pango-language.h
 -
 
@@ -11694,6 +11766,8 @@ pango/pango-types.h
 glib.h
 -
 glib-object.h
+-
+pango/pango-version-macros.h
 -
 pango/pango-gravity.h
 -
@@ -11712,6 +11786,12 @@ stdio.h
 glib.h
 -
 pango/pango-font.h
+-
+
+/usr/include/pango-1.0/pango/pango-version-macros.h
+pango/pango-features.h
+-
+glib.h
 -
 
 /usr/include/pango-1.0/pango/pango.h
@@ -11758,6 +11838,8 @@ pango/pango-tabs.h
 pango/pango-types.h
 -
 pango/pango-utils.h
+-
+pango/pango-version-macros.h
 -
 
 /usr/include/pango-1.0/pango/pangocairo.h

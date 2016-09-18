@@ -4,7 +4,6 @@
 #include <math.h>
 #include <Audio/playback.h>
 #include <Utilities/util.h>
-#include <Utilities/threadpool.h>
 #define PI 3.14159265
 
 //extern std::vector<double> phase_shifts;
@@ -69,12 +68,12 @@ void spectrum::clear_context(const Cairo::RefPtr<Cairo::Context>& cr)
   if (auto_padding == true)
     spect_padding = (double) (.65 * frame_width) / (spect_bands + 1); // .65 is ideal padding ratio
 
-  util::set_source_rgb(cr, "#dfdfdf");//2d2d2d
+  util::set_source_rgb(cr, "#2d2d2d");
   cr->rectangle(0, 0, frame_width, frame_height);
   cr->fill();
   double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
-  util::set_source_rgb(cr, "#2d2d2d"); //dfdfdf
-  //#36D7B7
+  util::set_source_rgb(cr, "#36D7B7");
+
   for (int band = 0; band < spect_bands; band++) {
     double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
     cr->rectangle(bar_x_pos, (frame_height/2 - 1), spec_bar_width, 1);
@@ -118,7 +117,7 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 
   if (auto_padding == true)
     spect_padding = (double) (.65 * frame_width) / (spect_bands + 1); // .65 is ideal padding ratio
-  
+
   double spectrum_vert_scale = max_magnitude/frame_height;
   double spec_bar_width = (frame_width - ((spect_bands+1) * spect_padding))/spect_bands;
 
@@ -133,18 +132,21 @@ bool spectrum::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   double scale_factor=frame_height/2;
 
   spectrum::clear_context(cr);
-  util::set_source_rgb(cr, "#2d2d2d");
+  util::set_source_rgb(cr, "#36D7B7");
   //#pragma omp parallel for
   for (int band = 0; band < spect_band_magnitudes.size(); band++) {
     double magnitude = spect_band_magnitudes[band];
     double bar_x_pos = spect_padding + (band * (spec_bar_width + spect_padding));
     double height_required = frame_height - ( ((-1) * magnitude)/spectrum_vert_scale);
-    
+
     double interp_x_pos = (shaders[band]*scale_factor*PI)/speed; //interpolation variables (the x position on the interpolation curve)
-  
+
     double bar_height;
-    if(scale_factor != 0)
+    if (scale_factor != 0 && audio_playback::Instance()->is_playing() == true)
       bar_height = scale_factor * spectrum::sin_func((1/scale_factor)*interp_x_pos - PI/2) + scale_factor; //interpolation variables
+
+    if (audio_playback::Instance()->is_playing() == false)
+      bar_height = previously_painted[band];
 
     bar_heights[band] = bar_height;
 

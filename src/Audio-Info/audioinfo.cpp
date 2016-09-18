@@ -9,23 +9,37 @@
 
 #include <Utilities/util.h>
 #include <Audio-Library/audio-library.h>
+#include <mutex>
 
 audioinfo::audioinfo(){}
-audioinfo::~audioinfo(){}
+audioinfo::~audioinfo()
+{
+  std::cout << "AudioInfo destructor" << std::endl;
+}
 
-TagLib::FileRef audio_file;
+namespace {
+  TagLib::FileRef audio_file;
+  std::mutex audioinfo_mutex;
+  char *audio_file_location;
 
-char *audio_file_location;
+  struct AudioFileInfo {
+    std::string song_name;
+    //TagLib::String song_name;
+    std::string artist;
+    std::string album;
+    double duration_seconds;
+  };
 
-struct AudioFileInfo{
-  std::string song_name;
-  //TagLib::String song_name;
-  std::string artist;
-  std::string album;
-  double duration_seconds;
-};
-
-AudioFileInfo info;
+  struct ExtractedAlbumArtSuppData {
+    btree<std::string> file_locs;
+    btree<std::string> albums;
+  };
+  
+  AudioFileInfo info;
+  ExtractedAlbumArtSuppData extracted_album_art_supp_data;  
+  std::vector<Gtk::Image*> extracted_album_art;
+  int total_extracted_album_art = 0;
+}
 
 bool audioinfo::init_checker(char *filesrc)
 {
@@ -124,6 +138,49 @@ std::string audioinfo::get_info(std::string field)
   return song_info;
 }
 
+Gtk::Image* audioinfo::get_album_art(std::string file_location)
+{
+  std::string current_file_album;
+  std::string current_file_artist;
+  std::tuple<guint8*, gsize, bool> raw_album_art;
+
+  auto raw_album_art_extract_job = std::async(std::launch::async, &audioinfo::extract_album_art, file_location);
+  
+  bool album_art_found = extracted_album_art_supp_data.file_locs.check(file_location);
+  int found_pos = extracted_album_art_supp_data.file_locs.get_search_id();
+  if (album_art_found == false) {
+    audioinfo::init(util::to_char(file_location));
+    current_file_album = audioinfo::get_info(ALBUM);
+    current_file_artist = audioinfo::get_info(ARTIST);
+      
+    album_art_found = extracted_album_art_supp_data.albums.check(current_file_album);
+    found_pos = extracted_album_art_supp_data.albums.get_search_id();
+  }
+    
+  if (album_art_found == true)
+    return extracted_album_art[found_pos];
+
+  if (album_art_found == false) {  
+    Gtk::Image *album_art = new Gtk::Image();
+    raw_album_art = raw_album_art_extract_job.get();
+    if (std::get<2>(raw_album_art) == true) {
+      Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();      
+      loader->write(std::get<0>(raw_album_art), std::get<1>(raw_album_art));
+      loader->close();
+      Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
+      album_art->set(pixbuf);
+    }
+    else
+      album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");
+      
+    extracted_album_art.push_back(album_art);
+    extracted_album_art_supp_data.file_locs.insert(file_location, total_extracted_album_art);
+    extracted_album_art_supp_data.albums.insert(current_file_album, total_extracted_album_art);
+    total_extracted_album_art++;
+    return album_art;
+  }
+}
+
 std::tuple<guint8*, gsize, bool> audioinfo::extract_album_art(std::string file_location)
 {
   guint8* extracted_image;
@@ -145,7 +202,8 @@ std::tuple<guint8*, gsize, bool> audioinfo::extract_album_art(std::string file_l
     if ( extracted_image )
       memcpy ( extracted_image, flac_cover_pic->data().data(), image_size );
   }
-  if (util::check_file_format(file_location, "mp3") == true) {
+  
+  else if (util::check_file_format(file_location, "mp3") == true) {
     static const char *IdPicture = "APIC" ;
     TagLib::MPEG::File mp3_file(util::to_char(file_location));
     TagLib::ID3v2::Tag *id3v2tag = mp3_file.ID3v2Tag();
@@ -173,8 +231,8 @@ std::tuple<guint8*, gsize, bool> audioinfo::extract_album_art(std::string file_l
 	}
     }
   }
-  
-  if (util::check_file_format(file_location, "m4a") == true) {
+
+  else if (util::check_file_format(file_location, "m4a") == true) {
     TagLib::MP4::File m4a_file(util::to_char(file_location));
     TagLib::MP4::Tag* m4a_tag = m4a_file.tag();
     TagLib::MP4::ItemListMap itemsListMap = m4a_tag->itemListMap();
@@ -187,13 +245,13 @@ std::tuple<guint8*, gsize, bool> audioinfo::extract_album_art(std::string file_l
     }
     if (albumart_found == true){
       TagLib::MP4::CoverArt coverArt = coverArtList.front();
-
       image_size = coverArt.data().size() ;
       extracted_image = (guint8*)malloc (image_size) ;
       if (extracted_image)
 	memcpy ( extracted_image, coverArt.data().data(), image_size ) ;
     }
   }
+
   if (albumart_found == true)
     return std::make_tuple(extracted_image, image_size, true);
   else

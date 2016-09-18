@@ -14,12 +14,13 @@ class playback{
     PLAYING,
     IDLE
   };
-  
+
   playback();
   void audio_file(char *filesrc);
   void kill_curr_stream();
   void kill_audio();
-  bool idle_status();
+  bool is_idle();
+
   bool is_playing();
   void pause();
   void play();
@@ -31,8 +32,11 @@ class playback{
   void change_playback_status(int status);
   void update_pb_timer(double seek_value);
   void set_track_finished();
-  
+
   //signal accessors
+  typedef sigc::signal<void, char*> type_signal_now_playing;
+  type_signal_now_playing signal_now_playing();
+
   typedef sigc::signal<void, int> type_signal_status_changed;
   type_signal_status_changed signal_status_changed();
 
@@ -41,14 +45,15 @@ class playback{
 
   typedef sigc::signal<void, std::vector<double>> type_signal_spect_bands_updated;
   type_signal_spect_bands_updated signal_spect_bands_updated();
-  
+
   typedef sigc::signal<void, double> type_signal_pb_timer_changed;
   type_signal_pb_timer_changed signal_update_pb_timer();
 
   typedef sigc::signal<void> type_signal_track_finished;
   type_signal_track_finished signal_track_finished();
-  
+
  protected:
+  type_signal_now_playing m_signal_now_playing;
   type_signal_start_spectrum m_signal_spectrum_start;
   type_signal_spect_bands_updated m_signal_spect_bands_updated;
   type_signal_status_changed m_signal_status_changed;

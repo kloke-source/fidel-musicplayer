@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.c" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-resources.c" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -50,11 +50,14 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../src"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o"
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/themer.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-options.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-popover.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/gui.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-manager.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-queue.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/GUI/themer.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/themer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
