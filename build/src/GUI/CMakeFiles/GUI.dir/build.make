@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tashrif/Dev/fidel-musicplayer-cmake
+CMAKE_SOURCE_DIR = /home/tashrif/Dev/fidel-musicplayer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tashrif/Dev/fidel-musicplayer-cmake/build
+CMAKE_BINARY_DIR = /home/tashrif/Dev/fidel-musicplayer/build
 
 # Include any dependencies generated for this target.
 include src/GUI/CMakeFiles/GUI.dir/depend.make
@@ -59,16 +59,16 @@ include src/GUI/CMakeFiles/GUI.dir/flags.make
 
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o: ../src/GUI/fidel-resources.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GUI.dir/fidel-resources.c.o   -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GUI.dir/fidel-resources.c.o   -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-resources.c
 
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GUI.dir/fidel-resources.c.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.c > CMakeFiles/GUI.dir/fidel-resources.c.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-resources.c > CMakeFiles/GUI.dir/fidel-resources.c.i
 
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GUI.dir/fidel-resources.c.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.c -o CMakeFiles/GUI.dir/fidel-resources.c.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-resources.c -o CMakeFiles/GUI.dir/fidel-resources.c.s
 
 src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o.requires:
 
@@ -83,16 +83,16 @@ src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o.provides.build: src/GUI/CMakeFile
 
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/gui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/gui.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/gui.cpp.o -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/gui.cpp
 
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/gui.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp > CMakeFiles/GUI.dir/gui.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/gui.cpp > CMakeFiles/GUI.dir/gui.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/gui.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/gui.cpp -o CMakeFiles/GUI.dir/gui.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/gui.cpp -o CMakeFiles/GUI.dir/gui.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o.requires:
 
@@ -107,16 +107,16 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o.provides.build: src/GUI/CMakeFiles/GUI.dir/
 
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/themer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/GUI/CMakeFiles/GUI.dir/themer.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/themer.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/GUI/CMakeFiles/GUI.dir/themer.cpp.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/themer.cpp.o -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/themer.cpp
 
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/themer.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp > CMakeFiles/GUI.dir/themer.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/themer.cpp > CMakeFiles/GUI.dir/themer.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/themer.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/themer.cpp -o CMakeFiles/GUI.dir/themer.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/themer.cpp -o CMakeFiles/GUI.dir/themer.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o.requires:
 
@@ -131,16 +131,16 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o.provides.build: src/GUI/CMakeFiles/GUI.d
 
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/fidel-popover.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/fidel-popover.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/fidel-popover.cpp.o -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-popover.cpp
 
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/fidel-popover.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp > CMakeFiles/GUI.dir/fidel-popover.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-popover.cpp > CMakeFiles/GUI.dir/fidel-popover.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/fidel-popover.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-popover.cpp -o CMakeFiles/GUI.dir/fidel-popover.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-popover.cpp -o CMakeFiles/GUI.dir/fidel-popover.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o.requires:
 
@@ -155,16 +155,16 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o.provides.build: src/GUI/CMakeFile
 
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/GUI/fidel-options.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/fidel-options.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-options.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/fidel-options.cpp.o -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-options.cpp
 
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/fidel-options.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-options.cpp > CMakeFiles/GUI.dir/fidel-options.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-options.cpp > CMakeFiles/GUI.dir/fidel-options.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/fidel-options.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-options.cpp -o CMakeFiles/GUI.dir/fidel-options.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-options.cpp -o CMakeFiles/GUI.dir/fidel-options.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o.requires:
 
@@ -179,16 +179,16 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o.provides.build: src/GUI/CMakeFile
 
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/GUI/playlist-queue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/playlist-queue.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist-queue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/playlist-queue.cpp.o -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-queue.cpp
 
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/playlist-queue.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist-queue.cpp > CMakeFiles/GUI.dir/playlist-queue.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-queue.cpp > CMakeFiles/GUI.dir/playlist-queue.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/playlist-queue.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist-queue.cpp -o CMakeFiles/GUI.dir/playlist-queue.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-queue.cpp -o CMakeFiles/GUI.dir/playlist-queue.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o.requires:
 
@@ -203,16 +203,16 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o.provides.build: src/GUI/CMakeFil
 
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/playlist.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/playlist.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/playlist.cpp.o -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist.cpp
 
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/playlist.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp > CMakeFiles/GUI.dir/playlist.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist.cpp > CMakeFiles/GUI.dir/playlist.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/playlist.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist.cpp -o CMakeFiles/GUI.dir/playlist.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist.cpp -o CMakeFiles/GUI.dir/playlist.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o.requires:
 
@@ -227,16 +227,16 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o.provides.build: src/GUI/CMakeFiles/GUI
 
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: ../src/GUI/playlist-manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/playlist-manager.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist-manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/playlist-manager.cpp.o -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-manager.cpp
 
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/playlist-manager.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist-manager.cpp > CMakeFiles/GUI.dir/playlist-manager.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-manager.cpp > CMakeFiles/GUI.dir/playlist-manager.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/playlist-manager.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/playlist-manager.cpp -o CMakeFiles/GUI.dir/playlist-manager.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-manager.cpp -o CMakeFiles/GUI.dir/playlist-manager.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o.requires:
 
@@ -251,16 +251,16 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o.provides.build: src/GUI/CMakeF
 
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: src/GUI/CMakeFiles/GUI.dir/flags.make
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/seeker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/seeker.cpp.o -c /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GUI.dir/seeker.cpp.o -c /home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.cpp
 
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GUI.dir/seeker.cpp.i"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp > CMakeFiles/GUI.dir/seeker.cpp.i
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.cpp > CMakeFiles/GUI.dir/seeker.cpp.i
 
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GUI.dir/seeker.cpp.s"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/seeker.cpp -o CMakeFiles/GUI.dir/seeker.cpp.s
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.cpp -o CMakeFiles/GUI.dir/seeker.cpp.s
 
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o.requires:
 
@@ -299,9 +299,9 @@ src/GUI/libGUI.a: src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o
 src/GUI/libGUI.a: src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
 src/GUI/libGUI.a: src/GUI/CMakeFiles/GUI.dir/build.make
 src/GUI/libGUI.a: src/GUI/CMakeFiles/GUI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tashrif/Dev/fidel-musicplayer-cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libGUI.a"
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && $(CMAKE_COMMAND) -P CMakeFiles/GUI.dir/cmake_clean_target.cmake
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GUI.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libGUI.a"
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && $(CMAKE_COMMAND) -P CMakeFiles/GUI.dir/cmake_clean_target.cmake
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GUI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/GUI/CMakeFiles/GUI.dir/build: src/GUI/libGUI.a
@@ -321,10 +321,10 @@ src/GUI/CMakeFiles/GUI.dir/requires: src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o.req
 .PHONY : src/GUI/CMakeFiles/GUI.dir/requires
 
 src/GUI/CMakeFiles/GUI.dir/clean:
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI && $(CMAKE_COMMAND) -P CMakeFiles/GUI.dir/cmake_clean.cmake
+	cd /home/tashrif/Dev/fidel-musicplayer/build/src/GUI && $(CMAKE_COMMAND) -P CMakeFiles/GUI.dir/cmake_clean.cmake
 .PHONY : src/GUI/CMakeFiles/GUI.dir/clean
 
 src/GUI/CMakeFiles/GUI.dir/depend:
-	cd /home/tashrif/Dev/fidel-musicplayer-cmake/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tashrif/Dev/fidel-musicplayer-cmake /home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI /home/tashrif/Dev/fidel-musicplayer-cmake/build /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI /home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tashrif/Dev/fidel-musicplayer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tashrif/Dev/fidel-musicplayer /home/tashrif/Dev/fidel-musicplayer/src/GUI /home/tashrif/Dev/fidel-musicplayer/build /home/tashrif/Dev/fidel-musicplayer/build/src/GUI /home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/GUI/CMakeFiles/GUI.dir/depend
 

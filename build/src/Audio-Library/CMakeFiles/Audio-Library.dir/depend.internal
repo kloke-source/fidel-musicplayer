@@ -19,7 +19,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  ../src/Utilities/btree.h
  ../src/Utilities/threadpool.h
  ../src/Utilities/util.h
- /home/tashrif/Dev/fidel-musicplayer-cmake/src/Audio-Library/audio-library.cpp
+ /home/tashrif/Dev/fidel-musicplayer/src/Audio-Library/audio-library.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h
  /usr/include/atk-1.0/atk/atk.h
  /usr/include/atk-1.0/atk/atkaction.h
@@ -1188,6 +1188,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/pango-1.0/pango/pango-tabs.h
  /usr/include/pango-1.0/pango/pango-types.h
  /usr/include/pango-1.0/pango/pango-utils.h
+ /usr/include/pango-1.0/pango/pango-version-macros.h
  /usr/include/pango-1.0/pango/pango.h
  /usr/include/pango-1.0/pango/pangocairo.h
  /usr/include/pangomm-1.4/pangomm/attributes.h

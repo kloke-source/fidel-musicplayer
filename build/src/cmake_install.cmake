@@ -1,4 +1,4 @@
-# Install script for directory: /home/tashrif/Dev/fidel-musicplayer-cmake/src
+# Install script for directory: /home/tashrif/Dev/fidel-musicplayer/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/GUI/cmake_install.cmake")
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio/cmake_install.cmake")
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Utilities/cmake_install.cmake")
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum/cmake_install.cmake")
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Library/cmake_install.cmake")
-  include("/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Audio-Info/cmake_install.cmake")
+  include("/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/cmake_install.cmake")
+  include("/home/tashrif/Dev/fidel-musicplayer/build/src/Audio/cmake_install.cmake")
+  include("/home/tashrif/Dev/fidel-musicplayer/build/src/Utilities/cmake_install.cmake")
+  include("/home/tashrif/Dev/fidel-musicplayer/build/src/Spectrum/cmake_install.cmake")
+  include("/home/tashrif/Dev/fidel-musicplayer/build/src/Audio-Library/cmake_install.cmake")
+  include("/home/tashrif/Dev/fidel-musicplayer/build/src/Audio-Info/cmake_install.cmake")
 
 endif()
 

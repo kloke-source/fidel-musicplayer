@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tashrif/Dev/fidel-musicplayer-cmake/src/Spectrum/spectrum.cpp" "/home/tashrif/Dev/fidel-musicplayer-cmake/build/src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o"
+  "/home/tashrif/Dev/fidel-musicplayer/src/Spectrum/spectrum.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

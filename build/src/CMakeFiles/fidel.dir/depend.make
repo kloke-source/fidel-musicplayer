@@ -1187,6 +1187,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/pango-1.0/pango/pango-script.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h

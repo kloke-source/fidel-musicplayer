@@ -1187,6 +1187,7 @@ src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/pango-1.0/pango/
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h

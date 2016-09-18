@@ -1187,6 +1187,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: /usr/include
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h

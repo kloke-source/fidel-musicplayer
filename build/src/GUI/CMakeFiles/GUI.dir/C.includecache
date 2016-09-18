@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/tashrif/Dev/fidel-musicplayer-cmake/src/GUI/fidel-resources.c
+/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-resources.c
 gio/gio.h
 -
 

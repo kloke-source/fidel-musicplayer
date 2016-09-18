@@ -1432,6 +1432,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/pango-1.0/pango/pan
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h
@@ -2706,6 +2707,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/pango-1.0/pango/pan
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h
@@ -3980,6 +3982,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/pango-1.0/pango/pango-script.
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h
@@ -5242,6 +5245,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/pango-1.0/pango/
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h
@@ -6490,6 +6494,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/pango-1.0/pango/pa
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h
@@ -7764,6 +7769,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/pango-1.0/pango/pango-sc
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h
@@ -9039,6 +9045,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/pango-1.0/pango/pango-scri
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h
@@ -10313,6 +10320,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/pango-1.0/pango/pango-scri
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h

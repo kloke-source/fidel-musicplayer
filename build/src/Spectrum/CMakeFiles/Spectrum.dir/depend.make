@@ -1187,6 +1187,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/pango-1.0/pang
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/pango-1.0/pango/pango-tabs.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/pango-1.0/pango/pango-types.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/pango-1.0/pango/pango-utils.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/pango-1.0/pango/pango-version-macros.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/pango-1.0/pango/pango.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/pangomm-1.4/pangomm/attributes.h
