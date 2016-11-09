@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-resources.c
+/home/tashrif/Development/fidel-musicplayer/src/GUI/fidel-resources.c
 gio/gio.h
 -
 
@@ -1265,6 +1265,8 @@ glib/gstring.h
 -
 
 /usr/include/glib-2.0/glib/gkeyfile.h
+glib/gbytes.h
+-
 glib/gerror.h
 -
 
@@ -1312,6 +1314,8 @@ stdarg.h
 glib/gtypes.h
 -
 glib/gmacros.h
+-
+glib/gvariant.h
 -
 
 /usr/include/glib-2.0/glib/gnode.h
@@ -1483,8 +1487,6 @@ glib/gbytes.h
 -
 
 /usr/include/glib-2.0/glib/gvarianttype.h
-glib/gmessages.h
--
 glib/gtypes.h
 -
 

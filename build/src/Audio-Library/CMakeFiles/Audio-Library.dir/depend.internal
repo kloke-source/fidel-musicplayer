@@ -19,7 +19,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  ../src/Utilities/btree.h
  ../src/Utilities/threadpool.h
  ../src/Utilities/util.h
- /home/tashrif/Dev/fidel-musicplayer/src/Audio-Library/audio-library.cpp
+ /home/tashrif/Development/fidel-musicplayer/src/Audio-Library/audio-library.cpp
  /usr/include/atk-1.0/atk/atk-enum-types.h
  /usr/include/atk-1.0/atk/atk.h
  /usr/include/atk-1.0/atk/atkaction.h
@@ -89,6 +89,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
  /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
  /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+ /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
  /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
  /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
  /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -101,9 +102,11 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gdkmm-3.0/gdkmm/display.h
  /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
  /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+ /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
  /usr/include/gdkmm-3.0/gdkmm/event.h
  /usr/include/gdkmm-3.0/gdkmm/general.h
  /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+ /usr/include/gdkmm-3.0/gdkmm/monitor.h
  /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
  /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
  /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -183,6 +186,8 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/giomm-2.4/giomm/initable.h
  /usr/include/giomm-2.4/giomm/inputstream.h
  /usr/include/giomm-2.4/giomm/iostream.h
+ /usr/include/giomm-2.4/giomm/listmodel.h
+ /usr/include/giomm-2.4/giomm/liststore.h
  /usr/include/giomm-2.4/giomm/loadableicon.h
  /usr/include/giomm-2.4/giomm/memoryinputstream.h
  /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -210,6 +215,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/giomm-2.4/giomm/settings.h
  /usr/include/giomm-2.4/giomm/settingsschema.h
  /usr/include/giomm-2.4/giomm/settingsschemakey.h
+ /usr/include/giomm-2.4/giomm/settingsschemasource.h
  /usr/include/giomm-2.4/giomm/simpleaction.h
  /usr/include/giomm-2.4/giomm/simpleactiongroup.h
  /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -506,6 +512,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/glibmm-2.4/glibmm/datetime.h
  /usr/include/glibmm-2.4/glibmm/debug.h
  /usr/include/glibmm-2.4/glibmm/dispatcher.h
+ /usr/include/glibmm-2.4/glibmm/enums.h
  /usr/include/glibmm-2.4/glibmm/error.h
  /usr/include/glibmm-2.4/glibmm/exception.h
  /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -579,6 +586,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gstreamer-1.0/gst/gstchildproxy.h
  /usr/include/gstreamer-1.0/gst/gstclock.h
  /usr/include/gstreamer-1.0/gst/gstcompat.h
+ /usr/include/gstreamer-1.0/gst/gstconfig.h
  /usr/include/gstreamer-1.0/gst/gstcontext.h
  /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
  /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -618,6 +626,8 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gstreamer-1.0/gst/gstregistry.h
  /usr/include/gstreamer-1.0/gst/gstsample.h
  /usr/include/gstreamer-1.0/gst/gstsegment.h
+ /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+ /usr/include/gstreamer-1.0/gst/gststreams.h
  /usr/include/gstreamer-1.0/gst/gststructure.h
  /usr/include/gstreamer-1.0/gst/gstsystemclock.h
  /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -644,9 +654,12 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gtk-3.0/gdk/gdkcursor.h
  /usr/include/gtk-3.0/gdk/gdkdevice.h
  /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+ /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+ /usr/include/gtk-3.0/gdk/gdkdevicetool.h
  /usr/include/gtk-3.0/gdk/gdkdisplay.h
  /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
  /usr/include/gtk-3.0/gdk/gdkdnd.h
+ /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
  /usr/include/gtk-3.0/gdk/gdkenumtypes.h
  /usr/include/gtk-3.0/gdk/gdkevents.h
  /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -655,6 +668,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gtk-3.0/gdk/gdkkeys.h
  /usr/include/gtk-3.0/gdk/gdkkeysyms.h
  /usr/include/gtk-3.0/gdk/gdkmain.h
+ /usr/include/gtk-3.0/gdk/gdkmonitor.h
  /usr/include/gtk-3.0/gdk/gdkpango.h
  /usr/include/gtk-3.0/gdk/gdkpixbuf.h
  /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -767,6 +781,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gtk-3.0/gtk/gtkdebug.h
  /usr/include/gtk-3.0/gtk/gtkdialog.h
  /usr/include/gtk-3.0/gtk/gtkdnd.h
+ /usr/include/gtk-3.0/gtk/gtkdragdest.h
  /usr/include/gtk-3.0/gtk/gtkdragsource.h
  /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
  /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -834,6 +849,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
  /usr/include/gtk-3.0/gtk/gtkorientable.h
  /usr/include/gtk-3.0/gtk/gtkoverlay.h
+ /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
  /usr/include/gtk-3.0/gtk/gtkpagesetup.h
  /usr/include/gtk-3.0/gtk/gtkpaned.h
  /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -869,6 +885,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
  /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
  /usr/include/gtk-3.0/gtk/gtksettings.h
+ /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
  /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
  /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
  /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -1103,6 +1120,7 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
  /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
  /usr/include/gtkmm-3.0/gtkmm/settings.h
+ /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
  /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
  /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
  /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -1272,7 +1290,6 @@ src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o
  /usr/lib/giomm-2.4/include/giommconfig.h
  /usr/lib/glib-2.0/include/glibconfig.h
  /usr/lib/glibmm-2.4/include/glibmmconfig.h
- /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
  /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
  /usr/lib/pangomm-1.4/include/pangommconfig.h
  /usr/lib/sigc++-2.0/include/sigc++config.h

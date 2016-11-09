@@ -211,24 +211,6 @@ int util::to_int(std::string text)
   return value;
 }
 
-std::string util::to_string(int value)
-{
-  std::string string_value;
-  std::stringstream out;
-  out << value;
-  string_value = out.str();
-  return string_value;
-}
-
-std::string util::to_string(double value)
-{
-  std::string string_value;
-  std::stringstream out;
-  out << value;
-  string_value = out.str();
-  return string_value;
-}
-
 int util::seconds_format(int hours, int minutes, int seconds)
 {
   int total_seconds = (hours * 3600) + (minutes * 60) + seconds;

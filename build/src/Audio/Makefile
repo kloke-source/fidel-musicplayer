@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tashrif/Dev/fidel-musicplayer
+CMAKE_SOURCE_DIR = /home/tashrif/Development/fidel-musicplayer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tashrif/Dev/fidel-musicplayer/build
+CMAKE_BINARY_DIR = /home/tashrif/Development/fidel-musicplayer/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles /home/tashrif/Dev/fidel-musicplayer/build/src/Audio/CMakeFiles/progress.marks
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles 0
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles /home/tashrif/Development/fidel-musicplayer/build/src/Audio/CMakeFiles/progress.marks
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/clean
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/preinstall
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/preinstall
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/Audio/CMakeFiles/Audio.dir/rule:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/CMakeFiles/Audio.dir/rule
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/Audio/CMakeFiles/Audio.dir/rule
 .PHONY : src/Audio/CMakeFiles/Audio.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ Audio: src/Audio/CMakeFiles/Audio.dir/rule
 
 # fast build rule for target.
 Audio/fast:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/build
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/build
 .PHONY : Audio/fast
 
 playback.o: playback.cpp.o
@@ -131,7 +131,7 @@ playback.o: playback.cpp.o
 
 # target to build an object file
 playback.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/playback.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/playback.cpp.o
 .PHONY : playback.cpp.o
 
 playback.i: playback.cpp.i
@@ -140,7 +140,7 @@ playback.i: playback.cpp.i
 
 # target to preprocess a source file
 playback.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/playback.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/playback.cpp.i
 .PHONY : playback.cpp.i
 
 playback.s: playback.cpp.s
@@ -149,7 +149,7 @@ playback.s: playback.cpp.s
 
 # target to generate assembly for a file
 playback.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/playback.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/Audio/CMakeFiles/Audio.dir/build.make src/Audio/CMakeFiles/Audio.dir/playback.cpp.s
 .PHONY : playback.cpp.s
 
 # Help Target
@@ -175,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

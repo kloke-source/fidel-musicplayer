@@ -36,7 +36,9 @@ public:
   static double duration();
   //static Gtk::Image* get_album_art(char *file_location, int width, int height);
   //static string extract_album_art(char *file_location);
+  static void add_album_art_to_index(Gtk::Image* album_art, std::string album_name);
   static Gtk::Image* get_album_art(std::string file_location);
+  static Gtk::Image* get_album_art_by_name(std::string album_name, std::string file_location);
   static std::tuple<guint8*, gsize, bool> extract_album_art(std::string file_location);  
 private:
   static void set_data();

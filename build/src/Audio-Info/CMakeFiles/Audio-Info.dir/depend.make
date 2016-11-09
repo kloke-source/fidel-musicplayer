@@ -89,6 +89,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdk-pixbu
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -101,9 +102,11 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -183,6 +186,8 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -210,6 +215,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -506,6 +512,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/glibmm-2.
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -579,6 +586,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -618,6 +626,8 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -644,9 +654,12 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/g
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -655,6 +668,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/g
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -767,6 +781,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/g
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -834,6 +849,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/g
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -869,6 +885,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/g
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -1103,6 +1120,7 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtkmm-3.0
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -1272,7 +1290,6 @@ src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/lib/gdkmm-3.0/inc
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/Audio-Info/CMakeFiles/Audio-Info.dir/audioinfo.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h

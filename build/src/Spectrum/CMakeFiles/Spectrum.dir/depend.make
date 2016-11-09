@@ -88,6 +88,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdk-pixbuf-2.0
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -100,9 +101,11 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkm
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -182,6 +185,8 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giom
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -209,6 +214,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giom
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -505,6 +511,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/glibmm-2.4/gli
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -578,6 +585,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -617,6 +625,8 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -643,9 +653,12 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gd
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -654,6 +667,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gd
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -766,6 +780,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gt
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -833,6 +848,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gt
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -868,6 +884,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gt
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -1102,6 +1119,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtkmm-3.0/gtkm
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -1271,7 +1289,6 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/gdkmm-3.0/include/
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tashrif/Dev/fidel-musicplayer/src/Audio-Library/audio-library.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o"
+  "/home/tashrif/Development/fidel-musicplayer/src/Audio-Library/audio-library.cpp" "/home/tashrif/Development/fidel-musicplayer/build/src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -44,7 +44,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/sigc++-2.0"
   "/usr/lib/sigc++-2.0/include"
   "/usr/include/gstreamer-1.0"
-  "/usr/lib/gstreamer-1.0/include"
   "/usr/include/taglib"
   "../src"
   )

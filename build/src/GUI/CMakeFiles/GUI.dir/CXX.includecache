@@ -201,13 +201,7 @@ thread
 -
 mutex
 -
-<<<<<<< HEAD
-Utilities/btree.h
--
-Audio-Info/audioinfo.h
-=======
 condition_variable
->>>>>>> GUI
 -
 future
 -
@@ -225,12 +219,14 @@ iostream
 -
 vector
 -
+sstream
+-
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-options.cpp
+/home/tashrif/Development/fidel-musicplayer/src/GUI/fidel-options.cpp
 GUI/fidel-options.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/fidel-popover.cpp
+/home/tashrif/Development/fidel-musicplayer/src/GUI/fidel-popover.cpp
 vector
 -
 iostream
@@ -246,15 +242,15 @@ Audio-Info/audioinfo.h
 Audio-Library/audio-library.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/gui.cpp
+/home/tashrif/Development/fidel-musicplayer/src/GUI/gui.cpp
 GUI/gui.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-manager.cpp
+/home/tashrif/Development/fidel-musicplayer/src/GUI/playlist-manager.cpp
 GUI/playlist-manager.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist-queue.cpp
+/home/tashrif/Development/fidel-musicplayer/src/GUI/playlist-queue.cpp
 GUI/playlist-queue.h
 -
 thread
@@ -262,7 +258,7 @@ thread
 chrono
 -
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/playlist.cpp
+/home/tashrif/Development/fidel-musicplayer/src/GUI/playlist.cpp
 GUI/playlist.h
 -
 iostream
@@ -274,9 +270,9 @@ Audio/playback.h
 GUI/fidel-popover.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.cpp
+/home/tashrif/Development/fidel-musicplayer/src/GUI/seeker.cpp
 seeker.h
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.h
+/home/tashrif/Development/fidel-musicplayer/src/GUI/seeker.h
 gtkmm.h
 -
 iostream
@@ -288,13 +284,13 @@ Audio/playback.h
 Audio-Info/audioinfo.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/seeker.h
+/home/tashrif/Development/fidel-musicplayer/src/GUI/seeker.h
 GUI/singleton.h
 -
 gtkmm.h
 -
 
-/home/tashrif/Dev/fidel-musicplayer/src/GUI/themer.cpp
+/home/tashrif/Development/fidel-musicplayer/src/GUI/themer.cpp
 iostream
 -
 gtkmm.h
@@ -807,9 +803,13 @@ glib-object.h
 -
 gio/gio.h
 -
+gdk-pixbuf/gdk-pixbuf-macros.h
+-
 
 /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-enum-types.h
 glib-object.h
+-
+gdk-pixbuf/gdk-pixbuf-macros.h
 -
 
 /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
@@ -840,6 +840,12 @@ gdk-pixbuf/gdk-pixbuf-animation.h
 gdk-pixbuf/gdk-pixbuf-io.h
 -
 
+/usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
+glib.h
+-
+gdk-pixbuf/gdk-pixbuf-features.h
+-
+
 /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 gdk-pixbuf/gdk-pixbuf-animation.h
 -
@@ -852,6 +858,8 @@ gdk-pixbuf/gdk-pixbuf-core.h
 
 /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
 glib.h
+-
+gdk-pixbuf/gdk-pixbuf-macros.h
 -
 gdk-pixbuf/gdk-pixbuf-features.h
 -
@@ -893,6 +901,8 @@ gdkmm/applaunchcontext.h
 -
 gdkmm/cursor.h
 -
+gdkmm/drawingcontext.h
+-
 gdkmm/glcontext.h
 -
 gdkmm/rectangle.h
@@ -906,6 +916,8 @@ gdkmm/devicemanager.h
 gdkmm/screen.h
 -
 gdkmm/seat.h
+-
+gdkmm/monitor.h
 -
 gdkmm/general.h
 -
@@ -1020,6 +1032,18 @@ cairomm/surface.h
 gdk/gdk.h
 -
 
+/usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
+glibmm/ustring.h
+-
+sigc++/sigc++.h
+-
+glibmm/object.h
+-
+cairomm/context.h
+-
+cairomm/region.h
+-
+
 /usr/include/gdkmm-3.0/gdkmm/event.h
 glibmm/ustring.h
 -
@@ -1054,6 +1078,16 @@ gdkmmconfig.h
 gdkmm/display.h
 -
 gdkmm/window.h
+-
+
+/usr/include/gdkmm-3.0/gdkmm/monitor.h
+glibmm/ustring.h
+-
+sigc++/sigc++.h
+-
+glibmm/object.h
+-
+gdkmm/rectangle.h
 -
 
 /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
@@ -1371,6 +1405,10 @@ giomm/inputstream.h
 -
 giomm/iostream.h
 -
+giomm/listmodel.h
+-
+giomm/liststore.h
+-
 giomm/loadableicon.h
 -
 giomm/memoryinputstream.h
@@ -1424,6 +1462,8 @@ giomm/settings.h
 giomm/settingsschema.h
 -
 giomm/settingsschemakey.h
+-
+giomm/settingsschemasource.h
 -
 giomm/simpleaction.h
 -
@@ -1546,6 +1586,10 @@ glibmm/ustring.h
 sigc++/sigc++.h
 -
 giomm/applaunchcontext.h
+-
+giomm/asyncresult.h
+-
+giomm/cancellable.h
 -
 exception
 -
@@ -2304,6 +2348,30 @@ giomm/asyncresult.h
 giomm/cancellable.h
 -
 
+/usr/include/giomm-2.4/giomm/listmodel.h
+glibmm/ustring.h
+-
+sigc++/sigc++.h
+-
+glibmm/interface.h
+-
+gio/gio.h
+-
+
+/usr/include/giomm-2.4/giomm/liststore.h
+glibmm/ustring.h
+-
+sigc++/sigc++.h
+-
+glibmm/object.h
+-
+giomm/listmodel.h
+-
+vector
+-
+type_traits
+-
+
 /usr/include/giomm-2.4/giomm/loadableicon.h
 glibmm/ustring.h
 -
@@ -2622,6 +2690,16 @@ glibmm/ustring.h
 sigc++/sigc++.h
 -
 glibmm/variant.h
+-
+
+/usr/include/giomm-2.4/giomm/settingsschemasource.h
+giommconfig.h
+-
+glibmm/ustring.h
+-
+sigc++/sigc++.h
+-
+giomm/settingsschema.h
 -
 
 /usr/include/giomm-2.4/giomm/simpleaction.h
@@ -4301,6 +4379,8 @@ glib/gstring.h
 -
 
 /usr/include/glib-2.0/glib/gkeyfile.h
+glib/gbytes.h
+-
 glib/gerror.h
 -
 
@@ -4348,6 +4428,8 @@ stdarg.h
 glib/gtypes.h
 -
 glib/gmacros.h
+-
+glib/gvariant.h
 -
 
 /usr/include/glib-2.0/glib/gnode.h
@@ -4519,8 +4601,6 @@ glib/gbytes.h
 -
 
 /usr/include/glib-2.0/glib/gvarianttype.h
-glib/gmessages.h
--
 glib/gtypes.h
 -
 
@@ -4668,6 +4748,8 @@ glibmm/date.h
 glibmm/datetime.h
 -
 glibmm/dispatcher.h
+-
+glibmm/enums.h
 -
 glibmm/error.h
 -
@@ -4924,6 +5006,10 @@ glib.h
 sigc++/sigc++.h
 -
 glibmm/main.h
+-
+
+/usr/include/glibmm-2.4/glibmm/enums.h
+glib.h
 -
 
 /usr/include/glibmm-2.4/glibmm/error.h
@@ -5353,6 +5439,8 @@ glibmm/refptr.h
 -
 glibmm/ustring.h
 -
+glibmm/enums.h
+-
 glib-object.h
 -
 glibmm/value_custom.h
@@ -5523,6 +5611,8 @@ gst/gstminiobject.h
 -
 gst/gstobject.h
 -
+gst/gststreamcollection.h
+-
 gst/gstpad.h
 -
 gst/gstparamspecs.h
@@ -5544,6 +5634,8 @@ gst/gstregistry.h
 gst/gstsample.h
 -
 gst/gstsegment.h
+-
+gst/gststreams.h
 -
 gst/gststructure.h
 -
@@ -5671,6 +5763,8 @@ glib.h
 -
 gst/gstpad.h
 -
+
+/usr/include/gstreamer-1.0/gst/gstconfig.h
 
 /usr/include/gstreamer-1.0/gst/gstcontext.h
 glib.h
@@ -5877,6 +5971,8 @@ gst/gsttoc.h
 -
 gst/gstdevice.h
 -
+gst/gststreamcollection.h
+-
 
 /usr/include/gstreamer-1.0/gst/gstmeta.h
 glib.h
@@ -6026,6 +6122,18 @@ gst/gstsegment.h
 
 /usr/include/gstreamer-1.0/gst/gstsegment.h
 gst/gstformat.h
+-
+
+/usr/include/gstreamer-1.0/gst/gststreamcollection.h
+gst/gstobject.h
+-
+gst/gststreams.h
+-
+
+/usr/include/gstreamer-1.0/gst/gststreams.h
+gst/gstobject.h
+-
+gst/gstevent.h
 -
 
 /usr/include/gstreamer-1.0/gst/gststructure.h
@@ -6181,6 +6289,10 @@ gdk/gdkcursor.h
 -
 gdk/gdkdevice.h
 -
+gdk/gdkdevicepad.h
+-
+gdk/gdkdevicetool.h
+-
 gdk/gdkdevicemanager.h
 -
 gdk/gdkdisplay.h
@@ -6188,6 +6300,8 @@ gdk/gdkdisplay.h
 gdk/gdkdisplaymanager.h
 -
 gdk/gdkdnd.h
+-
+gdk/gdkdrawingcontext.h
 -
 gdk/gdkenumtypes.h
 -
@@ -6204,6 +6318,8 @@ gdk/gdkkeys.h
 gdk/gdkkeysyms.h
 -
 gdk/gdkmain.h
+-
+gdk/gdkmonitor.h
 -
 gdk/gdkpango.h
 -
@@ -6253,6 +6369,8 @@ gdk/deprecated/gdkcolor.h
 -
 gdk/gdkrgba.h
 -
+gdk/gdkdrawingcontext.h
+-
 gdk/gdkpixbuf.h
 -
 pango/pangocairo.h
@@ -6282,6 +6400,18 @@ gdk/gdktypes.h
 gdk/gdkdevice.h
 -
 
+/usr/include/gtk-3.0/gdk/gdkdevicepad.h
+gdk/gdkversionmacros.h
+-
+gdk/gdktypes.h
+-
+
+/usr/include/gtk-3.0/gdk/gdkdevicetool.h
+gdk/gdkversionmacros.h
+-
+gdk/gdktypes.h
+-
+
 /usr/include/gtk-3.0/gdk/gdkdisplay.h
 gdk/gdkversionmacros.h
 -
@@ -6292,6 +6422,8 @@ gdk/gdkevents.h
 gdk/gdkdevicemanager.h
 -
 gdk/gdkseat.h
+-
+gdk/gdkmonitor.h
 -
 
 /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
@@ -6308,6 +6440,12 @@ gdk/gdkdevice.h
 gdk/gdkevents.h
 -
 
+/usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
+gdk/gdkversionmacros.h
+-
+gdk/gdktypes.h
+-
+
 /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 glib-object.h
 -
@@ -6322,6 +6460,8 @@ gdk/gdktypes.h
 gdk/gdkdnd.h
 -
 gdk/gdkdevice.h
+-
+gdk/gdkdevicetool.h
 -
 
 /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -6350,6 +6490,14 @@ gdk/gdktypes.h
 
 /usr/include/gtk-3.0/gdk/gdkmain.h
 gdk/gdkversionmacros.h
+-
+gdk/gdktypes.h
+-
+
+/usr/include/gtk-3.0/gdk/gdkmonitor.h
+gdk/gdkversionmacros.h
+-
+gdk/gdkrectangle.h
 -
 gdk/gdktypes.h
 -
@@ -6450,6 +6598,8 @@ gdk/gdkversionmacros.h
 gdk/gdkversionmacros.h
 -
 gdk/gdktypes.h
+-
+gdk/gdkdrawingcontext.h
 -
 gdk/gdkevents.h
 -
@@ -6785,6 +6935,8 @@ gtk/gtkdialog.h
 -
 gtk/gtkdnd.h
 -
+gtk/gtkdragdest.h
+-
 gtk/gtkdragsource.h
 -
 gtk/gtkdrawingarea.h
@@ -6919,6 +7071,8 @@ gtk/gtkorientable.h
 -
 gtk/gtkoverlay.h
 -
+gtk/gtkpadcontroller.h
+-
 gtk/gtkpagesetup.h
 -
 gtk/gtkpapersize.h
@@ -6988,6 +7142,8 @@ gtk/gtkseparatormenuitem.h
 gtk/gtkseparatortoolitem.h
 -
 gtk/gtksettings.h
+-
+gtk/gtkshortcutlabel.h
 -
 gtk/gtkshortcutsgroup.h
 -
@@ -7468,6 +7624,12 @@ gtk/gtkwidget.h
 gtk/gtkselection.h
 -
 
+/usr/include/gtk-3.0/gtk/gtkdragdest.h
+gtk/gtkselection.h
+-
+gtk/gtkwidget.h
+-
+
 /usr/include/gtk-3.0/gtk/gtkdragsource.h
 gtk/gtkselection.h
 -
@@ -7836,6 +7998,12 @@ gtk/gtkwidget.h
 gtk/gtkbin.h
 -
 
+/usr/include/gtk-3.0/gtk/gtkpadcontroller.h
+gdk/gdk.h
+-
+gtk/gtkeventcontroller.h
+-
+
 /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 gtk/gtkpapersize.h
 -
@@ -8028,6 +8196,10 @@ gdk/gdk.h
 gtk/gtktypes.h
 -
 
+/usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
+gtk/gtkbox.h
+-
+
 /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 gtk/gtkbox.h
 -
@@ -8047,6 +8219,8 @@ gtk/gtkwindow.h
 -
 
 /usr/include/gtk-3.0/gtk/gtkshow.h
+gtk/gtkwindow.h
+-
 
 /usr/include/gtk-3.0/gtk/gtksizegroup.h
 gtk/gtkwidget.h
@@ -8678,6 +8852,8 @@ gtkmm/separatormenuitem.h
 gtkmm/separatortoolitem.h
 -
 gtkmm/settings.h
+-
+gtkmm/shortcutlabel.h
 -
 gtkmm/shortcutsgroup.h
 -
@@ -9637,7 +9813,13 @@ gtkmm/orientable.h
 -
 gtkmm/flowboxchild.h
 -
+giomm/liststore.h
+-
+glibmm/exceptionhandler.h
+-
 vector
+-
+utility
 -
 
 /usr/include/gtkmm-3.0/gtkmm/flowboxchild.h
@@ -10071,6 +10253,14 @@ gtkmm/listboxrow.h
 -
 gtkmm/enums.h
 -
+giomm/liststore.h
+-
+glibmm/exceptionhandler.h
+-
+vector
+-
+utility
+-
 
 /usr/include/gtkmm-3.0/gtkmm/listboxrow.h
 glibmm/ustring.h
@@ -10128,6 +10318,8 @@ glibmm/optioncontext.h
 glibmm/ustring.h
 -
 sigc++/sigc++.h
+-
+gdkmm/window.h
 -
 gtkmm/menushell.h
 -
@@ -10507,6 +10699,8 @@ gtkmm/radiobuttongroup.h
 -
 
 /usr/include/gtkmm-3.0/gtkmm/radiobuttongroup.h
+gtkmmconfig.h
+-
 glibmm/object.h
 -
 
@@ -10786,6 +10980,14 @@ glibmm/ustring.h
 sigc++/sigc++.h
 -
 gtkmm/toolbar.h
+-
+
+/usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
+glibmm/ustring.h
+-
+sigc++/sigc++.h
+-
+gtkmm/box.h
 -
 
 /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
@@ -12607,8 +12809,6 @@ float.h
 -
 
 /usr/lib/glibmm-2.4/include/glibmmconfig.h
-
-/usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 
 /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 gdkmmconfig.h

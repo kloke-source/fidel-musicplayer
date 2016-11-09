@@ -210,7 +210,7 @@ void AudioLibrary::init_db()
     ret_code = sqlite3_exec(library_db, util::to_char(sql_stmt), generic_db_callback, 0, &error_msg);
     if( ret_code != SQLITE_OK ){
       if (util::has_text(error_msg, "already exists") == false) // omits the already exists error msg
-	fprintf(stderr, "SQL error: %s\n", error_msg);
+        fprintf(stderr, "SQL error: %s\n", error_msg);
       sqlite3_free(error_msg);
     }else{
       fprintf(stdout, "Table created successfully\n");
@@ -239,8 +239,8 @@ int AudioLibrary::load_db()
 
       backup_obj = sqlite3_backup_init(destination, "main", source, "main");
       if( backup_obj ){
-	(void)sqlite3_backup_step(backup_obj, -1);
-	(void)sqlite3_backup_finish(backup_obj);
+        (void)sqlite3_backup_step(backup_obj, -1);
+        (void)sqlite3_backup_finish(backup_obj);
       }
       ret_code = sqlite3_errcode(destination);
     }
@@ -264,17 +264,17 @@ void AudioLibrary::load_album_info()
 
     while(sqlite3_column_text(statement, INFO_ALBUM_ID))
       {
-	AlbumInfo album_info;
+        AlbumInfo album_info;
 
-	album_info.album_name = std::string((char *)sqlite3_column_text(statement, INFO_ALBUM_NAME));
-	full_loaded_album_names.insert(album_info.album_name);
+        album_info.album_name = std::string((char *)sqlite3_column_text(statement, INFO_ALBUM_NAME));
+        full_loaded_album_names.insert(album_info.album_name);
 
-	guint8 *raw_image_buffer = (guint8 *)sqlite3_column_blob(statement, INFO_ALBUM_ART);
+        guint8 *raw_image_buffer = (guint8 *)sqlite3_column_blob(statement, INFO_ALBUM_ART);
         gsize raw_image_size = sqlite3_column_bytes(statement, INFO_ALBUM_ART);
 
-	album_info.album_art = std::make_tuple(raw_image_buffer, raw_image_size, true);
-	full_album_information.push_back(album_info);
-	sqlite3_step(statement);
+        album_info.album_art = std::make_tuple(raw_image_buffer, raw_image_size, true);
+        full_album_information.push_back(album_info);
+        sqlite3_step(statement);
       }
     sqlite3_finalize(statement);
   }
@@ -321,7 +321,7 @@ void AudioLibrary::db_ins_blob(std::string blob_ins_stmt, guint8 *buffer, gsize 
     } else {
       ret_code = sqlite3_step(statement);
       if (ret_code != SQLITE_DONE)
-	cerr << "execution failed: " << sqlite3_errmsg(library_db) << endl;
+        cerr << "execution failed: " << sqlite3_errmsg(library_db) << endl;
     }
   }
   sqlite3_finalize(statement);
@@ -374,16 +374,16 @@ void AudioLibrary::add_album_summ(std::string file_location)
   else {
     for (size_t iter = 0; iter < full_album_summary.size(); iter++){
       if (full_album_summary[iter].album_name == album_name)
-	{
-	  album_exists = true;
-	  if (full_album_summary[iter].songs_in_album.check(song_name) == false)
-	    {
-	      full_album_summary[iter].songs_in_album.insert(song_name);
-	      full_album_summary[iter].file_locations.push_back(file_location);
-	      full_album_summary[iter].total_songs_in_album++;
-	      break;
-	    }
-	}
+        {
+          album_exists = true;
+          if (full_album_summary[iter].songs_in_album.check(song_name) == false)
+            {
+              full_album_summary[iter].songs_in_album.insert(song_name);
+              full_album_summary[iter].file_locations.push_back(file_location);
+              full_album_summary[iter].total_songs_in_album++;
+              break;
+            }
+        }
     }
     if (album_exists == false) {
       AlbumSummary album_summ;
@@ -429,8 +429,8 @@ void AudioLibrary::write_album_info(std::string file_location)
   for (size_t iter = 0; iter < full_album_information.size(); iter++) {
     if (full_album_information[iter].album_name == album_name)
       {
-	album_found = true;
-	break;
+        album_found = true;
+        break;
       }
   }
   if (album_found == false)
@@ -445,17 +445,17 @@ void AudioLibrary::write_album_info(std::string file_location)
 
       album_info_values.push_back(album_name);
       if (std::get<2>(album_info.album_art) == true)
-	{
-	  album_info_values.push_back("?");
+        {
+          album_info_values.push_back("?");
 
-	  std::stringstream blob_ins_stmt;
-	  blob_ins_stmt << "INSERT INTO album_information (album_name, album_art) VALUES('" << album_name  << "', ?);";
-	  AudioLibrary::db_ins_blob(blob_ins_stmt.str(), std::get<0>(album_info.album_art), std::get<1>(album_info.album_art));
-	}
+          std::stringstream blob_ins_stmt;
+          blob_ins_stmt << "INSERT INTO album_information (album_name, album_art) VALUES('" << album_name  << "', ?);";
+          AudioLibrary::db_ins_blob(blob_ins_stmt.str(), std::get<0>(album_info.album_art), std::get<1>(album_info.album_art));
+        }
       else {
-	album_info_values.push_back("No Album Art");
-	std::string ins_stmt = util::gen_ins_stmt("album_information", album_info_fields, album_info_values);
-	AudioLibrary::db_ins_row(ins_stmt);
+        album_info_values.push_back("No Album Art");
+        std::string ins_stmt = util::gen_ins_stmt("album_information", album_info_fields, album_info_values);
+        AudioLibrary::db_ins_row(ins_stmt);
       }
     }
 }
@@ -479,16 +479,16 @@ void AudioLibrary::add_artist_summ(std::string file_location)
   else {
     for (size_t iter = 0; iter < full_artist_summary.size(); iter++){
       if (full_artist_summary[iter].artist_name == artist_name)
-	{
-	  artist_exists = true;
-	  if (full_artist_summary[iter].songs_by_artist.check(song_name) == false)
-	    {
-	      full_artist_summary[iter].songs_by_artist.insert(song_name);
-	      full_artist_summary[iter].file_locations.push_back(file_location);
-	      full_artist_summary[iter].total_songs_by_artist++;
-	      break;
-	    }
-	}
+        {
+          artist_exists = true;
+          if (full_artist_summary[iter].songs_by_artist.check(song_name) == false)
+            {
+              full_artist_summary[iter].songs_by_artist.insert(song_name);
+              full_artist_summary[iter].file_locations.push_back(file_location);
+              full_artist_summary[iter].total_songs_by_artist++;
+              break;
+            }
+        }
     }
     if (artist_exists == false) {
       ArtistSummary artist_summ;
@@ -556,6 +556,44 @@ void AudioLibrary::populate_playlist()
   }else{
     fprintf(stdout, "Operation done successfully\n");
   }
+
+  sqlite3_stmt *stmt;
+
+  sqlite3_prepare_v2(library_db, "SELECT * from album_information",-1,&stmt,0);
+  
+  int increment;
+
+  enum {
+    ID,
+    ALBUM,
+    ALBUM_ART
+  };
+
+  while (increment != SQLITE_DONE)
+    {
+      increment = sqlite3_step(stmt);
+
+      if (increment == SQLITE_ROW)
+        {
+          std::string album_name = util::to_string(sqlite3_column_text(stmt, ALBUM));
+          guint8* raw_img = (guint8*)sqlite3_column_blob(stmt, ALBUM_ART);
+          gsize raw_img_size = (gsize)sqlite3_column_bytes(stmt, ALBUM_ART);
+
+          std::stringstream art_exists_stream;
+          art_exists_stream << raw_img;
+
+          if (art_exists_stream.str() != "No Album Art") {
+            Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();
+            loader->write(raw_img, raw_img_size);
+            loader->close();
+
+            Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
+            Gtk::Image *album_art = new Gtk::Image(pixbuf);
+            audioinfo::add_album_art_to_index(album_art, album_name); // Adds album art to index to make later retrieval faster
+          }
+        }
+    }
+  sqlite3_finalize(stmt);
 }
 
 int AudioLibrary::populate_playlist_cb(void *data, int total_col_num, char **value, char **fields)
@@ -598,34 +636,34 @@ void AudioLibrary::scan_dir(const char *dir_location){
 
     while ((file = g_dir_read_name(dir))){
       try {
-	GError *subdir_error = NULL;
+        GError *subdir_error = NULL;
 
-	string subdir_location = file_location + file;
-	g_dir_open(util::to_char(subdir_location), 0, &subdir_error);
-	if (subdir_error == NULL) {
-	  subdir_count++;
-	  subdir_locations.push_back(util::to_char(subdir_location));
-	}
-	if (subdir_error != NULL){
-	  throw 0;
-	}
+        string subdir_location = file_location + file;
+        g_dir_open(util::to_char(subdir_location), 0, &subdir_error);
+        if (subdir_error == NULL) {
+          subdir_count++;
+          subdir_locations.push_back(util::to_char(subdir_location));
+        }
+        if (subdir_error != NULL){
+          throw 0;
+        }
       }
       catch (int exception)
-	{
-	  std::string temp = file_location;
-	  file_location += file;
-	  if (AudioLibrary::check_file_format(file_location) == true)
-	    {
-	      total_files++;
-	      file_locations.push_back(file_location);
-	      AudioLibrary::write_lib_data(file_location);
-	      AudioLibrary::add_album_summ(file_location);
-	      AudioLibrary::write_album_info(file_location);
-	      AudioLibrary::add_artist_summ(file_location);
-	      AudioLibrary::write_artists(file_location);
-	    }
-	  file_location = temp;
-	}
+        {
+          std::string temp = file_location;
+          file_location += file;
+          if (AudioLibrary::check_file_format(file_location) == true)
+            {
+              total_files++;
+              file_locations.push_back(file_location);
+              AudioLibrary::write_lib_data(file_location);
+              AudioLibrary::add_album_summ(file_location);
+              AudioLibrary::write_album_info(file_location);
+              AudioLibrary::add_artist_summ(file_location);
+              AudioLibrary::write_artists(file_location);
+            }
+          file_location = temp;
+        }
     }
   }
   std::cout << "No. of Files : " << total_files << std::endl;

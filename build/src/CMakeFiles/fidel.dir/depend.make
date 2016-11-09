@@ -88,6 +88,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -100,9 +101,11 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/devicemanager.
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -182,6 +185,8 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/init.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -209,6 +214,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/seekable.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -505,6 +511,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/glibmm-2.4/glibmm/date.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -578,6 +585,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstcapsfeatu
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -617,6 +625,8 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstquery.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -643,9 +653,12 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -654,6 +667,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkglcontext.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -766,6 +780,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkcsssection.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -833,6 +848,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtknotebook.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -868,6 +884,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparator.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -1102,6 +1119,7 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separator.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -1271,7 +1289,6 @@ src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/gdkmm-3.0/include/gdkmmconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/CMakeFiles/fidel.dir/main.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h

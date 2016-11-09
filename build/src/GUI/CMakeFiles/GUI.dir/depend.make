@@ -333,6 +333,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -345,9 +346,11 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dev
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -427,6 +430,8 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/ini
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -454,6 +459,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/see
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -750,6 +756,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/glibmm-2.4/glibmm/d
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -823,6 +830,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/g
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -862,6 +870,8 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/g
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -888,9 +898,12 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkconf
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -899,6 +912,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkglco
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -1011,6 +1025,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkcsss
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -1078,6 +1093,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtknote
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -1113,6 +1129,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtksepa
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -1347,6 +1364,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtkmm-3.0/gtkmm/sep
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -1516,7 +1534,6 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/gdkmm-3.0/include/gdkmm
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
@@ -1608,6 +1625,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -1620,9 +1638,11 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dev
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -1702,6 +1722,8 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/ini
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -1729,6 +1751,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/see
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -2025,6 +2048,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/glibmm-2.4/glibmm/d
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -2098,6 +2122,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/g
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -2137,6 +2162,8 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/g
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -2163,9 +2190,12 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkconf
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -2174,6 +2204,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkglco
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -2286,6 +2317,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkcsss
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -2353,6 +2385,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtknote
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -2388,6 +2421,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtksepa
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -2622,6 +2656,7 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtkmm-3.0/gtkmm/sep
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -2791,7 +2826,6 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/gdkmm-3.0/include/gdkmm
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
@@ -2883,6 +2917,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -2895,9 +2930,11 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/devicemanager
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -2977,6 +3014,8 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/init.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -3004,6 +3043,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/seekable.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -3300,6 +3340,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/glibmm-2.4/glibmm/date.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -3373,6 +3414,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstcapsfeat
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -3412,6 +3454,8 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstquery.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -3438,9 +3482,12 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkconfig.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -3449,6 +3496,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkglcontext.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -3561,6 +3609,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkcsssection.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -3628,6 +3677,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtknotebook.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -3663,6 +3713,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparator.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -3897,6 +3948,7 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separator.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -4066,7 +4118,6 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/gdkmm-3.0/include/gdkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
@@ -4146,6 +4197,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdk-pixbuf-2.0/g
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -4158,9 +4210,11 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -4240,6 +4294,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -4267,6 +4323,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -4563,6 +4620,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/glibmm-2.4/glibm
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -4636,6 +4694,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gs
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -4675,6 +4734,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gs
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -4701,9 +4762,12 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkc
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -4712,6 +4776,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkg
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -4824,6 +4889,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkc
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -4891,6 +4957,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkn
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -4926,6 +4993,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtks
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -5160,6 +5228,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtkmm-3.0/gtkmm/
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -5303,7 +5372,6 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/gdkmm-3.0/include/gd
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
@@ -5395,6 +5463,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -5407,9 +5476,11 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/de
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -5489,6 +5560,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/in
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -5516,6 +5589,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/se
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -5812,6 +5886,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/glibmm-2.4/glibmm/
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -5885,6 +5960,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -5924,6 +6000,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -5950,9 +6028,12 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkcon
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -5961,6 +6042,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkglc
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -6073,6 +6155,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkcss
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -6140,6 +6223,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtknot
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -6175,6 +6259,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtksep
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -6409,6 +6494,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtkmm-3.0/gtkmm/se
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -6578,7 +6664,6 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/gdkmm-3.0/include/gdkm
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
@@ -6670,6 +6755,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbu
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -6682,9 +6768,11 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/devicema
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -6764,6 +6852,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/init.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -6791,6 +6881,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/seekable
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -7087,6 +7178,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/glibmm-2.4/glibmm/date.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -7160,6 +7252,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstcap
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -7199,6 +7292,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstque
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -7225,9 +7320,12 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -7236,6 +7334,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkglcontext
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -7348,6 +7447,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkcsssectio
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -7415,6 +7515,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtknotebook.
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -7450,6 +7551,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparator
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -7684,6 +7786,7 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separato
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -7853,7 +7956,6 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/gdkmm-3.0/include/gdkmmconfi
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
@@ -7946,6 +8048,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -7958,9 +8061,11 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/devicemana
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -8040,6 +8145,8 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/init.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -8067,6 +8174,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/seekable.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -8363,6 +8471,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/glibmm-2.4/glibmm/date.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -8436,6 +8545,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstcapsf
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -8475,6 +8585,8 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstquery
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -8501,9 +8613,12 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkconfig.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -8512,6 +8627,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkglcontext.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -8624,6 +8740,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkcsssection.
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -8691,6 +8808,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtknotebook.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -8726,6 +8844,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparator.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -8960,6 +9079,7 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separator.
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -9129,7 +9249,6 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/gdkmm-3.0/include/gdkmmconfig.
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h
@@ -9221,6 +9340,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-features.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-io.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-loader.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-macros.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-simple-anim.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-transform.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h
@@ -9233,9 +9353,11 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/devicemana
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/display.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/displaymanager.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/dragcontext.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/drawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/event.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/general.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/glcontext.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/monitor.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbuf.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimation.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gdkmm-3.0/gdkmm/pixbufanimationiter.h
@@ -9315,6 +9437,8 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/init.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/initable.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/inputstream.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/iostream.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/listmodel.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/liststore.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/loadableicon.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/memoryinputstream.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/memoryoutputstream.h
@@ -9342,6 +9466,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/seekable.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/settings.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/settingsschema.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemakey.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/settingsschemasource.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/simpleaction.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/simpleactiongroup.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/giomm-2.4/giomm/simpleiostream.h
@@ -9638,6 +9763,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/glibmm-2.4/glibmm/date.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/glibmm-2.4/glibmm/datetime.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/glibmm-2.4/glibmm/debug.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/glibmm-2.4/glibmm/dispatcher.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/glibmm-2.4/glibmm/enums.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/glibmm-2.4/glibmm/error.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/glibmm-2.4/glibmm/exception.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/glibmm-2.4/glibmm/exceptionhandler.h
@@ -9711,6 +9837,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstcapsf
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstchildproxy.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstclock.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstcompat.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontext.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolbinding.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstcontrolsource.h
@@ -9750,6 +9877,8 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstquery
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstregistry.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstsample.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstsegment.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gststreamcollection.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gststreams.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gststructure.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gstsystemclock.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gstreamer-1.0/gst/gsttaglist.h
@@ -9776,9 +9905,12 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkconfig.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkcursor.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevice.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicemanager.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicepad.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkdevicetool.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplay.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkdisplaymanager.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkdnd.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkdrawingcontext.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkenumtypes.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkevents.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkframeclock.h
@@ -9787,6 +9919,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkglcontext.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeys.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkkeysyms.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkmain.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkmonitor.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkpango.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkpixbuf.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gdk/gdkproperty.h
@@ -9899,6 +10032,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkcsssection.
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkdebug.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkdialog.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkdnd.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragdest.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkdragsource.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkdrawingarea.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkeditable.h
@@ -9966,6 +10100,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtknotebook.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkoffscreenwindow.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkorientable.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkoverlay.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkpadcontroller.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkpagesetup.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkpaned.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkpapersize.h
@@ -10001,6 +10136,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparator.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkseparatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtksettings.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtk-3.0/gtk/gtkshortcutsshortcut.h
@@ -10235,6 +10371,7 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separator.
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatormenuitem.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtkmm-3.0/gtkmm/separatortoolitem.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtkmm-3.0/gtkmm/settings.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutlabel.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsgroup.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutssection.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/include/gtkmm-3.0/gtkmm/shortcutsshortcut.h
@@ -10404,7 +10541,6 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/gdkmm-3.0/include/gdkmmconfig.
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/giomm-2.4/include/giommconfig.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/glib-2.0/include/glibconfig.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/glibmm-2.4/include/glibmmconfig.h
-src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/gstreamer-1.0/include/gst/gstconfig.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/pangomm-1.4/include/pangommconfig.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: /usr/lib/sigc++-2.0/include/sigc++config.h

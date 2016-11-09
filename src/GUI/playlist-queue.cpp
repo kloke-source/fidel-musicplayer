@@ -145,7 +145,7 @@ void PlaylistQueue::show_first_song()
       std::string file_loc = up_next_song_data[Playlist::FILE_LOC];
       std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
 
-      Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
+      Gtk::Image *album_art = audioinfo::get_album_art_by_name(album, file_loc);
       FidelOptions *fidel_options = new FidelOptions();
     this->queue_overview_popover->add_segmented_entry(fidel_options, album_art, default_image_size, song_name, supp_label);
       
@@ -187,7 +187,7 @@ void PlaylistQueue::show_all_songs()
     std::string file_loc = all_up_next_songs[iter][Playlist::FILE_LOC];
     std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
 
-    Gtk::Image *album_art = audioinfo::get_album_art(file_loc);
+    Gtk::Image *album_art = audioinfo::get_album_art_by_name(album, file_loc);
     FidelOptions* fidel_options = new FidelOptions();
 
     this->queue_overview_popover->add_segmented_entry(fidel_options, album_art, default_image_size, song_name, supp_label);

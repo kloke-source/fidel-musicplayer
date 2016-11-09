@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tashrif/Dev/fidel-musicplayer/src/main.cpp" "/home/tashrif/Dev/fidel-musicplayer/build/src/CMakeFiles/fidel.dir/main.cpp.o"
+  "/home/tashrif/Development/fidel-musicplayer/src/main.cpp" "/home/tashrif/Development/fidel-musicplayer/build/src/CMakeFiles/fidel.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -44,19 +44,18 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/sigc++-2.0"
   "/usr/lib/sigc++-2.0/include"
   "/usr/include/gstreamer-1.0"
-  "/usr/lib/gstreamer-1.0/include"
   "/usr/include/taglib"
   "../src"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake"
-  "/home/tashrif/Dev/fidel-musicplayer/build/src/Audio-Library/CMakeFiles/Audio-Library.dir/DependInfo.cmake"
-  "/home/tashrif/Dev/fidel-musicplayer/build/src/Audio/CMakeFiles/Audio.dir/DependInfo.cmake"
-  "/home/tashrif/Dev/fidel-musicplayer/build/src/Audio-Info/CMakeFiles/Audio-Info.dir/DependInfo.cmake"
-  "/home/tashrif/Dev/fidel-musicplayer/build/src/Utilities/CMakeFiles/Utilities.dir/DependInfo.cmake"
-  "/home/tashrif/Dev/fidel-musicplayer/build/src/Spectrum/CMakeFiles/Spectrum.dir/DependInfo.cmake"
+  "/home/tashrif/Development/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake"
+  "/home/tashrif/Development/fidel-musicplayer/build/src/Audio-Library/CMakeFiles/Audio-Library.dir/DependInfo.cmake"
+  "/home/tashrif/Development/fidel-musicplayer/build/src/Audio/CMakeFiles/Audio.dir/DependInfo.cmake"
+  "/home/tashrif/Development/fidel-musicplayer/build/src/Audio-Info/CMakeFiles/Audio-Info.dir/DependInfo.cmake"
+  "/home/tashrif/Development/fidel-musicplayer/build/src/Utilities/CMakeFiles/Utilities.dir/DependInfo.cmake"
+  "/home/tashrif/Development/fidel-musicplayer/build/src/Spectrum/CMakeFiles/Spectrum.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

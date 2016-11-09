@@ -1,4 +1,4 @@
-# Install script for directory: /home/tashrif/Dev/fidel-musicplayer/src/Spectrum
+# Install script for directory: /home/tashrif/Development/fidel-musicplayer/src/Spectrum
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

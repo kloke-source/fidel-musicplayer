@@ -1,4 +1,4 @@
-# Install script for directory: /home/tashrif/Dev/fidel-musicplayer/src/Audio-Info
+# Install script for directory: /home/tashrif/Development/fidel-musicplayer/src/Audio-Info
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

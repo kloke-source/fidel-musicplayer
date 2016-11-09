@@ -61,10 +61,12 @@ void audioinfo::init(char *filesrc)
 
 void audioinfo::set_data()
 {
-  info.song_name = (audio_file.tag()->title()).to8Bit(true);
-  info.artist = (audio_file.tag()->artist()).to8Bit(true);
-  info.album = (audio_file.tag()->album()).to8Bit(true);
-  info.duration_seconds = (audio_file.audioProperties()->length());
+  if (audio_file.tag()) {
+    info.song_name = (audio_file.tag()->title()).to8Bit(true);
+    info.artist = (audio_file.tag()->artist()).to8Bit(true);
+    info.album = (audio_file.tag()->album()).to8Bit(true);
+    info.duration_seconds = (audio_file.audioProperties()->length());
+  }
 
   if (info.song_name == "" || info.song_name == " "){
     info.song_name = util::file_to_song_name(audio_file_location);
@@ -136,6 +138,70 @@ std::string audioinfo::get_info(std::string field)
     song_info = util::time_format(info.duration_seconds);
   }
   return song_info;
+}
+
+void audioinfo::add_album_art_to_index(Gtk::Image* album_art, std::string album_name)
+{
+  /** @brief Adds album art to an index, to make later retrieval much faster,
+   * rather than extracting album art from a file. The index utilizes a binary
+   * search tree, to make checking through the index faster.
+   * 
+   *
+   * @param album_art The album art to be indexed
+   *
+   * @param album_name The name of the album to be added for reference to the index
+   *
+   */
+  extracted_album_art.push_back(album_art);
+  extracted_album_art_supp_data.albums.insert(album_name, total_extracted_album_art);
+  total_extracted_album_art++;
+}
+
+Gtk::Image* audioinfo::get_album_art_by_name(std::string album_name, std::string file_location)
+{
+  /** @brief Returns album art, by searching through already
+   * extracted album art by album name, if it doesn't find it in album art that
+   * has already been extracted, it will use the file location of the song (second
+   * parameter) to extract its album art.
+   * 
+   *
+   * @param album_name The name of the album, that the function will use to
+   * search through pre-indexed album art 
+   * @param file_location This parameter is only used, if the function couldn't
+   * find the album in pre-indexed album art
+   *
+   * @return Returns a Gtk::Image* of the album art
+   */
+
+  std::tuple<guint8*, gsize, bool> raw_album_art;
+
+  auto raw_album_art_extract_job = std::async(std::launch::async, &audioinfo::extract_album_art, file_location);
+  
+  bool album_art_found = extracted_album_art_supp_data.albums.check(album_name);
+  int found_pos = extracted_album_art_supp_data.albums.get_search_id();
+
+  Gtk::Image *album_art;
+  if (album_art_found == true)
+    return extracted_album_art[found_pos];
+  else {  
+    album_art = new Gtk::Image();
+    raw_album_art = raw_album_art_extract_job.get();
+    if (std::get<2>(raw_album_art) == true) {
+      Glib::RefPtr<Gdk::PixbufLoader> loader = Gdk::PixbufLoader::create();      
+      loader->write(std::get<0>(raw_album_art), std::get<1>(raw_album_art));
+      loader->close();
+      Glib::RefPtr<Gdk::Pixbuf> pixbuf = loader->get_pixbuf();
+      album_art->set(pixbuf);
+    }
+    else
+      album_art->set_from_resource("/fidel/Resources/icons/blank-albumart.svg");
+  }
+
+    extracted_album_art.push_back(album_art);
+    extracted_album_art_supp_data.file_locs.insert(file_location, total_extracted_album_art);
+    extracted_album_art_supp_data.albums.insert(album_name, total_extracted_album_art);
+    total_extracted_album_art++;
+    return album_art;  
 }
 
 Gtk::Image* audioinfo::get_album_art(std::string file_location)
@@ -214,21 +280,21 @@ std::tuple<guint8*, gsize, bool> audioinfo::extract_album_art(std::string file_l
     if ( id3v2tag ) {
       Frame = id3v2tag->frameListMap()[IdPicture];
       if (!Frame.isEmpty() )
-	{
-	  for(TagLib::ID3v2::FrameList::ConstIterator iter = Frame.begin(); iter != Frame.end(); ++iter)
-	    {
-	      picture_frame = (TagLib::ID3v2::AttachedPictureFrame *)(*iter) ;
-	      {
-		image_size = picture_frame->picture().size() ;
-		extracted_image = (guint8*)malloc ( image_size ) ;
-		if ( extracted_image )
-		  {
-		    memcpy ( extracted_image, picture_frame->picture().data(), image_size ) ;
-		    albumart_found = true;
-		  }
-	      }
-	    }
-	}
+        {
+          for(TagLib::ID3v2::FrameList::ConstIterator iter = Frame.begin(); iter != Frame.end(); ++iter)
+            {
+              picture_frame = (TagLib::ID3v2::AttachedPictureFrame *)(*iter) ;
+              {
+                image_size = picture_frame->picture().size() ;
+                extracted_image = (guint8*)malloc ( image_size ) ;
+                if ( extracted_image )
+                  {
+                    memcpy ( extracted_image, picture_frame->picture().data(), image_size ) ;
+                    albumart_found = true;
+                  }
+              }
+            }
+        }
     }
   }
 
@@ -248,7 +314,7 @@ std::tuple<guint8*, gsize, bool> audioinfo::extract_album_art(std::string file_l
       image_size = coverArt.data().size() ;
       extracted_image = (guint8*)malloc (image_size) ;
       if (extracted_image)
-	memcpy ( extracted_image, coverArt.data().data(), image_size ) ;
+        memcpy ( extracted_image, coverArt.data().data(), image_size ) ;
     }
   }
 

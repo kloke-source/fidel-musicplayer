@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tashrif/Dev/fidel-musicplayer
+CMAKE_SOURCE_DIR = /home/tashrif/Development/fidel-musicplayer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tashrif/Dev/fidel-musicplayer/build
+CMAKE_BINARY_DIR = /home/tashrif/Development/fidel-musicplayer/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles /home/tashrif/Dev/fidel-musicplayer/build/src/GUI/CMakeFiles/progress.marks
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Dev/fidel-musicplayer/build/CMakeFiles 0
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles /home/tashrif/Development/fidel-musicplayer/build/src/GUI/CMakeFiles/progress.marks
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/clean
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/preinstall
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/preinstall
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/GUI/CMakeFiles/GUI.dir/rule:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/CMakeFiles/GUI.dir/rule
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f CMakeFiles/Makefile2 src/GUI/CMakeFiles/GUI.dir/rule
 .PHONY : src/GUI/CMakeFiles/GUI.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ GUI: src/GUI/CMakeFiles/GUI.dir/rule
 
 # fast build rule for target.
 GUI/fast:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
 .PHONY : GUI/fast
 
 fidel-options.o: fidel-options.cpp.o
@@ -131,7 +131,7 @@ fidel-options.o: fidel-options.cpp.o
 
 # target to build an object file
 fidel-options.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o
 .PHONY : fidel-options.cpp.o
 
 fidel-options.i: fidel-options.cpp.i
@@ -140,7 +140,7 @@ fidel-options.i: fidel-options.cpp.i
 
 # target to preprocess a source file
 fidel-options.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.i
 .PHONY : fidel-options.cpp.i
 
 fidel-options.s: fidel-options.cpp.s
@@ -149,7 +149,7 @@ fidel-options.s: fidel-options.cpp.s
 
 # target to generate assembly for a file
 fidel-options.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.s
 .PHONY : fidel-options.cpp.s
 
 fidel-popover.o: fidel-popover.cpp.o
@@ -158,7 +158,7 @@ fidel-popover.o: fidel-popover.cpp.o
 
 # target to build an object file
 fidel-popover.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o
 .PHONY : fidel-popover.cpp.o
 
 fidel-popover.i: fidel-popover.cpp.i
@@ -167,7 +167,7 @@ fidel-popover.i: fidel-popover.cpp.i
 
 # target to preprocess a source file
 fidel-popover.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.i
 .PHONY : fidel-popover.cpp.i
 
 fidel-popover.s: fidel-popover.cpp.s
@@ -176,7 +176,7 @@ fidel-popover.s: fidel-popover.cpp.s
 
 # target to generate assembly for a file
 fidel-popover.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.s
 .PHONY : fidel-popover.cpp.s
 
 fidel-resources.o: fidel-resources.c.o
@@ -185,7 +185,7 @@ fidel-resources.o: fidel-resources.c.o
 
 # target to build an object file
 fidel-resources.c.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.o
 .PHONY : fidel-resources.c.o
 
 fidel-resources.i: fidel-resources.c.i
@@ -194,7 +194,7 @@ fidel-resources.i: fidel-resources.c.i
 
 # target to preprocess a source file
 fidel-resources.c.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.i
 .PHONY : fidel-resources.c.i
 
 fidel-resources.s: fidel-resources.c.s
@@ -203,7 +203,7 @@ fidel-resources.s: fidel-resources.c.s
 
 # target to generate assembly for a file
 fidel-resources.c.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/fidel-resources.c.s
 .PHONY : fidel-resources.c.s
 
 gui.o: gui.cpp.o
@@ -212,7 +212,7 @@ gui.o: gui.cpp.o
 
 # target to build an object file
 gui.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.o
 .PHONY : gui.cpp.o
 
 gui.i: gui.cpp.i
@@ -221,7 +221,7 @@ gui.i: gui.cpp.i
 
 # target to preprocess a source file
 gui.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.i
 .PHONY : gui.cpp.i
 
 gui.s: gui.cpp.s
@@ -230,7 +230,7 @@ gui.s: gui.cpp.s
 
 # target to generate assembly for a file
 gui.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/gui.cpp.s
 .PHONY : gui.cpp.s
 
 playlist-manager.o: playlist-manager.cpp.o
@@ -239,7 +239,7 @@ playlist-manager.o: playlist-manager.cpp.o
 
 # target to build an object file
 playlist-manager.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o
 .PHONY : playlist-manager.cpp.o
 
 playlist-manager.i: playlist-manager.cpp.i
@@ -248,7 +248,7 @@ playlist-manager.i: playlist-manager.cpp.i
 
 # target to preprocess a source file
 playlist-manager.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.i
 .PHONY : playlist-manager.cpp.i
 
 playlist-manager.s: playlist-manager.cpp.s
@@ -257,7 +257,7 @@ playlist-manager.s: playlist-manager.cpp.s
 
 # target to generate assembly for a file
 playlist-manager.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.s
 .PHONY : playlist-manager.cpp.s
 
 playlist-queue.o: playlist-queue.cpp.o
@@ -266,7 +266,7 @@ playlist-queue.o: playlist-queue.cpp.o
 
 # target to build an object file
 playlist-queue.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o
 .PHONY : playlist-queue.cpp.o
 
 playlist-queue.i: playlist-queue.cpp.i
@@ -275,7 +275,7 @@ playlist-queue.i: playlist-queue.cpp.i
 
 # target to preprocess a source file
 playlist-queue.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.i
 .PHONY : playlist-queue.cpp.i
 
 playlist-queue.s: playlist-queue.cpp.s
@@ -284,7 +284,7 @@ playlist-queue.s: playlist-queue.cpp.s
 
 # target to generate assembly for a file
 playlist-queue.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.s
 .PHONY : playlist-queue.cpp.s
 
 playlist.o: playlist.cpp.o
@@ -293,7 +293,7 @@ playlist.o: playlist.cpp.o
 
 # target to build an object file
 playlist.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o
 .PHONY : playlist.cpp.o
 
 playlist.i: playlist.cpp.i
@@ -302,7 +302,7 @@ playlist.i: playlist.cpp.i
 
 # target to preprocess a source file
 playlist.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.i
 .PHONY : playlist.cpp.i
 
 playlist.s: playlist.cpp.s
@@ -311,7 +311,7 @@ playlist.s: playlist.cpp.s
 
 # target to generate assembly for a file
 playlist.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/playlist.cpp.s
 .PHONY : playlist.cpp.s
 
 seeker.o: seeker.cpp.o
@@ -320,7 +320,7 @@ seeker.o: seeker.cpp.o
 
 # target to build an object file
 seeker.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
 .PHONY : seeker.cpp.o
 
 seeker.i: seeker.cpp.i
@@ -329,7 +329,7 @@ seeker.i: seeker.cpp.i
 
 # target to preprocess a source file
 seeker.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.i
 .PHONY : seeker.cpp.i
 
 seeker.s: seeker.cpp.s
@@ -338,7 +338,7 @@ seeker.s: seeker.cpp.s
 
 # target to generate assembly for a file
 seeker.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/seeker.cpp.s
 .PHONY : seeker.cpp.s
 
 themer.o: themer.cpp.o
@@ -347,7 +347,7 @@ themer.o: themer.cpp.o
 
 # target to build an object file
 themer.cpp.o:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.o
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.o
 .PHONY : themer.cpp.o
 
 themer.i: themer.cpp.i
@@ -356,7 +356,7 @@ themer.i: themer.cpp.i
 
 # target to preprocess a source file
 themer.cpp.i:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.i
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.i
 .PHONY : themer.cpp.i
 
 themer.s: themer.cpp.s
@@ -365,7 +365,7 @@ themer.s: themer.cpp.s
 
 # target to generate assembly for a file
 themer.cpp.s:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.s
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/themer.cpp.s
 .PHONY : themer.cpp.s
 
 # Help Target
@@ -415,6 +415,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/tashrif/Dev/fidel-musicplayer/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
