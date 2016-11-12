@@ -218,7 +218,7 @@ void AudioLibrary::init_db()
   }
 }
 
-int AudioLibrary::load_db()
+void AudioLibrary::load_db()
 {
   AudioLibrary::initialize();
   if (db_loaded == false) {
@@ -250,7 +250,6 @@ int AudioLibrary::load_db()
     (void)sqlite3_close(source_file);
     AudioLibrary::load_album_info();
     db_loaded = true;
-    return ret_code;
   }
 }
 
@@ -359,8 +358,8 @@ void AudioLibrary::add_album_summ(std::string file_location)
 {
   audioinfo::init(util::to_char(file_location));
 
-  string album_name = audioinfo::get_info("album");
-  string song_name = audioinfo::get_info("song_name");
+  string album_name = audioinfo::get_info(ALBUM);
+  string song_name = audioinfo::get_info(SONG_NAME);
 
   bool album_exists = false;
   if (full_album_summary.size() == 0){
@@ -464,8 +463,8 @@ void AudioLibrary::add_artist_summ(std::string file_location)
 {
   audioinfo::init(util::to_char(file_location));
 
-  string artist_name = audioinfo::get_info("album");
-  string song_name = audioinfo::get_info("song_name");
+  string artist_name = audioinfo::get_info(ARTIST);
+  string song_name = audioinfo::get_info(SONG_NAME);
 
   bool artist_exists = false;
   if (full_artist_summary.size() == 0){
@@ -560,8 +559,8 @@ void AudioLibrary::populate_playlist()
   sqlite3_stmt *stmt;
 
   sqlite3_prepare_v2(library_db, "SELECT * from album_information",-1,&stmt,0);
-  
-  int increment;
+
+  int increment = 0;
 
   enum {
     ID,
