@@ -5,6 +5,7 @@
 #include <GUI/fidel-popover.h>
 #include <Audio-Info/audioinfo.h>
 #include <Audio-Library/audio-library.h>
+#include <chrono>
 
 FidelPopover::FidelPopover()
 {
@@ -327,16 +328,29 @@ void FidelPopover::add_separator()
 
 void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 {
-    FidelPopover::clear();
+  std::chrono::high_resolution_clock::time_point start_point = std::chrono::high_resolution_clock::now();
 
-  if (populate_data.size() && populate_data.size() == 5) {
-    FidelPopover::add_title("Songs");
+  auto clear_job = std::async(std::launch::async, [this](){FidelPopover::clear();});
+
+  std::vector<std::function<void()>> popover_song_entries;
+  std::vector<std::function<void()>> popover_album_entries;
+
+  btree<std::string> added_artists;
+  btree<std::string> added_albums;
+
+  std::vector<std::string> grouped_artists;
+  std::vector<Gtk::Image*> grouped_raw_album_art;
+
+  std::vector<int> num_songs_artist;
+
+  if (populate_data.size() >= 1) {
     // Add songs to popover
 
     //    std::string current_album;
     std::vector<std::vector<std::string>> full_row_data;
 
     for (size_t iter = 0; iter < populate_data[Playlist::FILE_LOC].size(); iter++) {
+
       std::vector<std::string> row_data;
       row_data.push_back(Glib::Markup::escape_text(populate_data[Playlist::SONG_NAME][iter]));
       row_data.push_back(populate_data[Playlist::ARTIST][iter]);
@@ -344,129 +358,146 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
       row_data.push_back(populate_data[Playlist::TIME][iter]);
       row_data.push_back(populate_data[Playlist::FILE_LOC][iter]);
       full_row_data.push_back(row_data);
-    }
 
-    for (size_t iter = 0; iter < populate_data[Playlist::FILE_LOC].size(); iter++) {
       std::string song_name = Glib::Markup::escape_text(populate_data[Playlist::SONG_NAME][iter]);
-      std::string artist = populate_data[Playlist::ARTIST][iter];
-      std::string album = populate_data[Playlist::ALBUM][iter];
-      std::string time = populate_data[Playlist::TIME][iter];
+      std::string artist = Glib::Markup::escape_text(populate_data[Playlist::ARTIST][iter]);
+      std::string album = Glib::Markup::escape_text(populate_data[Playlist::ALBUM][iter]);
+      std::string time = Glib::Markup::escape_text(populate_data[Playlist::TIME][iter]);
       std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
       std::string supp_label = artist + " \u2015 " + album; // \u2015 is the unicode character for horizontal bar
 
-      Gtk::Image *album_art = audioinfo::get_album_art_by_name(album, file_loc);
-      FidelOptions *fidel_options = FidelPopover::add_entry(album_art, song_name, supp_label);
-      PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
-      fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, iter, fidel_options](){
-	  queue_playlist->append_after_current(full_row_data[iter]);
-	  fidel_options->hide_popover();
-	  this->hide();
-	});
-      fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, iter, fidel_options](){
-	  queue_playlist->append_row(full_row_data[iter]);
-	  fidel_options->hide_popover();
-	  this->hide();
-	});
+      // Artist section 
+      auto artist_retrieval_job = std::async(std::launch::async, [&](){
+          if (added_artists.check(artist) == false) {
+            added_artists.insert(artist);
+            num_songs_artist.push_back(1);
+            grouped_raw_album_art.push_back(audioinfo::get_album_art_by_name(album, file_loc));
+          }
+          else {
+            int artist_pos = added_artists.get_search_id();
+            num_songs_artist[artist_pos]++;
+          }
+        });
 
-      if (iter == 3)
-	break;
+            // Albums section
+      auto album_retrieval_job = std::async(std::launch::async,[&]() {
+          if (added_albums.check(album) == false) {
+            added_albums.insert(album);
+
+            std::function<void()> album_entry = [this, album, file_loc,
+                                                 full_row_data, supp_label]() {
+              Gtk::Image *album_art = audioinfo::get_album_art_by_name(album, file_loc);
+
+              FidelOptions *fidel_options = FidelPopover::add_entry(album_art, album, supp_label);
+              PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
+
+              fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
+                  for (size_t iter = 0; iter < full_row_data.size(); iter++) {
+                    queue_playlist->append_after_current(full_row_data[iter]);
+                  }
+                  queue_playlist->overview_notify();
+                  fidel_options->hide_popover();
+                  this->hide();
+                });
+
+              fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
+                  for (size_t iter = 0; iter < full_row_data.size(); iter++) {
+                    queue_playlist->append_row(full_row_data[iter]);
+                  }
+                  queue_playlist->overview_notify();
+                  fidel_options->hide_popover();
+                  this->hide();
+                });
+            };
+            popover_album_entries.push_back(album_entry);
+          }
+        });
+
+      // Song section
+      if (iter <= 3) {
+        std::function<void()> song_entry = [this, song_name, artist, album, time,
+                                            file_loc, supp_label, full_row_data, iter]{
+
+          Gtk::Image *album_art = audioinfo::get_album_art_by_name(album,
+                                                                   file_loc);
+
+          FidelOptions *fidel_options = FidelPopover::add_entry(album_art, song_name, supp_label);
+          PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
+
+          fidel_options->set_play_next_cb([this, queue_playlist, full_row_data,
+                                           iter, fidel_options](){
+                                            queue_playlist->append_after_current(full_row_data[iter]);
+                                            fidel_options->hide_popover();
+                                            this->hide();
+                                          });
+
+          fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist,
+                                                        full_row_data, iter, fidel_options](){
+                                                         queue_playlist->append_row(full_row_data[iter]);
+                                                         fidel_options->hide_popover();
+                                                         this->hide();
+                                                       });
+        };
+
+        popover_song_entries.push_back(song_entry);
+      }
+
+      artist_retrieval_job.get();
+      album_retrieval_job.get();
     }
 
-    if (populate_data[Playlist::SONG_NAME].size() > 1)
-      {
-	// Add artists and albums to popover
-	FidelPopover::add_title("Artists");
+    clear_job.get();
 
-	btree<std::string> added_artists;
-	std::vector<std::string> grouped_artists;
-	std::vector<Gtk::Image*> grouped_raw_album_art;
+    FidelPopover::add_title("Songs");
+    for (size_t iter=0; iter < popover_song_entries.size(); iter++) {
+      popover_song_entries[iter]();
+      if (iter == 3)
+        break;
+    }
 
-	std::vector<int> num_songs_artist;
+    FidelPopover::add_title("Artists");
+    grouped_artists = added_artists.inorder();
+    for (size_t iter = 0; iter < grouped_artists.size(); iter++) {
+      Gtk::Image *album_art = grouped_raw_album_art[iter];
 
-	for (size_t iter = 0; iter < populate_data[Playlist::ARTIST].size(); iter++) {
-	  std::string artist = Glib::Markup::escape_text(populate_data[Playlist::ARTIST][iter]);
-	  std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
-	  std::string album = populate_data[Playlist::ALBUM][iter];
+      FidelOptions *fidel_options = FidelPopover::add_entry(album_art, grouped_artists[iter], util::to_string(num_songs_artist[iter]));
+      PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
+      fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
+          for (size_t iter = 0; iter < full_row_data.size(); iter++) {
+            queue_playlist->append_after_current(full_row_data[iter]);
+          }
+          queue_playlist->overview_notify();
+          fidel_options->hide_popover();
+          this->hide();
+        });
+      fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
+          for (size_t iter = 0; iter < full_row_data.size(); iter++) {
+            queue_playlist->append_row(full_row_data[iter]);
+          }
+          queue_playlist->overview_notify();
+          fidel_options->hide_popover();
+          this->hide();
+        });
 
-	  grouped_raw_album_art.push_back(audioinfo::get_album_art_by_name(album, file_loc));
+      if (iter == 3)
+        break;
+    }
 
-	  if (added_artists.search(artist) != artist) {
-	    added_artists.insert(artist);
-	    num_songs_artist.push_back(1);
-	  }
-	  else {
-	    int artist_pos = added_artists.get_search_id();
-	    num_songs_artist[artist_pos]++;
-	  }
-	}
+    FidelPopover::add_title("Albums");
+    for (size_t iter=0; iter < popover_album_entries.size(); iter++) {
+      popover_album_entries[iter]();
+      if (iter == 2)
+        break;
+    }
 
-	grouped_artists = added_artists.inorder();
-	for (size_t iter = 0; iter < grouped_artists.size(); iter++) {
-	  Gtk::Image *album_art = grouped_raw_album_art[iter];
-
-	  FidelOptions *fidel_options = FidelPopover::add_entry(album_art, grouped_artists[iter], util::to_string(num_songs_artist[iter]));
-	  PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
-	  fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
-	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		queue_playlist->append_after_current(full_row_data[iter]);
-	      }
-	      queue_playlist->overview_notify();
-	      fidel_options->hide_popover();
-	      this->hide();
-	    });
-	  fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
-	      for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		queue_playlist->append_row(full_row_data[iter]);
-	      }
-	      queue_playlist->overview_notify();
-	      fidel_options->hide_popover();
-	      this->hide();
-	    });
-
-	  if (iter == 3)
-	    break;
-	}
-
-	// Add albums to popover
-	FidelPopover::add_title("Albums");
-	btree<std::string> added_albums;
-
-	for (size_t iter = 0; iter < populate_data[Playlist::ALBUM].size(); iter++) {
-	  std::string album = Glib::Markup::escape_text(populate_data[Playlist::ALBUM][iter]);
-	  std::string supp_label = populate_data[Playlist::ARTIST][iter];
-	  std::string file_loc = populate_data[Playlist::FILE_LOC][iter];
-
-	  if (added_albums.check(album) == false) {
-	    added_albums.insert(album);
-
-	    Gtk::Image *album_art = audioinfo::get_album_art_by_name(album, file_loc);
-
-	    FidelOptions *fidel_options = FidelPopover::add_entry(album_art, album, supp_label);
-	    PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
-	    fidel_options->set_play_next_cb([this, queue_playlist, full_row_data, fidel_options](){
-		for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		  queue_playlist->append_after_current(full_row_data[iter]);
-		}
-		queue_playlist->overview_notify();
-		fidel_options->hide_popover();
-		this->hide();
-	      });
-	    fidel_options->set_add_to_bottom_of_queue_cb([this, queue_playlist, full_row_data, fidel_options](){
-		for (size_t iter = 0; iter < full_row_data.size(); iter++) {
-		  queue_playlist->append_row(full_row_data[iter]);
-		}
-		queue_playlist->overview_notify();
-		fidel_options->hide_popover();
-		this->hide();
-	      });
-
-	  }
-	  if (iter == 3)
-	    break;
-	}
-      }
   }
+  std::chrono::high_resolution_clock::time_point end_point = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::microseconds>( end_point - start_point ).count();
+
+  std::cout << "Search Function Time: " << duration << std::endl;
 }
+
+
 
 void FidelPopover::pop_from_top()
 {

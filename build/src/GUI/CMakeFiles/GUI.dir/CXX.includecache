@@ -241,6 +241,8 @@ Audio-Info/audioinfo.h
 -
 Audio-Library/audio-library.h
 -
+chrono
+-
 
 /home/tashrif/Development/fidel-musicplayer/src/GUI/gui.cpp
 GUI/gui.h
