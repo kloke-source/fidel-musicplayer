@@ -15,28 +15,28 @@ class AudioLibrary {
  public:
   static void initialize();
   static void populate_playlist();
-  static std::tuple<guint8*, gsize, bool> get_album_art(std::string album_name); 
+  static std::tuple<guint8*, gsize, bool> get_album_art(std::string album_name);
   static void scan();
  private:
   // initialization functions
   static void init_db();
-  static int load_db();
+  static void load_db();
   static void load_album_info();
-  
+
   static int generic_db_callback(void *data, int total_col_num, char **value, char **fields);
   // validation functions
   static bool check_file_format(std::string input_file);
   // db functions
   static void db_ins_row(std::string ins_stmt);
   static void db_ins_blob(std::string blob_ins_stmt, guint8 *buffer, gsize buffer_size);
-			  
+
   static void write_lib_data(std::string file_location);
   static void write_lib_info();
-  
+
   static void add_album_summ(std::string file_location);
   static void write_album_summ();
   static void write_album_info(std::string file_location);
-    
+
   static void add_artist_summ(std::string file_location);
   static void write_artist_summ();
   static void write_artists(std::string file_location);
