@@ -125,6 +125,60 @@ GUI/fast:
 	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
 .PHONY : GUI/fast
 
+album-art-viewer.o: album-art-viewer.cpp.o
+
+.PHONY : album-art-viewer.o
+
+# target to build an object file
+album-art-viewer.cpp.o:
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/album-art-viewer.cpp.o
+.PHONY : album-art-viewer.cpp.o
+
+album-art-viewer.i: album-art-viewer.cpp.i
+
+.PHONY : album-art-viewer.i
+
+# target to preprocess a source file
+album-art-viewer.cpp.i:
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/album-art-viewer.cpp.i
+.PHONY : album-art-viewer.cpp.i
+
+album-art-viewer.s: album-art-viewer.cpp.s
+
+.PHONY : album-art-viewer.s
+
+# target to generate assembly for a file
+album-art-viewer.cpp.s:
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/album-art-viewer.cpp.s
+.PHONY : album-art-viewer.cpp.s
+
+album-art.o: album-art.cpp.o
+
+.PHONY : album-art.o
+
+# target to build an object file
+album-art.cpp.o:
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/album-art.cpp.o
+.PHONY : album-art.cpp.o
+
+album-art.i: album-art.cpp.i
+
+.PHONY : album-art.i
+
+# target to preprocess a source file
+album-art.cpp.i:
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/album-art.cpp.i
+.PHONY : album-art.cpp.i
+
+album-art.s: album-art.cpp.s
+
+.PHONY : album-art.s
+
+# target to generate assembly for a file
+album-art.cpp.s:
+	cd /home/tashrif/Development/fidel-musicplayer/build && $(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/album-art.cpp.s
+.PHONY : album-art.cpp.s
+
 fidel-options.o: fidel-options.cpp.o
 
 .PHONY : fidel-options.o
@@ -377,6 +431,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... GUI"
+	@echo "... album-art-viewer.o"
+	@echo "... album-art-viewer.i"
+	@echo "... album-art-viewer.s"
+	@echo "... album-art.o"
+	@echo "... album-art.i"
+	@echo "... album-art.s"
 	@echo "... fidel-options.o"
 	@echo "... fidel-options.i"
 	@echo "... fidel-options.s"

@@ -203,7 +203,7 @@ void seeker::init()
 
 void seeker::init_builder()
 {
-  std::string ui_filelocation = Glib::get_home_dir() + "/fidel/Resources/UI/seeker.ui";
+  std::string ui_filelocation = Glib::get_home_dir() + "/.fidel/Resources/UI/seeker.ui";
   try
   {
     seeker_builder->add_from_file(ui_filelocation);

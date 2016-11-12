@@ -49,6 +49,8 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../src"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/tashrif/Development/fidel-musicplayer/src/GUI/album-art-viewer.cpp" "/home/tashrif/Development/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/album-art-viewer.cpp.o"
+  "/home/tashrif/Development/fidel-musicplayer/src/GUI/album-art.cpp" "/home/tashrif/Development/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/album-art.cpp.o"
   "/home/tashrif/Development/fidel-musicplayer/src/GUI/fidel-options.cpp" "/home/tashrif/Development/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o"
   "/home/tashrif/Development/fidel-musicplayer/src/GUI/fidel-popover.cpp" "/home/tashrif/Development/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o"
   "/home/tashrif/Development/fidel-musicplayer/src/GUI/gui.cpp" "/home/tashrif/Development/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/gui.cpp.o"

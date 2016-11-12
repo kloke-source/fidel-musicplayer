@@ -7,26 +7,25 @@
 #include <Utilities/btree.h>
 #include <Audio-Library/audio-library.h>
 
-using namespace std;
-class AlbumArtViewer{
+class AlbumArtViewer : public Gtk::ScrolledWindow{
 public:
   AlbumArtViewer();
-  AlbumArtViewer(Gtk::Widget *parent);
   ~AlbumArtViewer();
-  Gtk::Box* get_frame();
+ private:
+  Gtk::Grid album_grid;
+
+  int padding = 25;
+  int ideal_album_num = 8;
+  int unideal_album_num = 4;
+  int min_album_num = 1;
+
+  double viewer_width;
+  double min_album_width = 150;
+  double ideal_album_width = 175;
+  double max_block_width = 200;
+
   void init();
-  void init(Gtk::Widget *parent);
-  void show();
-private:
-  int frame_width;
-  int frame_height;
-  Gtk::Widget *parent;
-  Gtk::Grid *album_grid;
-  Gtk::Box *viewer_frame;
-  Gtk::ScrolledWindow *viewer_scrolled_window;
-  void connect_signals();
-  void resize_children(int size);
-  void set_items_per_row(int item_per_row);
-  void resize_handler(Gtk::Allocation &allocation);
+  void init_connections();
+  void resize_handler(Gtk::Allocation& allocation);
 };
 #endif

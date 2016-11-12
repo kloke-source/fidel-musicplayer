@@ -11,10 +11,15 @@ add_library(GUI
   fidel-options.h
   fidel-options.cpp
   seeker.h
+  album-art.cpp
+  album-art.h
+  album-art-viewer.h
+  album-art-viewer.cpp
   playlist-queue.h
   playlist-queue.cpp  
   playlist.h
   playlist.cpp
   playlist-manager.h
   playlist-manager.cpp
-  seeker.cpp)
+  seeker.cpp
+  )

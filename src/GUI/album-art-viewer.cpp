@@ -1,5 +1,6 @@
 #include <gtkmm.h>
 #include <iostream>
+#include<vector>
 #include <GUI/album-art.h>
 #include <Utilities/util.h>
 #include <Utilities/btree.h>
@@ -7,8 +8,31 @@
 #include <Audio-Info/audioinfo.h>
 #include <Audio-Library/audio-library.h>
 
-using namespace std;
+AlbumArtViewer::AlbumArtViewer()
+{
+  AlbumArtViewer::init();
+}
 
+AlbumArtViewer::~AlbumArtViewer(){}
+
+void AlbumArtViewer::init_connections()
+{
+  this->signal_size_allocate().connect(sigc::mem_fun(this, &AlbumArtViewer::resize_handler));
+}
+
+void AlbumArtViewer::resize_handler(Gtk::Allocation& allocation)
+{
+  this->viewer_width = (double)allocation.get_width();
+
+}
+
+void AlbumArtViewer::init()
+{
+  int album_num = std::round((viewer_width - padding)/(padding + ideal_album_width));
+  double album_width = (viewer_width - ((album_num + 1) * padding))/album_num;
+}
+
+/*
 enum album_fields
 {
   ID,
@@ -17,6 +41,7 @@ enum album_fields
   SONGS_IN_ALBUM = 2,
   FILE_LOCATION = 3
 };
+
 int grid_rows;
 int grid_cols=8;
 vector<AlbumArt*> full_album_art;
@@ -235,7 +260,7 @@ void AlbumArtViewer::resize_handler(Gtk::Allocation &allocation)
   //album_grid->remove_row(1);
   //AlbumArtViewer::resize_children(preff_album_art_size);
   //AlbumArtViewer::set_items_per_row(poss_album_art_per_row);
-  /*
+
   if (poss_album_art_per_row == preff_album_art_per_row){
   determ_album_art_size = preff_album_art_size;
   AlbumArtViewer::resize_children(determ_album_art_size);
@@ -256,8 +281,9 @@ AlbumArtViewer::resize_children(determ_album_art_size);
 //if (determ_album_art_size )
 }
 //if (poss_album_art_per_row )
-*/
+
 cout << "AlbumArtViewer width changed -> " << frame_width << endl;
 cout << "AlbumArtViewer height changed -> " << frame_height << endl;
 
 }
+*/
