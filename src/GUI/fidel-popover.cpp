@@ -379,7 +379,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
           }
         });
 
-            // Albums section
+      // Albums section
       auto album_retrieval_job = std::async(std::launch::async,[&]() {
           if (added_albums.check(album) == false) {
             added_albums.insert(album);
@@ -496,8 +496,6 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 
   std::cout << "Search Function Time: " << duration << std::endl;
 }
-
-
 
 void FidelPopover::pop_from_top()
 {

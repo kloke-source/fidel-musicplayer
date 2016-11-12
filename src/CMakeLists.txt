@@ -65,3 +65,15 @@ target_link_libraries(fidel
   -lgobject-2.0
   -lglib-2.0
   )
+
+ message(STATUS "Generarating ${CMAKE_SOURCE_DIR}/.clang_complete")
+ get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+ file(WRITE ${CMAKE_SOURCE_DIR}/.clang_complete "")
+ foreach(dir ${dirs})
+   file(APPEND ${CMAKE_SOURCE_DIR}/.clang_complete "-I${dir}\n")
+ endforeach()
+ #string(REPLACE "'" "" CMAKE_CXX_FLAGS_SPLIT ${CMAKE_CXX_FLAGS})
+ #string(REPLACE " " ";" CMAKE_CXX_FLAGS_SPLIT ${CMAKE_CXX_FLAGS_SPLIT})
+ foreach(flag ${CMAKE_CXX_FLAGS_SPLIT})
+   file(APPEND ${CMAKE_SOURCE_DIR}/.clang_complete "${flag}\n")
+ endforeach()
