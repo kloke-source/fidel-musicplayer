@@ -33,12 +33,15 @@ class util{
   static bool check_file_format(std::string file, std::string file_format);
   static char *to_char(std::string string_value);
   static int to_int (std::string text);
+
   template<class T>
     static std::string to_string(T input) {
     std::stringstream conv_stream;
     conv_stream << input;
     return conv_stream.str();
   }
+
+  static int round_up(double input_num);
   static int seconds_format(int hours, int minutes, int seconds);
   static std::string time_format(double total_seconds);
 };

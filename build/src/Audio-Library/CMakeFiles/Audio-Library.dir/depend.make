@@ -4,6 +4,8 @@
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/Audio-Info/audioinfo.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/Audio-Library/audio-library.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/Audio/playback.h
+src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/album-art-viewer.h
+src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/album-art.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/fidel-options.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/fidel-popover.h
 src/Audio-Library/CMakeFiles/Audio-Library.dir/audio-library.cpp.o: ../src/GUI/fidel-resources.h

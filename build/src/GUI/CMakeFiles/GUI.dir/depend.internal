@@ -2838,6 +2838,8 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/album-art-viewer.h
+ ../src/GUI/album-art.h
  ../src/GUI/fidel-options.h
  ../src/GUI/fidel-popover.h
  ../src/GUI/fidel-resources.h
@@ -4130,6 +4132,8 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/album-art-viewer.h
+ ../src/GUI/album-art.h
  ../src/GUI/fidel-options.h
  ../src/GUI/fidel-popover.h
  ../src/GUI/fidel-resources.h
@@ -5422,6 +5426,8 @@ src/GUI/CMakeFiles/GUI.dir/gui.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/album-art-viewer.h
+ ../src/GUI/album-art.h
  ../src/GUI/fidel-options.h
  ../src/GUI/fidel-popover.h
  ../src/GUI/fidel-resources.h
@@ -7968,6 +7974,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/album-art-viewer.h
+ ../src/GUI/album-art.h
  ../src/GUI/fidel-options.h
  ../src/GUI/fidel-popover.h
  ../src/GUI/fidel-resources.h
@@ -9260,6 +9268,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/album-art-viewer.h
+ ../src/GUI/album-art.h
  ../src/GUI/fidel-options.h
  ../src/GUI/fidel-popover.h
  ../src/GUI/fidel-resources.h
@@ -10552,6 +10562,8 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/album-art-viewer.h
+ ../src/GUI/album-art.h
  ../src/GUI/fidel-options.h
  ../src/GUI/fidel-popover.h
  ../src/GUI/fidel-resources.h
@@ -11845,6 +11857,8 @@ src/GUI/CMakeFiles/GUI.dir/themer.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/GUI/album-art-viewer.h
+ ../src/GUI/album-art.h
  ../src/GUI/fidel-options.h
  ../src/GUI/fidel-popover.h
  ../src/GUI/fidel-resources.h

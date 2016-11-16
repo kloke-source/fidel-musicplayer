@@ -211,6 +211,17 @@ int util::to_int(std::string text)
   return value;
 }
 
+int util::round_up(double input_num)
+{
+  int floored_val = (int)input_num;
+  double decimal_val = (double)(input_num - floored_val);
+
+  if (decimal_val > 0)
+    return floored_val + 1;
+  else
+    return floored_val;
+}
+
 int util::seconds_format(int hours, int minutes, int seconds)
 {
   int total_seconds = (hours * 3600) + (minutes * 60) + seconds;

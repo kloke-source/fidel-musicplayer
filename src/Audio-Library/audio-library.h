@@ -11,12 +11,21 @@
 
 using namespace std;
 
+struct AlbumSummary{
+  std::string album_name;
+  btree<std::string> songs_in_album;
+  std::vector<std::string> file_locations;
+  int total_songs_in_album;
+};
+
 class AudioLibrary {
  public:
   static void initialize();
   static void populate_playlist();
   static std::tuple<guint8*, gsize, bool> get_album_art(std::string album_name);
   static void scan();
+
+  static std::vector<AlbumSummary> get_album_summary();
  private:
   // initialization functions
   static void init_db();
@@ -40,6 +49,10 @@ class AudioLibrary {
   static void add_artist_summ(std::string file_location);
   static void write_artist_summ();
   static void write_artists(std::string file_location);
+
+  static void load_album_index();
+  static void load_album_summary();
+  static void load_artist_summary();
 
   static int populate_playlist_cb(void *data, int total_col_num, char **value, char **fields);
   static void scan_dir(const char *dir_location);

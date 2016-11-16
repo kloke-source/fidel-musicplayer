@@ -4,6 +4,8 @@
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/Audio-Info/audioinfo.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/Audio-Library/audio-library.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/Audio/playback.h
+src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/album-art-viewer.h
+src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/album-art.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/fidel-options.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/fidel-popover.h
 src/Utilities/CMakeFiles/Utilities.dir/util.cpp.o: ../src/GUI/fidel-resources.h

@@ -371,7 +371,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
           if (added_artists.check(artist) == false) {
             added_artists.insert(artist);
             num_songs_artist.push_back(1);
-            grouped_raw_album_art.push_back(audioinfo::get_album_art_by_name(album, file_loc));
+            grouped_raw_album_art.push_back(audioinfo::get_album_art_by_name(album));
           }
           else {
             int artist_pos = added_artists.get_search_id();
@@ -386,7 +386,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
 
             std::function<void()> album_entry = [this, album, file_loc,
                                                  full_row_data, supp_label]() {
-              Gtk::Image *album_art = audioinfo::get_album_art_by_name(album, file_loc);
+              Gtk::Image *album_art = audioinfo::get_album_art_by_name(album);
 
               FidelOptions *fidel_options = FidelPopover::add_entry(album_art, album, supp_label);
               PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();
@@ -418,8 +418,7 @@ void FidelPopover::populate(std::vector<std::vector<std::string>> populate_data)
         std::function<void()> song_entry = [this, song_name, artist, album, time,
                                             file_loc, supp_label, full_row_data, iter]{
 
-          Gtk::Image *album_art = audioinfo::get_album_art_by_name(album,
-                                                                   file_loc);
+          Gtk::Image *album_art = audioinfo::get_album_art_by_name(album);
 
           FidelOptions *fidel_options = FidelPopover::add_entry(album_art, song_name, supp_label);
           PlaylistQueue *queue_playlist = fidel_ui::Instance()->get_playlist_queue();

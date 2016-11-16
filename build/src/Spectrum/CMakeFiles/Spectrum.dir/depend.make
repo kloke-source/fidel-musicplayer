@@ -4,6 +4,8 @@
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Audio-Info/audioinfo.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Audio-Library/audio-library.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/Audio/playback.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/album-art-viewer.h
+src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/album-art.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/fidel-options.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/fidel-popover.h
 src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o: ../src/GUI/fidel-resources.h

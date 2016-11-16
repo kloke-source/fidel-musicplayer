@@ -81,6 +81,7 @@ void gui::initialize(int argc, char **argv)
   gui::init_icons();
   gui::init_playback_functions();
   gui::init_playlist();
+  gui::init_album_art_viewer();
   gui::init_sidebar();
   gui::init_spectrum();
   gui::set_styles();
@@ -239,6 +240,14 @@ void gui::init_playback_functions()
   playback_slider->set_draw_value(false);
   playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_SHRINK);
   playback_slider->show();
+}
+
+void gui::init_album_art_viewer()
+{
+  album_art_viewer = new AlbumArtViewer();
+  library_view_frame->pack_start(*album_art_viewer, Gtk::PACK_EXPAND_WIDGET);
+  album_art_viewer->show_all();
+  library_view_frame->show_all();
 }
 
 void gui::init_playlist()

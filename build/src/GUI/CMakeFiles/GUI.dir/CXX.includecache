@@ -65,6 +65,8 @@ gtkmm.h
 -
 iostream
 -
+vector
+-
 GUI/album-art.h
 -
 Utilities/util.h
@@ -75,8 +77,6 @@ Audio-Library/audio-library.h
 -
 
 ../src/GUI/album-art.h
-vector
--
 gtkmm.h
 -
 iostream
@@ -90,6 +90,8 @@ GUI/album-art-viewer.h
 Audio-Info/audioinfo.h
 -
 GUI/album-art-viewer.h
+-
+Audio-Library/audio-library.h
 -
 
 ../src/GUI/fidel-options.h
@@ -138,6 +140,8 @@ GUI/playlist-queue.h
 GUI/singleton.h
 -
 GUI/playlist-manager.h
+-
+GUI/album-art-viewer.h
 -
 Spectrum/spectrum.h
 -
@@ -290,6 +294,8 @@ GUI/album-art-viewer.h
 Audio-Info/audioinfo.h
 -
 GUI/album-art-viewer.h
+-
+Audio-Library/audio-library.h
 -
 
 /home/tashrif/Development/fidel-musicplayer/src/GUI/fidel-options.cpp

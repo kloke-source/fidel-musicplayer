@@ -11,6 +11,7 @@
 #include <GUI/playlist-queue.h>
 #include <GUI/singleton.h>
 #include <GUI/playlist-manager.h>
+#include <GUI/album-art-viewer.h>
 #include <Spectrum/spectrum.h>
 #include <Audio/playback.h>
 #include <Audio-Library/audio-library.h>
@@ -51,8 +52,10 @@ class gui {
   void append_playlist_row(std::vector<std::string> row_data);
  private:
   // variables
+  AlbumArtViewer* album_art_viewer;
   Glib::RefPtr<Gio::Resource> fidel_resources;
   Gtk::Image* sidebar_album_art;
+
   Playlist* all_songs_playlist;
   PlaylistQueue* queue_playlist;
   int sidebar_width = 200;
@@ -69,6 +72,7 @@ class gui {
   void init_spectrum();
 
   void init_playback_functions();
+  void init_album_art_viewer();
   void init_playlist();
   void init_stack_sidebar();
   void pb_slider_val_changed();

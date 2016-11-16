@@ -2837,6 +2837,8 @@ src/GUI/CMakeFiles/GUI.dir/album-art.cpp.o: /usr/lib/sigc++-2.0/include/sigc++co
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/Audio-Library/audio-library.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/GUI/album-art-viewer.h
+src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/GUI/album-art.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/GUI/fidel-options.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: ../src/GUI/fidel-resources.h
@@ -4129,6 +4131,8 @@ src/GUI/CMakeFiles/GUI.dir/fidel-options.cpp.o: /usr/lib/sigc++-2.0/include/sigc
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/Audio-Library/audio-library.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/album-art-viewer.h
+src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/album-art.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/fidel-options.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: ../src/GUI/fidel-resources.h
@@ -5421,6 +5425,8 @@ src/GUI/CMakeFiles/GUI.dir/fidel-popover.cpp.o: /usr/lib/sigc++-2.0/include/sigc
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/Audio-Library/audio-library.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/album-art-viewer.h
+src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/album-art.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/fidel-options.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/gui.cpp.o: ../src/GUI/fidel-resources.h
@@ -7967,6 +7973,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist-manager.cpp.o: /usr/lib/sigc++-2.0/include/s
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/Audio-Library/audio-library.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/GUI/album-art-viewer.h
+src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/GUI/album-art.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/GUI/fidel-options.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: ../src/GUI/fidel-resources.h
@@ -9259,6 +9267,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist-queue.cpp.o: /usr/lib/sigc++-2.0/include/sig
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/Audio-Library/audio-library.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/album-art-viewer.h
+src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/album-art.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/fidel-options.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: ../src/GUI/fidel-resources.h
@@ -10551,6 +10561,8 @@ src/GUI/CMakeFiles/GUI.dir/playlist.cpp.o: /usr/lib/sigc++-2.0/include/sigc++con
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/Audio-Library/audio-library.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/album-art-viewer.h
+src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/album-art.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/fidel-options.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: ../src/GUI/fidel-resources.h
@@ -11844,6 +11856,8 @@ src/GUI/CMakeFiles/GUI.dir/seeker.cpp.o: /usr/lib/sigc++-2.0/include/sigc++confi
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/Audio-Info/audioinfo.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/Audio-Library/audio-library.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/Audio/playback.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/album-art-viewer.h
+src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/album-art.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/fidel-options.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/fidel-popover.h
 src/GUI/CMakeFiles/GUI.dir/themer.cpp.o: ../src/GUI/fidel-resources.h
