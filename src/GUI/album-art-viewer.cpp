@@ -24,23 +24,17 @@ void AlbumArtViewer::init_connections()
 void AlbumArtViewer::resize_handler(Gtk::Allocation& allocation)
 {
   double width = (double)allocation.get_width();
-  this->viewer_width = width;
 
-  //  if (width != viewer_width) {
-  int album_num = std::round((viewer_width - padding)/(padding + ideal_album_width));
-  std::cout << "Calculated album num " << album_num << std::endl;
-  double album_size = (viewer_width - ((album_num - 1) * padding))/album_num; // original was -> (viewer_width - ((album_num + 1) * padding))/album_num;
+    this->viewer_width = width;
+    int album_num = std::round((viewer_width - padding)/(padding + ideal_album_width));
+    double album_size = (viewer_width - ((album_num - 1) * padding))/album_num; // original was -> (viewer_width - ((album_num + 1) * padding))/album_num;
 
-  for (size_t iter = 0 ; iter < full_album_art.size(); iter++) {
-    full_album_art[iter].set_size(album_size, album_size);
-  }
+    for (size_t iter = 0 ; iter < full_album_art.size(); iter++) {
+      full_album_art[iter].set_size(album_size, album_size);
+    }
 
-  std::cout << "Album num " << album_num << std::endl;
-  std::cout << "Curr_items_per row " << curr_items_per_row << std::endl;
-
-  if (album_num != curr_items_per_row && album_num != 0)
-    AlbumArtViewer::set_items_per_row(album_num);
-  //  }
+    if (album_num != curr_items_per_row && album_num != 0)
+      AlbumArtViewer::set_items_per_row(album_num);
 }
 
 void AlbumArtViewer::init()
@@ -50,7 +44,6 @@ void AlbumArtViewer::init()
     double album_size = (viewer_width - ((album_num - 1) *
                                          padding))/album_num; // original was -> (viewer_width - ((album_num + 1) * padding))/album_num;
 
-    std::cout << "Album size " << album_size << std::endl;
     std::vector<AlbumSummary> full_album_summary = AudioLibrary::get_album_summary();
 
     if (!full_album_summary.empty()) {
@@ -76,8 +69,6 @@ void AlbumArtViewer::init()
 
       this->curr_row_amt = req_rows;
       this->curr_items_per_row = album_num;
-      std::cout << "Init cur_items_per_row " << curr_items_per_row << std::endl;
-
     }
 
     this->initialized = true;
@@ -92,87 +83,82 @@ void AlbumArtViewer::init()
 
 void AlbumArtViewer::set_items_per_row(int item_per_row)
 {
-  std::cout << "Set items per row -> " << item_per_row << " -> ";
+
   if (item_per_row != 0 && curr_items_per_row != item_per_row) {
-    std::cout << "Executed -> ";
     if (full_album_art.size() > 0) {
-      cout << "No of arts " << full_album_art.size() << " -> ";
-      int req_rows = util::round_up((double)full_album_art.size()/item_per_row);
-      int fully_filled_rows = ((int)(full_album_art.size()/curr_items_per_row)); //  These are the rows that have all of their columns populated with album art.
-      int partially_filled_row = req_rows - fully_filled_rows;
-
-      std::cout << "Fully filled calc (items per row = " << curr_items_per_row << "  )-> " <<  full_album_art.size()/curr_items_per_row << std::endl;
-      int album_art_in_filled_rows = (curr_items_per_row * fully_filled_rows); // Total number of album art in all of the fully filled rows
-
+      //  These are the rows that have all of their columns populated with album art.
+      int fully_filled_rows = ((int)(full_album_art.size()/curr_items_per_row)); 
 
       if (item_per_row < curr_items_per_row) {
         std::vector<AlbumArt*> removed_album_art;
-        for (size_t col_iter = curr_items_per_row - 1; col_iter > item_per_row -1; col_iter--){  // 1 is minused because item_per_row and grid cols don't incl zero
-          int remaining_album_art = full_album_art.size() % (curr_items_per_row); // The number of album art in the partially filled row
+
+        //  1 is minused because item_per_row and grid cols don't incl zero
+        for (size_t col_iter = curr_items_per_row - 1; col_iter > item_per_row -1; col_iter--){
+          int left_over_album_art = full_album_art.size() %
+        (curr_items_per_row); // The remaining number of album art at the last row
 
           for (size_t row_iter = 0; row_iter < curr_row_amt; row_iter++) {
-            std::cout << "Col iter = " << col_iter << " Row iter = " << row_iter << std::endl;
-            int removed_art_pos = ((col_iter + 1) * (row_iter + 1)) - 1;
 
-            std::cout << "Removed art pos " << removed_art_pos << std::endl;
-
-            if ((col_iter + 1) > remaining_album_art) {
+            //  If the current column iterator is in the column that doesn't
+            //  have album art for the last row at the current column, than the row
+            //  iterator will stop 1 short, to the position of the last fully
+            //  filled row.
+            if ((col_iter + 1) > left_over_album_art) {
               if ((row_iter + 1) <= fully_filled_rows) {
-                AlbumArt* remv_album_art = (AlbumArt*)album_grid.get_child_at(col_iter,row_iter);
-                //                std::cout << "Pushed -> " << full_album_art[removed_art_pos].album_name << std::endl;
-                std::cout << "Pushed -> " << remv_album_art->get_album_name() << std::endl;
-                removed_album_art.push_back(remv_album_art);
+
+                //  Album art is retrieved from the grid, as positions of the
+                //  artwork change through various window size changes. Making
+                //  retrieval from the grid the most reliable.
+
+                AlbumArt* to_be_remv_art = (AlbumArt*)album_grid.get_child_at(col_iter,row_iter);
+                // Add the to be removed art work to removed_album_art work so
+                // it can later be added to the bottom of the viewer once the
+                // columns are removed.
+                removed_album_art.push_back(to_be_remv_art);
               }
             }
             else {
-              AlbumArt* remv_album_art = (AlbumArt*)album_grid.get_child_at(col_iter,row_iter);
-              // std::cout << "Pushed2 -> " << full_album_art[removed_art_pos].album_name << std::endl;
-              std::cout << "Pushed -> " << remv_album_art->get_album_name() << std::endl;
-              removed_album_art.push_back(remv_album_art);
+              AlbumArt* to_be_remv_art = (AlbumArt*)album_grid.get_child_at(col_iter,row_iter);
+              removed_album_art.push_back(to_be_remv_art);
             }
           }
           album_grid.remove_column(col_iter);
         }
 
+        // Columns have been deleted so update the global variable
         this->curr_items_per_row = item_per_row;
-        int remaining_album_art = (full_album_art.size() - removed_album_art.size()) % (curr_row_amt * curr_items_per_row); // The number of album art in the partially filled row
-        int add_back_col_iter = remaining_album_art;  //  This variable is the iterator position where the removed album art will be added.
+        // The number of album art in the partially filled row
+        int left_over_album_art = (full_album_art.size() - removed_album_art.size()) % (curr_row_amt * curr_items_per_row); 
+
+        //  The column position where the removed album art will be added, and
+        //  it will be one more than the position of the last artwork in the grid 
+        int add_back_col_iter = left_over_album_art;
+        //  The row position where the the removed album art will be added
         int row_iter = curr_row_amt - 1;
 
-        if (remaining_album_art == 0)
+        //  If there aren't any left over album art, that means that the last
+        //  row has every column filled with art work and we need to append the
+        //  previously removed art work to a new row.
+        if (left_over_album_art == 0)
           row_iter++;
-
-        std::cout << "---------------------------" << std::endl;
-        std::cout << "Removed album art " << removed_album_art.size() << std::endl;
-        std::cout << "Set items per row -> " << item_per_row << " -> ";
-        std::cout << "Curr row amt " << curr_row_amt << std::endl;
-        std::cout << "Curr col amt " << curr_items_per_row << std::endl;
-        std::cout << "Album art size -> " << full_album_art.size() << std::endl;
-        std::cout << "Fully filled rows " << fully_filled_rows << std::endl;
-        std::cout << "Rem calc (curr_items_per_row * fully_filled_rows) " << (curr_items_per_row * fully_filled_rows) << std::endl;
-        std::cout << "  Row iter " << row_iter << std::endl;
-        std::cout << "Add back col iter " << add_back_col_iter << std::endl;
-        std::cout << "Curr row amt " << curr_row_amt << std::endl;
 
         if (curr_row_amt != 0) {
           for (size_t iter = 0; iter < removed_album_art.size(); iter++) {
             this->album_grid.attach(*removed_album_art[iter], add_back_col_iter, row_iter, 1, 1);
-            //            std::cout << "Added back pos (" << row_iter << "," << add_back_col_iter << ")-> " << full_album_art[removed_album_art[iter]].album_name << std::endl;
-
             if (add_back_col_iter == (item_per_row - 1)) {
               row_iter++;
               add_back_col_iter = 0;
             }
             else
               add_back_col_iter++;
-
           }
         }
-        // int removed_columns = curr_items_per_row - item_per_row;
+
         this->curr_row_amt = row_iter + 1;
-        //      this->curr_items_per_row = item_per_row;
       }
     }
+
+    
   }
 }
 

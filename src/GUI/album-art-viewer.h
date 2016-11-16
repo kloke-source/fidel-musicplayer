@@ -22,7 +22,6 @@ public:
   int curr_items_per_row = 0;
   int curr_row_amt = 0;
   int ideal_album_num = 8;
-  int unideal_album_num = 4;
   int min_album_num = 1;
 
   double viewer_width;
