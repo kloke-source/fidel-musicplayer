@@ -247,15 +247,19 @@ stdexcept
 -
 
 ../src/Utilities/util.h
+GUI/gui.h
+-
 gtkmm.h
 -
-GUI/gui.h
+GUI/singleton.h
+-
+Utilities/threadpool.h
 -
 iostream
 -
-vector
--
 sstream
+-
+vector
 -
 
 /home/tashrif/Development/fidel-musicplayer/src/GUI/album-art-viewer.cpp

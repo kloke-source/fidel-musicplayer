@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Utilities.dir/util.cpp.o"
+  "CMakeFiles/Utilities.dir/dir-indexer.cpp.o"
   "libUtilities.pdb"
   "libUtilities.a"
 )
