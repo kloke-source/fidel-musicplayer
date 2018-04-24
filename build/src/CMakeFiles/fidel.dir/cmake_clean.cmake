@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/fidel.dir/main.cpp.o"
-  "../../fidel.pdb"
-  "../../fidel"
+  "../../fidel_debug.pdb"
+  "../../fidel_debug"
 )
 
 # Per-language clean rules from dependency scanning.

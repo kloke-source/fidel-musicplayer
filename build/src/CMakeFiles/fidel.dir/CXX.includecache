@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -1519,6 +1519,8 @@ sigc++/sigc++.h
 -
 glibmm/interface.h
 -
+glibmm/variant.h
+-
 glibmm/varianttype.h
 -
 gio/gio.h
@@ -2660,6 +2662,8 @@ glibmm/ustring.h
 sigc++/sigc++.h
 -
 glibmm/variant.h
+-
+glibmm/varianttype.h
 -
 
 /usr/include/giomm-2.4/giomm/settingsschemasource.h
@@ -4165,6 +4169,8 @@ glib/gurifuncs.h
 -
 glib/gutils.h
 -
+glib/guuid.h
+-
 glib/gvarianttype.h
 -
 glib/gvariant.h
@@ -4483,6 +4489,8 @@ glib/gmacros.h
 -
 glib/gtypes.h
 -
+glib/gerror.h
+-
 
 /usr/include/glib-2.0/glib/gstring.h
 glib/gtypes.h
@@ -4560,6 +4568,10 @@ glib/gtypes.h
 glib/gtypes.h
 -
 stdarg.h
+-
+
+/usr/include/glib-2.0/glib/guuid.h
+glib/gtypes.h
 -
 
 /usr/include/glib-2.0/glib/gvariant.h
@@ -5445,6 +5457,8 @@ glibmm/varianttype.h
 -
 glibmm/variantiter.h
 -
+glibmm/variantdbusstring.h
+-
 glibmm/refptr.h
 -
 glibmm/ustring.h
@@ -5457,14 +5471,22 @@ vector
 -
 map
 -
+tuple
+-
 stdexcept
 -
 typeinfo
+-
+cstddef
 -
 glibmm/variant_basictypes.h
 -
 
 /usr/include/glibmm-2.4/glibmm/variant_basictypes.h
+
+/usr/include/glibmm-2.4/glibmm/variantdbusstring.h
+glibmm/ustring.h
+-
 
 /usr/include/glibmm-2.4/glibmm/variantdict.h
 glibmm/variant.h
@@ -5556,6 +5578,8 @@ gst/gstdevice.h
 gst/gstdevicemonitor.h
 -
 gst/gstdeviceprovider.h
+-
+gst/gstdynamictypefactory.h
 -
 gst/gstelement.h
 -
@@ -5670,6 +5694,8 @@ gst/gstminiobject.h
 gst/gstclock.h
 -
 gst/gstallocator.h
+-
+gst/gstmeta.h
 -
 gst/gstmeta.h
 -
@@ -5812,7 +5838,17 @@ gst/gstpluginfeature.h
 gst/gstdeviceprovider.h
 -
 
+/usr/include/gstreamer-1.0/gst/gstdynamictypefactory.h
+gst/gstconfig.h
+-
+gst/gstplugin.h
+-
+gst/gstpluginfeature.h
+-
+
 /usr/include/gstreamer-1.0/gst/gstelement.h
+glib.h
+-
 gst/gstconfig.h
 -
 gst/gstobject.h
@@ -5836,6 +5872,8 @@ gst/gstmessage.h
 gst/gstquery.h
 -
 gst/gsttaglist.h
+-
+gst/gstcontext.h
 -
 
 /usr/include/gstreamer-1.0/gst/gstelementfactory.h
@@ -5887,6 +5925,12 @@ gst/gstmessage.h
 -
 gst/gstcontext.h
 -
+gst/gststreams.h
+-
+gst/gsttoc.h
+-
+gst/gststreamcollection.h
+-
 
 /usr/include/gstreamer-1.0/gst/gstformat.h
 glib.h
@@ -5923,8 +5967,12 @@ glib-object.h
 -
 gst/gstminiobject.h
 -
+gst/gstobject.h
+-
 
 /usr/include/gstreamer-1.0/gst/gstmessage.h
+glib.h
+-
 gst/gstminiobject.h
 -
 gst/gstobject.h
@@ -5941,7 +5989,11 @@ gst/gsttoc.h
 -
 gst/gstdevice.h
 -
+gst/gststreams.h
+-
 gst/gststreamcollection.h
+-
+gst/gstquery.h
 -
 
 /usr/include/gstreamer-1.0/gst/gstmeta.h
@@ -6055,9 +6107,13 @@ gst/gst.h
 /usr/include/gstreamer-1.0/gst/gstquery.h
 glib.h
 -
-gst/gstiterator.h
+glib-object.h
+-
+gst/gstconfig.h
 -
 gst/gstminiobject.h
+-
+gst/gstiterator.h
 -
 gst/gststructure.h
 -
@@ -6096,6 +6152,8 @@ gst/gstformat.h
 
 /usr/include/gstreamer-1.0/gst/gststreamcollection.h
 gst/gstobject.h
+-
+gst/gststreamcollection.h
 -
 gst/gststreams.h
 -
@@ -6166,6 +6224,8 @@ gst/gst.h
 glib.h
 -
 glib-object.h
+-
+gst/gstobject.h
 -
 gst/gstconfig.h
 -

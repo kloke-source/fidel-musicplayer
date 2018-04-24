@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libAudio-Library.a"
+  "libAudio-Library_debug.a"
 )

@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -1081,6 +1081,8 @@ glib/gurifuncs.h
 -
 glib/gutils.h
 -
+glib/guuid.h
+-
 glib/gvarianttype.h
 -
 glib/gvariant.h
@@ -1399,6 +1401,8 @@ glib/gmacros.h
 -
 glib/gtypes.h
 -
+glib/gerror.h
+-
 
 /usr/include/glib-2.0/glib/gstring.h
 glib/gtypes.h
@@ -1476,6 +1480,10 @@ glib/gtypes.h
 glib/gtypes.h
 -
 stdarg.h
+-
+
+/usr/include/glib-2.0/glib/guuid.h
+glib/gtypes.h
 -
 
 /usr/include/glib-2.0/glib/gvariant.h
