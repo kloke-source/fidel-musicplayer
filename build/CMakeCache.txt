@@ -21,6 +21,9 @@ Audio-Info_LIB_DEPENDS:STATIC=
 Audio-Library_LIB_DEPENDS:STATIC=
 
 //Dependencies for target
+AudioPlayer_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
 Audio_LIB_DEPENDS:STATIC=
 
 //Path to a program.
@@ -28,7 +31,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=Debug
+CMAKE_BUILD_TYPE:STRING=Release
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -225,7 +228,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=10
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -312,7 +315,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -355,6 +358,40 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.2()]
+GSTREAMERMM_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamermm-1.0;-I/usr/lib/gstreamermm-1.0/include;-I/usr/include/giomm-2.4;-I/usr/lib/giomm-2.4/include;-I/usr/include/glibmm-2.4;-I/usr/lib/glibmm-2.4/include;-I/usr/include/sigc++-2.0;-I/usr/lib/sigc++-2.0/include;-I/usr/include/gstreamer-1.0;-I/usr/include/orc-0.4;-I/usr/include/gstreamer-1.0;-I/usr/include/glib-2.0;-I/usr/lib/glib-2.0/include
+GSTREAMERMM_CFLAGS_I:INTERNAL=
+GSTREAMERMM_CFLAGS_OTHER:INTERNAL=-pthread
+GSTREAMERMM_FOUND:INTERNAL=1
+GSTREAMERMM_INCLUDEDIR:INTERNAL=/usr/include
+GSTREAMERMM_INCLUDE_DIRS:INTERNAL=/usr/include/gstreamermm-1.0;/usr/lib/gstreamermm-1.0/include;/usr/include/giomm-2.4;/usr/lib/giomm-2.4/include;/usr/include/glibmm-2.4;/usr/lib/glibmm-2.4/include;/usr/include/sigc++-2.0;/usr/lib/sigc++-2.0/include;/usr/include/gstreamer-1.0;/usr/include/orc-0.4;/usr/include/gstreamer-1.0;/usr/include/glib-2.0;/usr/lib/glib-2.0/include
+GSTREAMERMM_LDFLAGS:INTERNAL=-lgstreamermm-1.0;-lgiomm-2.4;-lglibmm-2.4;-lsigc-2.0;-lgstcheck-1.0;-lm;-lgstcontroller-1.0;-lgstnet-1.0;-lgstallocators-1.0;-lgstapp-1.0;-lgstaudio-1.0;-lgstfft-1.0;-lm;-lgstpbutils-1.0;-lgstriff-1.0;-lgstrtp-1.0;-lgstrtsp-1.0;-lgio-2.0;-lgstsdp-1.0;-lgsttag-1.0;-lgstvideo-1.0;-lgstbase-1.0;-lgstreamer-1.0;-lgobject-2.0;-lglib-2.0
+GSTREAMERMM_LDFLAGS_OTHER:INTERNAL=
+GSTREAMERMM_LIBDIR:INTERNAL=/usr/lib
+GSTREAMERMM_LIBRARIES:INTERNAL=gstreamermm-1.0;giomm-2.4;glibmm-2.4;sigc-2.0;gstcheck-1.0;m;gstcontroller-1.0;gstnet-1.0;gstallocators-1.0;gstapp-1.0;gstaudio-1.0;gstfft-1.0;m;gstpbutils-1.0;gstriff-1.0;gstrtp-1.0;gstrtsp-1.0;gio-2.0;gstsdp-1.0;gsttag-1.0;gstvideo-1.0;gstbase-1.0;gstreamer-1.0;gobject-2.0;glib-2.0
+GSTREAMERMM_LIBRARY_DIRS:INTERNAL=
+GSTREAMERMM_LIBS:INTERNAL=
+GSTREAMERMM_LIBS_L:INTERNAL=
+GSTREAMERMM_LIBS_OTHER:INTERNAL=
+GSTREAMERMM_LIBS_PATHS:INTERNAL=
+GSTREAMERMM_PREFIX:INTERNAL=/usr
+GSTREAMERMM_STATIC_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamermm-1.0;-I/usr/lib/gstreamermm-1.0/include;-I/usr/include/giomm-2.4;-I/usr/lib/giomm-2.4/include;-I/usr/include/glibmm-2.4;-I/usr/lib/glibmm-2.4/include;-I/usr/include/sigc++-2.0;-I/usr/lib/sigc++-2.0/include;-I/usr/include/gstreamer-1.0;-I/usr/include/orc-0.4;-I/usr/include/gstreamer-1.0;-I/usr/include/glib-2.0;-I/usr/lib/glib-2.0/include
+GSTREAMERMM_STATIC_CFLAGS_I:INTERNAL=
+GSTREAMERMM_STATIC_CFLAGS_OTHER:INTERNAL=-pthread
+GSTREAMERMM_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/gstreamermm-1.0;/usr/lib/gstreamermm-1.0/include;/usr/include/giomm-2.4;/usr/lib/giomm-2.4/include;/usr/include/glibmm-2.4;/usr/lib/glibmm-2.4/include;/usr/include/sigc++-2.0;/usr/lib/sigc++-2.0/include;/usr/include/gstreamer-1.0;/usr/include/orc-0.4;/usr/include/gstreamer-1.0;/usr/include/glib-2.0;/usr/lib/glib-2.0/include
+GSTREAMERMM_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/../lib;-lgstreamermm-1.0;-lgiomm-2.4;-lglibmm-2.4;-lsigc-2.0;-lgstcheck-1.0;-lm;-lgstcontroller-1.0;-lgstnet-1.0;-lgstallocators-1.0;-lgstapp-1.0;-lgstaudio-1.0;-lgstfft-1.0;-lm;-lgstpbutils-1.0;-lgstriff-1.0;-lgstrtp-1.0;-lgstrtsp-1.0;-lgstsdp-1.0;-lgio-2.0;-lz;-lresolv;-lmount;-lgsttag-1.0;-lz;-lgstvideo-1.0;-lorc-0.4;-lm;-lpthread;-lgstbase-1.0;-lgstreamer-1.0;-lgmodule-2.0;-pthread;-ldl;-lunwind;-llzma;-ldw;-lbz2;-llzma;-pthread;-lelf;-lz;-lgobject-2.0;-lffi;-lglib-2.0;-pthread;-lpcre;-pthread
+GSTREAMERMM_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+GSTREAMERMM_STATIC_LIBDIR:INTERNAL=
+GSTREAMERMM_STATIC_LIBRARIES:INTERNAL=gstreamermm-1.0;giomm-2.4;glibmm-2.4;sigc-2.0;gstcheck-1.0;m;gstcontroller-1.0;gstnet-1.0;gstallocators-1.0;gstapp-1.0;gstaudio-1.0;gstfft-1.0;m;gstpbutils-1.0;gstriff-1.0;gstrtp-1.0;gstrtsp-1.0;gstsdp-1.0;gio-2.0;z;resolv;mount;gsttag-1.0;z;gstvideo-1.0;orc-0.4;m;pthread;gstbase-1.0;gstreamer-1.0;gmodule-2.0;dl;unwind;lzma;dw;bz2;lzma;elf;z;gobject-2.0;ffi;glib-2.0;pcre
+GSTREAMERMM_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/../lib
+GSTREAMERMM_STATIC_LIBS:INTERNAL=
+GSTREAMERMM_STATIC_LIBS_L:INTERNAL=
+GSTREAMERMM_STATIC_LIBS_OTHER:INTERNAL=
+GSTREAMERMM_STATIC_LIBS_PATHS:INTERNAL=
+GSTREAMERMM_VERSION:INTERNAL=1.10.0
+GSTREAMERMM_gstreamermm-1.0_INCLUDEDIR:INTERNAL=
+GSTREAMERMM_gstreamermm-1.0_LIBDIR:INTERNAL=
+GSTREAMERMM_gstreamermm-1.0_PREFIX:INTERNAL=
+GSTREAMERMM_gstreamermm-1.0_VERSION:INTERNAL=
 GST_CFLAGS:INTERNAL=-pthread;-I/usr/include/gstreamer-1.0;-I/usr/include/glib-2.0;-I/usr/lib/glib-2.0/include
 GST_CFLAGS_I:INTERNAL=
 GST_CFLAGS_OTHER:INTERNAL=-pthread
@@ -528,11 +565,13 @@ TAGLIB_taglib_LIBDIR:INTERNAL=
 TAGLIB_taglib_PREFIX:INTERNAL=
 TAGLIB_taglib_VERSION:INTERNAL=
 __pkg_config_arguments_GST:INTERNAL=REQUIRED;gstreamer-1.0
+__pkg_config_arguments_GSTREAMERMM:INTERNAL=REQUIRED;gstreamermm-1.0
 __pkg_config_arguments_GTK3:INTERNAL=REQUIRED;gtk+-3.0
 __pkg_config_arguments_GTKMM3:INTERNAL=REQUIRED;gtkmm-3.0
 __pkg_config_arguments_SQLITE3:INTERNAL=REQUIRED;sqlite3
 __pkg_config_arguments_TAGLIB:INTERNAL=REQUIRED;taglib
 __pkg_config_checked_GST:INTERNAL=1
+__pkg_config_checked_GSTREAMERMM:INTERNAL=1
 __pkg_config_checked_GTK3:INTERNAL=1
 __pkg_config_checked_GTKMM3:INTERNAL=1
 __pkg_config_checked_SQLITE3:INTERNAL=1

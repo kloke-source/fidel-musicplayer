@@ -44,6 +44,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/sigc++-2.0"
   "/usr/lib/sigc++-2.0/include"
   "/usr/include/gstreamer-1.0"
+  "/usr/include/gstreamermm-1.0"
+  "/usr/lib/gstreamermm-1.0/include"
+  "/usr/include/orc-0.4"
   "/usr/include/taglib"
   "../src"
   )

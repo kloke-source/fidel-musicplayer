@@ -1,5 +1,6 @@
 find_package(PkgConfig REQUIRED)
 
+pkg_check_modules(GSTREAMERMM REQUIRED gstreamermm-1.0)
 pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
 pkg_check_modules(GTKMM3 REQUIRED gtkmm-3.0)
 pkg_check_modules(GST REQUIRED gstreamer-1.0)
@@ -10,6 +11,7 @@ include_directories(
   ${GTK3_INCLUDE_DIRS}
   ${GTKMM3_INCLUDE_DIRS}
   ${GST_INCLUDE_DIRS}
+  ${GSTREAMERMM_INCLUDE_DIRS}
   ${TAGLIB_INCLUDE_DIRS}
   ${SQLITE3_INCLUDE_DIRS}
   ${CMAKE_CURRENT_SOURCE_DIR}
@@ -19,6 +21,7 @@ link_directories(
   ${GTK3_LIBRARY_DIRS}
   ${GTKMM3_LIBRARY_DIRS}
   ${GST_LIBRARY_DIRS}
+  ${GSTREAMERMM_LIBRARY_DIRS}
   ${TAGLIB_LIBRARY_DIRS}
   ${SQLITE3_LIBRARY_DIRS}
   )
@@ -32,6 +35,7 @@ add_definitions(
 
 add_subdirectory(GUI)
 add_subdirectory(Audio)
+add_subdirectory(AudioPlayer)
 add_subdirectory(Utilities)
 add_subdirectory(Spectrum)
 add_subdirectory(Audio-Library)
@@ -41,6 +45,7 @@ add_executable(fidel
   main.cpp
   GUI
   Audio
+  AudioPlayer
   Audio-Info
   Utilities
   Audio-Library
@@ -54,10 +59,12 @@ target_link_libraries(fidel
   ${GTKMM3_LIBRARIES}
   ${TAGLIB_LIBRARIES}
   ${GST_LIBRARIES}
+  ${GSTREAMERMM_LIBRARIES}
   ${SQLITE3_LIBRARIES}
   GUI
   Audio-Library
   Audio
+  AudioPlayer
   Audio-Info
   Utilities
   Spectrum

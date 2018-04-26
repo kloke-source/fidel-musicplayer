@@ -66,6 +66,7 @@ CMAKE_BINARY_DIR = /home/tashrif/Development/fidel-musicplayer/build
 src/all: src/CMakeFiles/fidel.dir/all
 src/all: src/GUI/all
 src/all: src/Audio/all
+src/all: src/AudioPlayer/all
 src/all: src/Utilities/all
 src/all: src/Spectrum/all
 src/all: src/Audio-Library/all
@@ -77,6 +78,7 @@ src/all: src/Audio-Info/all
 src/clean: src/CMakeFiles/fidel.dir/clean
 src/clean: src/GUI/clean
 src/clean: src/Audio/clean
+src/clean: src/AudioPlayer/clean
 src/clean: src/Utilities/clean
 src/clean: src/Spectrum/clean
 src/clean: src/Audio-Library/clean
@@ -87,6 +89,7 @@ src/clean: src/Audio-Info/clean
 # Convenience name for "preinstall" pass in the directory.
 src/preinstall: src/GUI/preinstall
 src/preinstall: src/Audio/preinstall
+src/preinstall: src/AudioPlayer/preinstall
 src/preinstall: src/Utilities/preinstall
 src/preinstall: src/Spectrum/preinstall
 src/preinstall: src/Audio-Library/preinstall
@@ -100,13 +103,14 @@ src/preinstall: src/Audio-Info/preinstall
 # All Build rule for target.
 src/CMakeFiles/fidel.dir/all: src/GUI/CMakeFiles/GUI.dir/all
 src/CMakeFiles/fidel.dir/all: src/Audio/CMakeFiles/Audio.dir/all
+src/CMakeFiles/fidel.dir/all: src/AudioPlayer/CMakeFiles/AudioPlayer.dir/all
 src/CMakeFiles/fidel.dir/all: src/Utilities/CMakeFiles/Utilities.dir/all
 src/CMakeFiles/fidel.dir/all: src/Spectrum/CMakeFiles/Spectrum.dir/all
 src/CMakeFiles/fidel.dir/all: src/Audio-Library/CMakeFiles/Audio-Library.dir/all
 src/CMakeFiles/fidel.dir/all: src/Audio-Info/CMakeFiles/Audio-Info.dir/all
 	$(MAKE) -f src/CMakeFiles/fidel.dir/build.make src/CMakeFiles/fidel.dir/depend
 	$(MAKE) -f src/CMakeFiles/fidel.dir/build.make src/CMakeFiles/fidel.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=24,25 "Built target fidel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=26,27 "Built target fidel"
 .PHONY : src/CMakeFiles/fidel.dir/all
 
 # Include target in all.
@@ -116,7 +120,7 @@ all: src/CMakeFiles/fidel.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/fidel.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles 25
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles 27
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/fidel.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/fidel.dir/rule
@@ -161,7 +165,7 @@ src/GUI/preinstall:
 src/GUI/CMakeFiles/GUI.dir/all:
 	$(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/depend
 	$(MAKE) -f src/GUI/CMakeFiles/GUI.dir/build.make src/GUI/CMakeFiles/GUI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=7,8,9,10,11,12,13,14,15,16,17,18 "Built target GUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20 "Built target GUI"
 .PHONY : src/GUI/CMakeFiles/GUI.dir/all
 
 # Include target in all.
@@ -247,6 +251,61 @@ clean: src/Audio/CMakeFiles/Audio.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory src/AudioPlayer
+
+# Convenience name for "all" pass in the directory.
+src/AudioPlayer/all: src/AudioPlayer/CMakeFiles/AudioPlayer.dir/all
+
+.PHONY : src/AudioPlayer/all
+
+# Convenience name for "clean" pass in the directory.
+src/AudioPlayer/clean: src/AudioPlayer/CMakeFiles/AudioPlayer.dir/clean
+
+.PHONY : src/AudioPlayer/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/AudioPlayer/preinstall:
+
+.PHONY : src/AudioPlayer/preinstall
+
+#=============================================================================
+# Target rules for target src/AudioPlayer/CMakeFiles/AudioPlayer.dir
+
+# All Build rule for target.
+src/AudioPlayer/CMakeFiles/AudioPlayer.dir/all:
+	$(MAKE) -f src/AudioPlayer/CMakeFiles/AudioPlayer.dir/build.make src/AudioPlayer/CMakeFiles/AudioPlayer.dir/depend
+	$(MAKE) -f src/AudioPlayer/CMakeFiles/AudioPlayer.dir/build.make src/AudioPlayer/CMakeFiles/AudioPlayer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=7,8 "Built target AudioPlayer"
+.PHONY : src/AudioPlayer/CMakeFiles/AudioPlayer.dir/all
+
+# Include target in all.
+all: src/AudioPlayer/CMakeFiles/AudioPlayer.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/AudioPlayer/CMakeFiles/AudioPlayer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 src/AudioPlayer/CMakeFiles/AudioPlayer.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tashrif/Development/fidel-musicplayer/build/CMakeFiles 0
+.PHONY : src/AudioPlayer/CMakeFiles/AudioPlayer.dir/rule
+
+# Convenience name for target.
+AudioPlayer: src/AudioPlayer/CMakeFiles/AudioPlayer.dir/rule
+
+.PHONY : AudioPlayer
+
+# clean rule for target.
+src/AudioPlayer/CMakeFiles/AudioPlayer.dir/clean:
+	$(MAKE) -f src/AudioPlayer/CMakeFiles/AudioPlayer.dir/build.make src/AudioPlayer/CMakeFiles/AudioPlayer.dir/clean
+.PHONY : src/AudioPlayer/CMakeFiles/AudioPlayer.dir/clean
+
+# clean rule for target.
+clean: src/AudioPlayer/CMakeFiles/AudioPlayer.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Directory level rules for directory src/Utilities
 
 # Convenience name for "all" pass in the directory.
@@ -271,7 +330,7 @@ src/Utilities/preinstall:
 src/Utilities/CMakeFiles/Utilities.dir/all:
 	$(MAKE) -f src/Utilities/CMakeFiles/Utilities.dir/build.make src/Utilities/CMakeFiles/Utilities.dir/depend
 	$(MAKE) -f src/Utilities/CMakeFiles/Utilities.dir/build.make src/Utilities/CMakeFiles/Utilities.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=21,22,23 "Built target Utilities"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=23,24,25 "Built target Utilities"
 .PHONY : src/Utilities/CMakeFiles/Utilities.dir/all
 
 # Include target in all.
@@ -326,7 +385,7 @@ src/Spectrum/preinstall:
 src/Spectrum/CMakeFiles/Spectrum.dir/all:
 	$(MAKE) -f src/Spectrum/CMakeFiles/Spectrum.dir/build.make src/Spectrum/CMakeFiles/Spectrum.dir/depend
 	$(MAKE) -f src/Spectrum/CMakeFiles/Spectrum.dir/build.make src/Spectrum/CMakeFiles/Spectrum.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=19,20 "Built target Spectrum"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tashrif/Development/fidel-musicplayer/build/CMakeFiles --progress-num=21,22 "Built target Spectrum"
 .PHONY : src/Spectrum/CMakeFiles/Spectrum.dir/all
 
 # Include target in all.

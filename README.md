@@ -12,9 +12,11 @@ An intuitive, feature rich musicplayer built around the linux platform
 
 [![Library View](https://github.com/kloke-source/fidel-musicplayer/blob/master/Screenshots/fidel-library-view.png)](#Screenshots)
 
+[![Spectrum View](https://github.com/kloke-source/fidel-musicplayer/blob/master/Screenshots/fidel-spectrum-visualizer.png)](#Screenshots)
+
 ### Powerful Overview search
 
-[![Popover Search View](https://github.com/kloke-source/fidel-musicplayer/blob/master/Screenshots/fidel-popover-search-2.png)](#Screenshots)
+[![Popover Search View](https://github.com/kloke-source/fidel-musicplayer/blob/master/Screenshots/fidel-popover-search-3.png)](#Screenshots)
 
 ## Compile
 

@@ -44,6 +44,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/sigc++-2.0"
   "/usr/lib/sigc++-2.0/include"
   "/usr/include/gstreamer-1.0"
+  "/usr/include/gstreamermm-1.0"
+  "/usr/lib/gstreamermm-1.0/include"
+  "/usr/include/orc-0.4"
   "/usr/include/taglib"
   "../src"
   )
@@ -53,6 +56,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/tashrif/Development/fidel-musicplayer/build/src/GUI/CMakeFiles/GUI.dir/DependInfo.cmake"
   "/home/tashrif/Development/fidel-musicplayer/build/src/Audio-Library/CMakeFiles/Audio-Library.dir/DependInfo.cmake"
   "/home/tashrif/Development/fidel-musicplayer/build/src/Audio/CMakeFiles/Audio.dir/DependInfo.cmake"
+  "/home/tashrif/Development/fidel-musicplayer/build/src/AudioPlayer/CMakeFiles/AudioPlayer.dir/DependInfo.cmake"
   "/home/tashrif/Development/fidel-musicplayer/build/src/Audio-Info/CMakeFiles/Audio-Info.dir/DependInfo.cmake"
   "/home/tashrif/Development/fidel-musicplayer/build/src/Utilities/CMakeFiles/Utilities.dir/DependInfo.cmake"
   "/home/tashrif/Development/fidel-musicplayer/build/src/Spectrum/CMakeFiles/Spectrum.dir/DependInfo.cmake"

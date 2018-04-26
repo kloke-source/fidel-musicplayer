@@ -1,2 +1,2 @@
-/usr/bin/ar qc libUtilities_debug.a  CMakeFiles/Utilities.dir/util.cpp.o CMakeFiles/Utilities.dir/dir-indexer.cpp.o
-/usr/bin/ranlib libUtilities_debug.a
+/usr/bin/ar qc libUtilities.a  CMakeFiles/Utilities.dir/util.cpp.o CMakeFiles/Utilities.dir/dir-indexer.cpp.o
+/usr/bin/ranlib libUtilities.a

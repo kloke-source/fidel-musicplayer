@@ -1161,6 +1161,8 @@ glib/gtypes.h
 /usr/include/glib-2.0/glib/gbacktrace.h
 glib/gtypes.h
 -
+sys/select.h
+-
 signal.h
 -
 
@@ -1231,6 +1233,8 @@ glib/gquark.h
 -
 
 /usr/include/glib-2.0/glib/gfileutils.h
+glibconfig.h
+-
 glib/gerror.h
 -
 
@@ -1427,6 +1431,8 @@ glib/gerror.h
 -
 glib/gslist.h
 -
+string.h
+-
 
 /usr/include/glib-2.0/glib/gthread.h
 glib/gatomic.h
@@ -1480,6 +1486,8 @@ glib/gtypes.h
 glib/gtypes.h
 -
 stdarg.h
+-
+stdlib.h
 -
 
 /usr/include/glib-2.0/glib/guuid.h

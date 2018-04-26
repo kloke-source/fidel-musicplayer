@@ -1,14 +1,13 @@
+
 #include <GUI/gui.h>
 
+class AudioPlayer;
 typedef Singleton<spectrum> spectrum_visualizer;
 spectrum *mini_spectrum;
 
-gui::gui()
-{
-  fidel_ui::ResetInstance();
-}
+gui::gui() { fidel_ui::ResetInstance(); }
 
-gui::~gui(){}
+gui::~gui() {}
 
 Builder builder;
 ApplicationWindow *window;
@@ -34,7 +33,7 @@ Label *sidebar_song_name;
 Label *sidebar_song_artist;
 Label *sidebar_song_album;
 
-//Gtk::SearchBar *fidel_search_bar;
+// Gtk::SearchBar *fidel_search_bar;
 Gtk::SearchEntry *fidel_search_entry;
 
 Box *split_view_layout;
@@ -67,13 +66,15 @@ Button *next_button;
 Button *sidebar_hider;
 Button *queue_overview_button;
 
-std::vector<Button*> all_buttons;
+std::vector<Button *> all_buttons;
 
 bool audio_file_chosen = false;
 
-void gui::initialize(int argc, char **argv)
-{
-  Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "anorak.fidel");
+void gui::initialize(int argc, char **argv) {
+  Glib::RefPtr<Gtk::Application> app =
+      Gtk::Application::create(argc, argv, "anorak.fidel");
+
+  Gst::init(argc, argv);
   gui::init_builder();
   gui::get_widgets();
   gui::init_stack_sidebar();
@@ -92,8 +93,7 @@ void gui::initialize(int argc, char **argv)
   app->run(*window);
 }
 
-void gui::get_widgets()
-{
+void gui::get_widgets() {
   builder->get_widget("window", window);
   builder->get_widget("toolbar", toolbar);
   builder->get_widget("open_action", open_action);
@@ -123,11 +123,13 @@ void gui::get_widgets()
   builder->get_widget("playback_frame", playback_frame);
   builder->get_widget("playback_slider_frame", playback_slider_frame);
   builder->get_widget("sidebar_layout", sidebar_layout);
-  builder->get_widget("sidebar_album_art_container", sidebar_album_art_container);
+  builder->get_widget("sidebar_album_art_container",
+                      sidebar_album_art_container);
   builder->get_widget("spectrum_view_layout", spectrum_view_layout);
   builder->get_widget("mini_spectrum_container", mini_spectrum_container);
 
-  builder->get_widget("playlist_stack_sidebar_container", playlist_stack_sidebar_container);
+  builder->get_widget("playlist_stack_sidebar_container",
+                      playlist_stack_sidebar_container);
   builder->get_widget("playlist_stack", playlist_stack);
   builder->get_widget("sidebar_stack", sidebar_stack);
   builder->get_widget("sidebar_stack_switcher", sidebar_stack_switcher);
@@ -140,62 +142,64 @@ void gui::get_widgets()
   builder->get_widget("queue_overview_button", queue_overview_button);
 }
 
-void gui::init_connections()
-{
-  window->signal_delete_event().connect(sigc::mem_fun(this, &gui::on_window_closed));
-  window->signal_key_press_event().connect(sigc::mem_fun(this, &gui::keyboard_shortcuts));
-  open_action->signal_activate().connect(sigc::mem_fun(this, &gui::on_file_open_triggered));
-  play_button->signal_clicked().connect(sigc::mem_fun(this, &gui::on_play_button_clicked));
-  sidebar_hider->signal_clicked().connect(sigc::mem_fun(this, &gui::on_sidebar_hider_clicked));
+void gui::init_connections() {
+  window->signal_delete_event().connect(
+      sigc::mem_fun(this, &gui::on_window_closed));
+  window->signal_key_press_event().connect(
+      sigc::mem_fun(this, &gui::keyboard_shortcuts));
+  open_action->signal_activate().connect(
+      sigc::mem_fun(this, &gui::on_file_open_triggered));
+  play_button->signal_clicked().connect(
+      sigc::mem_fun(this, &gui::on_play_button_clicked));
+  sidebar_hider->signal_clicked().connect(
+      sigc::mem_fun(this, &gui::on_sidebar_hider_clicked));
 
-  audio_playback::Instance()->signal_update_pb_timer().connect(sigc::mem_fun(this, &gui::update_pb_timer));
-  audio_playback::Instance()->signal_status_changed().connect(sigc::mem_fun(this, &gui::on_playback_status_changed));
-  audio_playback::Instance()->signal_now_playing().connect(sigc::mem_fun(this, &gui::set_sidebar_data));
+  audio_playback::Instance()->signal_update_pb_timer().connect(
+      sigc::mem_fun(this, &gui::update_pb_timer));
+  audio_playback::Instance()->signal_status_changed().connect(
+      sigc::mem_fun(this, &gui::on_playback_status_changed));
+  audio_playback::Instance()->signal_now_playing().connect(
+      sigc::mem_fun(this, &gui::set_sidebar_data));
 }
 
-bool gui::keyboard_shortcuts(GdkEventKey* event)
-{
-  if((event->keyval == GDK_KEY_o) &&
-     (event->state & (GDK_CONTROL_MASK)))
-    {
-      gui::on_file_open_triggered();
-    }
-  if((event->keyval == GDK_KEY_s) &&
-     (event->state & (GDK_CONTROL_MASK)))
-    {
-      seeker::show(window);
-    }
-  if((event->keyval == GDK_KEY_p) &&
-     (event->state & (GDK_CONTROL_MASK)))
-    {
+bool gui::keyboard_shortcuts(GdkEventKey *event) {
+  if ((event->keyval == GDK_KEY_o) && (event->state & (GDK_CONTROL_MASK))) {
+    gui::on_file_open_triggered();
+  }
+  if ((event->keyval == GDK_KEY_s) && (event->state & (GDK_CONTROL_MASK))) {
+    seeker::show(window);
+  }
+  if ((event->keyval == GDK_KEY_p) && (event->state & (GDK_CONTROL_MASK))) {
 
-      AudioLibrary::scan();
-    }
+    AudioLibrary::scan();
+  }
   return true;
 }
 
-void gui::init_spectrum()
-{
-  //  audio_playback::Instance()->signal_spectrum_start().connect(sigc::mem_fun(*spectrum_visualizer::Instance(), &spectrum::start_visualization));
-  spectrum_view_layout->pack_start(*spectrum_visualizer::Instance(), Gtk::PACK_EXPAND_WIDGET);
+void gui::init_spectrum() {
+  //  audio_playback::Instance()->signal_spectrum_start().connect(sigc::mem_fun(*spectrum_visualizer::Instance(),
+  //  &spectrum::start_visualization));
+  spectrum_view_layout->pack_start(*spectrum_visualizer::Instance(),
+                                   Gtk::PACK_EXPAND_WIDGET);
   spectrum_visualizer::Instance()->set_double_buffered(true);
   spectrum_visualizer::Instance()->show_all();
 }
 
-void gui::init_icons()
-{
+void gui::init_icons() {
   previous_icon = new Image();
   play_icon = new Image();
   pause_icon = new Image();
   next_icon = new Image();
   queue_overview_icon = new Gtk::Image();
 
-  previous_icon->set_from_resource("/fidel/Resources/icons/playback-previous.svg");
+  previous_icon->set_from_resource(
+      "/fidel/Resources/icons/playback-previous.svg");
   play_icon->set_from_resource("/fidel/Resources/icons/playback-play.svg");
   next_icon->set_from_resource("/fidel/Resources/icons/playback-next.svg");
   pause_icon->set_from_resource("/fidel/Resources/icons/playback-pause.svg");
 
-  queue_overview_icon->set_from_resource("/fidel/Resources/icons/queue-overview.svg");
+  queue_overview_icon->set_from_resource(
+      "/fidel/Resources/icons/queue-overview.svg");
 
   previous_button->add(*previous_icon);
   play_button->add(*play_icon);
@@ -203,13 +207,14 @@ void gui::init_icons()
   queue_overview_button->add(*queue_overview_icon);
 }
 
-void gui::init_sidebar()
-{
+void gui::init_sidebar() {
   sidebar_hide_icon = new Gtk::Image();
   sidebar_show_icon = new Gtk::Image();
 
-  sidebar_hide_icon->set_from_resource("/fidel/Resources/icons/sidebar-hide.svg");
-  sidebar_show_icon->set_from_resource("/fidel/Resources/icons/sidebar-show.svg");
+  sidebar_hide_icon->set_from_resource(
+      "/fidel/Resources/icons/sidebar-hide.svg");
+  sidebar_show_icon->set_from_resource(
+      "/fidel/Resources/icons/sidebar-show.svg");
 
   sidebar_hider->add(*sidebar_show_icon);
   sidebar_hider->show_all();
@@ -231,27 +236,27 @@ void gui::init_sidebar()
   gui::hide_sidebar();
 }
 
-void gui::init_playback_functions()
-{
+void gui::init_playback_functions() {
   idle_status_label->set_text("Idle");
-  playback_slider_adjustment = Gtk::Adjustment::create(0.0, 0.0, 1, 0.1, 1.0, 1.0);
-  // Note: This adjustment is used when the player is in idle. It doesn't really matter as a new one is created depending on the length of the audio track
-  playback_slider = new Gtk::Scale(playback_slider_adjustment, Gtk::ORIENTATION_HORIZONTAL);
+  playback_slider_adjustment =
+      Gtk::Adjustment::create(0.0, 0.0, 1, 0.1, 1.0, 1.0);
+  // Note: This adjustment is used when the player is in idle. It doesn't really
+  // matter as a new one is created depending on the length of the audio track
+  playback_slider =
+      new Gtk::Scale(playback_slider_adjustment, Gtk::ORIENTATION_HORIZONTAL);
   playback_slider->set_draw_value(false);
   playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_SHRINK);
   playback_slider->show();
 }
 
-void gui::init_album_art_viewer()
-{
+void gui::init_album_art_viewer() {
   album_art_viewer = new AlbumArtViewer();
   library_view_frame->pack_start(*album_art_viewer, Gtk::PACK_EXPAND_WIDGET);
   album_art_viewer->show_all();
   library_view_frame->show_all();
 }
 
-void gui::init_playlist()
-{
+void gui::init_playlist() {
   all_songs_playlist = new Playlist();
   queue_playlist = new PlaylistQueue(queue_overview_button);
   AudioLibrary::populate_playlist();
@@ -263,90 +268,83 @@ void gui::init_playlist()
   window->show_all();
 }
 
-void gui::init_stack_sidebar()
-{
+void gui::init_stack_sidebar() {
   playlist_manager = new PlaylistManager(*playlist_stack);
-  playlist_stack_sidebar_container->pack_start(*playlist_manager, Gtk::PACK_EXPAND_WIDGET);
+  playlist_stack_sidebar_container->pack_start(*playlist_manager,
+                                               Gtk::PACK_EXPAND_WIDGET);
   playlist_stack_sidebar_container->show_all();
 }
 
-PlaylistQueue* gui::get_playlist_queue()
-{
-  return queue_playlist;
-}
+PlaylistQueue *gui::get_playlist_queue() { return queue_playlist; }
 
-void gui::append_playlist_row(std::vector<std::string> row_data)
-{
+void gui::append_playlist_row(std::vector<std::string> row_data) {
   all_songs_playlist->append_row(row_data);
 }
 
-void gui::pb_slider_val_changed()
-{
-  if (pb_slider_usr_moved == true)
-    {
-      audio_playback::Instance()->seek(playback_slider->get_value(), "fidel_ui");
-    }
+void gui::pb_slider_val_changed() {
+  if (pb_slider_usr_moved == true) {
+    audio_playback::Instance()->seek(playback_slider->get_value(), "fidel_ui");
+  }
 }
 
-void gui::update_pb_timer(double time)
-{
-  //Also updates playback timer label
+void gui::update_pb_timer(double time) {
+  // Also updates playback timer label
   pb_slider_usr_moved = false;
   playback_slider->set_value(time);
   playback_timer->set_text(util::time_format(time));
   pb_slider_usr_moved = true;
 }
 
-void gui::set_pb_endtime(int endtime)
-{
+void gui::set_pb_endtime(int endtime) {
   delete playback_slider;
   idle_status_label->set_text("");
   playback_endtime->set_text(util::time_format(endtime));
-  playback_slider_adjustment = Gtk::Adjustment::create(0.0, 0.0, (endtime + 1), 0.1, 1.0, 1.0);
-  //parameters for Gtk::Adjustment::create inorder
+  playback_slider_adjustment =
+      Gtk::Adjustment::create(0.0, 0.0, (endtime + 1), 0.1, 1.0, 1.0);
+  // parameters for Gtk::Adjustment::create inorder
   // Value, lower, upper, step_increment, page_increment, page_size:
   // Note that the page_size value only makes a difference for
   // scrollbar widgets, and the highest value you'll get is actually
   // (upper - page_size).
-  playback_slider = new Gtk::Scale(playback_slider_adjustment, Gtk::ORIENTATION_HORIZONTAL);
-  playback_slider->signal_value_changed().connect(sigc::mem_fun(this, &gui::pb_slider_val_changed));
+  playback_slider =
+      new Gtk::Scale(playback_slider_adjustment, Gtk::ORIENTATION_HORIZONTAL);
+  playback_slider->signal_value_changed().connect(
+      sigc::mem_fun(this, &gui::pb_slider_val_changed));
   playback_slider->set_draw_value(false);
   playback_slider_frame->pack_start(*playback_slider, Gtk::PACK_EXPAND_WIDGET);
   themer::set_styles();
   playback_slider->show();
 }
 
-void gui::set_styles()
-{
-  themer::set_styles();
-}
+void gui::set_styles() { themer::set_styles(); }
 
-bool gui::on_window_closed(GdkEventAny* event)
-{
+bool gui::on_window_closed(GdkEventAny *event) {
   audio_playback::Instance()->kill_audio();
 
   delete all_songs_playlist;
   return false;
 }
 
-void gui::set_sidebar_data(char *now_playing_song)
-{
+void gui::set_sidebar_data(char *now_playing_song) {
   if (sidebar_album_art == NULL)
-  sidebar_album_art = Gtk::manage(new Gtk::Image());
+    sidebar_album_art = Gtk::manage(new Gtk::Image());
   else
     sidebar_album_art_container->remove(*sidebar_album_art);
 
   sidebar_album_art = audioinfo::get_album_art((std::string)now_playing_song);
 
-  sidebar_album_art = util::resize_image(sidebar_album_art, default_sidebar_size, default_sidebar_size);
-  sidebar_album_art_container->pack_start(*sidebar_album_art, Gtk::PACK_EXPAND_WIDGET);
+  sidebar_album_art = util::resize_image(
+      sidebar_album_art, default_sidebar_size, default_sidebar_size);
+  sidebar_album_art_container->pack_start(*sidebar_album_art,
+                                          Gtk::PACK_EXPAND_WIDGET);
   // sidebar_audioinfo_layout->set_resize_mode(Gtk::RESIZE_QUEUE);
 
   // sidebar_albumart_icon = new Gtk::Image();
   // sidebar_albumart_icon = sidebar_album_art;
-  // sidebar_album_art_container->pack_start(*sidebar_albumart_icon, Gtk::PACK_EXPAND_WIDGET);
+  // sidebar_album_art_container->pack_start(*sidebar_albumart_icon,
+  // Gtk::PACK_EXPAND_WIDGET);
 
-  int max_chars = sidebar_width/(sidebar_font.get_size()/PANGO_SCALE);
+  int max_chars = sidebar_width / (sidebar_font.get_size() / PANGO_SCALE);
 
   sidebar_song_name->set_max_width_chars(max_chars);
   sidebar_song_artist->set_max_width_chars(max_chars);
@@ -363,22 +361,18 @@ void gui::set_sidebar_data(char *now_playing_song)
   gui::show_sidebar();
 }
 
-void gui::on_play_button_clicked()
-{
+void gui::on_play_button_clicked() {
   bool skip = false;
-  if (audio_playback::Instance()->is_playing() == true)
-    {
-      skip = true;
-      audio_playback::Instance()->pause();
-    }
-  if (audio_playback::Instance()->is_playing() == false && skip == false)
-    {
-      audio_playback::Instance()->play();
-    }
+  if (audio_playback::Instance()->is_playing() == true) {
+    skip = true;
+    audio_playback::Instance()->pause();
+  }
+  if (audio_playback::Instance()->is_playing() == false && skip == false) {
+    audio_playback::Instance()->play();
+  }
 }
 
-void gui::on_playback_status_changed(int status)
-{
+void gui::on_playback_status_changed(int status) {
   std::cout << "Status changed " << status << std::endl;
   switch (status) {
   case playback::PAUSED: {
@@ -398,8 +392,7 @@ void gui::on_playback_status_changed(int status)
   }
 }
 
-void gui::hide_sidebar()
-{
+void gui::hide_sidebar() {
   sidebar_hider->remove();
   sidebar_hider->add(*sidebar_show_icon);
   sidebar_stack_switcher->hide();
@@ -409,41 +402,36 @@ void gui::hide_sidebar()
   sidebar_hider->show_all();
 }
 
-void gui::show_sidebar()
-{
+void gui::show_sidebar() {
   if (audio_playback::Instance()->is_idle() == false) {
-  sidebar_hider->remove();
-  sidebar_hider->add(*sidebar_hide_icon);
-  sidebar_stack_switcher->show();
-  sidebar_stack->show();
-  sidebar_layout->show_all();
+    sidebar_hider->remove();
+    sidebar_hider->add(*sidebar_hide_icon);
+    sidebar_stack_switcher->show();
+    sidebar_stack->show();
+    sidebar_layout->show_all();
 
-  sidebar_hidden = false;
-  sidebar_hider->show_all();
+    sidebar_hidden = false;
+    sidebar_hider->show_all();
   }
 }
 
-void gui::on_sidebar_hider_clicked()
-{
+void gui::on_sidebar_hider_clicked() {
   bool skip = false;
   if (sidebar_hidden == false) {
     gui::hide_sidebar();
     skip = true;
-  }
-  else if (skip == false) {
+  } else if (skip == false) {
     gui::show_sidebar();
   }
 }
 
-void gui::on_test_signal(Gtk::Widget *widget)
-{
+void gui::on_test_signal(Gtk::Widget *widget) {
   std::cout << "Switched to " << widget->get_name() << std::endl;
 }
 
-void gui::on_file_open_triggered()
-{
+void gui::on_file_open_triggered() {
   Gtk::FileChooserDialog fileOpenDialog("Please choose a file",
-					Gtk::FILE_CHOOSER_ACTION_OPEN);
+                                        Gtk::FILE_CHOOSER_ACTION_OPEN);
   fileOpenDialog.set_transient_for(*window);
   fileOpenDialog.set_position(Gtk::WIN_POS_CENTER);
   fileOpenDialog.add_button("_Cancel", Gtk::RESPONSE_CANCEL);
@@ -461,63 +449,63 @@ void gui::on_file_open_triggered()
 
   int result = fileOpenDialog.run();
 
-  switch(result)
-    {
-    case(Gtk::RESPONSE_OK):
-      {
-	std::cout << "Open clicked." << std::endl;
-	std::string filesrc = fileOpenDialog.get_filename();
-	std::cout << "filesrc: " << filesrc << std::endl;
-	char *audio_file_src = util::to_char(filesrc);
+  switch (result) {
+  case (Gtk::RESPONSE_OK): {
+    std::cout << "Open clicked." << std::endl;
+    std::string filesrc = fileOpenDialog.get_filename();
+    std::cout << "filesrc: " << filesrc << std::endl;
+    char *audio_file_src = util::to_char(filesrc);
 
-	if (audio_file_chosen == false)
-	  {
-	    audio_file_chosen = true;
-	    fileOpenDialog.~FileChooserDialog();
-	    audio_playback::Instance()->audio_file(audio_file_src);
-	  }
-	else{
-	  audio_playback::Instance()->kill_curr_stream();
-	  audio_file_chosen = true;
-	  fileOpenDialog.~FileChooserDialog();
-	  audio_playback::Instance()->audio_file(audio_file_src);
-	}
-	break;
-      }
-    case(Gtk::RESPONSE_CANCEL):
-      {
-	std::cout << "Cancel clicked." << std::endl;
-	break;
-      }
-    default:
-      {
-	std::cout << "Unexpected button clicked." << std::endl;
-	break;
-      }
+    if (audio_file_chosen == false) {
+      audio_file_chosen = true;
+      fileOpenDialog.~FileChooserDialog();
+      AudioPlayer audioplayer;
+
+      std::function<void(int, double)> f_cb = [this](int band, double mag) {
+        // std::cout << "Called here " << arr[1] << std::endl;
+        spectrum_visualizer::Instance()->set_spect_band_magn(band, mag);
+        // pectrum_visualizer::Instance()->on_spect_bands_updated(arr);
+      };
+
+      audio_player::Instance()->set_band_mag_chd_cb(f_cb);
+      spectrum_visualizer::Instance()->start_visualization();
+      audio_player::Instance()->play_file(filesrc);
+      // audio_playback::Instance()->audio_file(audio_file_src);
+    } else {
+
+      audio_player::Instance()->kill_stream();
+      // audio_playback::Instance()->kill_curr_stream();
+      audio_file_chosen = true;
+      fileOpenDialog.~FileChooserDialog();
+      audio_player::Instance()->play_file(filesrc);
+      // audio_playback::Instance()->audio_file(audio_file_src);
     }
+    break;
+  }
+  case (Gtk::RESPONSE_CANCEL): {
+    std::cout << "Cancel clicked." << std::endl;
+    break;
+  }
+  default: {
+    std::cout << "Unexpected button clicked." << std::endl;
+    break;
+  }
+  }
 }
 
 extern G_GNUC_INTERNAL GResource *fidel_get_resource(void);
 
-void gui::init_builder()
-{
+void gui::init_builder() {
   builder = Gtk::Builder::create();
   fidel_resources = Glib::wrap(fidel_get_resource(), false);
   fidel_resources->register_global();
-  try
-    {
-      builder->add_from_resource("/fidel/Resources/fidel.ui");
-    }
-  catch(const Glib::FileError& error)
-    {
-      std::cerr << "FileError: " << error.what() << std::endl;
-    }
-  catch(const Glib::MarkupError& error)
-    {
-      std::cerr << "MarkupError: " << error.what() << std::endl;
-    }
-  catch(const Gtk::BuilderError& error)
-    {
-      std::cerr << "BuilderError: " << error.what() << std::endl;
-    }
+  try {
+    builder->add_from_resource("/fidel/Resources/fidel.ui");
+  } catch (const Glib::FileError &error) {
+    std::cerr << "FileError: " << error.what() << std::endl;
+  } catch (const Glib::MarkupError &error) {
+    std::cerr << "MarkupError: " << error.what() << std::endl;
+  } catch (const Gtk::BuilderError &error) {
+    std::cerr << "BuilderError: " << error.what() << std::endl;
+  }
 }

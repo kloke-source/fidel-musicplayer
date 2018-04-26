@@ -1,22 +1,23 @@
 #ifndef GUI
 #define GUI
 
-#include <vector>
+#include <Audio-Library/audio-library.h>
+#include <Audio/playback.h>
+#include <AudioPlayer/audioplayer.h>
+#include <GUI/album-art-viewer.h>
+#include <GUI/playlist-manager.h>
+#include <GUI/playlist-queue.h>
+#include <GUI/playlist.h>
+#include <GUI/seeker.h>
+#include <GUI/singleton.h>
+#include <GUI/themer.h>
+#include <Spectrum/spectrum.h>
+#include <Utilities/threadpool.h>
+#include <Utilities/util.h>
+#include <gio/gio.h>
 #include <gtkmm.h>
 #include <iostream>
-#include <gio/gio.h>
-#include <GUI/seeker.h>
-#include <GUI/themer.h>
-#include <GUI/playlist.h>
-#include <GUI/playlist-queue.h>
-#include <GUI/singleton.h>
-#include <GUI/playlist-manager.h>
-#include <GUI/album-art-viewer.h>
-#include <Spectrum/spectrum.h>
-#include <Audio/playback.h>
-#include <Audio-Library/audio-library.h>
-#include <Utilities/util.h>
-#include <Utilities/threadpool.h>
+#include <vector>
 
 extern "C" {
 #include <GUI/fidel-resources.h>
@@ -40,7 +41,7 @@ class Playlist;
 class PlaylistQueue;
 
 class gui {
- public:
+public:
   gui();
   virtual ~gui();
   void initialize(int argc, char **argv);
@@ -48,16 +49,17 @@ class gui {
 
   void update_pb_timer(double time);
   void set_pb_endtime(int endtime);
-  PlaylistQueue* get_playlist_queue();
+  PlaylistQueue *get_playlist_queue();
   void append_playlist_row(std::vector<std::string> row_data);
- private:
-  // variables
-  AlbumArtViewer* album_art_viewer;
-  Glib::RefPtr<Gio::Resource> fidel_resources;
-  Gtk::Image* sidebar_album_art;
 
-  Playlist* all_songs_playlist;
-  PlaylistQueue* queue_playlist;
+private:
+  // variables
+  AlbumArtViewer *album_art_viewer;
+  Glib::RefPtr<Gio::Resource> fidel_resources;
+  Gtk::Image *sidebar_album_art;
+
+  Playlist *all_songs_playlist;
+  PlaylistQueue *queue_playlist;
   int sidebar_width = 200;
   int default_sidebar_size = 200;
   bool sidebar_hidden = true;
@@ -66,7 +68,7 @@ class gui {
   Pango::FontDescription sidebar_font;
 
   void init_connections();
-  bool keyboard_shortcuts(GdkEventKey* event);
+  bool keyboard_shortcuts(GdkEventKey *event);
   void init_icons();
   void init_sidebar();
   void init_spectrum();
@@ -85,7 +87,7 @@ class gui {
   void show_sidebar();
 
   // signal handlers
-  bool on_window_closed(GdkEventAny* event);
+  bool on_window_closed(GdkEventAny *event);
   void set_sidebar_data(char *now_playing_song);
   void on_play_button_clicked();
   void on_playback_status_changed(int status);
@@ -97,4 +99,5 @@ class gui {
 
 typedef Singleton<gui> fidel_ui;
 typedef Singleton<ThreadPool> threadpool;
+typedef Singleton<AudioPlayer> audio_player;
 #endif

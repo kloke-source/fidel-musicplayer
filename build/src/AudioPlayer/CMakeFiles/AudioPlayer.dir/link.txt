@@ -1,0 +1,2 @@
+/usr/bin/ar qc libAudioPlayer.a  CMakeFiles/AudioPlayer.dir/audioplayer.cpp.o
+/usr/bin/ranlib libAudioPlayer.a

@@ -150,6 +150,19 @@ Audio/fast:
 .PHONY : Audio/fast
 
 #=============================================================================
+# Target rules for targets named AudioPlayer
+
+# Build rule for target.
+AudioPlayer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AudioPlayer
+.PHONY : AudioPlayer
+
+# fast build rule for target.
+AudioPlayer/fast:
+	$(MAKE) -f src/AudioPlayer/CMakeFiles/AudioPlayer.dir/build.make src/AudioPlayer/CMakeFiles/AudioPlayer.dir/build
+.PHONY : AudioPlayer/fast
+
+#=============================================================================
 # Target rules for targets named Utilities
 
 # Build rule for target.
@@ -212,6 +225,7 @@ help:
 	@echo "... fidel"
 	@echo "... GUI"
 	@echo "... Audio"
+	@echo "... AudioPlayer"
 	@echo "... Utilities"
 	@echo "... Spectrum"
 	@echo "... Audio-Library"

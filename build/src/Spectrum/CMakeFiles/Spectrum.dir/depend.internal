@@ -5,6 +5,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
  ../src/Audio-Info/audioinfo.h
  ../src/Audio-Library/audio-library.h
  ../src/Audio/playback.h
+ ../src/AudioPlayer/audioplayer.h
  ../src/GUI/album-art-viewer.h
  ../src/GUI/album-art.h
  ../src/GUI/fidel-options.h
@@ -576,6 +577,38 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
  /usr/include/glibmm-2.4/glibmm/vectorutils.h
  /usr/include/glibmm-2.4/glibmm/weakref.h
  /usr/include/glibmm-2.4/glibmm/wrap.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-channel-mixer.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-channels.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-converter.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-enumtypes.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-format.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-info.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-prelude.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-quantize.h
+ /usr/include/gstreamer-1.0/gst/audio/audio-resampler.h
+ /usr/include/gstreamer-1.0/gst/audio/audio.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudioaggregator.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiobasesink.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiobasesrc.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiocdsrc.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudioclock.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiodecoder.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudioencoder.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiofilter.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudioiec61937.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiometa.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudioringbuffer.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiosink.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiosrc.h
+ /usr/include/gstreamer-1.0/gst/audio/gstaudiostreamalign.h
+ /usr/include/gstreamer-1.0/gst/audio/streamvolume.h
+ /usr/include/gstreamer-1.0/gst/base/base-prelude.h
+ /usr/include/gstreamer-1.0/gst/base/gstadapter.h
+ /usr/include/gstreamer-1.0/gst/base/gstaggregator.h
+ /usr/include/gstreamer-1.0/gst/base/gstbasesink.h
+ /usr/include/gstreamer-1.0/gst/base/gstbasesrc.h
+ /usr/include/gstreamer-1.0/gst/base/gstbasetransform.h
+ /usr/include/gstreamer-1.0/gst/base/gstpushsrc.h
  /usr/include/gstreamer-1.0/gst/glib-compat.h
  /usr/include/gstreamer-1.0/gst/gst.h
  /usr/include/gstreamer-1.0/gst/gstallocator.h
@@ -626,6 +659,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
  /usr/include/gstreamer-1.0/gst/gstpluginfeature.h
  /usr/include/gstreamer-1.0/gst/gstpoll.h
  /usr/include/gstreamer-1.0/gst/gstpreset.h
+ /usr/include/gstreamer-1.0/gst/gstpromise.h
  /usr/include/gstreamer-1.0/gst/gstprotection.h
  /usr/include/gstreamer-1.0/gst/gstquery.h
  /usr/include/gstreamer-1.0/gst/gstregistry.h
@@ -650,6 +684,198 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
  /usr/include/gstreamer-1.0/gst/gstutils.h
  /usr/include/gstreamer-1.0/gst/gstvalue.h
  /usr/include/gstreamer-1.0/gst/gstversion.h
+ /usr/include/gstreamer-1.0/gst/pbutils/codec-utils.h
+ /usr/include/gstreamer-1.0/gst/pbutils/descriptions.h
+ /usr/include/gstreamer-1.0/gst/pbutils/encoding-profile.h
+ /usr/include/gstreamer-1.0/gst/pbutils/encoding-target.h
+ /usr/include/gstreamer-1.0/gst/pbutils/gstdiscoverer.h
+ /usr/include/gstreamer-1.0/gst/pbutils/gstpluginsbaseversion.h
+ /usr/include/gstreamer-1.0/gst/pbutils/install-plugins.h
+ /usr/include/gstreamer-1.0/gst/pbutils/missing-plugins.h
+ /usr/include/gstreamer-1.0/gst/pbutils/pbutils-enumtypes.h
+ /usr/include/gstreamer-1.0/gst/pbutils/pbutils-prelude.h
+ /usr/include/gstreamer-1.0/gst/pbutils/pbutils.h
+ /usr/include/gstreamer-1.0/gst/video/colorbalance.h
+ /usr/include/gstreamer-1.0/gst/video/colorbalancechannel.h
+ /usr/include/gstreamer-1.0/gst/video/gstvideodecoder.h
+ /usr/include/gstreamer-1.0/gst/video/gstvideoencoder.h
+ /usr/include/gstreamer-1.0/gst/video/gstvideofilter.h
+ /usr/include/gstreamer-1.0/gst/video/gstvideometa.h
+ /usr/include/gstreamer-1.0/gst/video/gstvideopool.h
+ /usr/include/gstreamer-1.0/gst/video/gstvideosink.h
+ /usr/include/gstreamer-1.0/gst/video/gstvideotimecode.h
+ /usr/include/gstreamer-1.0/gst/video/gstvideoutils.h
+ /usr/include/gstreamer-1.0/gst/video/navigation.h
+ /usr/include/gstreamer-1.0/gst/video/video-blend.h
+ /usr/include/gstreamer-1.0/gst/video/video-chroma.h
+ /usr/include/gstreamer-1.0/gst/video/video-color.h
+ /usr/include/gstreamer-1.0/gst/video/video-converter.h
+ /usr/include/gstreamer-1.0/gst/video/video-dither.h
+ /usr/include/gstreamer-1.0/gst/video/video-enumtypes.h
+ /usr/include/gstreamer-1.0/gst/video/video-event.h
+ /usr/include/gstreamer-1.0/gst/video/video-format.h
+ /usr/include/gstreamer-1.0/gst/video/video-frame.h
+ /usr/include/gstreamer-1.0/gst/video/video-info.h
+ /usr/include/gstreamer-1.0/gst/video/video-multiview.h
+ /usr/include/gstreamer-1.0/gst/video/video-overlay-composition.h
+ /usr/include/gstreamer-1.0/gst/video/video-prelude.h
+ /usr/include/gstreamer-1.0/gst/video/video-resampler.h
+ /usr/include/gstreamer-1.0/gst/video/video-scaler.h
+ /usr/include/gstreamer-1.0/gst/video/video-tile.h
+ /usr/include/gstreamer-1.0/gst/video/video.h
+ /usr/include/gstreamer-1.0/gst/video/videodirection.h
+ /usr/include/gstreamer-1.0/gst/video/videoorientation.h
+ /usr/include/gstreamer-1.0/gst/video/videooverlay.h
+ /usr/include/gstreamermm-1.0/gstreamermm.h
+ /usr/include/gstreamermm-1.0/gstreamermm/adder.h
+ /usr/include/gstreamermm-1.0/gstreamermm/allocator.h
+ /usr/include/gstreamermm-1.0/gstreamermm/alsasink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/alsasrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/appsink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/appsrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/atomicqueue.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audiobasesink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audiobasesrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audioclock.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audioconvert.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audiofilter.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audioformat.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audioinfo.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audiorate.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audioringbuffer.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audiosink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audiosrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/audiotestsrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/basesink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/basesrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/basetransform.h
+ /usr/include/gstreamermm-1.0/gstreamermm/bin.h
+ /usr/include/gstreamermm-1.0/gstreamermm/buffer.h
+ /usr/include/gstreamermm-1.0/gstreamermm/bufferlist.h
+ /usr/include/gstreamermm-1.0/gstreamermm/bus.h
+ /usr/include/gstreamermm-1.0/gstreamermm/caps.h
+ /usr/include/gstreamermm-1.0/gstreamermm/capsfeatures.h
+ /usr/include/gstreamermm-1.0/gstreamermm/capsfilter.h
+ /usr/include/gstreamermm-1.0/gstreamermm/cdparanoiasrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/check.h
+ /usr/include/gstreamermm-1.0/gstreamermm/childproxy.h
+ /usr/include/gstreamermm-1.0/gstreamermm/clock.h
+ /usr/include/gstreamermm-1.0/gstreamermm/clockoverlay.h
+ /usr/include/gstreamermm-1.0/gstreamermm/clockutils.h
+ /usr/include/gstreamermm-1.0/gstreamermm/colorbalance.h
+ /usr/include/gstreamermm-1.0/gstreamermm/colorbalancechannel.h
+ /usr/include/gstreamermm-1.0/gstreamermm/concat.h
+ /usr/include/gstreamermm-1.0/gstreamermm/context.h
+ /usr/include/gstreamermm-1.0/gstreamermm/decodebin.h
+ /usr/include/gstreamermm-1.0/gstreamermm/discoverer.h
+ /usr/include/gstreamermm-1.0/gstreamermm/discovererinfo.h
+ /usr/include/gstreamermm-1.0/gstreamermm/downloadbuffer.h
+ /usr/include/gstreamermm-1.0/gstreamermm/element.h
+ /usr/include/gstreamermm-1.0/gstreamermm/elementfactory.h
+ /usr/include/gstreamermm-1.0/gstreamermm/encodebin.h
+ /usr/include/gstreamermm-1.0/gstreamermm/encodingprofile.h
+ /usr/include/gstreamermm-1.0/gstreamermm/enums.h
+ /usr/include/gstreamermm-1.0/gstreamermm/error.h
+ /usr/include/gstreamermm-1.0/gstreamermm/event.h
+ /usr/include/gstreamermm-1.0/gstreamermm/fakesink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/fakesrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/fdsink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/fdsrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/filesink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/filesrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/format.h
+ /usr/include/gstreamermm-1.0/gstreamermm/funnel.h
+ /usr/include/gstreamermm-1.0/gstreamermm/ghostpad.h
+ /usr/include/gstreamermm-1.0/gstreamermm/giosink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/giosrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/giostreamsink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/giostreamsrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/handle_error.h
+ /usr/include/gstreamermm-1.0/gstreamermm/identity.h
+ /usr/include/gstreamermm-1.0/gstreamermm/init.h
+ /usr/include/gstreamermm-1.0/gstreamermm/inputselector.h
+ /usr/include/gstreamermm-1.0/gstreamermm/iterator.h
+ /usr/include/gstreamermm-1.0/gstreamermm/mapinfo.h
+ /usr/include/gstreamermm-1.0/gstreamermm/memory.h
+ /usr/include/gstreamermm-1.0/gstreamermm/message.h
+ /usr/include/gstreamermm-1.0/gstreamermm/miniobject.h
+ /usr/include/gstreamermm-1.0/gstreamermm/multifdsink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/multiqueue.h
+ /usr/include/gstreamermm-1.0/gstreamermm/multisocketsink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/navigation.h
+ /usr/include/gstreamermm-1.0/gstreamermm/netclientclock.h
+ /usr/include/gstreamermm-1.0/gstreamermm/object.h
+ /usr/include/gstreamermm-1.0/gstreamermm/oggdemux.h
+ /usr/include/gstreamermm-1.0/gstreamermm/oggmux.h
+ /usr/include/gstreamermm-1.0/gstreamermm/outputselector.h
+ /usr/include/gstreamermm-1.0/gstreamermm/pad.h
+ /usr/include/gstreamermm-1.0/gstreamermm/padtemplate.h
+ /usr/include/gstreamermm-1.0/gstreamermm/parse.h
+ /usr/include/gstreamermm-1.0/gstreamermm/pipeline.h
+ /usr/include/gstreamermm-1.0/gstreamermm/playbin.h
+ /usr/include/gstreamermm-1.0/gstreamermm/playsink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/plugin.h
+ /usr/include/gstreamermm-1.0/gstreamermm/pluginfeature.h
+ /usr/include/gstreamermm-1.0/gstreamermm/preset.h
+ /usr/include/gstreamermm-1.0/gstreamermm/pushsrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/query.h
+ /usr/include/gstreamermm-1.0/gstreamermm/queue.h
+ /usr/include/gstreamermm-1.0/gstreamermm/queue2.h
+ /usr/include/gstreamermm-1.0/gstreamermm/register.h
+ /usr/include/gstreamermm-1.0/gstreamermm/registry.h
+ /usr/include/gstreamermm-1.0/gstreamermm/sample.h
+ /usr/include/gstreamermm-1.0/gstreamermm/segment.h
+ /usr/include/gstreamermm-1.0/gstreamermm/socketsrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/streamiddemux.h
+ /usr/include/gstreamermm-1.0/gstreamermm/streamsynchronizer.h
+ /usr/include/gstreamermm-1.0/gstreamermm/streamvolume.h
+ /usr/include/gstreamermm-1.0/gstreamermm/structure.h
+ /usr/include/gstreamermm-1.0/gstreamermm/subtitleoverlay.h
+ /usr/include/gstreamermm-1.0/gstreamermm/systemclock.h
+ /usr/include/gstreamermm-1.0/gstreamermm/taglist.h
+ /usr/include/gstreamermm-1.0/gstreamermm/tagsetter.h
+ /usr/include/gstreamermm-1.0/gstreamermm/task.h
+ /usr/include/gstreamermm-1.0/gstreamermm/taskpool.h
+ /usr/include/gstreamermm-1.0/gstreamermm/tcpclientsink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/tcpclientsrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/tcpserversink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/tcpserversrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/tee.h
+ /usr/include/gstreamermm-1.0/gstreamermm/textoverlay.h
+ /usr/include/gstreamermm-1.0/gstreamermm/textrender.h
+ /usr/include/gstreamermm-1.0/gstreamermm/theoradec.h
+ /usr/include/gstreamermm-1.0/gstreamermm/theoraenc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/theoraparse.h
+ /usr/include/gstreamermm-1.0/gstreamermm/timeoverlay.h
+ /usr/include/gstreamermm-1.0/gstreamermm/toc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/tocsetter.h
+ /usr/include/gstreamermm-1.0/gstreamermm/typefind.h
+ /usr/include/gstreamermm-1.0/gstreamermm/typefindelement.h
+ /usr/include/gstreamermm-1.0/gstreamermm/typefindfactory.h
+ /usr/include/gstreamermm-1.0/gstreamermm/uridecodebin.h
+ /usr/include/gstreamermm-1.0/gstreamermm/urihandler.h
+ /usr/include/gstreamermm-1.0/gstreamermm/value.h
+ /usr/include/gstreamermm-1.0/gstreamermm/valuelist.h
+ /usr/include/gstreamermm-1.0/gstreamermm/valve.h
+ /usr/include/gstreamermm-1.0/gstreamermm/version.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videochroma.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videoconvert.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videoformat.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videoframe.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videoinfo.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videoorientation.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videooverlay.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videorate.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videoscale.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videosink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/videotestsrc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/volume.h
+ /usr/include/gstreamermm-1.0/gstreamermm/vorbisdec.h
+ /usr/include/gstreamermm-1.0/gstreamermm/vorbisenc.h
+ /usr/include/gstreamermm-1.0/gstreamermm/vorbisparse.h
+ /usr/include/gstreamermm-1.0/gstreamermm/vorbistag.h
+ /usr/include/gstreamermm-1.0/gstreamermm/ximagesink.h
+ /usr/include/gstreamermm-1.0/gstreamermm/xvimagesink.h
  /usr/include/gtk-3.0/gdk/deprecated/gdkcolor.h
  /usr/include/gtk-3.0/gdk/gdk-autocleanup.h
  /usr/include/gtk-3.0/gdk/gdk.h
@@ -1295,6 +1521,7 @@ src/Spectrum/CMakeFiles/Spectrum.dir/spectrum.cpp.o
  /usr/lib/giomm-2.4/include/giommconfig.h
  /usr/lib/glib-2.0/include/glibconfig.h
  /usr/lib/glibmm-2.4/include/glibmmconfig.h
+ /usr/lib/gstreamermm-1.0/include/gstreamermmconfig.h
  /usr/lib/gtkmm-3.0/include/gtkmmconfig.h
  /usr/lib/pangomm-1.4/include/pangommconfig.h
  /usr/lib/sigc++-2.0/include/sigc++config.h
